@@ -1,0 +1,1629 @@
+<?xml version="1.0"?><country owner_id='UD_5cd98e974c0fec35013c4790' room_id='4' server_cmd_id='439075' level='205' exp='32184143' christmas_score= '0'  installed=''  current_level_exp='31953000' next_level_exp='32311000' gold='317' coins='681456781' spent_coins='1436710735' auto='1571130' quest_flag='1' version='' adv_counter='0' roll_counter='17073' session_key='1453935627.8017726:web17-1280' server_time='1453935276' left_to_end_of_day='79523' next_midnight='78439' room_information='{"rooms":{"room_5":{"available":true,"size_x":41,"size_y":41,"max_population":5632300,"population":5632300},"room_2":{"available":true,"size_x":25,"size_y":25,"max_population":489350,"population":489350},"room_4":{"available":true,"size_x":23,"size_y":23,"max_population":705950,"population":588360},"room_1":{"available":true,"size_x":27,"size_y":27,"max_population":1323150,"population":1323145,"capacity":100,"size_x_2":25,"size_y_2":25},"room_0":{"available":true,"size_x":41,"size_y":41,"size_x_3":41,"size_y_3":41,"size_x_4":41,"size_y_4":41,"size_x_5":41,"size_y_5":41}}}' time_to_top_calculate='338723' time_to_top_update='79523' vote_counter="0" top_updated="1453862312" is_payer='true' last_payment_date='1446448731' next_gifts_time='18178'  speed_test='0'  max_answer_rewards_per_day='30' population='588360' max_population='705950' skyscraper_score='' tax='0' achievement_bonus='0' request_reward_count='2' next_limited_request='0' wish_list='12158,10938,10991,11431,12142,11444,15416,10936,10924,10990' shed='' staff='{"28557896":{"security":"bot","storekeeper":"bot"},"29165634":{"managing_head_office":"bot","telecommunications_engineer":"bot"},"40468796":{"airport_dispatcher":"UD_77a790d198928ea036847f2c","communications_engineer":"bot"},"32742832":{"product_manager":"GC_40397fc6ab46831409f86497","engineer_supporting_networks":"UD_87adeb5c4041f938df19fb7d"},"32661881":{"optimization_engineer":"UD_4e22193d05638c3415f07ff8","call_center_operator":"bot"},"32833583":{"rr_conductor":"bot","rr_manager":"bot","rr_railroader":"bot"},"33574954":{"sawmill_director":"bot","sawmill_doorman":"bot","sawmill_gager":"bot","sawmill_integrator":"bot","sawmill_operator":"bot"},"43992999":{"war_lead":"UD_e5cbbbc342145777e2b3841f","tamburmajor":"bot"},"40526498":{"fitter_riveter":"bot","security_screeners_inspector":"bot"}}'  staff_all='{"shr":{"28557896":{"security":"bot","storekeeper":"bot"},"29165634":{"managing_head_office":"bot","telecommunications_engineer":"bot"},"40468796":{"airport_dispatcher":"UD_77a790d198928ea036847f2c","communications_engineer":"bot"},"32742832":{"product_manager":"GC_40397fc6ab46831409f86497","engineer_supporting_networks":"UD_87adeb5c4041f938df19fb7d"},"32661881":{"optimization_engineer":"UD_4e22193d05638c3415f07ff8","call_center_operator":"bot"},"32833583":{"rr_conductor":"bot","rr_manager":"bot","rr_railroader":"bot"},"33574954":{"sawmill_director":"bot","sawmill_doorman":"bot","sawmill_gager":"bot","sawmill_integrator":"bot","sawmill_operator":"bot"},"43992999":{"war_lead":"UD_e5cbbbc342145777e2b3841f","tamburmajor":"bot"},"40526498":{"fitter_riveter":"bot","security_screeners_inspector":"bot"}}}'  respect='6046' respect_level='37' visitors='{"42915360":["GC_25efadae997d8eaae9907c2a","UD_0f58411f7b8b14e19abde9f4","GC_3d9694e6aa29110af3d76366"],"35919837":["GC_25efadae997d8eaae9907c2a","UD_0f58411f7b8b14e19abde9f4"],"49865407":["GC_25efadae997d8eaae9907c2a","UD_0f58411f7b8b14e19abde9f4","GC_3d9694e6aa29110af3d76366"],"32833583":["GC_25efadae997d8eaae9907c2a","UD_0f58411f7b8b14e19abde9f4","GC_3d9694e6aa29110af3d76366"],"53830844":["UD_87adeb5c4041f938df19fb7d","UD_0f58411f7b8b14e19abde9f4"],"40526464":["UD_87adeb5c4041f938df19fb7d","UD_0f58411f7b8b14e19abde9f4"],"52691764":["UD_87adeb5c4041f938df19fb7d","UD_0f58411f7b8b14e19abde9f4"],"42670403":["UD_87adeb5c4041f938df19fb7d","UD_0f58411f7b8b14e19abde9f4"],"47734112":["UD_87adeb5c4041f938df19fb7d","UD_0f58411f7b8b14e19abde9f4"],"42220806":["UD_87adeb5c4041f938df19fb7d","UD_0f58411f7b8b14e19abde9f4"],"50749167":["UD_87adeb5c4041f938df19fb7d","UD_0f58411f7b8b14e19abde9f4"],"34434487":["UD_87adeb5c4041f938df19fb7d","UD_0f58411f7b8b14e19abde9f4"],"40650060":["UD_87adeb5c4041f938df19fb7d","UD_0f58411f7b8b14e19abde9f4"],"36617194":["UD_87adeb5c4041f938df19fb7d","UD_0f58411f7b8b14e19abde9f4"],"33396838":["UD_87adeb5c4041f938df19fb7d","GC_3d9694e6aa29110af3d76366"],"42765294":["GC_3d9694e6aa29110af3d76366"]}' accelerated_items='' buff_items='{"excavations":113}'  unlocked_items='snow_location_unlock,quest_sport_complex_unlock,quest_naval_station_unlock,tourist_island_unlock,quest_military_unlock,quest_armoured_military_unlock,quest_airbase_unlock,gambling_zone_event_unlock,gambling_zone_unlock,mining_industry_unlock,walking_lake_event_unlock,gambling_mono_unlock,gambling_monorail_up1_unlock,christmas_cruise_unlock,christmas_performance_unlock,christmas_night_unlock,ancient_tower_chimes_unlock,iceberg_in_metropolis_unlock,center_hologram_shows_unlock,center_laser_show_unlock'  resource_options='{"capacity":45,"ticks":{}}' sent_requests='{"request_fuel":{"time":1453997366,"pushed":1453910966,"count":0,"user":["UD_acaefa0008b1831bad3df212","GC_25efadae997d8eaae9907c2a","UD_77a790d198928ea036847f2c","UD_2894fa5d5b5a63dcb6d0a0f4","GC_40397fc6ab46831409f86497","UD_923807f9a3b7f85daa99c864","UD_87adeb5c4041f938df19fb7d","UD_0f58411f7b8b14e19abde9f4"]}}' shooting='{"next_randomize_reward_time":1454013715,"rewards":{"0":"11701:500","1":"11706:50","6":"11700:50","11":"11701:1000","16":"11700:50","21":"11706:500","23":"11706:500","25":"12158:2","27":"11706:750","29":"12158:2","31":"11706:750","33":"12158:3","35":"13398:1","37":"11701:10000","39":"12158:4","41":"11700:400","43":"12158:5","45":"11700:500","47":"11706:1000","49":"9029923:1","51":"11703:1","52":"11701:20000","53":"10190:1","54":"11701:40000","55":"12394:1","56":"12158:7","57":"12394:1","58":"12158:7","59":"11701:60000","60":"11703:2","61":"14233:1","62":"11706:2000","63":"11701:80000","64":"11706:2000","65":"10192:1","66":"11703:3","67":"10192:1","68":"12158:10","69":"12315:1","70":"12158:10","71":"11700:150000","72":"12158:11","73":"14225:1","74":"12158:11","75":"9013557:1","76":"12158:12","77":"11701:200000","78":"12158:12","79":"9013557:1","80":"12158:13","81":"13349:1","82":"11703:5","83":"13349:1","84":"12158:14","85":"11706:4000","86":"12158:14","87":"11706:6000","88":"13350:1","89":"11701:350000","90":"12158:15","91":"11703:6","92":"11706:10000","93":"12158:17","94":"11706:10000","95":"12158:17","96":"11701:500000","97":"12158:20","98":"13343:1","99":"11701:500000","100":"11703:1000"},"next_free_points_time":1454013715,"today_shots":3,"shooting_version":1,"points":0,"max_points":64,"is_missed":0,"next_free_points_end":78439000,"jackpot_end_date":-94186477}' action_version_key='110' action_time_end='0' packs='{"sv":110,"end_date":0,"window_type":"bonus"}'  chest='{"unlock_reward":{},"can_start":false,"duration":-1453935276000,"version":1}' chest_actions='{}'  four_n_actions='{"four_n_action_first":{"v":23,"av":1,"sv":23,"finish_time_left":-870877}}'  lottery='{"version":34,"cost":5}' coins_to_gold2='{"blocks":{"0":{"sets":["treasures_of_pharaohs","abandoned_mine","wild_tribes","amazon_jungle"],"cooldown":0},"1":{"sets":["arctic_expedition","eternal_ice","mariana_trench","volcanic_activity"],"cooldown":0},"2":{"sets":["land_of_vikings","secrets_of_bedouin","lost_ships","pirate_atolls"],"cooldown":0}},"start_date":-1180476,"start_end_date":-870877,"end_date":-867276,"version":17}'  gift_for_payment_version_key='18' gift_for_payment_time_end='0' gift_for_payment_overall_spent='0' gift_for_payment_max_spent='0' refresh_tops_time_end='14723' payment_group='0' last_excavation_time='1449956331' last_excavations='{"maya":1444253083,"greek":1400342129}' in_arpu_top='1' material_action_version_key='40' material_action_time_end='-56069677' discount_locations_time_end='-90212077' automation_action_version_key='5' automation_action_time_end='-92530477' sale_two_plus_one_version_key='1' sale_two_plus_one_time_end='-111639277' every_day='8' group_member='false' account_ballance='0' init_last_activity='1453933613' last_invite_window_bonus_date='1453848254' expand_action_version_key='2' expand_action_time_end='-104799277' shop_discount_time_end='0' shop_discount_unique_key='no' simple_shop_discount_time_end='-76042477' tokens_end_date='-95655277' bonus_answer_rewards_time_end='0' bonus_answer_rewards_per_day='0' date_last_viewed_updates='' need_material='rail_console' already_voting='false' voting_rewards='' vip_reward_time_left='0' can_give_vip_daily_reward='false' vip_status_end='0'  vip_status_action_end_new='0'  bus_region='Russia' region='Russia'  ra_duration="86400" ruby_action='{"sv":50,"av":1}' drum_action='{"sv":45,"bonus":0.85,"version":45,"end_date":80530}'  offer_account_balance='0' can_start_certificate_offer='true'  one_time_offer_reward_material='rail_console'  starter_pack=''  can_start_expand_sale='false' expand_sale_end_date='-1453935276000' expand_sale_already_bought=''  points_visit='0' waiting_friends_capacity='18' candy_token='0' confetti_token='0' christmas_toy_token='0' sparklers_token='0' teddy_bear_token='0' christmas_level='0' bronze_toy='0' silver_toy='0' gold_toy='0' red_chip='0' green_chip='0' black_chip='8' local_strength='0' local_diamond_score='0' gambling_trains_passengers='0' gambling_trains_passengers_capacity='0' bonus_gambling_trains_passengers='0' rooms_resources='points_visit,waiting_friends_capacity,candy_token,confetti_token,christmas_toy_token,sparklers_token,teddy_bear_token,christmas_level,bronze_toy,silver_toy,gold_toy,red_chip,green_chip,black_chip,local_strength,local_diamond_score,gambling_trains_passengers,gambling_trains_passengers_capacity,bonus_gambling_trains_passengers' alien_artifact='{"version":1,"end":0,"name":"alien_artifact"}' vip_contracts='{"version":0,"end_date":0}' escaped_robots='{"version":21,"end_date":0,"robot_index":6,"start_date":-7005276}' investment_fund_time_end='2012-10-12 23:59:59' investment_fund_version_key='1' sea_investment_fund_time_end='2012-12-11 23:59:59' sea_investment_fund_version_key='1' pearl_investment_fund_time_end='2013-05-08 23:59:59' pearl_investment_fund_version_key='3' sea_current_fund_version_key='0' pearl_current_fund_version_key='0' current_fund_version_key='0' daily_deal='{"is_active":true,"version":0,"reward_id":0,"buy_counter":0}'  room_staff='{"-42":{"item_id":39052472,"material_id":12162,"contract_id":15306,"time_end":39644},"-41":{"item_id":39052472,"material_id":12162,"contract_id":15306,"time_end":39644},"-43":{"item_id":39052472,"material_id":12162,"contract_id":15306,"time_end":39520},"GC_3d9694e6aa29110af3d76366":{"item_id":39052472,"material_id":12161,"contract_id":15306,"time_end":86034}}' sales='{"sale_global_2016_01_26":{"time":176723,"items":[],"buy_count":0}}' payment_bonus_action_version_key='8' payment_bonus_action_time_end='-44247277' sale_investor='{"action_time_left":0,"server_version":null}' competitions='[{"id":92000,"rating":0,"calculated":true,"global":0,"regional":0}]' conclusion_fortune_time_end='-71031277' conclusion_fortune_version_key='0' support_shed_functionality='false' support_shed_at_shop='false' geoip_city_name='Krasnodar'  geoip_timezone='Europe/Volgograd'  country_name='Russian Federation'    gambling_train='{"id_seq":1,"items":{"56848191":{"list":{"1":{"item_id":10060049,"state":0}}}}}' beltway='' city_name=" Дїмонополіс" first_name="Дмитрий" settings='{"m_next_level_checker_@_last_level_social_quantum_auth_UD_5cd98e974c0fec35013c4790":205,"m_room_1_2_@_showed":true,"m_repect_level_checker_@_last_level_social_quantum_auth_UD_5cd98e974c0fec35013c4790":37,"m_next_level_checker_@_last_level_social_quantum_auth_GC_da1a2d8b978d793a3c9b5ae2":106,"m_repect_level_checker_@_last_level_social_quantum_auth_GC_da1a2d8b978d793a3c9b5ae2":28,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_9":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_10":true,"room_1_2":"viewed","cross_promo_SQA_@_announced":16788,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_13":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_14":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_15":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_16":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_17":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_18":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_19":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_20":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_21":true,"animation":true,"sound":true,"music":true,"community_joint":false,"last_updated":"","zoom":1,"sbrf_wall_posted":false}'   invite_points_new='0'    next_tick='664500' ><field   zero_x='27' zero_y='0' size_x='50' size_y='23' bounds='{&quot;size_x&quot;:{&quot;x&quot;:27,&quot;y&quot;:0,&quot;width&quot;:23,&quot;height&quot;:23}}' default_bounds='{&quot;size_x&quot;:{&quot;x&quot;:45,&quot;y&quot;:45,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_2&quot;:{&quot;x&quot;:15,&quot;y&quot;:45,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_3&quot;:{&quot;x&quot;:15,&quot;y&quot;:15,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_4&quot;:{&quot;x&quot;:52,&quot;y&quot;:-2,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_5&quot;:{&quot;x&quot;:31,&quot;y&quot;:97,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_6&quot;:{&quot;x&quot;:118,&quot;y&quot;:30,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_7&quot;:{&quot;x&quot;:13,&quot;y&quot;:97,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_8&quot;:{&quot;x&quot;:-42,&quot;y&quot;:41,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_9&quot;:{&quot;x&quot;:74,&quot;y&quot;:-138,&quot;width&quot;:9,&quot;height&quot;:9}}' ><gambling_monorail_buildsite56 id='60243133' x='44' y='-42'   input_fill='10015746:1'   state='2'  />
+<airport_gamble_plane1_stage2 id='40526464' x='26' y='-7' process_end='18664000'  input_fill='11455:1,11461:8' contract_input='15373'   state='3'  />
+<airport_gamble_plane2_buildsite id='40537348' x='28' y='-7' process_end='664000'  input_fill='11448:1' contract_input='15374'   state='3'  />
+<center_laser_show id='59363333' x='35' y='-120' process_end='36839000' output_fill='82000'    state='4'  />
+<bed_and_breakfast_gambling id='39052500' x='45' y='15' process_end='19123000'     state='3'  />
+<studio_video_mapping id='59338683' x='47' y='19' process_end='15080000' output_fill='5600'    state='4'  />
+<tower_phoenix_gambling id='39066674' x='43' y='7' process_end='680000' output_fill='11600'    state='4'  />
+<advanced_water_tower2_gambling id='59257849' x='28' y='1'  output_fill='4500'    state='2'  />
+<advanced_water_tower2_gambling id='59257851' x='28' y='2'  output_fill='4500'    state='2'  />
+<advanced_water_tower2_gambling id='59257850' x='27' y='2'  output_fill='4500'    state='2'  />
+<advanced_water_tower2_gambling id='59257848' x='27' y='1'  output_fill='4500'    state='2'  />
+<roman_villa_gambling id='40516746' x='45' y='1' process_end='19148000'     state='3'  />
+<ferris_wheel_skydream_stage1 id='59030684' x='37' y='-102' process_end='18839000' output_fill='25000'    state='4'  />
+<the_lake_arena_stage2 id='59030683' x='36' y='-109' process_end='18839000' output_fill='40000'    state='4'  />
+<bridge_constellation_buildsite id='59030696' x='52' y='-44'      state='2'  />
+<christmas_fair_centre_stage1 id='59030682' x='25' y='-111' process_end='18839000' output_fill='15000'    state='4'  />
+<center_of_contemporary_art_gambling id='42019202' x='44' y='5' process_end='680000' output_fill='14600'    state='4'  />
+<skyscraper_cerry_gambling id='39066666' x='41' y='7' process_end='18839000' output_fill='7700'    state='4'  />
+<mansion_gambling id='39052502' x='47' y='1' process_end='6667000'     state='3'  />
+<apartment_scarlet_rose id='59160054' x='39' y='1' process_end='18839000' output_fill='72900'    state='4'  />
+<gambling_ferry_station_stage1 id='53830844' x='33' y='58' process_end='15064000'  input_fill='12137:3' contract_input='10015455'   state='3'  />
+<gambling_monorail74 id='58666574' x='44' y='-39'      state='2'  />
+<house_bigley_gambling id='39052454' x='43' y='4' process_end='6668000'     state='3'  />
+<shopping_center_izumrud_gambling id='39052519' x='47' y='4' process_end='4280000' output_fill='7300'    state='4'  />
+<aircraft_plant_gamble_stage2 id='40526498' x='38' y='-20'  output_fill='72000'    state='2'  />
+<gambling_cableway_buildsite id='53830924' x='43' y='67' process_end='4280000' output_fill='3350'    state='4'  />
+<gambling_monorail16 id='56848194' x='53' y='-24'      state='2'  />
+<gambling_monorail73 id='56848193' x='44' y='-33'      state='2'  />
+<casino_lyuminus_hall_stage2 id='59030681' x='26' y='-103' process_end='40431000'   contract_input='10144425'   state='3'  />
+<shopping_center_moonlight id='59030720' x='36' y='1' process_end='18839000' output_fill='9100'    state='4'  />
+<gambling_monorail_buildsite24 id='56848192' x='54' y='-31'   input_fill='10015746:1'   state='2'  />
+<gambling_train_station_buildsite id='56848191' x='45' y='-38'   input_fill='15625:6'   state='2'  />
+<airport_gamble_buildsite id='40468796' x='16' y='-9'   input_fill='11404:3,12190:8,10995:11'   state='2'  />
+<residential_complex_wave_gambling id='40516743' x='42' y='5' process_end='26345000'     state='3'  />
+<house_ventres_gambling id='39066699' x='41' y='4' process_end='12407000'     state='3' rotation='true' />
+<casino_bohemia_stage3 id='42107539' x='50' y='4'   input_fill='12161:20,12163:10,12113:4'   state='2'  />
+<entertainment_center_megan_stage3 id='40225884' x='35' y='-12'   input_fill='12167:20,12168:10,12165:6'   state='2'  />
+<generator_fireballs_buildsite id='55083139' x='31' y='-75'   input_fill='15459:2,12159:2,15604:8'   state='2'  />
+<wardenclyffe_tower_buildsite id='55083138' x='26' y='-77'   input_fill='11427:4,15451:2,11473:10,11477:2,11474:4'   state='2'  />
+<thunderstorm_energy_center_buildsite id='55083137' x='29' y='-87'   input_fill='15656:1,12138:10,12134:2'   state='2'  />
+<catcher_lightning_buildsite id='55083130' x='33' y='-85'       state='2'  />
+<law_office_gambling id='39066634' x='48' y='6' process_end='25880000' output_fill='6100'    state='4' rotation='true' />
+<gambling_training_center_paragliding_buildsite id='53830891' x='15' y='80' process_end='18839000' output_fill='4000'    state='4'  />
+<gambling_train_works_buildsite id='56848233' x='36' y='-54'   input_fill='11459:1'   state='2'  />
+<gambling_monorail74 id='56848213' x='44' y='-36'      state='2'  />
+<gambling_monorail16 id='56848212' x='89' y='12'      state='2'  />
+<gambling_monorail16 id='56848211' x='87' y='10'      state='2'  />
+<gambling_monorail16 id='56848210' x='85' y='8'      state='2'  />
+<gambling_monorail16 id='56848209' x='83' y='6'      state='2'  />
+<gambling_monorail16 id='56848208' x='81' y='4'      state='2'  />
+<gambling_monorail16 id='56848207' x='79' y='2'      state='2'  />
+<gambling_monorail16 id='56848206' x='77' y='0'      state='2'  />
+<gambling_monorail16 id='56848205' x='75' y='-2'      state='2'  />
+<gambling_monorail16 id='56848204' x='73' y='-4'      state='2'  />
+<gambling_monorail16 id='56848203' x='71' y='-6'      state='2'  />
+<gambling_monorail16 id='56848202' x='69' y='-8'      state='2'  />
+<gambling_monorail16 id='56848201' x='67' y='-10'      state='2'  />
+<gambling_monorail16 id='56848200' x='65' y='-12'      state='2'  />
+<gambling_monorail16 id='56848199' x='63' y='-14'      state='2'  />
+<gambling_monorail16 id='56848198' x='61' y='-16'      state='2'  />
+<gambling_monorail16 id='56848197' x='59' y='-18'      state='2'  />
+<gambling_monorail16 id='56848196' x='57' y='-20'      state='2'  />
+<gambling_monorail17 id='56848195' x='55' y='-22'      state='2'  />
+<gambling_racers_association_grand_prix_buildsite id='56546660' x='6' y='-48'   input_fill='11480:3'    state='2'  />
+<gambling_city_campus_east_buildsite id='56546663' x='6' y='-62'   input_fill='15460:2,15598:4'   state='2'  />
+<gambling_workshop_tuning_buildsite id='56546665' x='18' y='-48'   input_fill='12183:1,11490:1'   state='2'  />
+<gambling_plant_racing_cars_buildsite id='56546664' x='17' y='-61'   input_fill='15570:5,11453:2,12102:2'   state='2'  />
+<advanced_water_tower1_was_gambling id='54634465' x='42' y='2'  output_fill='2500'    state='2'  />
+<botanical_gardens_niagara_buildsite id='53830892' x='32' y='79'   input_fill='15638:2,15437:5'   state='2'  />
+<gambling_hydroelectric_flow_buildsite id='53830890' x='21' y='80'      state='2'  />
+<gambling_area_paragliders_buildsite id='53830889' x='19' y='71'      state='2'  />
+<law_office_gambling id='39052453' x='45' y='4' process_end='25880000' output_fill='6100'    state='4'  />
+<hotel_caspian_stage2 id='39052472' x='44' y='-10'   input_fill='12166:10,12167:20,12161:20'   state='2'  />
+<thermal_power_gambling id='39052451' x='47' y='17'      state='2'  />
+<advanced_water_tower1_was_gambling id='39052452' x='42' y='1'  output_fill='2500'    state='2'  />
+<palm1_gambling id='39052455' x='46' y='15'  output_fill='1200'    state='2'  />
+<palm1_gambling id='39052456' x='42' y='4'  output_fill='1200'    state='2'  />
+<palm1_gambling id='39052457' x='44' y='4'  output_fill='1200'    state='2'  />
+<palm2_gambling id='39052458' x='47' y='2'  output_fill='2500'    state='2'  />
+<gambling_centre_tessera_buildsite id='39052465' x='44' y='-22'   input_fill='15480:9,15458:2'   state='2'  />
+<termal_complex_buildsite id='39052475' x='59' y='14'      state='2'  />
+<house_indonesia_gambling id='39052510' x='41' y='3'  output_fill='570'    state='2'  />
+<advanced_water_tower2_gambling id='39052529' x='41' y='1'  output_fill='4500'    state='2'  />
+<police_station_new_gambling id='39052512' x='44' y='2'  output_fill='1000'    state='4'  />
+<advanced_water_tower2_gambling id='39052530' x='41' y='2'  output_fill='4500'    state='2'  />
+<stone_pond_gambling id='40233206' x='45' y='7'  output_fill='2000'    state='2'  />
+<fountain_farber_gambling id='40233218' x='44' y='1'  output_fill='2100'    state='2'  />
+<statue_of_atlanta_gambling id='40244376' x='41' y='6'  output_fill='2400'    state='2'  />
+<fountain_gambling id='40244387' x='46' y='6'  output_fill='6800'    state='2'  />
+<palm1_gambling id='40225909' x='45' y='8'  output_fill='1200'    state='2'  />
+<atomic_power_gambling id='40438731' x='47' y='18'      state='2'  />
+<airport_gamble_runway_buildsite id='40468797' x='16' y='-14'   input_fill='11436:2,12189:1,10965:1'   state='2'  />
+<road_gambling id='-1042922' x='43' y='-39'      state='2'  />
+<road_gambling id='-1042924' x='43' y='-38'      state='2'  />
+<road_gambling id='-1042926' x='43' y='-37'      state='2'  />
+<road_gambling id='-1042928' x='43' y='-36'      state='2'  />
+<road_gambling id='-1042930' x='43' y='-35'      state='2'  />
+<road_gambling id='-1042932' x='43' y='-34'      state='2'  />
+<road_gambling id='-1042934' x='43' y='-33'      state='2'  />
+<road_gambling id='-1042936' x='43' y='-32'      state='2'  />
+<road_gambling id='-1042938' x='43' y='-31'      state='2'  />
+<road_gambling id='-1042940' x='43' y='-30'      state='2'  />
+<road_gambling id='-1042942' x='43' y='-29'      state='2'  />
+<road_gambling id='-1042944' x='43' y='-28'      state='2'  />
+<road_gambling id='-1042946' x='43' y='-27'      state='2'  />
+<road_gambling id='-1042948' x='43' y='-26'      state='2'  />
+<road_gambling id='-1042950' x='43' y='-25'      state='2'  />
+<road_gambling id='-1042952' x='43' y='-24'      state='2'  />
+<road_gambling id='-1042954' x='43' y='-23'      state='2'  />
+<road_gambling id='-1042956' x='43' y='-22'      state='2'  />
+<road_gambling id='-1042958' x='43' y='-21'      state='2'  />
+<road_gambling id='-1042960' x='43' y='-20'      state='2'  />
+<road_gambling id='-1042962' x='43' y='-19'      state='2'  />
+<road_gambling id='-1042964' x='43' y='-18'      state='2'  />
+<road_gambling id='-1042966' x='43' y='-17'      state='2'  />
+<road_gambling id='-1042968' x='43' y='-16'      state='2'  />
+<road_gambling id='-1042970' x='43' y='-15'      state='2'  />
+<road_gambling id='-1042972' x='43' y='-14'      state='2'  />
+<road_gambling id='-1042974' x='43' y='-13'      state='2'  />
+<road_gambling id='-1042976' x='43' y='-12'      state='2'  />
+<road_gambling id='-1042978' x='43' y='-11'      state='2'  />
+<road_gambling id='-1042980' x='43' y='-10'      state='2'  />
+<road_gambling id='-1042982' x='43' y='-9'      state='2'  />
+<road_gambling id='-1042984' x='43' y='-8'      state='2'  />
+<road_gambling id='-1042986' x='43' y='-7'      state='2'  />
+<road_gambling id='-1042988' x='43' y='-6'      state='2'  />
+<road_gambling id='-1042990' x='43' y='-5'      state='2'  />
+<road_gambling id='-1042992' x='43' y='-4'      state='2'  />
+<road_gambling id='-1042994' x='43' y='-3'      state='2'  />
+<road_gambling id='-1042996' x='43' y='-2'      state='2'  />
+<road_gambling id='-1042998' x='43' y='-1'      state='2'  />
+<road_gambling id='-1043000' x='43' y='0'      state='2'  />
+<road_gambling id='-1043002' x='43' y='1'      state='2'  />
+<road_gambling id='-1043004' x='43' y='2'      state='2'  />
+<road_gambling id='-1043006' x='43' y='3'      state='2'  />
+<road_gambling id='-1047006' x='47' y='3'      state='2'  />
+<road_gambling id='-1046006' x='46' y='3'      state='2'  />
+<road_gambling id='-1045006' x='45' y='3'      state='2'  />
+<road_gambling id='-1044006' x='44' y='3'      state='2'  />
+<road_gambling id='-1048006' x='48' y='3'      state='2'  />
+<road_gambling id='-1049006' x='49' y='3'      state='2'  />
+<road_gambling id='-1049008' x='49' y='4'      state='2'  />
+<road_gambling id='-1049010' x='49' y='5'      state='2'  />
+<road_gambling id='-1049012' x='49' y='6'      state='2'  />
+<road_gambling id='-1049014' x='49' y='7'      state='2'  />
+<road_gambling id='-1049016' x='49' y='8'      state='2'  />
+<road_gambling id='-1049018' x='49' y='9'      state='2'  />
+<road_gambling id='-1049020' x='49' y='10'      state='2'  />
+<road_gambling id='-1049036' x='49' y='18'      state='2'  />
+<road_gambling id='-1049034' x='49' y='17'      state='2'  />
+<road_gambling id='-1049032' x='49' y='16'      state='2'  />
+<road_gambling id='-1049030' x='49' y='15'      state='2'  />
+<road_gambling id='-1049028' x='49' y='14'      state='2'  />
+<road_gambling id='-1049026' x='49' y='13'      state='2'  />
+<road_gambling id='-1049024' x='49' y='12'      state='2'  />
+<road_gambling id='-1049022' x='49' y='11'      state='2'  />
+<road_gambling id='-1031000' x='31' y='0'      state='2'  />
+<road_gambling id='-1032000' x='32' y='0'      state='2'  />
+<road_gambling id='-1033000' x='33' y='0'      state='2'  />
+<road_gambling id='-1034000' x='34' y='0'      state='2'  />
+<road_gambling id='-1035000' x='35' y='0'      state='2'  />
+<road_gambling id='-1036000' x='36' y='0'      state='2'  />
+<road_gambling id='-1037000' x='37' y='0'      state='2'  />
+<road_gambling id='-1038000' x='38' y='0'      state='2'  />
+<road_gambling id='-1039000' x='39' y='0'      state='2'  />
+<road_gambling id='-1040000' x='40' y='0'      state='2'  />
+<road_gambling id='-1041000' x='41' y='0'      state='2'  />
+<road_gambling id='-1042000' x='42' y='0'      state='2'  />
+<road_gambling id='-1044000' x='44' y='0'      state='2'  />
+<road_gambling id='-1045000' x='45' y='0'      state='2'  />
+<road_gambling id='-1046000' x='46' y='0'      state='2'  />
+<road_gambling id='-1047000' x='47' y='0'      state='2'  />
+<road_gambling id='-1048000' x='48' y='0'      state='2'  />
+<road_gambling id='-1049000' x='49' y='0'      state='2'  />
+<road_gambling id='-1049002' x='49' y='1'      state='2'  />
+<road_gambling id='-1049004' x='49' y='2'      state='2'  />
+<road_gambling id='-1049038' x='49' y='19'      state='2'  />
+<road_gambling id='-1049040' x='49' y='20'      state='2'  />
+<road_gambling id='-1049042' x='49' y='21'      state='2'  />
+<road_gambling id='-1049044' x='49' y='22'      state='2'  />
+<road_gambling id='-1030000' x='30' y='0'      state='2'  />
+<road_gambling id='-1029000' x='29' y='0'      state='2'  />
+<road_gambling id='-1028000' x='28' y='0'      state='2'  />
+<road_gambling id='-1027000' x='27' y='0'      state='2'  /></field><barn>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<bracelet_winner id='12163' quantity='50' updated_at='1453763010000' />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<bar_of_gold id='12168' quantity='49' updated_at='1453763010000' />
+<gold_medal id='12166' quantity='49' updated_at='1453412464000' />
+
+
+
+
+
+
+
+
+<circus_arena id='11491' quantity='9' updated_at='1451960080000' />
+
+
+
+
+
+<coal id='16152' quantity='15' updated_at='1453925162000' />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<poker_trophy id='12161' quantity='50' updated_at='1453887936000' />
+
+
+
+
+<ejection_system id='11450' quantity='2' updated_at='1451401824000' />
+
+
+
+
+
+
+
+
+
+
+<tubes id='15487' quantity='1' updated_at='1449082123000' />
+<plastic_seat id='11497' quantity='1' updated_at='1449954940000' />
+<gambler_cup id='12167' quantity='50' updated_at='1453763010000' />
+<iron_ore id='16150' quantity='15' updated_at='1453925162000' />
+<color_plastic_panels id='15449' quantity='1' updated_at='1448926337000' />
+
+
+<insect_in_amber id='12170' quantity='12' updated_at='1448546670000' />
+
+
+
+
+
+
+
+<rope id='10902' quantity='5' updated_at='1452810469000' />
+
+
+
+
+
+
+
+<automatic_irrigation_system id='15443' quantity='2' updated_at='1452128559000' />
+
+
+
+
+<night_vision_devices id='10988' quantity='9' updated_at='1453283016000' />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<carrying_rail id='10015746' quantity='4' updated_at='1451241785000' />
+
+
+<lead_plates id='15441' quantity='2' updated_at='1452525016000' />
+
+
+
+<laser_layer id='15644' quantity='4' updated_at='1446676979000' />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<snow_generator id='12140' quantity='4' updated_at='1452539907000' />
+
+
+
+
+<condition_system id='10925' quantity='5' updated_at='1452759840000' />
+
+
+
+
+
+
+<measurement_system id='10960' quantity='2' updated_at='1452100219000' />
+
+
+
+
+
+
+
+
+<coupling id='12126' quantity='4' updated_at='1452342060000' />
+
+<oil_receiving_device id='10974' quantity='6' updated_at='1452387569000' />
+<rails_fasteners id='12120' quantity='3' updated_at='1452982856000' />
+
+
+
+
+
+<soffit id='12144' quantity='4' updated_at='1451490702000' />
+
+
+<cement id='11469' quantity='5' updated_at='1453499205000' />
+
+
+<heliport id='10923' quantity='6' updated_at='1452945714000' />
+
+
+
+
+
+
+
+
+<golden_dice id='12162' quantity='50' updated_at='1453899581000' />
+
+
+
+
+
+<free_fortune_item id='24626' quantity='1' updated_at='1434406703000' />
+
+
+
+
+
+
+
+
+
+
+
+
+<requested_fuel id='16105' quantity='54' updated_at='1453929708000' />
+
+
+
+
+
+<sunbed id='10905' quantity='1' updated_at='1453411926000' />
+
+<parasol id='10906' quantity='8' updated_at='1451517228000' />
+<valleyball_ball id='11415' quantity='4' updated_at='1452965962000' />
+
+<chest_action_tower1 id='90002' quantity='5' updated_at='1440872551000' />
+
+
+
+
+
+
+<london_city_hall_pseudo id='18752' quantity='1' updated_at='1392843341000' />
+
+
+
+
+<boreholes_pump id='10908' quantity='7' updated_at='1450942705000' />
+
+
+<weather_balloon id='10966' quantity='5' updated_at='1452100219000' />
+
+<territory_healthy_score id='24580' quantity='30' updated_at='1396902709000' />
+
+
+
+
+
+
+
+<anchor id='10979' quantity='1' updated_at='1448836622000' />
+
+
+
+<paint_brush id='15643' quantity='10' updated_at='1449127584000' />
+
+<chest_action_chest1 id='90001' quantity='7' updated_at='1440790595000' />
+
+<drill id='10910' quantity='2' updated_at='1444859056000' />
+
+
+
+
+<passenger_seats id='12136' quantity='5' updated_at='1453329432000' />
+<crane_for_launching id='10981' quantity='6' updated_at='1451463316000' />
+
+
+
+<conveyer_belt id='12155' quantity='1' updated_at='1445693496000' />
+
+<baseball_bats id='11496' quantity='6' updated_at='1449956304000' />
+
+<pads id='12128' quantity='3' updated_at='1453136898000' />
+
+<naval_fuel id='11451' quantity='1' updated_at='1452945714000' />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<art_tower_mito_pseudo id='18783' quantity='1' updated_at='1398935936000' />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<surveillance_radar id='11460' quantity='3' updated_at='1452982856000' />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<wrestling_mat id='11401' quantity='2' updated_at='1444292399000' />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<banknote_detector id='11495' quantity='4' updated_at='1447797878000' />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<information_security_score id='24596' quantity='30' updated_at='1417074485000' />
+
+
+
+
+
+<brazilian_marble id='10928' quantity='5' updated_at='1450095371000' />
+
+
+
+
+
+
+
+
+<radar_ranging_system id='11462' quantity='9' updated_at='1451850364000' />
+
+
+
+
+<system_emergency_stop id='10914' quantity='1' updated_at='1450797653000' />
+
+
+<fuel_station id='10980' quantity='5' updated_at='1453073605000' />
+
+
+<sarcophagus id='11413' quantity='5' updated_at='1453910175000' />
+<overpass id='15570' quantity='2' updated_at='1446102845000' />
+
+
+<jumping_obstacle id='12160' quantity='8' updated_at='1451050934000' />
+<equipment_for_restoration id='12107' quantity='4' updated_at='1452100219000' />
+
+<jack id='10933' quantity='10' updated_at='1451818855000' />
+
+
+<water_scooter id='11418' quantity='3' updated_at='1447625209000' />
+<muleta id='12138' quantity='5' updated_at='1451936799000' />
+<performance_gear id='11467' quantity='4' updated_at='1446371560000' />
+<system_plum_oil id='10939' quantity='10' updated_at='1449476519000' />
+<golf_car id='11472' quantity='4' updated_at='1452387569000' />
+<circus_equipment id='11492' quantity='7' updated_at='1446471769000' />
+<radiation_shield id='15485' quantity='2' updated_at='1446068664000' />
+<microscope id='15452' quantity='3' updated_at='1443036016000' />
+<trains_tracking_system id='12133' quantity='1' updated_at='1443437428000' />
+
+<gas_capacity id='10934' quantity='11' updated_at='1453806840000' />
+<scan_radar id='11454' quantity='2' updated_at='1451463316000' />
+<automatic_skimmer id='10972' quantity='5' updated_at='1449918785000' />
+<block_oil id='10941' quantity='5' updated_at='1449918785000' />
+
+
+<bike id='12100' quantity='11' updated_at='1452605998000' />
+<conductor_rails id='11426' quantity='8' updated_at='1453136898000' />
+<oil_loader id='10973' quantity='6' updated_at='1447505018000' />
+<fresnel_lens id='15448' quantity='7' updated_at='1453761376000' />
+
+<traffic_light id='11420' quantity='3' updated_at='1442233549000' />
+
+<skin_car id='12129' quantity='1' updated_at='1441752226000' />
+<ski_lift id='12141' quantity='7' updated_at='1452710522000' />
+<springboard id='11402' quantity='14' updated_at='1452673937000' />
+
+<cans id='15413' quantity='7' updated_at='1451257572000' />
+<dosing_unit id='10967' quantity='7' updated_at='1453671586000' />
+<lighthouse_projector id='10963' quantity='10' updated_at='1451818855000' />
+<gold_leaf id='10926' quantity='10' updated_at='1450550924000' />
+<wheel id='10976' quantity='1' updated_at='1453671586000' />
+
+<dolphin id='11468' quantity='14' updated_at='1452724314000' />
+<mud_pump id='10929' quantity='13' updated_at='1453073605000' />
+<centralized_traffic_system id='12135' quantity='6' updated_at='1453447259000' />
+
+<pharaon_treasure id='11414' quantity='5' updated_at='1451129385000' />
+<rescue_vessel id='11458' quantity='2' updated_at='1449127584000' />
+<dosimeter id='15439' quantity='6' updated_at='1449498491000' />
+
+<furniture id='10927' quantity='7' updated_at='1446891900000' />
+
+
+
+
+
+<torpedoes id='11456' quantity='5' updated_at='1443350987000' />
+<river_pump id='10907' quantity='8' updated_at='1452362039000' />
+
+
+<automatic_fire id='10916' quantity='3' updated_at='1449043178000' />
+<armor_vests id='11438' quantity='4' updated_at='1440922454000' />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<military_festival_score id='24598' quantity='20' updated_at='1424759917000' />
+
+<gas_masks id='11437' quantity='3' updated_at='1451069689000' />
+
+
+<grocery_carts id='11493' quantity='5' updated_at='1451818855000' />
+
+
+<palms id='11417' quantity='4' updated_at='1451421813000' />
+
+
+
+
+
+
+<ozonier id='10961' quantity='1' updated_at='1447190895000' />
+
+
+
+
+<oil_valve id='10942' quantity='3' updated_at='1448715421000' />
+
+
+
+
+
+
+
+
+
+<golf_balls id='11471' quantity='7' updated_at='1450768820000' />
+
+
+
+<front_glue id='10015758' quantity='4' updated_at='1451028294000' />
+
+
+
+
+
+
+
+<runway_lights id='10997' quantity='11' updated_at='1452673937000' />
+
+
+
+<radar_antenna id='10969' quantity='5' updated_at='1453654047000' /></barn><quests><quest id='12067' completed_at='1391769722' completed='true' quest_ready='false' />
+<quest id='10014' completed_at='1392817201' completed='true' quest_ready='false' />
+<quest id='22053' completed_at='1389786691' completed='true' quest_ready='false' />
+<quest id='12063' completed_at='1389786858' completed='true' quest_ready='false' />
+<quest id='22059' completed_at='1390155527' completed='true' quest_ready='false' />
+<quest id='12106' completed_at='1410602531' completed='true' quest_ready='false' />
+<quest id='20365' completed_at='1394309768' completed='true' quest_ready='false' />
+<quest id='10001' completed_at='1413219061' completed='true' quest_ready='false' />
+<quest id='10088' order='1' quest_ready='false' />
+<quest id='10205' order='1' quest_ready='false' />
+<quest id='12079' completed_at='1405546446' completed='true' quest_ready='false' />
+<quest id='22052' completed_at='1389045618' completed='true' quest_ready='false' />
+<quest id='10180' order='1' quest_ready='false' />
+<quest id='10175' order='1' quest_ready='false' />
+<quest id='10171' order='1' quest_ready='false' />
+<quest id='10172' order='1' quest_ready='false' />
+<quest id='10082' order='1' quest_ready='false' />
+<quest id='10097' order='1' quest_ready='false' />
+<quest id='10098' order='1' quest_ready='false' />
+<quest id='10225' order='1' quest_ready='false' />
+<quest id='10226' order='1' quest_ready='false' />
+<quest id='10157' order='1' quest_ready='false' />
+<quest id='10127' order='1' quest_ready='false' />
+<quest id='10136' order='1' quest_ready='false' />
+<quest id='10155' order='1' quest_ready='false' />
+<quest id='10156' order='1' quest_ready='false' />
+<quest id='10182' order='1' quest_ready='false' />
+<quest id='10179' order='1' quest_ready='false' />
+<quest id='10161' order='1' quest_ready='false' />
+<quest id='10169' order='1' quest_ready='false' />
+<quest id='10091' completed_at='1423130629' completed='true' quest_ready='true' />
+<quest id='10165' order='1' quest_ready='false' />
+<quest id='10126' order='1' quest_ready='false' />
+<quest id='10113' order='1' quest_ready='false' />
+<quest id='10122' order='1' quest_ready='false' />
+<quest id='10221' order='0' quest_ready='false' />
+<quest id='10202' completed_at='1444053813' completed='true' quest_ready='true' />
+<quest id='10222' order='0' quest_ready='false' />
+<quest id='10208' order='0' quest_ready='false' />
+<quest id='10058' completed_at='1397553996' completed='true' quest_ready='false' />
+<quest id='10061' order='0' quest_ready='false' />
+<quest id='10211' order='0' quest_ready='false' />
+<quest id='10212' order='0' quest_ready='false' />
+<quest id='10065' completed_at='1407057024' completed='true' quest_ready='false' />
+<quest id='10033' completed_at='1391545963' completed='true' quest_ready='false' />
+<quest id='10213' order='0' quest_ready='false' />
+<quest id='10196' order='1' quest_ready='false' />
+<quest id='10073' completed_at='1389786858' completed='true' quest_ready='false' />
+<quest id='10056' completed_at='1390338853' completed='true' quest_ready='false' />
+<quest id='10220' order='0' quest_ready='false' />
+<quest id='10219' order='0' quest_ready='false' />
+<quest id='10051' order='0' quest_ready='false' />
+<quest id='22058' completed_at='1389002997' completed='true' quest_ready='false' />
+<quest id='22051' completed_at='1388741124' completed='true' quest_ready='false' />
+<quest id='12064' completed_at='1405023149' completed='true' quest_ready='false' />
+<quest id='12060' completed_at='1390166335' completed='true' quest_ready='false' />
+<quest id='12100' completed_at='1392265120' completed='true' quest_ready='false' />
+<quest id='10138' order='1' quest_ready='false' />
+<quest id='10018' completed_at='1389885855' completed='true' quest_ready='false' />
+<quest id='12049' completed_at='1389602616' completed='true' quest_ready='false' />
+<quest id='12047' completed_at='1388332375' completed='true' quest_ready='false' />
+<quest id='12045' completed_at='1388741266' completed='true' quest_ready='false' />
+<quest id='12044' completed_at='1388317816' completed='true' quest_ready='false' />
+<quest id='20941' completed_at='1388317993' completed='true' quest_ready='false' />
+<quest id='10234' order='0' quest_ready='false' />
+<quest id='21206' order='0' quest_ready='false' />
+<quest id='10232' order='1' quest_ready='false' />
+<quest id='10233' order='1' quest_ready='false' />
+<quest id='21197' end_date='1389117600' order='1' quest_ready='false' />
+<quest id='12080' completed_at='1407018009' completed='true' quest_ready='false' />
+<quest id='20927' completed_at='1390638471' completed='true' quest_ready='false' />
+<quest id='10121' order='1' quest_ready='false' />
+<quest id='12114' completed_at='1390857807' completed='true' quest_ready='false' />
+<quest id='12138' completed_at='1400189285' completed='true' quest_ready='false' />
+<quest id='12084' completed_at='1389865406' completed='true' quest_ready='false' />
+<quest id='10160' order='1' quest_ready='false' />
+<quest id='10193' order='1' quest_ready='false' />
+<quest id='10059' order='0' quest_ready='false' />
+<quest id='12059' completed_at='1388653226' completed='true' quest_ready='false' />
+<quest id='12058' completed_at='1387579580' completed='true' quest_ready='false' />
+<quest id='20940' completed_at='1388142102' completed='true' quest_ready='false' />
+<quest id='10231' order='0' quest_ready='false' />
+<quest id='21195' completed_at='1388653778' completed='true' quest_ready='false' />
+<quest id='21196' completed_at='1387551531' completed='true' quest_ready='false' />
+<quest id='10195' order='1' quest_ready='false' />
+<quest id='10206' order='1' quest_ready='false' />
+<quest id='12042' completed_at='1387579577' completed='true' quest_ready='false' />
+<quest id='12075' completed_at='1390681527' completed='true' quest_ready='false' />
+<quest id='12039' completed_at='1389348368' completed='true' quest_ready='false' />
+<quest id='10030' completed_at='1392265087' completed='true' quest_ready='false' />
+<quest id='10106' completed_at='1391239946' completed='true' quest_ready='false' />
+<quest id='20206' completed_at='1387011547' completed='true' quest_ready='false' />
+<quest id='10038' completed_at='1390380692' completed='true' quest_ready='false' />
+<quest id='10185' order='1' quest_ready='false' />
+<quest id='10085' order='1' quest_ready='false' />
+<quest id='10144' order='1' quest_ready='false' />
+<quest id='10207' order='0' quest_ready='false' />
+<quest id='20351' completed_at='1398807418' completed='true' quest_ready='false' />
+<quest id='10117' order='1' quest_ready='false' />
+<quest id='10120' order='1' quest_ready='false' />
+<quest id='10099' completed_at='1443968025' completed='true' quest_ready='true' />
+<quest id='10135' order='1' quest_ready='false' />
+<quest id='12150' completed_at='1391894163' completed='true' quest_ready='false' />
+<quest id='10069' order='1' quest_ready='false' />
+<quest id='10183' order='1' quest_ready='false' />
+<quest id='10158' order='1' quest_ready='false' />
+<quest id='10119' order='1' quest_ready='false' />
+<quest id='10152' order='1' quest_ready='false' />
+<quest id='10092' completed_at='1404837287' completed='true' quest_ready='false' />
+<quest id='20939' completed_at='1387213879' completed='true' quest_ready='false' />
+<quest id='21100' end_date='1387032570' order='2' quest_ready='false' />
+<quest id='12032' completed_at='1386957012' completed='true' quest_ready='false' />
+<quest id='12065' completed_at='1397506317' completed='true' quest_ready='false' />
+<quest id='10026' completed_at='1392906980' completed='true' quest_ready='false' />
+<quest id='20926' completed_at='1387900141' completed='true' quest_ready='false' />
+<quest id='10010' completed_at='1389786091' completed='true' quest_ready='false' />
+<quest id='10022' completed_at='1390338853' completed='true' quest_ready='false' />
+<quest id='20925' completed_at='1400578274' completed='true' quest_ready='false' />
+<quest id='12037' completed_at='1386675722' completed='true' quest_ready='false' />
+<quest id='10168' order='1' quest_ready='false' />
+<quest id='10013' completed_at='1389188908' completed='true' quest_ready='false' />
+<quest id='10125' order='1' quest_ready='false' />
+<quest id='10131' order='1' quest_ready='false' />
+<quest id='10124' order='1' quest_ready='false' />
+<quest id='10217' order='0' quest_ready='false' />
+<quest id='10037' completed_at='1386673889' completed='true' quest_ready='false' />
+<quest id='10025' completed_at='1386167834' completed='true' quest_ready='false' />
+<quest id='10096' completed_at='1423130633' completed='true' quest_ready='true' />
+<quest id='10170' order='1' quest_ready='false' />
+<quest id='10148' counters='350,0,0' order='0' quest_ready='false' />
+<quest id='10163' order='1' quest_ready='false' />
+<quest id='10140' order='1' quest_ready='false' />
+<quest id='10048' completed_at='1405023149' completed='true' quest_ready='false' />
+<quest id='10116' order='1' quest_ready='false' />
+<quest id='10050' completed_at='1410602531' completed='true' quest_ready='false' />
+<quest id='10130' order='1' quest_ready='false' />
+<quest id='10164' order='1' quest_ready='false' />
+<quest id='10060' completed_at='1396900900' completed='true' quest_ready='false' />
+<quest id='10046' order='0' quest_ready='false' />
+<quest id='10197' order='1' quest_ready='false' />
+<quest id='10055' order='0' quest_ready='false' />
+<quest id='12149' completed_at='1386409808' completed='true' quest_ready='false' />
+<quest id='20108' completed_at='1386167834' completed='true' quest_ready='false' />
+<quest id='20367' completed_at='1405979485' completed='true' quest_ready='false' />
+<quest id='12030' completed_at='1386168569' completed='true' quest_ready='false' />
+<quest id='12031' completed_at='1385974192' completed='true' quest_ready='false' />
+<quest id='10080' order='1' quest_ready='false' />
+<quest id='12028' completed_at='1385933735' completed='true' quest_ready='false' />
+<quest id='12029' completed_at='1385844364' completed='true' quest_ready='false' />
+<quest id='10064' order='0' quest_ready='false' />
+<quest id='10174' order='1' quest_ready='false' />
+<quest id='10162' order='1' quest_ready='false' />
+<quest id='12027' completed_at='1385827431' completed='true' quest_ready='false' />
+<quest id='10021' completed_at='1386147989' completed='true' quest_ready='false' />
+<quest id='10111' order='1' quest_ready='false' />
+<quest id='10110' order='1' quest_ready='false' />
+<quest id='10133' order='1' quest_ready='false' />
+<quest id='10134' order='1' quest_ready='false' />
+<quest id='10057' order='0' quest_ready='false' />
+<quest id='12160' completed_at='1415657512' completed='true' quest_ready='false' />
+<quest id='10067' order='0' quest_ready='false' />
+<quest id='10129' order='1' quest_ready='false' />
+<quest id='10049' completed_at='1405546446' completed='true' quest_ready='false' />
+<quest id='10181' order='1' quest_ready='false' />
+<quest id='10194' order='1' quest_ready='false' />
+<quest id='10123' order='1' quest_ready='false' />
+<quest id='20323' completed_at='1392757574' completed='true' quest_ready='false' />
+<quest id='10128' order='1' quest_ready='false' />
+<quest id='10112' order='1' quest_ready='false' />
+<quest id='10139' order='1' quest_ready='false' />
+<quest id='10068' order='0' quest_ready='false' />
+<quest id='10041' order='0' quest_ready='false' />
+<quest id='10115' order='1' quest_ready='false' />
+<quest id='10147' order='0' quest_ready='false' />
+<quest id='10141' order='1' quest_ready='false' />
+<quest id='10142' order='1' quest_ready='false' />
+<quest id='10054' order='0' quest_ready='false' />
+<quest id='10173' order='1' quest_ready='false' />
+<quest id='10052' completed_at='1424760236' completed='true' quest_ready='true' />
+<quest id='10066' order='0' quest_ready='false' />
+<quest id='10105' order='1' quest_ready='false' />
+<quest id='10104' order='1' quest_ready='false' />
+<quest id='10216' counters='1,0,0' order='0' quest_ready='false' />
+<quest id='10201' order='1' quest_ready='false' />
+<quest id='10053' completed_at='1388778731' completed='true' quest_ready='false' />
+<quest id='10062' order='0' quest_ready='false' />
+<quest id='12026' completed_at='1385752538' completed='true' quest_ready='false' />
+<quest id='12036' completed_at='1385750935' completed='true' quest_ready='false' />
+<quest id='12167' completed_at='1385974727' completed='true' quest_ready='false' />
+<quest id='20217' completed_at='1385750950' completed='true' quest_ready='false' />
+<quest id='10184' order='1' quest_ready='false' />
+<quest id='10047' order='0' quest_ready='false' />
+<quest id='10167' order='1' quest_ready='false' />
+<quest id='10178' order='1' quest_ready='false' />
+<quest id='10045' order='0' quest_ready='false' />
+<quest id='10149' order='1' quest_ready='false' />
+<quest id='10150' order='1' quest_ready='false' />
+<quest id='10143' order='1' quest_ready='false' />
+<quest id='10153' order='1' quest_ready='false' />
+<quest id='10100' completed_at='1391894163' completed='true' quest_ready='false' />
+<quest id='10145' completed_at='1422135537' completed='true' quest_ready='true' />
+<quest id='10146' order='0' quest_ready='false' />
+<quest id='10063' order='0' quest_ready='false' />
+<quest id='20216' completed_at='1385750103' completed='true' quest_ready='false' />
+<quest id='12062' completed_at='1389020117' completed='true' quest_ready='false' />
+<quest id='20212' completed_at='1385750452' completed='true' quest_ready='false' />
+<quest id='20213' completed_at='1385752527' completed='true' quest_ready='false' />
+<quest id='20942' completed_at='1385749740' completed='true' quest_ready='false' />
+<quest id='10006' completed_at='1393484669' completed='true' quest_ready='false' />
+<quest id='20118' completed_at='1385750462' completed='true' quest_ready='false' />
+<quest id='12153' completed_at='1389348528' completed='true' quest_ready='false' />
+<quest id='12038' completed_at='1387011455' completed='true' quest_ready='false' />
+<quest id='20107' completed_at='1385276882' completed='true' quest_ready='false' />
+<quest id='20105' completed_at='1385276794' completed='true' quest_ready='false' />
+<quest id='20210' completed_at='1385222228' completed='true' quest_ready='false' />
+<quest id='20211' completed_at='1385749839' completed='true' quest_ready='false' />
+<quest id='20209' completed_at='1385222185' completed='true' quest_ready='false' />
+<quest id='20208' completed_at='1385222158' completed='true' quest_ready='false' />
+<quest id='20117' completed_at='1385303438' completed='true' quest_ready='false' />
+<quest id='12025' completed_at='1385750240' completed='true' quest_ready='false' />
+<quest id='10005' completed_at='1385443399' completed='true' quest_ready='false' />
+<quest id='10029' completed_at='1386870000' completed='true' quest_ready='false' />
+<quest id='21002' completed_at='1390986932' completed='true' quest_ready='false' />
+<quest id='12023' completed_at='1390338853' completed='true' quest_ready='false' />
+<quest id='20116' completed_at='1385221844' completed='true' quest_ready='false' />
+<quest id='20111' completed_at='1385215025' completed='true' quest_ready='false' />
+<quest id='20106' completed_at='1385276794' completed='true' quest_ready='false' />
+<quest id='20109' completed_at='1385215043' completed='true' quest_ready='false' />
+<quest id='20110' completed_at='1385215008' completed='true' quest_ready='false' />
+<quest id='20104' completed_at='1385214973' completed='true' quest_ready='false' />
+<quest id='20115' completed_at='1385220037' completed='true' quest_ready='false' />
+<quest id='12012' completed_at='1388778731' completed='true' quest_ready='false' />
+<quest id='21001' completed_at='1386407890' completed='true' quest_ready='false' />
+<quest id='20103' completed_at='1385214942' completed='true' quest_ready='false' />
+<quest id='20203' completed_at='1385214966' completed='true' quest_ready='false' />
+<quest id='20205' completed_at='1386674046' completed='true' quest_ready='false' />
+<quest id='20202' completed_at='1385214885' completed='true' quest_ready='false' />
+<quest id='20204' completed_at='1385214829' completed='true' quest_ready='false' />
+<quest id='10000' completed_at='1388946501' completed='true' quest_ready='false' />
+<quest id='20215' completed_at='1385749986' completed='true' quest_ready='false' />
+<quest id='21003' completed_at='1385749976' completed='true' quest_ready='false' />
+<quest id='20101' completed_at='1385150047' completed='true' quest_ready='false' />
+<quest id='20102' completed_at='1385196117' completed='true' quest_ready='false' />
+<quest id='20207' completed_at='1385221898' completed='true' quest_ready='false' />
+<quest id='20214' completed_at='1385195837' completed='true' quest_ready='false' />
+<quest id='13004' completed_at='1385150034' completed='true' quest_ready='false' />
+<quest id='20201' completed_at='1385214651' completed='true' quest_ready='false' />
+<quest id='13003' completed_at='1385149965' completed='true' quest_ready='false' />
+<quest id='13002' completed_at='1385149825' completed='true' quest_ready='false' />
+<quest id='10009' completed_at='1386148036' completed='true' quest_ready='false' />
+<quest id='10017' completed_at='1388393036' completed='true' quest_ready='false' />
+<quest id='10218' order='0' quest_ready='false' />
+<quest id='10215' order='0' quest_ready='false' />
+<quest id='13001' completed_at='1385149733' completed='true' quest_ready='false' />
+<quest id='10214' counters='1,0,0' order='0' quest_ready='false' />
+<quest id='10236' order='1' quest_ready='false' />
+<quest id='10235' order='1' quest_ready='false' />
+<quest id='12040' completed_at='1396900900' completed='true' quest_ready='false' />
+<quest id='12154' completed_at='1389786553' completed='true' quest_ready='false' />
+<quest id='20895' completed_at='1391962220' completed='true' quest_ready='false' />
+<quest id='12052' completed_at='1392264843' completed='true' quest_ready='false' />
+<quest id='21164' end_date='1390507199' order='1' quest_ready='false' />
+<quest id='10224' order='0' quest_ready='false' />
+<quest id='10011' completed_at='1391977293' completed='true' quest_ready='false' />
+<quest id='12155' completed_at='1402374753' completed='true' quest_ready='false' />
+<quest id='22054' completed_at='1389786773' completed='true' quest_ready='false' />
+<quest id='22055' completed_at='1390083643' completed='true' quest_ready='false' />
+<quest id='10074' order='2' quest_ready='false' />
+<quest id='12085' completed_at='1402507820' completed='true' quest_ready='false' />
+<quest id='10019' completed_at='1392352628' completed='true' quest_ready='false' />
+<quest id='22056' completed_at='1390107772' completed='true' quest_ready='false' />
+<quest id='22057' completed_at='1390127511' completed='true' quest_ready='false' />
+<quest id='22050' completed_at='1394741473' completed='true' quest_ready='false' />
+<quest id='22060' completed_at='1393108251' completed='true' quest_ready='false' />
+<quest id='12061' completed_at='1390985331' completed='true' quest_ready='false' />
+<quest id='12091' completed_at='1392392866' completed='true' quest_ready='false' />
+<quest id='12130' completed_at='1394482165' completed='true' quest_ready='false' />
+<quest id='10023' completed_at='1396166196' completed='true' quest_ready='false' />
+<quest id='10039' completed_at='1392583397' completed='true' quest_ready='false' />
+<quest id='22073' end_date='1391284799' order='1' quest_ready='false' />
+<quest id='10333' order='0' quest_ready='false' />
+<quest id='20380' completed_at='1390663698' completed='true' quest_ready='false' />
+<quest id='20928' completed_at='1390722767' completed='true' quest_ready='false' />
+<quest id='20435' completed_at='1390663717' completed='true' quest_ready='false' />
+<quest id='20382' completed_at='1402786184' completed='true' quest_ready='false' />
+<quest id='20381' completed_at='1390668085' completed='true' quest_ready='false' />
+<quest id='20436' completed_at='1391977293' completed='true' quest_ready='false' />
+<quest id='20388' completed_at='1390722540' completed='true' quest_ready='false' />
+<quest id='20387' completed_at='1390722563' completed='true' quest_ready='false' />
+<quest id='12076' completed_at='1401342886' completed='true' quest_ready='false' />
+<quest id='20390' completed_at='1390744431' completed='true' quest_ready='false' />
+<quest id='20432' completed_at='1391258554' completed='true' quest_ready='false' />
+<quest id='20389' completed_at='1390882716' completed='true' quest_ready='false' />
+<quest id='20929' completed_at='1392562331' completed='true' quest_ready='false' />
+<quest id='20393' order='2' quest_ready='false' />
+<quest id='20392' completed_at='1390882738' completed='true' quest_ready='false' />
+<quest id='20391' completed_at='1390882793' completed='true' quest_ready='false' />
+<quest id='12115' completed_at='1404228083' completed='true' quest_ready='false' />
+<quest id='20443' completed_at='1415055652' completed='true' quest_ready='false' />
+<quest id='20399' completed_at='1402868100' completed='true' quest_ready='false' />
+<quest id='20398' completed_at='1390920570' completed='true' quest_ready='false' />
+<quest id='10107' completed_at='1444253086' completed='true' quest_ready='true' />
+<quest id='20433' completed_at='1391258561' completed='true' quest_ready='false' />
+<quest id='20434' completed_at='1391258576' completed='true' quest_ready='false' />
+<quest id='22086' end_date='1392235199' order='1' quest_ready='false' />
+<quest id='10239' order='0' quest_ready='false' />
+<quest id='10034' completed_at='1394041424' completed='true' quest_ready='false' />
+<quest id='12074' completed_at='1417643352' completed='true' quest_ready='false' />
+<quest id='12068' completed_at='1392793032' completed='true' quest_ready='false' />
+<quest id='12151' completed_at='1412972506' completed='true' quest_ready='false' />
+<quest id='10101' completed_at='1391977059' completed='true' quest_ready='false' />
+<quest id='20896' completed_at='1392929127' completed='true' quest_ready='false' />
+<quest id='10102' counters='50,0,0' order='3' quest_ready='false' />
+<quest id='20437' completed_at='1402848561' completed='true' quest_ready='false' />
+<quest id='10012' completed_at='1395082358' completed='true' quest_ready='false' />
+<quest id='21174' end_date='1392368016' order='1' quest_ready='false' />
+<quest id='10229' completed_at='1424381854' completed='true' quest_ready='true' />
+<quest id='12054' completed_at='1393098836' completed='true' quest_ready='false' />
+<quest id='12053' completed_at='1392264845' completed='true' quest_ready='false' />
+<quest id='12051' completed_at='1393215750' completed='true' quest_ready='false' />
+<quest id='10031' completed_at='1396469334' completed='true' quest_ready='false' />
+<quest id='12101' completed_at='1415296982' completed='true' quest_ready='false' />
+<quest id='21208' end_date='1392753599' order='1' quest_ready='false' />
+<quest id='10242' order='0' quest_ready='false' />
+<quest id='10020' completed_at='1393964535' completed='true' quest_ready='false' />
+<quest id='12093' completed_at='1393332808' completed='true' quest_ready='false' />
+<quest id='12092' completed_at='1393272748' completed='true' quest_ready='false' />
+<quest id='20930' completed_at='1393447725' completed='true' quest_ready='false' />
+<quest id='10040' completed_at='1394692068' completed='true' quest_ready='false' />
+<quest id='10241' order='1' quest_ready='false' />
+<quest id='10240' order='1' quest_ready='false' />
+<quest id='12112' completed_at='1420974722' completed='true' quest_ready='false' />
+<quest id='12110' completed_at='1424779370' completed='true' quest_ready='false' />
+<quest id='20324' completed_at='1422184728' completed='true' quest_ready='false' />
+<quest id='12073' completed_at='1392906980' completed='true' quest_ready='false' />
+<quest id='12069' completed_at='1393053146' completed='true' quest_ready='false' />
+<quest id='10015' completed_at='1395156570' completed='true' quest_ready='false' />
+<quest id='10027' completed_at='1397554030' completed='true' quest_ready='false' />
+<quest id='12048' completed_at='1393318366' completed='true' quest_ready='false' />
+<quest id='21219' end_date='1393790399' order='1' quest_ready='false' />
+<quest id='10245' order='0' quest_ready='false' />
+<quest id='12070' completed_at='1393527967' completed='true' quest_ready='false' />
+<quest id='22061' completed_at='1397247033' completed='true' quest_ready='false' />
+<quest id='12094' completed_at='1394015157' completed='true' quest_ready='false' />
+<quest id='20931' completed_at='1396814477' completed='true' quest_ready='false' />
+<quest id='10007' completed_at='1395312138' completed='true' quest_ready='false' />
+<quest id='12071' completed_at='1394207943' completed='true' quest_ready='false' />
+<quest id='20954' end_date='1394358667' order='4' quest_ready='false' />
+<quest id='20935' completed_at='1442267022' completed='true' quest_ready='false' />
+<quest id='10209' order='1' quest_ready='false' />
+<quest id='10210' completed_at='1404971858' completed='true' quest_ready='false' />
+<quest id='20936' completed_at='1393588194' completed='true' quest_ready='false' />
+<quest id='20938' completed_at='1398985141' completed='true' quest_ready='false' />
+<quest id='12097' completed_at='1394260994' completed='true' quest_ready='false' />
+<quest id='12096' completed_at='1394684017' completed='true' quest_ready='false' />
+<quest id='12095' completed_at='1394015160' completed='true' quest_ready='false' />
+<quest id='10035' completed_at='1400364564' completed='true' quest_ready='false' />
+<quest id='10246' completed_at='1425809988' completed='true' quest_ready='true' />
+<quest id='12072' completed_at='1394207948' completed='true' quest_ready='false' />
+<quest id='12099' completed_at='1394874091' completed='true' quest_ready='false' />
+<quest id='12098' completed_at='1395115807' completed='true' quest_ready='false' />
+<quest id='20366' completed_at='1422135419' completed='true' quest_ready='false' />
+<quest id='12131' completed_at='1422058132' completed='true' quest_ready='false' />
+<quest id='10248' order='1' quest_ready='false' />
+<quest id='10247' order='1' quest_ready='false' />
+<quest id='10016' completed_at='1400853284' completed='true' quest_ready='false' />
+<quest id='10008' completed_at='1398325169' completed='true' quest_ready='false' />
+<quest id='21242' end_date='1396382399' completed_at='1396213698' completed='true' quest_ready='false' />
+<quest id='10249' completed_at='1396213759' completed='true' quest_ready='false' />
+<quest id='10244' order='1' quest_ready='false' />
+<quest id='10243' order='1' quest_ready='false' />
+<quest id='10024' completed_at='1400018454' completed='true' quest_ready='false' />
+<quest id='10032' completed_at='1397579717' completed='true' quest_ready='false' />
+<quest id='21253' end_date='1397246399' order='1' quest_ready='false' />
+<quest id='10252' order='0' quest_ready='false' />
+<quest id='20932' completed_at='1397596946' completed='true' quest_ready='false' />
+<quest id='22062' completed_at='1397668353' completed='true' quest_ready='false' />
+<quest id='12066' completed_at='1397554065' completed='true' quest_ready='false' />
+<quest id='10254' order='1' quest_ready='false' />
+<quest id='10253' order='1' quest_ready='false' />
+<quest id='10028' completed_at='1414706450' completed='true' quest_ready='false' />
+<quest id='20933' completed_at='1398499170' completed='true' quest_ready='false' />
+<quest id='22063' completed_at='1399154229' completed='true' quest_ready='false' />
+<quest id='21263' end_date='1398628799' order='0' quest_ready='false' />
+<quest id='10255' order='0' quest_ready='false' />
+<quest id='20934' completed_at='1400578273' completed='true' quest_ready='false' />
+<quest id='10151' order='1' quest_ready='false' />
+<quest id='20352' completed_at='1423267588' completed='true' quest_ready='false' />
+<quest id='10258' order='1' quest_ready='false' />
+<quest id='10257' order='1' quest_ready='false' />
+<quest id='22000' completed_at='1398985363' completed='true' quest_ready='false' />
+<quest id='20987' end_date='1399589941' order='0' quest_ready='false' />
+<quest id='22001' completed_at='1399022068' completed='true' quest_ready='false' />
+<quest id='22002' completed_at='1401006975' completed='true' quest_ready='false' />
+<quest id='22064' completed_at='1401164243' completed='true' quest_ready='false' />
+<quest id='21274' end_date='1400183999' order='0' quest_ready='false' />
+<quest id='10256' order='0' quest_ready='false' />
+<quest id='92000' end_date='1402603199' order='0' quest_ready='false' />
+<quest id='91006' order='0' quest_ready='false' />
+<quest id='91002' order='0' quest_ready='false' />
+<quest id='91007' order='0' quest_ready='false' />
+<quest id='91003' order='0' quest_ready='false' />
+<quest id='91008' order='0' quest_ready='false' />
+<quest id='91004' order='0' quest_ready='false' />
+<quest id='91009' order='0' quest_ready='false' />
+<quest id='91005' order='0' quest_ready='false' />
+<quest id='91013' completed_at='1402611441' completed='true' quest_ready='false' />
+<quest id='82301' order='1' quest_ready='false' />
+<quest id='82300' order='1' quest_ready='false' />
+<quest id='91016' order='0' quest_ready='false' />
+<quest id='91015' order='0' quest_ready='false' />
+<quest id='91014' completed_at='1400169455' completed='true' quest_ready='false' />
+<quest id='12145' completed_at='1429369996' completed='true' quest_ready='false' />
+<quest id='12143' completed_at='1426371875' completed='true' quest_ready='false' />
+<quest id='12142' completed_at='1436743112' completed='true' quest_ready='false' />
+<quest id='12141' completed_at='1438560833' completed='true' quest_ready='false' />
+<quest id='12140' completed_at='1432851708' completed='true' quest_ready='false' />
+<quest id='12139' completed_at='1428444787' completed='true' quest_ready='false' />
+<quest id='10036' completed_at='1411490907' completed='true' quest_ready='false' />
+<quest id='10070851' end_date='1401307199' order='1' quest_ready='false' />
+<quest id='10070862' order='0' quest_ready='false' />
+<quest id='22003' completed_at='1401021923' completed='true' quest_ready='false' />
+<quest id='20218' completed_at='1401020783' completed='true' quest_ready='false' />
+<quest id='20446' completed_at='1401020908' completed='true' quest_ready='false' />
+<quest id='20223' completed_at='1401033925' completed='true' quest_ready='false' />
+<quest id='20219' completed_at='1416951508' completed='true' quest_ready='false' />
+<quest id='20239' completed_at='1401091956' completed='true' quest_ready='false' />
+<quest id='20233' completed_at='1401020961' completed='true' quest_ready='false' />
+<quest id='20447' completed_at='1401020934' completed='true' quest_ready='false' />
+<quest id='20234' completed_at='1401020988' completed='true' quest_ready='false' />
+<quest id='20235' completed_at='1401021002' completed='true' quest_ready='false' />
+<quest id='20236' completed_at='1401382153' completed='true' quest_ready='false' />
+<quest id='22004' completed_at='1401048752' completed='true' quest_ready='false' />
+<quest id='20224' completed_at='1401048788' completed='true' quest_ready='false' />
+<quest id='22005' completed_at='1404764593' completed='true' quest_ready='false' />
+<quest id='25118' completed_at='1428397924' completed='true' quest_ready='false' />
+<quest id='20229' completed_at='1401077186' completed='true' quest_ready='false' />
+<quest id='20225' completed_at='1418162736' completed='true' quest_ready='false' />
+<quest id='20230' completed_at='1401226068' completed='true' quest_ready='false' />
+<quest id='20244' completed_at='1413317612' completed='true' quest_ready='false' />
+<quest id='20240' completed_at='1414967398' completed='true' quest_ready='false' />
+<quest id='22065' completed_at='1403776869' completed='true' quest_ready='false' />
+<quest id='25120' completed_at='1425506676' completed='true' quest_ready='false' />
+<quest id='20448' completed_at='1401226140' completed='true' quest_ready='false' />
+<quest id='20253' completed_at='1401251289' completed='true' quest_ready='false' />
+<quest id='20248' completed_at='1401341551' completed='true' quest_ready='false' />
+<quest id='20231' completed_at='1422654982' completed='true' quest_ready='false' />
+<quest id='20254' completed_at='1401309418' completed='true' quest_ready='false' />
+<quest id='25122' completed_at='1429659845' completed='true' quest_ready='false' />
+<quest id='20286' completed_at='1420201097' completed='true' quest_ready='false' />
+<quest id='20255' completed_at='1401309446' completed='true' quest_ready='false' />
+<quest id='20256' completed_at='1401341562' completed='true' quest_ready='false' />
+<quest id='20249' completed_at='1401381880' completed='true' quest_ready='false' />
+<quest id='20252' completed_at='1401381822' completed='true' quest_ready='false' />
+<quest id='20449' completed_at='1401342152' completed='true' quest_ready='false' />
+<quest id='20257' completed_at='1401645474' completed='true' quest_ready='false' />
+<quest id='12077' completed_at='1437428463' completed='true' quest_ready='false' />
+<quest id='20250' completed_at='1401396881' completed='true' quest_ready='false' />
+<quest id='20237' completed_at='1414364973' completed='true' quest_ready='false' />
+<quest id='20999' end_date='1402000972' counters='1,0,15' order='2' quest_ready='false' />
+<quest id='21112' completed_at='1401527651' completed='true' quest_ready='false' />
+<quest id='20251' completed_at='1417038990' completed='true' quest_ready='false' />
+<quest id='21113' completed_at='1401542569' completed='true' quest_ready='false' />
+<quest id='21114' completed_at='1401561049' completed='true' quest_ready='false' />
+<quest id='21115' completed_at='1442748788' completed='true' quest_ready='false' />
+<quest id='25125' completed_at='1427493837' completed='true' quest_ready='false' />
+<quest id='20288' completed_at='1421876654' completed='true' quest_ready='false' />
+<quest id='20258' completed_at='1401655343' completed='true' quest_ready='false' />
+<quest id='20259' completed_at='1401857152' completed='true' quest_ready='false' />
+<quest id='10072860' end_date='1402430399' order='1' quest_ready='false' />
+<quest id='10072871' order='0' quest_ready='false' />
+<quest id='20272' completed_at='1401958983' completed='true' quest_ready='false' />
+<quest id='20260' completed_at='1402175534' completed='true' quest_ready='false' />
+<quest id='20273' completed_at='1420582903' completed='true' quest_ready='false' />
+<quest id='20261' completed_at='1422826474' completed='true' quest_ready='false' />
+<quest id='12156' completed_at='1437988088' completed='true' quest_ready='false' />
+<quest id='12086' completed_at='1441580342' completed='true' quest_ready='false' />
+<quest id='10071850' end_date='1403467199' order='1' quest_ready='false' />
+<quest id='10071862' order='0' quest_ready='false' />
+<quest id='20383' completed_at='1402848792' completed='true' quest_ready='false' />
+<quest id='20438' completed_at='1441441854' completed='true' quest_ready='false' />
+<quest id='20441' completed_at='1406409844' completed='true' quest_ready='false' />
+<quest id='20384' completed_at='1448715662' completed='true' quest_ready='false' />
+<quest id='20400' completed_at='1402868101' completed='true' quest_ready='false' />
+<quest id='20445' order='1' quest_ready='false' />
+<quest id='20402' order='0' quest_ready='false' />
+<quest id='20401' completed_at='1404159073' completed='true' quest_ready='false' />
+<quest id='10010796' order='1' quest_ready='false' />
+<quest id='10010795' order='1' quest_ready='false' />
+<quest id='20356' end_date='1404676799' order='2' quest_ready='false' />
+<quest id='22066' completed_at='1407615725' completed='true' quest_ready='false' />
+<quest id='20406' completed_at='1404159133' completed='true' quest_ready='false' />
+<quest id='20408' completed_at='1404159235' completed='true' quest_ready='false' />
+<quest id='20410' completed_at='1404159252' completed='true' quest_ready='false' />
+<quest id='20414' completed_at='1404193130' completed='true' quest_ready='false' />
+<quest id='20411' order='3' quest_ready='false' />
+<quest id='20416' completed_at='1404193214' completed='true' quest_ready='false' />
+<quest id='20415' completed_at='1404193494' completed='true' quest_ready='false' />
+<quest id='20418' completed_at='1404193289' completed='true' quest_ready='false' />
+<quest id='20419' completed_at='1404193338' completed='true' quest_ready='false' />
+<quest id='20420' order='5' quest_ready='false' />
+<quest id='20417' order='4' quest_ready='false' />
+<quest id='12116' completed_at='1404386356' completed='true' quest_ready='false' />
+<quest id='10010735' order='1' quest_ready='false' />
+<quest id='10010734' order='1' quest_ready='false' />
+<quest id='12117' counters='0,1,0' order='12' quest_ready='false' />
+<quest id='22006' completed_at='1415316490' completed='true' quest_ready='false' />
+<quest id='10093' completed_at='1405718805' completed='true' quest_ready='false' />
+<quest id='10071870' end_date='1405799999' order='1' quest_ready='false' />
+<quest id='10071880' order='0' quest_ready='false' />
+<quest id='10010835' order='1' quest_ready='false' />
+<quest id='10010834' order='1' quest_ready='false' />
+<quest id='10094' completed_at='1408275863' completed='true' quest_ready='false' />
+<quest id='20368' completed_at='1406021222' completed='true' quest_ready='false' />
+<quest id='20369' order='13' quest_ready='false' />
+<quest id='10071894' end_date='1406923199' order='0' quest_ready='false' />
+<quest id='10071893' order='0' quest_ready='false' />
+<quest id='10137' order='1' quest_ready='false' />
+<quest id='10735' order='1' quest_ready='false' />
+<quest id='10734' order='1' quest_ready='false' />
+<quest id='20991' end_date='1406719429' order='1' quest_ready='false' />
+<quest id='20442' completed_at='1406451786' completed='true' quest_ready='false' />
+<quest id='12081' completed_at='1407410562' completed='true' quest_ready='false' />
+<quest id='10077' completed_at='1446944573' completed='true' quest_ready='true' />
+<quest id='10071670' end_date='1408046399' order='1' quest_ready='false' />
+<quest id='10071681' order='0' quest_ready='false' />
+<quest id='12082' completed_at='1447159888' completed='true' quest_ready='false' />
+<quest id='22067' completed_at='1414267596' completed='true' quest_ready='false' />
+<quest id='10251' order='1' quest_ready='false' />
+<quest id='10250' order='1' quest_ready='false' />
+<quest id='10095' completed_at='1418684169' completed='true' quest_ready='true' />
+<quest id='10071682' end_date='1409169599' order='0' quest_ready='false' />
+<quest id='10071693' order='0' quest_ready='false' />
+<quest id='10071905' end_date='1409860799' order='0' quest_ready='false' />
+<quest id='10010739' order='1' quest_ready='false' />
+<quest id='10010738' order='1' quest_ready='false' />
+<quest id='10071916' order='0' quest_ready='false' />
+<quest id='10012800' order='1' quest_ready='false' />
+<quest id='10012700' order='1' quest_ready='false' />
+<quest id='10071370' end_date='1411070399' order='1' quest_ready='false' />
+<quest id='10071381' order='0' quest_ready='false' />
+<quest id='12107' completed_at='1411052207' completed='true' quest_ready='false' />
+<quest id='10011735' order='1' quest_ready='false' />
+<quest id='10011734' order='1' quest_ready='false' />
+<quest id='12108' counters='0,3,0' order='3' quest_ready='false' />
+<quest id='10075882' end_date='1412193599' order='1' quest_ready='false' />
+<quest id='10075893' order='0' quest_ready='false' />
+<quest id='10010741' order='1' quest_ready='false' />
+<quest id='10010740' order='1' quest_ready='false' />
+<quest id='10071917' end_date='1413230399' order='1' quest_ready='false' />
+<quest id='10071929' order='0' quest_ready='false' />
+<quest id='12152' completed_at='1417914590' completed='true' quest_ready='false' />
+<quest id='10010749' order='1' quest_ready='false' />
+<quest id='10010748' order='1' quest_ready='false' />
+<quest id='10002' completed_at='1444587377' completed='true' quest_ready='true' />
+<quest id='20245' completed_at='1429034994' completed='true' quest_ready='false' />
+<quest id='10073870' end_date='1414267199' order='0' quest_ready='false' />
+<quest id='10073881' order='0' quest_ready='false' />
+<quest id='21308' end_date='1414443599' order='0' quest_ready='false' />
+<quest id='22068' completed_at='1418474766' completed='true' quest_ready='false' />
+<quest id='20238' completed_at='1414967443' completed='true' quest_ready='false' />
+<quest id='10010743' order='1' quest_ready='false' />
+<quest id='10010742' order='1' quest_ready='false' />
+<quest id='10073381' order='0' quest_ready='false' />
+<quest id='10073370' end_date='1415393999' order='1' quest_ready='false' />
+<quest id='20241' completed_at='1429824679' completed='true' quest_ready='false' />
+<quest id='20444' completed_at='1415118110' completed='true' quest_ready='false' />
+<quest id='12102' completed_at='1447831457' completed='true' quest_ready='false' />
+<quest id='22007' completed_at='1416848001' completed='true' quest_ready='false' />
+<quest id='12161' order='0' quest_ready='false' />
+<quest id='10070740' end_date='1416689999' order='1' quest_ready='false' />
+<quest id='10070751' order='0' quest_ready='false' />
+<quest id='22008' completed_at='1416848019' completed='true' quest_ready='false' />
+<quest id='22009' completed_at='1421876369' completed='true' quest_ready='false' />
+<quest id='21320' end_date='1417553999' order='0' started_at='1416921550' quest_ready='false' />
+<quest id='21330' order='0' started_at='1416921550' quest_ready='false' />
+<quest id='20222' completed_at='1416987900' completed='true' quest_ready='false' />
+<quest id='20220' completed_at='1416987937' completed='true' quest_ready='false' />
+<quest id='20221' completed_at='1429920513' completed='true' quest_ready='false' />
+<quest id='10020915' order='1' started_at='1417102351' quest_ready='false' />
+<quest id='10020914' order='1' started_at='1417102351' quest_ready='false' />
+<quest id='20471' order='1' started_at='1417601274' quest_ready='false' />
+<quest id='10103' counters='75,0,0' order='4' started_at='1417689944' quest_ready='false' />
+<quest id='10079' order='4' started_at='1417689944' quest_ready='false' />
+<quest id='10078' completed_at='1449703294' completed='true' quest_ready='true' />
+<quest id='10072' order='4' started_at='1417689944' quest_ready='false' />
+<quest id='10071' order='3' started_at='1417689944' quest_ready='false' />
+<quest id='10070' order='2' started_at='1417689944' quest_ready='false' />
+<quest id='10044' order='0' started_at='1417689944' quest_ready='false' />
+<quest id='10043' order='0' started_at='1417689944' quest_ready='false' />
+<quest id='10042' order='0' started_at='1417689944' quest_ready='false' />
+<quest id='10090' order='3' started_at='1417689944' quest_ready='false' />
+<quest id='10089' order='2' started_at='1417689944' quest_ready='false' />
+<quest id='10081' order='2' started_at='1417689944' quest_ready='false' />
+<quest id='10084' order='3' started_at='1417689944' quest_ready='false' />
+<quest id='10083' order='2' started_at='1417689944' quest_ready='false' />
+<quest id='10004' counters='50,0,0' order='0' started_at='1417689944' quest_ready='false' />
+<quest id='10087' order='3' started_at='1417689944' quest_ready='false' />
+<quest id='10086' order='2' started_at='1417689944' quest_ready='false' />
+<quest id='10109' order='4' started_at='1417689944' quest_ready='false' />
+<quest id='10108' order='3' started_at='1417689944' quest_ready='false' />
+<quest id='10010753' order='1' started_at='1418057482' quest_ready='false' />
+<quest id='10010752' order='1' started_at='1418057482' quest_ready='false' />
+<quest id='20226' completed_at='1430004213' completed='true' quest_ready='false' />
+<quest id='10079070' end_date='1419195599' order='0' started_at='1418306089' quest_ready='false' />
+<quest id='10079082' order='0' started_at='1418306089' quest_ready='false' />
+<quest id='22069' completed_at='1447784072' completed='true' quest_ready='false' />
+<quest id='10010755' order='1' started_at='1419346669' quest_ready='false' />
+<quest id='10010754' order='1' started_at='1419346669' quest_ready='false' />
+<quest id='10073382' end_date='1420318799' order='0' started_at='1419523113' quest_ready='false' />
+<quest id='10073394' order='0' started_at='1419523113' quest_ready='false' />
+<quest id='21332' end_date='1419983999' completed_at='1419888660' completed='true' quest_ready='false' />
+<quest id='21333' end_date='1420070399' completed_at='1419975653' completed='true' quest_ready='false' />
+<quest id='20287' completed_at='1420396167' completed='true' quest_ready='false' />
+<quest id='20282' completed_at='1420666952' completed='true' quest_ready='false' />
+<quest id='20283' completed_at='1420800117' completed='true' quest_ready='false' />
+<quest id='20284' completed_at='1420825252' completed='true' quest_ready='false' />
+<quest id='20285' completed_at='1420911797' completed='true' quest_ready='false' />
+<quest id='12113' order='2' started_at='1420974722' quest_ready='false' />
+<quest id='10072582' end_date='1421701199' order='1' started_at='1421054881' quest_ready='false' />
+<quest id='10072594' order='0' started_at='1421054881' quest_ready='false' />
+<quest id='10010828' order='1' started_at='1421054881' quest_ready='false' />
+<quest id='10010744' order='1' started_at='1421054881' quest_ready='false' />
+<quest id='22010' completed_at='1442267022' completed='true' quest_ready='false' />
+<quest id='20289' completed_at='1430384804' completed='true' quest_ready='false' />
+<quest id='10073906' end_date='1422737999' order='1' started_at='1421919897' quest_ready='false' />
+<quest id='10073918' order='0' started_at='1421919897' quest_ready='false' />
+<quest id='12132' order='4' started_at='1422058132' quest_ready='false' />
+<quest id='20325' order='5' started_at='1422184728' quest_ready='false' />
+<quest id='21346' end_date='1422651599' order='0' started_at='1422269585' quest_ready='false' />
+<quest id='10010747' order='1' started_at='1422521957' quest_ready='false' />
+<quest id='10010746' order='1' started_at='1422521957' quest_ready='false' />
+<quest id='20232' completed_at='1422886687' completed='true' quest_ready='false' />
+<quest id='25128' completed_at='1433770850' completed='true' quest_ready='false' />
+<quest id='20274' completed_at='1435952211' completed='true' quest_ready='false' />
+<quest id='20262' completed_at='1422856773' completed='true' quest_ready='false' />
+<quest id='20263' completed_at='1422856799' completed='true' quest_ready='false' />
+<quest id='20264' completed_at='1422895452' completed='true' quest_ready='false' />
+<quest id='25129' completed_at='1435354442' completed='true' quest_ready='false' />
+<quest id='20291' completed_at='1437085230' completed='true' quest_ready='false' />
+<quest id='20265' completed_at='1422986309' completed='true' quest_ready='false' />
+<quest id='20277' completed_at='1422998659' completed='true' quest_ready='false' />
+<quest id='20266' completed_at='1423044233' completed='true' quest_ready='false' />
+<quest id='20278' completed_at='1423130652' completed='true' quest_ready='false' />
+<quest id='20267' completed_at='1438881050' completed='true' quest_ready='false' />
+<quest id='20279' completed_at='1423174922' completed='true' quest_ready='false' />
+<quest id='10075870' end_date='1423947599' order='1' started_at='1423173741' quest_ready='false' />
+<quest id='10075881' order='0' started_at='1423173741' quest_ready='false' />
+<quest id='20280' completed_at='1423209580' completed='true' quest_ready='false' />
+<quest id='20281' completed_at='1423475988' completed='true' quest_ready='false' />
+<quest id='20353' order='6' started_at='1423267588' quest_ready='false' />
+<quest id='10020913' order='1' started_at='1423505103' quest_ready='false' />
+<quest id='10020912' order='1' started_at='1423505103' quest_ready='false' />
+<quest id='10021330' end_date='1425070799' order='1' started_at='1424375427' quest_ready='false' />
+<quest id='10010750' completed_at='1451069655' completed='true' quest_ready='true' />
+<quest id='12111' completed_at='1435332951' completed='true' quest_ready='false' />
+<quest id='21347' end_date='1425329999' order='0' started_at='1424974067' quest_ready='false' />
+<quest id='10020918' order='1' started_at='1425313624' quest_ready='false' />
+<quest id='10020916' order='1' started_at='1425313624' quest_ready='false' />
+<quest id='25121' completed_at='1425563299' completed='true' quest_ready='false' />
+<quest id='21229' end_date='1426021199' completed_at='1425809916' completed='true' quest_ready='false' />
+<quest id='10273' order='1' started_at='1426506149' quest_ready='false' />
+<quest id='10272' order='1' started_at='1426506149' quest_ready='false' />
+<quest id='10073919' end_date='1427921999' order='0' started_at='1427120970' quest_ready='false' />
+<quest id='10073930' order='0' started_at='1427120970' quest_ready='false' />
+<quest id='25126' completed_at='1442872243' completed='true' quest_ready='false' />
+<quest id='21349' end_date='1428094799' order='0' started_at='1427751159' quest_ready='false' />
+<quest id='21348' completed_at='1427751159' completed='true' quest_ready='false' />
+<quest id='10011435' order='1' started_at='1427751159' quest_ready='false' />
+<quest id='10011434' order='1' started_at='1427751159' quest_ready='false' />
+<quest id='10079194' end_date='1429131599' order='1' started_at='1428326801' quest_ready='false' />
+<quest id='10079205' order='0' started_at='1428326801' quest_ready='false' />
+<quest id='25119' completed_at='1428444708' completed='true' quest_ready='false' />
+<quest id='10010757' order='1' started_at='1428591916' quest_ready='false' />
+<quest id='10010756' order='1' started_at='1428591916' quest_ready='false' />
+<quest id='20246' completed_at='1443834436' completed='true' quest_ready='false' />
+<quest id='12148' completed_at='1443968018' completed='true' quest_ready='false' />
+<quest id='10079270' end_date='1430341199' order='0' started_at='1429535317' quest_ready='false' />
+<quest id='10079282' order='0' started_at='1429535317' quest_ready='false' />
+<quest id='25123' counters='1,0,0' order='3' started_at='1429659846' quest_ready='false' />
+<quest id='20242' order='4' started_at='1429824679' quest_ready='false' />
+<quest id='20227' counters='0,50000,0' order='5' started_at='1430004213' quest_ready='false' />
+<quest id='20290' order='6' started_at='1430384804' quest_ready='false' />
+<quest id='10011439' order='1' started_at='1430418250' quest_ready='false' />
+<quest id='10011438' order='1' started_at='1430418250' quest_ready='false' />
+<quest id='10073942' order='0' started_at='1431010009' quest_ready='false' />
+<quest id='10073931' end_date='1432155599' order='1' started_at='1431346379' quest_ready='false' />
+<quest id='10010759' order='1' started_at='1431591763' quest_ready='false' />
+<quest id='10010758' order='1' started_at='1431591763' quest_ready='false' />
+<quest id='10079370' end_date='1433624399' order='1' started_at='1432810574' quest_ready='false' />
+<quest id='10079381' order='0' started_at='1432810574' quest_ready='false' />
+<quest id='10010761' order='1' started_at='1432810574' quest_ready='false' />
+<quest id='10010760' order='1' started_at='1432810574' quest_ready='false' />
+<quest id='12146' order='7' started_at='1432851708' quest_ready='false' />
+<quest id='10073965' order='0' started_at='1434050071' quest_ready='false' />
+<quest id='10073954' end_date='1435179599' order='0' started_at='1434385339' quest_ready='false' />
+<quest id='10079382' order='1' started_at='1434385339' quest_ready='false' />
+<quest id='10079384' order='1' started_at='1434624139' quest_ready='false' />
+<quest id='25130' completed_at='1444252925' completed='true' quest_ready='false' />
+<quest id='10075670' end_date='1436389199' order='0' started_at='1435569343' quest_ready='false' />
+<quest id='10075682' order='1' started_at='1435569343' quest_ready='false' />
+<quest id='10079386' order='1' started_at='1435569343' quest_ready='false' />
+<quest id='10079385' order='1' started_at='1435569343' quest_ready='false' />
+<quest id='20275' order='8' started_at='1435952211' quest_ready='false' />
+<quest id='21351' end_date='1436734799' order='0' started_at='1436440101' quest_ready='false' />
+<quest id='10073977' order='0' started_at='1436440101' quest_ready='false' />
+<quest id='10073966' end_date='1437598799' order='1' started_at='1436792096' quest_ready='false' />
+<quest id='10073979' order='1' started_at='1436792096' quest_ready='false' />
+<quest id='10073978' order='1' started_at='1436792097' quest_ready='false' />
+<quest id='20292' completed_at='1437906406' completed='true' quest_ready='false' />
+<quest id='12078' order='8' started_at='1437428463' quest_ready='false' />
+<quest id='12157' order='9' started_at='1437988089' quest_ready='false' />
+<quest id='8073978' end_date='1438808399' order='1' started_at='1438012284' quest_ready='false' />
+<quest id='10073989' order='0' started_at='1438012284' quest_ready='false' />
+<quest id='10010768' order='1' started_at='1438250512' quest_ready='false' />
+<quest id='10010767' order='1' started_at='1438250512' quest_ready='false' />
+<quest id='12147' completed_at='1440744463' completed='true' quest_ready='false' />
+<quest id='21350' end_date='1438894799' order='0' started_at='1438609276' quest_ready='false' />
+<quest id='10078392' order='0' started_at='1438880391' quest_ready='false' />
+<quest id='9010767' order='1' started_at='1438880391' quest_ready='false' />
+<quest id='9010768' order='1' started_at='1438880391' quest_ready='false' />
+<quest id='25133' completed_at='1442610707' completed='true' quest_ready='false' />
+<quest id='20293' order='9' started_at='1438881050' quest_ready='false' />
+<quest id='20268' completed_at='1438881146' completed='true' quest_ready='false' />
+<quest id='20269' completed_at='1438932445' completed='true' quest_ready='false' />
+<quest id='20270' completed_at='1438954471' completed='true' quest_ready='false' />
+<quest id='20271' completed_at='1441442008' completed='true' quest_ready='false' />
+<quest id='10078381' end_date='1440104399' order='0' started_at='1439221474' quest_ready='false' />
+<quest id='10020179' order='1' started_at='1439830742' quest_ready='false' />
+<quest id='21352' end_date='1440363599' order='0' started_at='1440091823' quest_ready='false' />
+<quest id='9010770' order='1' started_at='1440091823' quest_ready='false' />
+<quest id='9010769' order='1' started_at='1440091823' quest_ready='false' />
+<quest id='10073990' end_date='1441227599' order='0' started_at='1440412128' quest_ready='false' />
+<quest id='10074001' order='0' started_at='1440412128' quest_ready='false' />
+<quest id='20439' order='6' started_at='1441441854' quest_ready='false' />
+<quest id='12087' completed_at='1441580355' completed='true' quest_ready='false' />
+<quest id='12088' order='10' started_at='1441580355' quest_ready='false' />
+<quest id='10075702' end_date='1442437199' order='0' started_at='1441640921' quest_ready='false' />
+<quest id='10075713' order='0' started_at='1441640921' quest_ready='false' />
+<quest id='10010772' order='1' started_at='1442233375' quest_ready='false' />
+<quest id='10010771' order='1' started_at='1442233375' quest_ready='false' />
+<quest id='25134' order='0' started_at='1442610708' quest_ready='false' />
+<quest id='21116' order='0' started_at='1442748789' quest_ready='false' />
+<quest id='10079206' end_date='1443646799' order='0' started_at='1442854747' quest_ready='false' />
+<quest id='10075700' order='0' started_at='1442854747' quest_ready='false' />
+<quest id='10079217' order='0' started_at='1442854747' quest_ready='false' />
+<quest id='25127' counters='20,0,0' order='1' started_at='1442872243' quest_ready='false' />
+<quest id='21353' end_date='1443387599' order='0' started_at='1443097999' quest_ready='false' />
+<quest id='10010774' order='1' started_at='1443696371' quest_ready='false' />
+<quest id='10010773' order='1' started_at='1443696371' quest_ready='false' />
+<quest id='20247' order='2' started_at='1443834436' quest_ready='false' />
+<quest id='10074013' end_date='1444683599' order='0' started_at='1444038353' quest_ready='false' />
+<quest id='10074012' order='0' started_at='1444038353' quest_ready='false' />
+<quest id='25131' order='7' started_at='1444252925' quest_ready='false' />
+<quest id='21354' end_date='1444597199' completed_at='1444558915' completed='true' quest_ready='false' />
+<quest id='10020178' end_date='1446189933' order='0' started_at='1444980333' quest_ready='false' />
+<quest id='10020151' order='1' started_at='1444980333' quest_ready='false' />
+<quest id='10020160' order='4' started_at='1444980333' quest_ready='false' />
+<quest id='10020159' order='3' started_at='1444980333' quest_ready='false' />
+<quest id='10020158' order='2' started_at='1444980333' quest_ready='false' />
+<quest id='10020157' order='1' started_at='1444980333' quest_ready='false' />
+<quest id='10020174' order='1' started_at='1444980333' quest_ready='false' />
+<quest id='10020156' order='5' started_at='1444980333' quest_ready='false' />
+<quest id='10020155' order='4' started_at='1444980333' quest_ready='false' />
+<quest id='10020154' order='3' started_at='1444980333' quest_ready='false' />
+<quest id='10020153' order='2' started_at='1444980333' quest_ready='false' />
+<quest id='10020152' order='1' started_at='1444980333' quest_ready='false' />
+<quest id='10020177' order='3' started_at='1444980333' quest_ready='false' />
+<quest id='10020176' order='2' started_at='1444980333' quest_ready='false' />
+<quest id='10020175' order='1' started_at='1444980333' quest_ready='false' />
+<quest id='10020168' order='3' started_at='1444980818' quest_ready='false' />
+<quest id='10020167' order='2' started_at='1444980818' quest_ready='false' />
+<quest id='10020166' order='1' started_at='1444980818' quest_ready='false' />
+<quest id='10020165' order='5' started_at='1444980818' quest_ready='false' />
+<quest id='10020164' order='4' started_at='1444980818' quest_ready='false' />
+<quest id='10020163' order='3' started_at='1444980818' quest_ready='false' />
+<quest id='10020162' order='2' started_at='1444980818' quest_ready='false' />
+<quest id='10020161' order='1' started_at='1444980818' quest_ready='false' />
+<quest id='10020173' order='5' started_at='1444980818' quest_ready='false' />
+<quest id='10020172' order='4' started_at='1444980818' quest_ready='false' />
+<quest id='10020171' order='3' started_at='1444980818' quest_ready='false' />
+<quest id='10020170' order='2' started_at='1444980818' quest_ready='false' />
+<quest id='10020169' order='1' started_at='1444980818' quest_ready='false' />
+<quest id='9020185' completed_at='1444980877' completed='true' quest_ready='false' />
+<quest id='10075960' end_date='1446843599' order='0' started_at='1446227173' quest_ready='false' />
+<quest id='10075971' order='0' started_at='1446227173' quest_ready='false' />
+<quest id='10010781' order='1' started_at='1446227173' quest_ready='false' />
+<quest id='10010780' order='1' started_at='1446227173' quest_ready='false' />
+<quest id='10075972' completed_at='1446594775' completed='true' quest_ready='false' />
+<quest id='10076670' end_date='1447793999' order='1' started_at='1447159847' quest_ready='false' />
+<quest id='10076683' order='0' started_at='1447159847' quest_ready='false' />
+<quest id='12083' order='11' started_at='1447159888' quest_ready='false' />
+<quest id='10010783' order='1' started_at='1447766353' quest_ready='false' />
+<quest id='10010782' order='1' started_at='1447766353' quest_ready='false' />
+<quest id='22070' completed_at='1449647401' completed='true' quest_ready='false' />
+<quest id='12103' order='14' started_at='1447831458' quest_ready='false' />
+<quest id='10075690' end_date='1449253061' order='0' started_at='1448389061' quest_ready='false' />
+<quest id='10075691' order='0' started_at='1448389062' quest_ready='false' />
+<quest id='10010785' order='1' started_at='1448624389' quest_ready='false' />
+<quest id='10010784' order='1' started_at='1448624389' quest_ready='false' />
+<quest id='20385' order='7' started_at='1448715662' quest_ready='false' />
+<quest id='10075942' end_date='1449867599' order='0' started_at='1449226108' quest_ready='false' />
+<quest id='10075953' order='1' started_at='1449226108' quest_ready='false' />
+<quest id='21355' end_date='1449781199' counters='0,10000,0' order='0' started_at='1449589318' quest_ready='false' />
+<quest id='22071' order='0' started_at='1449647401' quest_ready='false' />
+<quest id='9980100' end_date='1452027599' kill_time_left="-1907677" completed_at='1450462654' completed='true' quest_ready='false' />
+<quest id='10080100' end_date='1452027599' kill_time_left="-1907677" completed_at='1451158538' completed='true' quest_ready='false' />
+<quest id='10080109' completed_at='1451158552' completed='true' quest_ready='true' />
+<quest id='9980101' end_date='1450817999' kill_time_left="-3117277" order='0' started_at='1450462656' quest_ready='false' />
+<quest id='10080050' end_date='1452027599' kill_time_left="-1907677" completed_at='1451553906' completed='true' quest_ready='false' />
+<quest id='10080060' completed_at='1451553935' completed='true' quest_ready='true' />
+<quest id='9980102' end_date='1451077199' kill_time_left="-2858077" order='0' started_at='1450825787' quest_ready='false' />
+<quest id='10071428' completed_at='1451960292' completed='true' quest_ready='true' />
+<quest id='10080150' end_date='1452027599' kill_time_left="-1907677" completed_at='1451960286' completed='true' quest_ready='false' />
+<quest id='9980103' end_date='1451422799' kill_time_left="-2512477" order='0' started_at='1451084159' quest_ready='false' />
+<quest id='10080011' order='0' started_at='1451401678' quest_ready='false' />
+<quest id='10010787' order='1' started_at='1451401678' quest_ready='false' />
+<quest id='10010786' order='1' started_at='1451401678' quest_ready='false' />
+<quest id='9980104' end_date='1452027599' kill_time_left="-1907677" order='0' started_at='1451463280' quest_ready='false' />
+<quest id='10080000' end_date='1452027599' kill_time_left="-1907677" order='0' started_at='1451463280' quest_ready='false' />
+<quest id='10073943' end_date='1453237199' kill_time_left="-698077" order='0' started_at='1452624884' quest_ready='false' />
+<quest id='10073953' order='0' started_at='1452624884' quest_ready='false' />
+<quest id='10010789' order='1' started_at='1452856462' quest_ready='false' />
+<quest id='10010788' order='1' started_at='1452856462' quest_ready='false' />
+<quest id='10075900' end_date='1454350927' order='0' started_at='1453486927' timeout='415651' quest_ready='false' />
+<quest id='10075721' order='3' started_at='1453486927' quest_ready='false' />
+<quest id='10075720' order='2' started_at='1453486927' quest_ready='false' />
+<quest id='10075719' order='1' started_at='1453486927' quest_ready='false' />
+<quest id='10075730' order='3' started_at='1453486927' quest_ready='false' />
+<quest id='10075729' order='2' started_at='1453486927' quest_ready='false' />
+<quest id='10075728' order='1' started_at='1453486927' quest_ready='false' />
+<quest id='10075916' order='0' started_at='1453486927' quest_ready='false' />
+<quest id='10075723' order='2' started_at='1453486927' quest_ready='false' />
+<quest id='10075722' order='1' started_at='1453486927' quest_ready='false' />
+<quest id='10075727' order='3' started_at='1453486927' quest_ready='false' />
+<quest id='10075726' order='2' started_at='1453486927' quest_ready='false' />
+<quest id='10075725' order='1' started_at='1453486927' quest_ready='false' />
+<quest id='10075731' order='1' started_at='1453486927' quest_ready='false' />
+<quest id='10075733' order='1' started_at='1453486927' quest_ready='false' />
+<quest id='10075732' order='1' started_at='1453486927' quest_ready='false' />
+<quest id='10075901' order='0' started_at='1453486929' quest_ready='false' /></quests><sqbar>{"bar_id":"city_vk_1","parent":null,"version":1,"reward":[{"roll":0,"items":[{"planetarium":{"min_quantity":1}}]}],"steps":{"InstallGame":{"done":1},"Like":{"done":0},"GroupMember":{"done":0,"group_id":18108426},"SteadyPlay":{"done":0,"target":5,"current":8},"FriendsAmount":{"done":0,"target":5}}}</sqbar><items_activity av="1"/><quests_activity><![CDATA[{"10080100":{"finish_time_left":-1907677,"start_end_time_left":-729151304,"kill_time_left":-1907677},"10080050":{"finish_time_left":-1907677,"start_end_time_left":-729151304,"kill_time_left":-1907677},"10080000":{"finish_time_left":-1907677,"start_end_time_left":-729151304,"kill_time_left":-1907677},"9980100":{"finish_time_left":-1907677,"start_end_time_left":-729151304,"kill_time_left":-1907677},"9980101":{"finish_time_left":-3117277,"start_end_time_left":-729151304,"kill_time_left":-3117277},"9980102":{"finish_time_left":-2858077,"start_end_time_left":-729151304,"kill_time_left":-2858077},"9980103":{"finish_time_left":-2512477,"start_end_time_left":-729151304,"kill_time_left":-2512477},"9980104":{"finish_time_left":-1907677,"start_end_time_left":-729151304,"kill_time_left":-1907677},"10080150":{"finish_time_left":-1907677,"start_end_time_left":-729151304,"kill_time_left":-1907677}}]]></quests_activity><neighbors max_neighbors='0' last_suggest_neighbors_date='1444579053'><new_neighbors><friend id='UD_a963b092a411cd59e8c1bc5e' level='64' vip_status_end='0' is_payer='false' exp='1543645' achievement_score='37' christmas_score='0' population='1053250' max_population='1333250' bounds='{"size_x":{"x":37,"y":37,"width":25,"height":25},"size_x_3":{"x":13,"y":13,"width":11,"height":11}}' respect_level='14' request_reward_count='2' owner_room_info='{"rooms":{"room_5":{"available":true,"size_x":21,"size_y":21,"max_population":743375,"population":678260},"room_4":{"available":true,"size_x":9,"size_y":9,"max_population":399140,"population":303220},"room_2":{"available":true,"size_x":9,"size_y":9,"max_population":209160,"population":186195},"room_1":{"available":true,"size_x":15,"size_y":15,"max_population":582600,"population":398450},"room_0":{"available":true,"size_x":25,"size_y":25,"size_x_3":11,"size_y_3":11}}}' send_requests='{}' achievement_bonus='0' social_params='{"UD":"B4D82BA1-BE7B-4E7E-8047-995CADB4BAFB"}' have_gift='false'  city_name="Сан-Даниэле" first_name="" avatar_url="" max_neighbors='0' help_points='12' last_platform='ios' wish_list='11487,11421,11427,10919,11428,12112,11412,11405'  requests='{"visit_domical_acrobatics":{"time":1453553161,"pushed":1453466761,"count":1,"user":["GC_a1a534c50660b7ecc5278910","UD_a0b5c919b3643f2dab339154","UD_6c47281512143171335b41fb","GC_101508fbfad5c88ee1551129","UD_52a9193754e1b47cc45e093d"],"item_id":56617124,"room_id":5},"visit_long_distance_flights":{"time":1453553256,"pushed":1453466856,"count":0,"user":["GC_a1a534c50660b7ecc5278910","UD_a0b5c919b3643f2dab339154","UD_6c47281512143171335b41fb","GC_101508fbfad5c88ee1551129"],"item_id":54699471,"room_id":4},"share_quest70081":{"time":1453553311,"pushed":1453466911,"count":0,"user":["GC_a1a534c50660b7ecc5278910","UD_a0b5c919b3643f2dab339154","UD_6c47281512143171335b41fb","GC_101508fbfad5c88ee1551129","UD_52a9193754e1b47cc45e093d"]},"visit_statement_attic_tragedy":{"time":1453554640,"pushed":1453468240,"count":3,"user":["GC_a1a534c50660b7ecc5278910","UD_a0b5c919b3643f2dab339154","UD_6c47281512143171335b41fb","GC_101508fbfad5c88ee1551129","UD_52a9193754e1b47cc45e093d"],"item_id":54508535,"room_id":0},"visit_project_conference":{"time":1453554656,"pushed":1453468256,"count":0,"user":["GC_a1a534c50660b7ecc5278910","UD_a0b5c919b3643f2dab339154","UD_6c47281512143171335b41fb","GC_101508fbfad5c88ee1551129"],"item_id":57356982,"room_id":0}}' help_items='' friends_top_score = '422'  region="Russia" active="true" next_gift_time='-7961' country_name='Russian Federation' bus_region='Russia'/></new_neighbors></neighbors></country>
