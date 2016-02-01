@@ -220,7 +220,7 @@ foreach($location_data_xml->getElementsByTagName('friends')->item(0)->childNodes
 //                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 //                curl_setopt($ch, CURLOPT_POST, true);
 //                curl_setopt($ch, CURLOPT_POSTFIELDS, "iauth=$iauth&user_id=$user_id&daily_gift=2&room_id=0&serv_ver=1$cached_string&lang=ru&rand=0." . rand(0, 9999999) . "&live_update=true&rn=$rn");
-//                $location_data = gzdecode(curl_exec($ch));
+//                curl_exec($ch);
 //                curl_close($ch);
 //                ++$rn;
 //            }
@@ -322,61 +322,62 @@ function signContract($location_data, $room_id) {
     if ($room_id == 0)
         $buildings_list = array(
             'srnu_factory' => array('contract' => 'radioisotopes_preparations', 'actions' => array('pick', 'put')), //НИЯУ
+
             'institute_of_history_stage1' => array('contract' => 'stratigraphic_studies', 'actions' => array('pick', 'put')), //Институт истории
             'health_palace_stage2' => array('contract' => 'rehabilitation_of_athletes', 'actions' => array('pick', 'put')), //Дворец здоровья
             'urban_sports_center_stage2' => array('contract' => 'tournament_on_mini_football', 'actions' => array('pick', 'put')), //Городской центр спорта
             'mobile_phone_system_center_stage4' => array('contract' => 'ggg_connection', 'actions' => array('pick', 'put')), //Региональный центр сотовой связи
             'sawmill_middle' => array('contract' => 'industrial_wood', 'actions' => array('pick', 'put')), //Лесопырка
-            'naval_station_stage8' => array('contract' => 'patrol_maritime_borders', 'actions' => array('pick', 'put')), //Крейсер
-            'central_port_stage4' => array('contract' => 'freight', 'actions' => array('pick', 'put')), //Центр управления пароходными линиями
-            'sq_city_stage2' => array('contract' => 'trading', 'actions' => array('pick', 'put')), //SQ-Сити
+//            'naval_station_stage8' => array('contract' => 'patrol_maritime_borders', 'actions' => array('pick', 'put')), //Крейсер
+            'central_port_stage4' => array('contract' => 'industrial_fishing', 'actions' => array('pick', 'put')), //Центр управления пароходными линиями
+//            'sq_city_stage2' => array('contract' => 'trading', 'actions' => array('pick', 'put')), //SQ-Сити
             'acting_school_stage1' => array('contract' => 'lesson_of_acting_skills', 'actions' => array('pick', 'put')), //Школа актёрского мастерства
             'mount_vernon_stage1' => array('contract' => 'organization_of_the_state_reception', 'actions' => array('pick', 'put')), //Поместье Маунт-Вернон
             'uaythollsky_palace_stage2' => array('contract' => 'salute_of_guns_combat', 'actions' => array('pick', 'put')), //Уайтхолльский дворец
             'national_center_cinema' => array('contract' => 'awarding_of_prizes', 'actions' => array('pick', 'put')), //Национальный центр кинематографии
-            'lawn_tennis_association_stage1' => array('contract' => 'welcome_participants_tournament', 'contract_for_friends' => 'visit_welcome_participants_tournament', 'actions' => array('pick', 'put')), //Ассоциация тенниса
-            'gothic_castle_stage3' => array('contract' => 'parade_monsters', 'actions' => array('pick', 'put')), //Готический замок
-            'grape_farm_stage3' => array('contract' => 'festival_fr_cuisine', 'actions' => array('pick', 'put')), //Виноградная ферма
-            'polo_club_stage1' => array('contract' => 'education_pony', 'actions' => array('pick', 'put')), //Поло-клуб
-            'fairgrounds_stage2' => array('contract' => 'presentation_supercar', 'actions' => array('pick', 'put')), //Експоцентр
-            'military_research_institute_stage1' => array('contract' => 'introduction_of_protective_artificial_intelligence', 'actions' => array('pick', 'put')), //Институт военных разработок
-            'geodesic_company_stage1' => array('contract' => 'analysis_of_soil', 'actions' => array('pick', 'put')), //Геодезическая компания
-            'gold_mining_company_stage2' => array('contract' => 'enrichment_gold_ore', 'actions' => array('pick', 'put')), //Золотодобывающая корпорация
+            'lawn_tennis_association_stage1' => array('contract' => 'exhibition_history_tennis', 'actions' => array('pick', 'put')), //Ассоциация тенниса
+//            'gothic_castle_stage3' => array('contract' => 'parade_monsters', 'actions' => array('pick', 'put')), //Готический замок
+//            'grape_farm_stage3' => array('contract' => 'festival_fr_cuisine', 'actions' => array('pick', 'put')), //Виноградная ферма
+            'polo_club_stage1' => array('contract' => 'participants_championship', 'contract_for_friends' => 'visit_participants_championship', 'actions' => array('pick', 'put')), //Поло-клуб
+//            'fairgrounds_stage2' => array('contract' => 'presentation_supercar', 'actions' => array('pick', 'put')), //Експоцентр
+//            'military_research_institute_stage1' => array('contract' => 'introduction_of_protective_artificial_intelligence', 'actions' => array('pick', 'put')), //Институт военных разработок
+//            'geodesic_company_stage1' => array('contract' => 'analysis_of_soil', 'actions' => array('pick', 'put')), //Геодезическая компания
+            'gold_mining_company_stage2' => array('contract' => 'investigation_methods_enriching', 'actions' => array('pick', 'put')), //Золотодобывающая корпорация
             'space_research_institute_stage1' => array('contract' => 'develop_interstellar_dating', 'contract_for_friends' => 'visit_develop_interstellar_dating', 'actions' => array('pick', 'put')), //Институт исследований космоса
             'statue_burning_man_stage2' => array('contract' => 'performance_viewpoint', 'actions' => array('pick', 'put')), //Центральная панорама
             'karnak_temple_stage2' => array('contract' => 'discovery_of_cave_painting', 'actions' => array('pick', 'put')), //Карнакский храм
             'pirate_fort_stage1' => array('contract' => 'themed_tours', 'actions' => array('pick', 'put')), //Пиратский форт
             'administration_zoo_final' => array('contract' => 'exhibition_of_birds', 'contract_for_friends' => 'visit_exhibition_of_birds', 'actions' => array('pick', 'put')), //Администрация зоопарка
             'association_rock_and_roll' => array('contract' => 'festival_of_young_rock_musicians', 'contract_for_friends' => 'visit_festival_of_young_rock_musicians', 'actions' => array('pick', 'put')), //Ассоциация рок-н-ролла
-            'club_military_reconstruction_stage2' => array('contract' => 'joust', 'contract_for_friends' => 'visit_joust', 'actions' => array('pick', 'put')), //Центр военно-исторической реконструкции
+//            'club_military_reconstruction_stage2' => array('contract' => 'joust', 'contract_for_friends' => 'visit_joust', 'actions' => array('pick', 'put')), //Центр военно-исторической реконструкции
             'center_black_panther_stage1' => array('contract' => 'seminar_on_fashion_and_art', 'contract_for_friends' => 'visit_seminar_on_fashion_and_art', 'actions' => array('pick', 'put')), //Центр "Чёрная пантера"
-            'colomares_castle_stage3' => array('contract' => 'capture_a_fort', 'contract_for_friends' => 'visit_capture_a_fort', 'actions' => array('pick', 'put')), //Фестивальный замок
+            'colomares_castle_stage3' => array('contract' => 'preparatory_work', 'actions' => array('pick', 'put')), //Фестивальный замок
             'architectural_academy_stage1' => array('contract' => 'architectural_projects_ecology_estimation', 'actions' => array('pick', 'put')), //Архитектурная академия
-            'center_environmental_studies_stage1' => array('contract' => 'international_summit_green_energy', 'actions' => array('pick', 'put')), //Центр изучения окружающей среды
-            'times_square_stage2' => array('contract' => 'show_retro_films', 'actions' => array('pick', 'put')), //Новогодний Таймс-сквер
-            'holidays_agency_stage1' => array('contract' => 'holidays_party', 'contract_for_friends' => 'visit_holidays_party', 'actions' => array('pick', 'put')), //Агентство праздников
+//            'center_environmental_studies_stage1' => array('contract' => 'international_summit_green_energy', 'actions' => array('pick', 'put')), //Центр изучения окружающей среды
+//            'times_square_stage2' => array('contract' => 'show_retro_films', 'actions' => array('pick', 'put')), //Новогодний Таймс-сквер
+//            'holidays_agency_stage1' => array('contract' => 'holidays_party', 'contract_for_friends' => 'visit_holidays_party', 'actions' => array('pick', 'put')), //Агентство праздников
             'scientific_information_center_fyuzion_stage1' => array('contract' => 'development_of_new_safety_systems', 'contract_for_friends' => 'visit_development_of_new_safety_systems', 'actions' => array('pick', 'put')), //Научно-информационный центр "Фьюжн"
-            'megapolis_university_training' => array('contract' => 'term_paper_writing', 'actions' => array('pick', 'put')), //Университет Мегаполиса
-            'swan_theater_stage1' => array('contract' => 'shakespeare_costume_parade', 'contract_for_friends' => 'visit_shakespeare_costume_parade', 'actions' => array('pick', 'put')), //Театр "Лебедь"
+//            'megapolis_university_training' => array('contract' => 'term_paper_writing', 'actions' => array('pick', 'put')), //Университет Мегаполиса
+//            'swan_theater_stage1' => array('contract' => 'shakespeare_costume_parade', 'contract_for_friends' => 'visit_shakespeare_costume_parade', 'actions' => array('pick', 'put')), //Театр "Лебедь"
             'administration_hotel_complex_shima_stage1' => array('contract' => 'inauguration_hotel_shima', 'actions' => array('pick', 'put')), //Администрация отельного комплекса "Шимао"
-            'citys_ecology_institute_stage2' => array('contract' => 'earth_hour', 'actions' => array('pick', 'put')), //Расширение территории института
-            'airbase_stage4' => array('contract' => 'patrol_airspace','actions' => array('pick', 'put')), //Истребитель
+//            'citys_ecology_institute_stage2' => array('contract' => 'earth_hour', 'actions' => array('pick', 'put')), //Расширение территории института
+            'airbase_stage4' => array('contract' => 'pilots_training','actions' => array('pick', 'put')), //Истребитель
             'drifting_station_stage2' => array('contract' => 'grand_opening_loona_park', 'actions' => array('pick', 'put')), //Дрейфующая станция
-            'medical_centre_stage3' => array('contract' => 'innovation_heal_methods_developing', 'contract_for_friends' => 'visit_innovation_heal_methods_developing', 'actions' => array('pick', 'put')), //Институт експериментальной медицины
+            'medical_centre_stage3' => array('contract' => 'medical_conference', 'actions' => array('pick', 'put')), //Институт експериментальной медицины
             'restoration_complex_stage3' => array('contract' => 'sampling_gold', 'actions' => array('pick', 'put')), //Реставрационный комплекс
-            'club_pilots_stage3' => array('contract' => 'championship_airslalom', 'actions' => array('pick', 'put')), //Клуб пилотов
+//            'club_pilots_stage3' => array('contract' => 'championship_airslalom', 'actions' => array('pick', 'put')), //Клуб пилотов
             'sailing_center_stage3' => array('contract' => 'windsurfing', 'contract_for_friends' => 'visit_windsurfing', 'actions' => array('pick', 'put')), //Центр парусного спорта
-            'cruise_company_stage2' => array('contract' => 'solemn_liner_departure', 'contract_for_friends' => 'visit_solemn_liner_departure', 'actions' => array('pick', 'put')), //Круизная компания
-            'institute_of_demography' => array('contract' => 'fitness_marathon', 'contract_for_friends' => 'visit_fitness_marathon', 'actions' => array('pick', 'put')), //Институт демографии
-            'ottawa_convention_centre_stage1' => array('contract' => 'culinary_festival', 'actions' => array('pick', 'put')), //Оттавский комплекс для конференция
-            'noahs_ark_stage2' => array('contract' => 'tour_hindsight', 'contract_for_friends' => 'visit_tour_hindsight', 'actions' => array('pick', 'put')), //Выставочный зал "Ноев Ковчег"
-            'central_station' => array('contract' => 'international_passenger_traffic', 'contract_for_friends' => 'visit_international_passenger_traffic', 'actions' => array('pick', 'put')), //Центральный вокзал
+//            'cruise_company_stage2' => array('contract' => 'solemn_liner_departure', 'contract_for_friends' => 'visit_solemn_liner_departure', 'actions' => array('pick', 'put')), //Круизная компания
+//            'institute_of_demography' => array('contract' => 'fitness_marathon', 'contract_for_friends' => 'visit_fitness_marathon', 'actions' => array('pick', 'put')), //Институт демографии
+//            'ottawa_convention_centre_stage1' => array('contract' => 'culinary_festival', 'actions' => array('pick', 'put')), //Оттавский комплекс для конференция
+            'noahs_ark_stage2' => array('contract' => 'exhibition_life_on_earth', 'actions' => array('pick', 'put')), //Выставочный зал "Ноев Ковчег"
+//            'central_station' => array('contract' => 'international_passenger_traffic', 'contract_for_friends' => 'visit_international_passenger_traffic', 'actions' => array('pick', 'put')), //Центральный вокзал
             'help_centre_final' => array('contract' => 'open_help_centers', 'actions' => array('pick', 'put')), //Единая служба спасения
-            'pyramid' => array('contract' => 'study_of_ancient_artifacts', 'actions' => array('pick', 'put')), //Пирамида
+//            'pyramid' => array('contract' => 'study_of_ancient_artifacts', 'actions' => array('pick', 'put')), //Пирамида
             'rains_palace_stage2' => array('contract' => 'carnival_night_organization', 'contract_for_friends' => 'visit_carnival_night_organization', 'actions' => array('pick', 'put')), //Площадь святого Марка
-            'cryogenic_plant_stage2' => array('contract' => 'replacing_coolant', 'actions' => array('pick', 'put')), //Криогенная установка
-            'center_environmental_studies_stage3' => array('contract' => 'international_summit_green_energy', 'actions' => array('pick', 'put')), //Центр изучения окружающей среды
-            'congress_center_hangzhou_stage2' => array('contract' => 'hydrowave_ocean_clean', 'contract_for_friends' => 'visit_hydrowave_ocean_clean', 'actions' => array('pick', 'put')) //Плавучий екополис
+//            'cryogenic_plant_stage2' => array('contract' => 'christmas_flashmob', 'contract_for_friends' => 'visit_christmas_flashmob', 'actions' => array('pick', 'put')), //Криогенная установка
+//            'center_environmental_studies_stage3' => array('contract' => 'international_summit_green_energy', 'actions' => array('pick', 'put')), //Центр изучения окружающей среды
+//            'congress_center_hangzhou_stage2' => array('contract' => 'hydrowave_ocean_clean', 'contract_for_friends' => 'visit_hydrowave_ocean_clean', 'actions' => array('pick', 'put')) //Плавучий екополис
         );
     elseif ($room_id == 1)
         $buildings_list = array(
@@ -392,13 +393,14 @@ function signContract($location_data, $room_id) {
             'stone_crushing_plant_mining_up1' => array('actions' => array('pick')), //Камнедробильный комплекс
             'rolling_mill_stage3' => array('actions' => array('pick')), //Прокатно-калибровочный цех
             'construction_and_industrial_complex_final' => array('actions' => array('pick')), //Строительно-промышленный комплекс
-            'complex_of_concrete_products_stage2' => array('actions' => array('pick')) //Комплекс железобетонных изделий
+            'complex_of_concrete_products_stage2' => array('actions' => array('pick')), //Комплекс железобетонных изделий
+            'iron_and_steel_works' => array('actions' => array('pick')) //Металлургический комбинат
         );
     elseif ($room_id == 2)
         $buildings_list = array(
-            'island_airport_stage2' => array('contract' => 'local_flights', 'actions' => array('pick', 'put')), //Аэропорт
+//            'island_airport_stage2' => array('contract' => 'local_flights', 'actions' => array('pick', 'put')), //Аэропорт
             'ancient_fort_stage2' => array('actions' => array('pick')), //Старинный форт
-            'hotel_on_water_stage2' => array('contract' => 'press_conference', 'contract_for_friends' => 'visit_press_conference', 'actions' => array('pick', 'put')) //Отель на воде
+//            'hotel_on_water_stage2' => array('contract' => 'press_conference', 'contract_for_friends' => 'visit_press_conference', 'actions' => array('pick', 'put')) //Отель на воде
         );
     /*elseif ($room_id == 3)
         $contract_list = array(
@@ -407,21 +409,21 @@ function signContract($location_data, $room_id) {
     elseif ($room_id == 4)
         $buildings_list = array(
             'airport_gamble_plane2_buildsite' => array('contract' => 'organization_of_jumps', 'actions' => array('pick', 'put')), //Турбовинтовой самолёт
-            'airport_gamble_plane1_stage1' => array('contract' => 'organization_of_jumps', 'actions' => array('pick', 'put')), //Реактивный самолёт
-            'airport_gamble_plane1_stage2' => array('contract' =>  'long_distance_flights', 'contract_for_friends' => 'visit_long_distance_flights', 'actions' => array('pick', 'put')), //Турбореактивный самолёт
-            'gambling_ferry_station_stage1' => array('contract' => 'master_class_paragliding', 'contract_for_friends' => 'visit_master_class_paragliding', 'actions' => array('pick', 'put')), //Паромная станция
-            'casino_lyuminus_hall_stage2' => array('contract' => 'christmas_laser_show', 'actions' => array('pick', 'put')) //Казино "Люминус Холл"
+//            'airport_gamble_plane1_stage1' => array('contract' => 'organization_of_jumps', 'actions' => array('pick', 'put')), //Реактивный самолёт
+//            'airport_gamble_plane1_stage2' => array('contract' =>  'long_distance_flights', 'contract_for_friends' => 'visit_long_distance_flights', 'actions' => array('pick', 'put')), //Турбореактивный самолёт
+            'gambling_ferry_station_stage1' => array('contract' => 'crossing_cable_car', 'actions' => array('pick', 'put')), //Паромная станция
+//            'casino_lyuminus_hall_stage2' => array('contract' => 'christmas_laser_show', 'actions' => array('pick', 'put')) //Казино "Люминус Холл"
         );
     elseif ($room_id == 5)
         $buildings_list = array(
             'srnu_factory' => array('contract' => 'radioisotopes_preparations', 'actions' => array('pick', 'put')), //НИЯУ
             'victory_stadium_stage2' => array('contract' => 'preparation_of_stadiums_for_winter_games', 'actions' => array('pick', 'put')), //Церемониальная площадь
             'media_center_snow_stage1' => array('contract' => 'meeting_competitors', 'actions' => array('pick', 'put')), //Медиа-центр
-            'mountain_hotel_stage1' => array('contract' => 'snowboarding', 'actions' => array('pick', 'put')), //Горный отель
-            'macau_centre_hotel' => array('contract' => 'consilium_architects', 'contract_for_friends' => 'visit_consilium_architects', 'actions' => array('pick', 'put')), //Архитектурный исследовательский комплекс
+//            'mountain_hotel_stage1' => array('contract' => 'snowboarding', 'actions' => array('pick', 'put')), //Горный отель
+            'macau_centre_hotel' => array('contract' => 'deciphering_secret_blueprints', 'actions' => array('pick', 'put')), //Архитектурный исследовательский комплекс
             'mountain_heliport_stage1' => array('contract' => 'helicopter_tour_of_rockies', 'actions' => array('pick', 'put')), //Горный хелипорт
             'area_aerostats_stage2' => array('contract' => 'inflating_balloons', 'actions' => array('pick', 'put')), //Сервисный центр
-            'show_fantasy_park_stage2' => array('contract' => 'festive_hologram_presentation', 'actions' => array('pick', 'put')) //Шоу-площадка "Фантазия"
+            'show_fantasy_park_stage2' => array('contract' => 'pre_christmas_outing', 'actions' => array('pick', 'put')) //Шоу-площадка "Фантазия"
         );
 
     $cached_array = [];
