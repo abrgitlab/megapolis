@@ -1,6 +1,35 @@
-<?xml version="1.0"?><country owner_id='UD_5cd98e974c0fec35013c4790' room_id='0' server_cmd_id='431630' level='204' exp='31952368' christmas_score= '0'  installed=''  current_level_exp='31597000' next_level_exp='31953000' gold='318' coins='678555827' spent_coins='1425101335' auto='1536750' quest_flag='1' version='' adv_counter='0' roll_counter='17057' session_key='1453765398.020018:web166-25173' server_time='1453765918' left_to_end_of_day='76081' next_midnight='74997' room_information='{"rooms":{"room_5":{"available":true,"size_x":41,"size_y":41,"max_population":5632300,"population":5632300},"room_2":{"available":true,"size_x":25,"size_y":25,"max_population":489350,"population":489350},"room_4":{"available":true,"size_x":23,"size_y":23,"max_population":705950,"population":574110},"room_1":{"available":true,"size_x":27,"size_y":27,"max_population":1323150,"population":1323145,"capacity":100,"size_x_2":25,"size_y_2":25},"room_0":{"available":true,"size_x":41,"size_y":41,"size_x_3":41,"size_y_3":41,"size_x_4":41,"size_y_4":41,"size_x_5":41,"size_y_5":41}}}' time_to_top_calculate='508081' time_to_top_update='76081' vote_counter="0" top_updated="1453688898" is_payer='true' last_payment_date='1446448731' next_gifts_time='27523'  speed_test='0'  max_answer_rewards_per_day='30' population='16962702' max_population='18585705' skyscraper_score='' tax='15' achievement_bonus='0' request_reward_count='9' next_limited_request='0' wish_list='11445,10924,12158,10938,10991,11431,12142,11444,10936,15416' shed='15572:1' staff='{"28557896":{"security":"bot","storekeeper":"bot"},"29165634":{"managing_head_office":"bot","telecommunications_engineer":"bot"},"40468796":{"airport_dispatcher":"UD_77a790d198928ea036847f2c","communications_engineer":"bot"},"32742832":{"product_manager":"GC_40397fc6ab46831409f86497","engineer_supporting_networks":"UD_87adeb5c4041f938df19fb7d"},"32661881":{"optimization_engineer":"UD_4e22193d05638c3415f07ff8","call_center_operator":"bot"},"32833583":{"rr_conductor":"bot","rr_manager":"bot","rr_railroader":"bot"},"33574954":{"sawmill_director":"bot","sawmill_doorman":"bot","sawmill_gager":"bot","sawmill_integrator":"bot","sawmill_operator":"bot"},"43992999":{"war_lead":"UD_e5cbbbc342145777e2b3841f","tamburmajor":"bot"},"40526498":{"fitter_riveter":"bot","security_screeners_inspector":"bot"}}'  staff_all='{"shr":{"28557896":{"security":"bot","storekeeper":"bot"},"29165634":{"managing_head_office":"bot","telecommunications_engineer":"bot"},"40468796":{"airport_dispatcher":"UD_77a790d198928ea036847f2c","communications_engineer":"bot"},"32742832":{"product_manager":"GC_40397fc6ab46831409f86497","engineer_supporting_networks":"UD_87adeb5c4041f938df19fb7d"},"32661881":{"optimization_engineer":"UD_4e22193d05638c3415f07ff8","call_center_operator":"bot"},"32833583":{"rr_conductor":"bot","rr_manager":"bot","rr_railroader":"bot"},"33574954":{"sawmill_director":"bot","sawmill_doorman":"bot","sawmill_gager":"bot","sawmill_integrator":"bot","sawmill_operator":"bot"},"43992999":{"war_lead":"UD_e5cbbbc342145777e2b3841f","tamburmajor":"bot"},"40526498":{"fitter_riveter":"bot","security_screeners_inspector":"bot"}}}'  respect='4446' respect_level='37' visitors='{"32833583":["GC_b88112b4546bad308e5334b8","GC_3d9694e6aa29110af3d76366"],"47734112":["UD_87adeb5c4041f938df19fb7d"],"42220806":["UD_87adeb5c4041f938df19fb7d"],"40526464":["UD_87adeb5c4041f938df19fb7d"],"40650060":["UD_87adeb5c4041f938df19fb7d"],"34434487":["UD_87adeb5c4041f938df19fb7d"],"33396838":["GC_3d9694e6aa29110af3d76366"],"42915360":["GC_3d9694e6aa29110af3d76366"],"35919837":["GC_3d9694e6aa29110af3d76366"]}' accelerated_items='' buff_items='{"excavations":113}'  unlocked_items='snow_location_unlock,quest_sport_complex_unlock,quest_naval_station_unlock,tourist_island_unlock,quest_military_unlock,quest_armoured_military_unlock,quest_airbase_unlock,gambling_zone_event_unlock,gambling_zone_unlock,mining_industry_unlock,walking_lake_event_unlock,gambling_mono_unlock,gambling_monorail_up1_unlock,christmas_cruise_unlock,christmas_performance_unlock,christmas_night_unlock,ancient_tower_chimes_unlock,iceberg_in_metropolis_unlock,center_hologram_shows_unlock,center_laser_show_unlock'  resource_options='{"capacity":45,"ticks":{}}' sent_requests='{"request_fuel":{"time":1453852219,"pushed":1453765819,"count":5,"user":[]}}' shooting='{"next_randomize_reward_time":1453840915,"rewards":{"0":"11700:10","1":"11706:50","6":"11701:1000","11":"11701:1000","16":"11700:50","21":"11445:1","23":"11700:100","25":"11445:2","27":"11700:250","29":"11445:2","31":"11706:750","33":"11445:3","35":"13398:1","37":"11700:400","39":"11445:4","41":"11700:400","43":"11445:5","45":"9029923:1","47":"11445:5","49":"11700:500","51":"11445:6","52":"11701:20000","53":"11445:6","54":"11701:40000","55":"12394:1","56":"11701:40000","57":"11706:1500","58":"11703:2","59":"11706:1500","60":"11445:8","61":"11701:60000","62":"11445:8","63":"11701:80000","64":"11706:2000","65":"10192:1","66":"11445:9","67":"10192:1","68":"11445:10","69":"12315:1","70":"11706:2500","71":"12315:1","72":"11706:2500","73":"14225:1","74":"11445:11","75":"9013557:1","76":"11703:4","77":"11706:3000","78":"11703:4","79":"11701:200000","80":"11445:13","81":"11701:250000","82":"11703:5","83":"11701:250000","84":"11445:14","85":"11706:4000","86":"13350:1","87":"11701:300000","88":"13350:1","89":"13351:1","90":"11445:15","91":"11701:350000","92":"11706:10000","93":"11703:6","94":"11706:10000","95":"11445:17","96":"11701:400000","97":"11445:20","98":"13343:1","99":"11701:500000","100":"11703:1000"},"next_free_points_time":1453840915,"today_shots":3,"shooting_version":1,"points":0,"max_points":64,"is_missed":0,"next_free_points_end":74997000,"jackpot_end_date":-94017119}' action_version_key='110' action_time_end='162481' packs='{"sv":110,"end_date":162481,"window_type":"bonus"}'  chest='{"unlock_reward":{},"can_start":false,"duration":-1453765918000,"version":1}' chest_actions='{}'  four_n_actions='{"four_n_action_first":{"v":23,"av":1,"sv":23,"finish_time_left":-701519}}'  lottery='{"version":34,"cost":5}' coins_to_gold2='{"blocks":{"0":{"sets":["treasures_of_pharaohs","abandoned_mine","wild_tribes","amazon_jungle"],"cooldown":0},"1":{"sets":["arctic_expedition","eternal_ice","mariana_trench","volcanic_activity"],"cooldown":0},"2":{"sets":["land_of_vikings","secrets_of_bedouin","lost_ships","pirate_atolls"],"cooldown":0}},"start_date":-1011118,"start_end_date":-701519,"end_date":-697918,"version":17}'  gift_for_payment_version_key='18' gift_for_payment_time_end='-40348319' gift_for_payment_overall_spent='0' gift_for_payment_max_spent='0' refresh_tops_time_end='11281' payment_group='0' last_excavation_time='1449956331' last_excavations='{"maya":1444253083,"greek":1400342129}' in_arpu_top='1' material_action_version_key='40' material_action_time_end='-55900319' discount_locations_time_end='-90042719' automation_action_version_key='5' automation_action_time_end='-92361119' sale_two_plus_one_version_key='1' sale_two_plus_one_time_end='-111469919' every_day='6' group_member='false' account_ballance='0' init_last_activity='1453762184' last_invite_window_bonus_date='1453742044' expand_action_version_key='2' expand_action_time_end='-104629919' shop_discount_time_end='0' shop_discount_unique_key='no' simple_shop_discount_time_end='-75873119' tokens_end_date='-95485919' bonus_answer_rewards_time_end='0' bonus_answer_rewards_per_day='0' date_last_viewed_updates='' need_material='led_lights' already_voting='false' voting_rewards='' vip_reward_time_left='0' can_give_vip_daily_reward='false' vip_status_end='0'  vip_status_action_end_new='0'  bus_region='Russia' region='Russia'  ra_duration="86400" ruby_action='{"sv":50,"av":1}' drum_action='{"sv":44,"bonus":0,"version":0,"end_date":0}'  offer_account_balance='0' can_start_certificate_offer='true'  one_time_offer_reward_material='led_lights'  starter_pack=''  can_start_expand_sale='false' expand_sale_end_date='-1453765918000' expand_sale_already_bought=''  heliport_capacity='0' points_visit='0' waiting_friends_capacity='18' candy_token='0' confetti_token='0' christmas_toy_token='0' sparklers_token='0' teddy_bear_token='0' christmas_level='0' bronze_toy='0' silver_toy='0' gold_toy='0' local_strength='0' local_diamond_score='0' rooms_resources='heliport_capacity,points_visit,waiting_friends_capacity,candy_token,confetti_token,christmas_toy_token,sparklers_token,teddy_bear_token,christmas_level,bronze_toy,silver_toy,gold_toy,local_strength,local_diamond_score' alien_artifact='{"version":1,"end":0,"name":"alien_artifact"}' vip_contracts='{"version":0,"end_date":0}' escaped_robots='{"version":21,"end_date":0,"robot_index":6,"start_date":-6835918}' investment_fund_time_end='2012-10-12 23:59:59' investment_fund_version_key='1' sea_investment_fund_time_end='2012-12-11 23:59:59' sea_investment_fund_version_key='1' pearl_investment_fund_time_end='2013-05-08 23:59:59' pearl_investment_fund_version_key='3' sea_current_fund_version_key='0' pearl_current_fund_version_key='0' current_fund_version_key='0' daily_deal='{"is_active":true,"version":0,"reward_id":0,"buy_counter":0}'  room_staff='{"GC_3d9694e6aa29110af3d76366":{"item_id":39052472,"material_id":12162,"contract_id":15306,"time_end":85428},"-42":{"item_id":39052472,"material_id":12162,"contract_id":15306,"time_end":86154},"-41":{"item_id":39052472,"material_id":12161,"contract_id":15306,"time_end":86156},"-43":{"item_id":39052472,"material_id":12162,"contract_id":15306,"time_end":86153}}' sales='{"sale_materials_2016_01_24":{"time":481,"items":[],"buy_count":0}}' payment_bonus_action_version_key='8' payment_bonus_action_time_end='-44077919' sale_investor='{"action_time_left":0,"server_version":null}' competitions='[{"id":92000,"rating":0,"calculated":true,"global":0,"regional":0}]' conclusion_fortune_time_end='-70861919' conclusion_fortune_version_key='0' support_shed_functionality='true' support_shed_at_shop='false' geoip_city_name='Krasnodar'  geoip_timezone='Europe/Volgograd'  country_name='Russian Federation'    gambling_train='{"id_seq":1,"items":{"56848191":{"list":{"1":{"item_id":10060049,"state":0}}}}}' beltway='' city_name=" Дїмонополіс" first_name="Дмитрий" settings='{"m_next_level_checker_@_last_level_social_quantum_auth_UD_5cd98e974c0fec35013c4790":204,"m_room_1_2_@_showed":true,"m_repect_level_checker_@_last_level_social_quantum_auth_UD_5cd98e974c0fec35013c4790":37,"m_next_level_checker_@_last_level_social_quantum_auth_GC_da1a2d8b978d793a3c9b5ae2":106,"m_repect_level_checker_@_last_level_social_quantum_auth_GC_da1a2d8b978d793a3c9b5ae2":28,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_9":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_10":true,"room_1_2":"viewed","cross_promo_SQA_@_announced":16788,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_13":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_14":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_15":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_16":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_17":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_18":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_19":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_20":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_21":true,"animation":true,"sound":true,"music":true,"community_joint":false,"last_updated":"","zoom":1,"sbrf_wall_posted":false}'   invite_points_new='0'    next_tick='431500' ><field   zero_x='29' zero_y='29' size_x='70' size_y='70' bounds='{&quot;size_x&quot;:{&quot;x&quot;:29,&quot;y&quot;:29,&quot;width&quot;:41,&quot;height&quot;:41},&quot;size_x_3&quot;:{&quot;x&quot;:-17,&quot;y&quot;:-17,&quot;width&quot;:41,&quot;height&quot;:41},&quot;size_x_4&quot;:{&quot;x&quot;:52,&quot;y&quot;:-34,&quot;width&quot;:41,&quot;height&quot;:41},&quot;size_x_5&quot;:{&quot;x&quot;:31,&quot;y&quot;:97,&quot;width&quot;:41,&quot;height&quot;:41}}' default_bounds='{&quot;size_x&quot;:{&quot;x&quot;:45,&quot;y&quot;:45,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_2&quot;:{&quot;x&quot;:15,&quot;y&quot;:45,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_3&quot;:{&quot;x&quot;:15,&quot;y&quot;:15,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_4&quot;:{&quot;x&quot;:52,&quot;y&quot;:-2,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_5&quot;:{&quot;x&quot;:31,&quot;y&quot;:97,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_6&quot;:{&quot;x&quot;:118,&quot;y&quot;:30,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_7&quot;:{&quot;x&quot;:13,&quot;y&quot;:97,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_8&quot;:{&quot;x&quot;:-42,&quot;y&quot;:41,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_9&quot;:{&quot;x&quot;:74,&quot;y&quot;:-138,&quot;width&quot;:9,&quot;height&quot;:9}}' ><apartment_versailles_real id='44899675' x='-16' y='6' process_end='13527000'     state='3'  />
-<condo_new id='30079418' x='58' y='54' process_end='17172000'     state='3'  />
-<living_complex_osaka_real id='48722071' x='-5' y='3'  output_fill='1240'    state='2'  />
+<?xml version="1.0"?><country owner_id='UD_5cd98e974c0fec35013c4790' room_id='0' server_cmd_id='473161' level='208' exp='33282532' christmas_score= '0'  installed=''  current_level_exp='33033000' next_level_exp='33397000' gold='484' coins='705863258' spent_coins='1486880215' auto='1669662' quest_flag='1' version='' adv_counter='0' roll_counter='17163' session_key='1454812501.6477404:web175-6892' server_time='1454811845' left_to_end_of_day='66954' next_midnight='65870' room_information='{"rooms":{"room_5":{"available":true,"size_x":41,"size_y":41,"max_population":5632300,"population":5632300},"room_2":{"available":true,"size_x":25,"size_y":25,"max_population":512400,"population":512395},"room_4":{"available":true,"size_x":23,"size_y":23,"max_population":748250,"population":657070},"room_1":{"available":true,"size_x":27,"size_y":27,"max_population":1326650,"population":1326650,"capacity":149,"size_x_2":25,"size_y_2":25},"room_0":{"available":true,"size_x":41,"size_y":41,"size_x_3":41,"size_y_3":41,"size_x_4":41,"size_y_4":41,"size_x_5":41,"size_y_5":41}}}' time_to_top_calculate='66954' time_to_top_update='66954' vote_counter="0" top_updated="1454726432" is_payer='true' last_payment_date='1454675901' next_gifts_time='720'  speed_test='0'  max_answer_rewards_per_day='30' population='17711217' max_population='19227205' skyscraper_score='' tax='15' achievement_bonus='0' request_reward_count='5' next_limited_request='0' wish_list='10970,10895,10957,10935,15460,11470,15436,15419,11429,12189' shed='15572:1' staff='{"28557896":{"security":"bot","storekeeper":"bot"},"29165634":{"managing_head_office":"bot","telecommunications_engineer":"bot"},"40468796":{"airport_dispatcher":"UD_77a790d198928ea036847f2c","communications_engineer":"bot"},"32742832":{"product_manager":"GC_40397fc6ab46831409f86497","engineer_supporting_networks":"UD_87adeb5c4041f938df19fb7d"},"32661881":{"optimization_engineer":"UD_4e22193d05638c3415f07ff8","call_center_operator":"bot"},"32833583":{"rr_conductor":"bot","rr_manager":"bot","rr_railroader":"bot"},"33574954":{"sawmill_director":"bot","sawmill_doorman":"bot","sawmill_gager":"bot","sawmill_integrator":"bot","sawmill_operator":"bot"},"43992999":{"war_lead":"UD_e5cbbbc342145777e2b3841f","tamburmajor":"bot"},"40526498":{"fitter_riveter":"bot","security_screeners_inspector":"bot"},"47149349":{"broker":"bot","executive_director":"bot","financial_analyst":"bot","financial_operator":"bot"}}'  staff_all='{"shr":{"28557896":{"security":"bot","storekeeper":"bot"},"29165634":{"managing_head_office":"bot","telecommunications_engineer":"bot"},"40468796":{"airport_dispatcher":"UD_77a790d198928ea036847f2c","communications_engineer":"bot"},"32742832":{"product_manager":"GC_40397fc6ab46831409f86497","engineer_supporting_networks":"UD_87adeb5c4041f938df19fb7d"},"32661881":{"optimization_engineer":"UD_4e22193d05638c3415f07ff8","call_center_operator":"bot"},"32833583":{"rr_conductor":"bot","rr_manager":"bot","rr_railroader":"bot"},"33574954":{"sawmill_director":"bot","sawmill_doorman":"bot","sawmill_gager":"bot","sawmill_integrator":"bot","sawmill_operator":"bot"},"43992999":{"war_lead":"UD_e5cbbbc342145777e2b3841f","tamburmajor":"bot"},"40526498":{"fitter_riveter":"bot","security_screeners_inspector":"bot"},"47149349":{"broker":"bot","executive_director":"bot","financial_analyst":"bot","financial_operator":"bot"}}}'  respect='13328' respect_level='37' visitors='{"32833583":["UD_a144c5b83b18cb00f6730d6b","GC_b88112b4546bad308e5334b8","GC_25efadae997d8eaae9907c2a","UD_0f58411f7b8b14e19abde9f4"],"56637649":["UD_a144c5b83b18cb00f6730d6b","UD_0f58411f7b8b14e19abde9f4"],"33396838":["UD_a144c5b83b18cb00f6730d6b","UD_0f58411f7b8b14e19abde9f4"],"47734112":["UD_a144c5b83b18cb00f6730d6b","UD_0f58411f7b8b14e19abde9f4"],"42765294":["UD_a144c5b83b18cb00f6730d6b"],"59639361":["UD_a144c5b83b18cb00f6730d6b"],"30870702":["UD_a144c5b83b18cb00f6730d6b"],"39269886":["UD_a144c5b83b18cb00f6730d6b"],"59176631":["UD_a144c5b83b18cb00f6730d6b"],"40650060":["UD_a144c5b83b18cb00f6730d6b"],"34434487":["UD_a144c5b83b18cb00f6730d6b"]}' accelerated_items='' buff_items='{"excavations":122}'  unlocked_items='snow_location_unlock,quest_sport_complex_unlock,quest_naval_station_unlock,tourist_island_unlock,quest_military_unlock,quest_armoured_military_unlock,quest_airbase_unlock,gambling_zone_event_unlock,gambling_zone_unlock,mining_industry_unlock,walking_lake_event_unlock,gambling_mono_unlock,gambling_monorail_up1_unlock,christmas_cruise_unlock,christmas_performance_unlock,christmas_night_unlock,ancient_tower_chimes_unlock,iceberg_in_metropolis_unlock,center_hologram_shows_unlock,center_laser_show_unlock'  resource_options='{"capacity":45,"ticks":{}}' sent_requests='{"request_fuel":{"time":1454897830,"pushed":1454811430,"count":5,"user":[]}}' shooting='{"next_randomize_reward_time":1454877715,"rewards":{"0":"11701:500","1":"11706:50","6":"11701:1000","11":"12123:1","16":"11700:100","21":"12123:1","23":"11700:100","25":"12123:2","27":"11700:250","29":"11701:5000","31":"11706:750","33":"12123:3","35":"13398:1","37":"11700:400","39":"12123:4","41":"11701:10000","43":"11706:1000","45":"11700:500","47":"12123:5","49":"11700:500","51":"12123:6","52":"11701:20000","53":"10190:1","54":"11701:40000","55":"12394:1","56":"11701:40000","57":"11706:1500","58":"11703:2","59":"11706:1500","60":"12123:8","61":"14233:1","62":"11706:2000","63":"14233:1","64":"12123:9","65":"11701:80000","66":"11703:3","67":"10192:1","68":"11703:3","69":"11701:100000","70":"11706:2500","71":"12315:1","72":"11706:2500","73":"14225:1","74":"12123:11","75":"11706:3000","76":"12123:12","77":"11706:3000","78":"12123:12","79":"11701:200000","80":"12123:13","81":"11701:250000","82":"11706:4000","83":"11701:250000","84":"11703:5","85":"11706:4000","86":"30394:1","87":"11706:6000","88":"30394:1","89":"11701:350000","90":"12123:15","91":"11703:6","92":"11706:10000","93":"11703:6","94":"11701:400000","95":"12123:17","96":"11701:500000","97":"11703:7","98":"13343:1","99":"12123:20","100":"11703:1000"},"next_free_points_time":1454877715,"today_shots":3,"shooting_version":1,"points":0,"max_points":64,"is_missed":0,"next_free_points_end":65870000,"jackpot_end_date":-95063046}' action_version_key='110' action_time_end='0' packs='{"sv":110,"end_date":0,"window_type":"bonus"}'  chest='{"unlock_reward":{},"can_start":false,"duration":-1454811845000,"version":1}' chest_actions='{}'  four_n_actions='{"four_n_action_first":{"v":23,"av":1,"sv":23,"finish_time_left":-1747446}}'  lottery='{"version":33,"cost":0}' coins_to_gold2='{"blocks":{},"start_date":16555,"start_end_date":326154,"end_date":329755,"version":18}'  gift_for_payment_version_key='18' gift_for_payment_time_end='0' gift_for_payment_overall_spent='0' gift_for_payment_max_spent='0' refresh_tops_time_end='2154' payment_group='0' last_excavation_time='1449956331' last_excavations='{"maya":1444253083,"greek":1400342129}' in_arpu_top='1' material_action_version_key='40' material_action_time_end='-56946246' discount_locations_time_end='-91088646' automation_action_version_key='5' automation_action_time_end='-93407046' sale_two_plus_one_version_key='1' sale_two_plus_one_time_end='-112515846' every_day='18' group_member='false' account_ballance='0' init_last_activity='1454803168' last_invite_window_bonus_date='1454769914' expand_action_version_key='2' expand_action_time_end='-105675846' shop_discount_time_end='0' shop_discount_unique_key='no' simple_shop_discount_time_end='-76919046' tokens_end_date='-96531846' bonus_answer_rewards_time_end='0' bonus_answer_rewards_per_day='0' date_last_viewed_updates='' need_material='amplifier' already_voting='false' voting_rewards='' vip_reward_time_left='0' can_give_vip_daily_reward='false' vip_status_end='0'  vip_status_action_end_new='0'  bus_region='Russia' region='Russia'  ra_end_date="44399" ra_duration="86400" ra_type="0" ra_version="52" ra_extended_rewards_version="52" ruby_action='{"sv":52,"av":1,"type":"0","extended_rewards_version":52,"finish_time_left":44399,"v":52}' drum_action='{"sv":46,"bonus":0,"version":0,"end_date":0}'  offer_account_balance='0' can_start_certificate_offer='true'  one_time_offer_reward_material='underground_tanks'  starter_pack=''  can_start_expand_sale='false' expand_sale_end_date='-1454811845000' expand_sale_already_bought=''  heliport_capacity='0' points_visit='0' waiting_friends_capacity='18' candy_token='0' confetti_token='0' christmas_toy_token='0' sparklers_token='0' teddy_bear_token='0' christmas_level='0' bronze_toy='0' silver_toy='0' gold_toy='0' local_strength='0' local_diamond_score='0' rooms_resources='heliport_capacity,points_visit,waiting_friends_capacity,candy_token,confetti_token,christmas_toy_token,sparklers_token,teddy_bear_token,christmas_level,bronze_toy,silver_toy,gold_toy,local_strength,local_diamond_score' alien_artifact='{"version":1,"end":0,"name":"alien_artifact"}' vip_contracts='{"version":0,"end_date":0}' escaped_robots='{"version":21,"end_date":0,"robot_index":6,"start_date":-7881845}' investment_fund_time_end='2012-10-12 23:59:59' investment_fund_version_key='1' sea_investment_fund_time_end='2012-12-11 23:59:59' sea_investment_fund_version_key='1' pearl_investment_fund_time_end='2013-05-08 23:59:59' pearl_investment_fund_version_key='3' sea_current_fund_version_key='0' pearl_current_fund_version_key='0' current_fund_version_key='0' daily_deal='{"is_active":true,"version":0,"reward_id":0,"buy_counter":0}'  room_staff='{"GC_3d9694e6aa29110af3d76366":{"item_id":39052472,"material_id":12161,"contract_id":15306,"time_end":25960},"-42":{"item_id":39052472,"material_id":12161,"contract_id":15306,"time_end":44415},"-41":{"item_id":39052472,"material_id":12162,"contract_id":15306,"time_end":44417},"-43":{"item_id":39052472,"material_id":12161,"contract_id":15306,"time_end":44413},"UD_2894fa5d5b5a63dcb6d0a0f4":{"item_id":39052472,"material_id":12162,"contract_id":15306,"time_end":72110},"UD_a144c5b83b18cb00f6730d6b":{"item_id":39052472,"material_id":12161,"contract_id":15306,"time_end":72110}}' sales='{"sale_materials_2016_02_07":{"time":164154,"items":[],"buy_count":0}}' payment_bonus_action_version_key='8' payment_bonus_action_time_end='-45123846' sale_investor='{"action_time_left":0,"server_version":null}' competitions='[{"id":92000,"rating":0,"calculated":true,"global":0,"regional":0}]' conclusion_fortune_time_end='-71907846' conclusion_fortune_version_key='0' support_shed_functionality='true' support_shed_at_shop='false' geoip_timezone='Europe/Moscow'  country_name='Russian Federation'    gambling_train='{"id_seq":1,"items":{"56848191":{"list":{"1":{"item_id":10060049,"state":0}}}}}' beltway='' city_name=" Дїмонополіс" first_name="Дмитрий" settings='{"m_next_level_checker_@_last_level_social_quantum_auth_UD_5cd98e974c0fec35013c4790":208,"m_room_1_2_@_showed":true,"m_repect_level_checker_@_last_level_social_quantum_auth_UD_5cd98e974c0fec35013c4790":37,"m_next_level_checker_@_last_level_social_quantum_auth_GC_da1a2d8b978d793a3c9b5ae2":106,"m_repect_level_checker_@_last_level_social_quantum_auth_GC_da1a2d8b978d793a3c9b5ae2":28,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_9":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_10":true,"room_1_2":"viewed","cross_promo_SQA_@_announced":16788,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_13":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_14":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_15":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_16":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_17":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_18":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_19":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_20":true,"m_escaped_social_quantum_auth_UD_5cd98e974c0fec35013c4790_@_version_21":true,"animation":true,"sound":true,"music":true,"community_joint":false,"last_updated":"","zoom":1,"sbrf_wall_posted":false}'   invite_points_new='0'    next_tick='725500' ><field   zero_x='29' zero_y='29' size_x='70' size_y='70' bounds='{&quot;size_x&quot;:{&quot;x&quot;:29,&quot;y&quot;:29,&quot;width&quot;:41,&quot;height&quot;:41},&quot;size_x_3&quot;:{&quot;x&quot;:-17,&quot;y&quot;:-17,&quot;width&quot;:41,&quot;height&quot;:41},&quot;size_x_4&quot;:{&quot;x&quot;:52,&quot;y&quot;:-34,&quot;width&quot;:41,&quot;height&quot;:41},&quot;size_x_5&quot;:{&quot;x&quot;:31,&quot;y&quot;:97,&quot;width&quot;:41,&quot;height&quot;:41}}' default_bounds='{&quot;size_x&quot;:{&quot;x&quot;:45,&quot;y&quot;:45,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_2&quot;:{&quot;x&quot;:15,&quot;y&quot;:45,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_3&quot;:{&quot;x&quot;:15,&quot;y&quot;:15,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_4&quot;:{&quot;x&quot;:52,&quot;y&quot;:-2,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_5&quot;:{&quot;x&quot;:31,&quot;y&quot;:97,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_6&quot;:{&quot;x&quot;:118,&quot;y&quot;:30,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_7&quot;:{&quot;x&quot;:13,&quot;y&quot;:97,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_8&quot;:{&quot;x&quot;:-42,&quot;y&quot;:41,&quot;width&quot;:9,&quot;height&quot;:9},&quot;size_x_9&quot;:{&quot;x&quot;:74,&quot;y&quot;:-138,&quot;width&quot;:9,&quot;height&quot;:9}}' ><radio_station id='32833679' x='52' y='53' process_end='47589000' output_fill='2000'    state='4'  />
+<geophysical_survey_megapolis id='60722836' x='45' y='110' process_end='13682000' output_fill='5400'    state='4'  />
+<crystallography_center id='60722811' x='69' y='125' process_end='18788000' output_fill='4400'    state='4'  />
+<business_centre_montreal_buildsite id='60722681' x='57' y='-2'      state='2'  />
+<skyscraper_front_street id='60722210' x='69' y='127' process_end='20222000' output_fill='50600'    state='4'  />
+<sculpture_fiberwave id='60722186' x='44' y='99'  output_fill='5000'    state='2'  />
+<pittsburgh_skyscraper id='60722165' x='37' y='110' process_end='16560000' output_fill='132300'    state='4'  />
+<cathedral_santa_prisca_reward id='60680932' x='34' y='106'  output_fill='21000'    state='4' rotation='true' />
+<japanese_cafe id='41924920' x='66' y='51' process_end='2602000' output_fill='2100'    state='4'  />
+<apartments_union_square id='60587950' x='63' y='127'  output_fill='1000'    state='2'  />
+<skyscraper_front_street id='60587928' x='69' y='131' process_end='18788000' output_fill='50600'    state='4'  />
+<pittsburgh_skyscraper id='60587921' x='63' y='129' process_end='7221000' output_fill='132300'    state='4' rotation='true' />
+<monetary_fund_megapolis_stage1 id='51486001' x='181' y='-65'  contract_output='10015369' input_fill='11453:2'    state='4'  />
+<tower_spinnaker_real id='48078022' x='18' y='11' process_end='14640000' output_fill='12500'    state='4' rotation='true' />
+<water_slide_pool_new_real id='47805804' x='-14' y='-2' process_end='14640000' output_fill='14000'    state='4'  />
+<venetian_masks_workshop id='35862765' x='53' y='53' process_end='14640000' output_fill='2200'    state='4'  />
+<national_museum_zayed_reward id='60400489' x='37' y='112' process_end='31693000' output_fill='52500'    state='4'  />
+<balmoral_reward id='60343786' x='37' y='115' process_end='4449000' output_fill='18500'    state='4'  />
+<log_hut id='28198968' x='63' y='51'  output_fill='10'    state='2'  />
+<log_hut id='28199358' x='63' y='50'  output_fill='10'    state='2'  />
+<log_hut_tutorial id='28199051' x='63' y='53'  output_fill='10'    state='2'  />
+<log_hut id='28199387' x='63' y='54'  output_fill='10'    state='2'  />
+<log_hut id='28198969' x='63' y='52'  output_fill='10'    state='2'  />
+<biebrich_tower id='60323362' x='52' y='118' process_end='4449000' output_fill='37200'    state='4'  />
+<nibelungen_gates id='60323360' x='34' y='110'  output_fill='26700'    state='2'  />
+<villa_jorg_palace_real id='54990077' x='12' y='-8'  output_fill='1000'    state='2'  />
+<hotel id='28199196' x='60' y='56'  output_fill='75'    state='2'  />
+<living_complex_osaka_real id='55299301' x='7' y='-11'  output_fill='1240'    state='2'  />
+<bungalow_siena id='28239234' x='58' y='50'  output_fill='20'    state='2'  />
+<apartment_versailles_real id='44899675' x='-16' y='6'  output_fill='740'    state='2'  />
+<condo_new id='30079418' x='58' y='54'  output_fill='200'    state='2'  />
+<living_complex_osaka_real id='48722071' x='-5' y='3' process_end='24607000'     state='3'  />
 <advanced_water_tower2_was_new id='60116333' x='65' y='101'  output_fill='4500'    state='2'  />
 <advanced_water_tower2_was_new id='60116303' x='66' y='101'  output_fill='4500'    state='2'  />
 <advanced_water_tower2_was_new id='60116273' x='65' y='100'  output_fill='4500'    state='2'  />
@@ -16,17 +45,17 @@
 <beltway_aquamarine_buildsite id='59993969' x='80' y='-50'  output_fill='6500' input_fill='11494:3'  coins_left='0'  state='2'  />
 <beltway_tunnel_exit5_buildsite id='59993963' x='96' y='-47'      state='2'  />
 <beltway_entry_aquapolis_buildsite id='59993962' x='116' y='-47'      state='2'  />
-<beltway_aquapolis_buildsite id='59993961' x='123' y='-50'   input_fill='10987:1,11473:3,15605:4'   state='2'  />
-<beltway_exit_aquapolis_buildsite id='59993960' x='135' y='-47'      state='2'  />
+<beltway_aquapolis_buildsite id='59993961' x='123' y='-50'   input_fill='10987:1,11473:3,15605:7'   state='2'  />
+<beltway_exit_aquapolis_buildsite id='59993960' x='135' y='-47'   input_fill='10901:2'   state='2'  />
 <coral_island_left_exit_buildsite id='59993959' x='161' y='-47'      state='2'  />
 <beltway_coral_island_buildsite id='59993958' x='156' y='-41'   input_fill='12104:5,11483:1'   state='2'  />
 <coral_island_right_exit_buildsite id='59993955' x='172' y='-31'      state='2'  />
 <beltway_tunnel_exit4_buildsite id='59993954' x='192' y='-13'      state='2'  />
 <beltway_greip_bridge_buildsite id='59993953' x='200' y='-3'   input_fill='10982:4'   state='2'  />
 <beltway_suspension_bridge_exit_buildsite id='59993696' x='203' y='75'      state='2'  />
-<beltway_boomslang_buildsite id='59993597' x='179' y='90'   input_fill='11432:3,10937:2'   state='2'  />
-<beltway_rinofis_buildsite id='59993596' x='153' y='106'   input_fill='15590:4'   state='2'  />
-<beltway_stone_tunnel_entry_buildsite id='59993553' x='135' y='123'      state='2'  />
+<beltway_boomslang_buildsite id='59993597' x='179' y='90'   input_fill='10937:2,11432:5'   state='2'  />
+<beltway_rinofis_buildsite id='59993596' x='153' y='106'   input_fill='15590:5'   state='2'  />
+<beltway_stone_tunnel_entry_buildsite id='59993553' x='135' y='123'   input_fill='10901:1'   state='2'  />
 <beltway_stone_tunnel_exit_buildsite id='59993552' x='111' y='146'      state='2'  />
 <beltway_tiflops_buildsite id='59993551' x='102' y='155'      state='2'  />
 <beltway_gelicon_buildsite id='59993392' x='80' y='161'  output_fill='4000' input_fill='11486:3'  coins_left='0'  state='2'  />
@@ -37,174 +66,170 @@
 <beltway_krite_buildsite id='59992840' x='-103' y='79'      state='2'  />
 <beltway_guron_buildsite id='59992785' x='-39' y='146'      state='2'  />
 <beltway_novum_buildsite id='59992765' x='-32' y='153'  output_fill='4000'   coins_left='0'  state='2'  />
-<villa_casa_son_vida_real id='45380387' x='-8' y='-3' process_end='6325000'     state='3'  />
-<residential_complex_forte_grande_new_art_real id='44454659' x='-11' y='19' process_end='10539000'     state='3'  />
-<business_hotel_sello_real id='44899685' x='1' y='7' process_end='459000'     state='3'  />
-<manage_space_civilizations id='56245375' x='42' y='132' process_end='26953000' output_fill='4900'    state='4'  />
-<center_environmental_studies_stage3 id='45863373' x='-81' y='11'  contract_output='10015166'     state='4'  />
+<villa_casa_son_vida_real id='45380387' x='-8' y='-3' process_end='10210000'     state='3'  />
+<residential_complex_forte_grande_new_art_real id='44454659' x='-11' y='19'  output_fill='1300'    state='2'  />
+<business_hotel_sello_real id='44899685' x='1' y='7'  output_fill='580'    state='2'  />
+<manage_space_civilizations id='56245375' x='42' y='132' process_end='4449000' output_fill='4900'    state='4'  />
+<center_environmental_studies_stage3 id='45863373' x='-81' y='11' process_end='762000'   contract_input='10015166'   state='3'  />
 <advanced_water_tower2_was_new id='59763733' x='63' y='98'  output_fill='4500'    state='2'  />
 <advanced_water_tower2_was_new id='59763732' x='64' y='98'  output_fill='4500'    state='2'  />
-<service_department id='59718854' x='34' y='112' process_end='16154000' output_fill='48800'    state='4'  />
-<cultural_center_cobb_reward id='59087462' x='65' y='129' process_end='16155000' output_fill='55000'    state='4'  />
-<balmoral_reward id='59675116' x='55' y='122' process_end='26956000' output_fill='18500'    state='4'  />
-<institute_innovative_technology_stage1 id='59639396' x='2' y='-99' process_end='16157000' output_fill='15000'    state='4'  />
-<energy_extraction_platform_stage2 id='59639395' x='18' y='-105' process_end='3887000' output_fill='60000'    state='4'  />
-<station_hydraulic_generators_stage1 id='59639394' x='19' y='-94'  output_fill='40000'    state='2'  />
-<automated_control_center_stage1 id='59639367' x='12' y='-86' process_end='37758000' output_fill='10000'    state='4'  />
-<hot_air_generator_stage1 id='59639366' x='3' y='-90' process_end='16159000' output_fill='30000'    state='4'  />
-<congress_center_hangzhou_stage2 id='59639361' x='10' y='-97' process_end='39734000'   contract_input='10015437'   state='3'  />
-<driving_school id='49415012' x='-9' y='8' process_end='37760000' output_fill='24000'    state='4'  />
-<autocafe_stage1 id='45335809' x='-41' y='113' process_end='12561000' output_fill='20000'    state='4'  />
-<empire_damansara id='56330498' x='45' y='134' process_end='37762000' output_fill='142500'    state='4'  />
-<gift_shop id='55330193' x='9' y='-11' process_end='12563000' output_fill='4200'    state='4'  />
-<corner_pub_new id='28239236' x='54' y='52' process_end='37764000' output_fill='650'    state='4'  />
-<national_palace_museum_in_taipei id='47947665' x='-16' y='-12' process_end='44965000' output_fill='88500'    state='4' rotation='true' />
-<hotel_above_water_stage2 id='59176639' x='-94' y='-125' process_end='26966000' output_fill='25000'    state='4'  />
-<defense_industrial_park_stage3 id='36635336' x='41' y='144' process_end='16167000' output_fill='47000'    state='4'  />
-<gas_station_new id='28239235' x='54' y='58'  output_fill='300'    state='5'  />
-<educational_center_stage3 id='43641986' x='-30' y='121'  output_fill='75000'    state='5'  />
-<water_slide_pool_new_real id='57104649' x='69' y='133' process_end='30568000' output_fill='14000'    state='4'  />
-<museum_festival_details_stage1 id='50749160' x='20' y='17' process_end='12569000' output_fill='30000'    state='4'  />
-<jubilee_campus id='55487492' x='14' y='-8'  output_fill='27900'    state='5'  />
-<chateau_les_fontaines_reward id='57580911' x='55' y='132' process_end='16170000' output_fill='36000'    state='4'  />
-<gas_station_new id='45335719' x='36' y='37'  output_fill='300'    state='5'  />
-<hotel_complex_shima_stage5 id='41088317' x='9' y='155'  output_fill='135000'    state='5'  />
-<tournament_arena_stage2 id='43993001' x='-19' y='-21' process_end='12571000' output_fill='45000'    state='4'  />
-<hotel_oriente_real id='46543789' x='-5' y='17' process_end='26972000' output_fill='27000'    state='4'  />
-<winter_park_iceberg_stage1 id='59176683' x='-78' y='-125'   input_fill='11499:6'   state='2'  />
-<federal_reserve id='46028151' x='57' y='63' process_end='37773000' output_fill='18000'    state='4'  />
-<textile_shop id='55133013' x='7' y='-9' process_end='12574000' output_fill='2100'    state='4'  />
-<business_center_hikari_real id='57596720' x='32' y='115'  output_fill='17000'    state='5'  />
-<leipzig_university id='54018657' x='-16' y='2'  output_fill='110000'    state='5' rotation='true' />
-<sports_center_adrenaline id='38468457' x='46' y='59'  output_fill='7900'    state='5' rotation='true' />
-<musical_instruments_shop_stage1 id='39389710' x='-63' y='100' process_end='1775000' output_fill='11000'    state='4'  />
-<shakespeare_bookstore id='40650085' x='67' y='61' process_end='8976000' output_fill='1200'    state='4'  />
-<price_tower_real id='55762672' x='34' y='125' process_end='16177000' output_fill='13000'    state='4'  />
-<mobile_phone_system_center_stage4 id='29165634' x='39' y='47' process_end='6987000' output_fill='3432'  input_fill='10913:2,10921:4,10924:3,10970:3' contract_input='18023'   state='3'  />
-<lighthouse_trade_center_real id='47228418' x='-10' y='-10'  output_fill='18000'    state='5'  />
-<royal_school_etiquette id='50288266' x='-3' y='-1'  output_fill='3200'    state='5'  />
-<castle_casa_loma id='54018658' x='15' y='7' process_end='16178000' output_fill='105000'    state='4'  />
-<music_house id='54018656' x='-5' y='-14' process_end='26979000' output_fill='115000'    state='4'  />
-<crystal_hall_real id='47610760' x='-9' y='11' process_end='26980000' output_fill='35000'    state='4'  />
-<estate_uoddesdon_reward id='59123587' x='65' y='127' process_end='26981000' output_fill='45000'    state='4'  />
-<srnu_factory id='38257561' x='51' y='67' process_end='5187000'  input_fill='10541'   state='3'  />
-<balmoral_reward id='56954312' x='55' y='134' process_end='26982000' output_fill='18500'    state='4'  />
-<srnu_factory id='44612006' x='36' y='68' process_end='5187000'  input_fill='10541'   state='3'  />
-<institute_of_history_stage1 id='38468551' x='64' y='66' process_end='8787000'   contract_input='22039'   state='3'  />
-<polo_club_stage1 id='50164576' x='-82' y='4'  contract_output='10015126'     state='4'  />
-<srnu_factory id='41966574' x='41' y='65' process_end='5187000'  input_fill='10541'   state='3'  />
-<business_center_hikari_real id='48722111' x='9' y='15'  output_fill='17000'    state='5'  />
-<albert_hall_reward id='59490504' x='59' y='128' process_end='16183000' output_fill='25000'    state='4'  />
-<business_center_hikari_real id='59490249' x='34' y='114'  output_fill='17000'    state='5'  />
-<chateau_les_fontaines_reward id='59222102' x='55' y='120' process_end='16184000' output_fill='36000'    state='4'  />
-<burj_al_mamlyaka_reward id='59200269' x='69' y='135'  output_fill='18000'    state='5'  />
-<usher_hall id='50954080' x='33' y='64' process_end='30585000' output_fill='66000'    state='4'  />
-<institute_cryophysics id='59209178' x='32' y='106' process_end='37786000' output_fill='7400'    state='4' rotation='true' />
-<theatre_wuhan id='55262685' x='12' y='-10' process_end='19787000' output_fill='20800'    state='4'  />
-<west_temple_stage2 id='44425247' x='120' y='102' process_end='30588000' output_fill='45000'    state='4'  />
-<book_bar id='54694108' x='4' y='-12' process_end='37789000' output_fill='23800'    state='4'  />
-<emerald_plaza id='46028630' x='-9' y='20' process_end='37790000' output_fill='110000'    state='4'  />
-<business_center_berlaymont_real id='35958662' x='45' y='53' process_end='37791000' output_fill='99000'    state='4'  />
-<saint_mark_gardens_stage1 id='36677422' x='-9' y='-62' process_end='12592000' output_fill='19000'    state='4'  />
-<tower_spinnaker_real id='57177580' x='32' y='119' process_end='30593000' output_fill='12500'    state='4'  />
-<business_center_hikari_real id='55942312' x='32' y='127'  output_fill='17000'    state='5'  />
-<ningbo_raffles_city id='57104653' x='52' y='132'  output_fill='45100'    state='5'  />
-<library_of_manchester_reward id='57209894' x='45' y='128'  output_fill='36000'    state='5'  />
-<palace_bangalore_reward id='57190477' x='37' y='125' process_end='8994000' output_fill='30000'    state='4'  />
-<sport_shop id='41652382' x='67' y='56'  output_fill='2000'    state='5'  />
-<srnu_factory id='42220004' x='39' y='67' process_end='5187000'  input_fill='10541'   state='3'  />
-<taipei_new id='36417595' x='32' y='68'  output_fill='13000'    state='5'  />
-<movie_theatre id='28557984' x='48' y='57' process_end='12596000' output_fill='800'    state='4'  />
-<art_gallery_alberta_reward id='57354596' x='42' y='122' process_end='16197000' output_fill='45000'    state='4'  />
-<castle_orchard_stage2 id='48253809' x='-51' y='-7'  output_fill='30000'    state='5'  />
-<ministry_water_bioresources_buildsite id='58361153' x='231' y='52' process_end='16198000' output_fill='19800'    state='4'  />
-<corrers_museum_stage2 id='36677421' x='-13' y='-66' process_end='19799000' output_fill='21000'    state='4'  />
-<childrens_theatre_studio id='45285797' x='1' y='-13'  output_fill='5000'    state='5'  />
-<srnu_factory id='40023632' x='53' y='65' process_end='5187000'  input_fill='10541'   state='3'  />
-<statue_burning_man_stage2 id='44425230' x='123' y='107' process_end='30387000'   contract_input='10015140'   state='3'  />
-<hotel_kruazet_stage1 id='40012862' x='60' y='-48' process_end='5400000' output_fill='10000'    state='4'  />
-<service_station id='35958760' x='53' y='56' process_end='12601000' output_fill='8500'    state='4'  />
-<post_office_real_new id='44110652' x='-11' y='-5' process_end='16202000' output_fill='8000'    state='4' rotation='true' />
-<stabling_stage1 id='50164582' x='-90' y='4' process_end='9003000' output_fill='5500'    state='4'  />
-<shopping_center_sq_mart id='33759002' x='51' y='55' process_end='1804000' output_fill='11500'    state='4'  />
-<business_centre_dongdaemun id='55330180' x='7' y='-14' process_end='9005000' output_fill='16500'    state='4'  />
-<erhards_house id='54018572' x='-5' y='-3' process_end='16206000' output_fill='25000'    state='4'  />
-<rock_n_roll_hall_stage2 id='39294505' x='-70' y='105' process_end='9007000' output_fill='25000'    state='4'  />
-<tropical_fish_shop_real id='38592107' x='56' y='60' process_end='16208000' output_fill='14000'    state='4'  />
-<dreadful_estate id='57330443' x='42' y='125'  output_fill='7500'    state='5'  />
-<cradle_of_the_world_stage2 id='44425246' x='117' y='107' process_end='19809000' output_fill='35000'    state='4'  />
-<former_galleon id='54195151' x='153' y='-65'  output_fill='3600'    state='5'  />
-<flower_fair id='55330159' x='12' y='-3' process_end='37810000' output_fill='28000'    state='4'  />
-<theatre_dreamland id='56360579' x='49' y='129' process_end='8567000' output_fill='123000'    state='4'  />
-<house_with_ghosts_stage1 id='46745342' x='-36' y='-9'  output_fill='7000'    state='5'  />
-<price_tower_real id='56512689' x='37' y='132' process_end='16211000' output_fill='13000'    state='4'  />
-<roman_pantheon id='47947678' x='-5' y='11' process_end='1707000' output_fill='37000'    state='4'  />
-<gas_station_new id='45335736' x='7' y='-15'  output_fill='300'    state='5'  />
-<taipei_real_new id='43274876' x='-16' y='21'  output_fill='13000'    state='5'  />
-<business_center_hikari_real id='56673058' x='32' y='120'  output_fill='17000'    state='5'  />
-<lifting_system id='54195162' x='162' y='-65' process_end='37812000' output_fill='10600'    state='4'  />
-<business_center_ivory_real id='47117078' x='-2' y='15' process_end='27013000' output_fill='13500'    state='4'  />
-<music_house id='44467399' x='33' y='31' process_end='27014000' output_fill='115000'    state='4'  />
-<restaurant_pearl_stage2 id='45613726' x='-109' y='56'  output_fill='48000'    state='5'  />
-<tower_bahrain id='45750624' x='-5' y='19' process_end='19815000' output_fill='21000'    state='4'  />
-<lau_pa_sat id='48866564' x='-12' y='-13' process_end='8575000' output_fill='126000'    state='4'  />
-<mignon_plaza id='45639687' x='-14' y='19' process_end='37816000' output_fill='18000'    state='4'  />
-<military_academy id='37113832' x='44' y='59' process_end='37817000' output_fill='27000'    state='4' rotation='true' />
-<big_ben_rebalance id='54018685' x='14' y='13' process_end='37818000' output_fill='60000'    state='4'  />
-<naval_station_stage8 id='31925787' x='29' y='15'  contract_output='10569'     state='4'  />
-<grape_farm_stage3 id='48253786' x='-56' y='2' process_end='37587000'   contract_input='10015209'   state='3'  />
-<drifting_station_stage2 id='57330439' x='-42' y='-98'  contract_output='10015522' input_fill='11442:4,11473:5,11489:5,12183:10'    state='4'  />
-<casino_new_art id='34343912' x='39' y='53' process_end='12619000' output_fill='13500'    state='4'  />
-<srnu_factory id='39889769' x='43' y='67' process_end='5187000'  input_fill='10541'   state='3'  />
-<auto_studio_stage2 id='45335808' x='-44' y='124' process_end='16220000' output_fill='50000'    state='4'  />
-<service_flight_safety_stage2 id='46219062' x='214' y='-21' process_end='16221000' output_fill='20000'    state='4'  />
-<cryogenic_plant_stage2 id='59176631' x='-85' y='-133'  contract_output='10015839'     state='4'  />
-<space_research_institute_stage1 id='56245211' x='171' y='70' process_end='2490000'  input_fill='11411:3,11408:4' contract_input='10015396'   state='3'  />
-<albert_hall_winter_reskin id='30079491' x='50' y='50' process_end='16222000' output_fill='25000'    state='4'  />
-<price_tower_real id='48176662' x='39' y='56' process_end='16223000' output_fill='13000'    state='4'  />
-<scientific_defense_tower_stage1 id='36639231' x='47' y='146' process_end='27024000' output_fill='45000'    state='4'  />
-<mayan_observatory_stage1 id='53522602' x='164' y='103' process_end='16225000' output_fill='20000'    state='4'  />
-<novartis_campus id='56162035' x='34' y='122' process_end='27026000' output_fill='49700'    state='4' rotation='true' />
-<water_slide_pool_new_real id='55487460' x='18' y='-2' process_end='30627000' output_fill='14000'    state='4'  />
-<srnu_factory id='40136560' x='43' y='65' process_end='5187000'  input_fill='10541'   state='3'  />
-<srnu_factory id='34856480' x='47' y='67' process_end='5187000'  input_fill='10541'   state='3'  />
-<srnu_factory id='39889770' x='41' y='67' process_end='5187000'  input_fill='10541'   state='3'  />
-<srnu_factory id='49685005' x='34' y='68' process_end='5187000'  input_fill='10541'   state='3'  />
-<museum_of_sculpture id='41883014' x='38' y='30' process_end='8582000' output_fill='53000'    state='4'  />
-<big_mart_new_art id='29505614' x='48' y='52'  output_fill='2300'    state='5'  />
-<gift_manufacture_stage1 id='58794290' x='-98' y='-87' process_end='16228000' output_fill='30000'    state='4'  />
-<palace_of_palenque_stage2 id='53522603' x='172' y='103' process_end='30629000' output_fill='60000'    state='4'  />
-<house_tamim id='45662920' x='-5' y='21' process_end='12630000' output_fill='20000'    state='4'  />
-<museum_of_archaeology id='35649209' x='50' y='53' process_end='16231000' output_fill='16000'    state='4'  />
-<center_festive_show_stage1 id='59176640' x='-85' y='-124'   input_fill='15454:5,10990:3,15603:1,15655:8,15639:8,12127:5'   state='2'  />
-<star_temple_real id='46331815' x='4' y='-8' process_end='37832000' output_fill='17000'    state='4'  />
-<italian_cafe id='35861946' x='47' y='57' process_end='16233000' output_fill='1200'    state='4' rotation='true' />
-<open_air_cinema_stage2 id='40701152' x='53' y='-46' process_end='30634000' output_fill='40000'    state='4'  />
-<venetian_masks_workshop id='35862765' x='53' y='53' process_end='30635000' output_fill='2200'    state='4'  />
-<chateau_les_fontaines_reward id='57987225' x='37' y='120' process_end='16236000' output_fill='36000'    state='4'  />
-<office_developer id='45625455' x='-9' y='18' process_end='16237000' output_fill='3800'    state='4'  />
-<japanese_cafe id='41924920' x='66' y='51'  output_fill='2100'    state='5'  />
-<elis_towers_real id='41275044' x='-14' y='15' process_end='37839000' output_fill='15200'    state='4'  />
-<tower_pelly id='38050457' x='30' y='68' process_end='37840000' output_fill='18500'    state='4'  />
-<mignon_plaza_real id='47277270' x='-14' y='21' process_end='37841000' output_fill='18000'    state='4'  />
-<river_center_of_culture id='42006594' x='38' y='32' process_end='19842000' output_fill='22500'    state='4'  />
-<fairgrounds_stage2 id='45335807' x='-51' y='124' process_end='37587000'   contract_input='10015158'   state='3'  />
-<palace_montserrat_snow id='48722084' x='-14' y='-12' process_end='9043000' output_fill='28000'    state='4' rotation='true' />
-<red_brick_castle_real id='47528780' x='-3' y='13' process_end='434000'     state='3'  />
-<tennis_center_stage3 id='45302776' x='-23' y='8' process_end='12644000' output_fill='55000'    state='4'  />
-<apartment_house_hastings_real id='45662925' x='-8' y='-4' process_end='8308000'     state='3'  />
-<summer_palace_peking id='54018633' x='1' y='-16' process_end='27045000' output_fill='142500'    state='4'  />
-<price_tower_real id='57416852' x='32' y='117' process_end='16246000' output_fill='13000'    state='4'  />
-<hotel_vertical_forest_stage2 id='45863378' x='-89' y='11' process_end='30647000' output_fill='40000'    state='4'  />
-<green_city_stage2 id='36813330' x='79' y='136' process_end='1848000' output_fill='30000'    state='4'  />
-<water_slide_pool_new_real id='47805804' x='-14' y='-2' process_end='30649000' output_fill='14000'    state='4'  />
-<tower_spinnaker_real id='48078022' x='18' y='11' process_end='30650000' output_fill='12500'    state='4' rotation='true' />
-<srnu_factory id='39982406' x='49' y='65' process_end='5187000'  input_fill='10541'   state='3'  />
-<residential_house id='35222866' x='59' y='56' process_end='11716000'     state='3'  />
-<ancient_tower_chimes id='59062228' x='-86' y='-88'  output_fill='234000'    state='5'  />
-<apartment_house_pagliano_real id='40244488' x='65' y='60' process_end='504000'     state='3'  />
-<log_cabin id='28199683' x='57' y='51' process_end='965000'     state='3'  />
-<high_rise_apartment_new_art id='35191803' x='61' y='60' process_end='38757000'     state='3' rotation='true' />
+<service_department id='59718854' x='34' y='112' process_end='7222000' output_fill='48800'    state='4'  />
+<cultural_center_cobb_reward id='59087462' x='65' y='129' process_end='7223000' output_fill='55000'    state='4'  />
+<balmoral_reward id='59675116' x='55' y='122' process_end='4449000' output_fill='18500'    state='4'  />
+<institute_innovative_technology_stage1 id='59639396' x='47' y='-97' process_end='7224000' output_fill='15000'    state='4'  />
+<energy_extraction_platform_stage2 id='59639395' x='63' y='-103' process_end='4449000' output_fill='60000'    state='4'  />
+<station_hydraulic_generators_stage1 id='59639394' x='64' y='-92'  output_fill='40000'    state='2'  />
+<automated_control_center_stage1 id='59639367' x='57' y='-84' process_end='28825000' output_fill='10000'    state='4'  />
+<hot_air_generator_stage1 id='59639366' x='48' y='-88' process_end='7226000' output_fill='30000'    state='4'  />
+<congress_center_hangzhou_stage2 id='59639361' x='55' y='-95' process_end='28725000'   contract_input='10015437'   state='3'  />
+<driving_school id='49415012' x='-9' y='8' process_end='28827000' output_fill='24000'    state='4'  />
+<autocafe_stage1 id='45335809' x='-41' y='113' process_end='17002000' output_fill='20000'    state='4'  />
+<empire_damansara id='56330498' x='45' y='134' process_end='28828000' output_fill='142500'    state='4'  />
+<gift_shop id='55330193' x='9' y='-11' process_end='17002000' output_fill='4200'    state='4'  />
+<corner_pub_new id='28239236' x='54' y='52' process_end='28829000' output_fill='650'    state='4'  />
+<national_palace_museum_in_taipei id='47947665' x='-16' y='-12' process_end='49402000' output_fill='88500'    state='4' rotation='true' />
+<hotel_above_water_stage2 id='59176639' x='-94' y='-125' process_end='4449000' output_fill='25000'    state='4'  />
+<defense_industrial_park_stage3 id='36635336' x='41' y='144' process_end='7230000' output_fill='47000'    state='4'  />
+<gas_station_new id='28239235' x='54' y='58' process_end='849000' output_fill='300'    state='4'  />
+<educational_center_stage3 id='43641986' x='-30' y='121' process_end='849000' output_fill='75000'    state='4'  />
+<water_slide_pool_new_real id='57104649' x='69' y='133' process_end='14640000' output_fill='14000'    state='4'  />
+<museum_festival_details_stage1 id='50749160' x='20' y='17' process_end='17002000' output_fill='30000'    state='4'  />
+<jubilee_campus id='55487492' x='14' y='-8' process_end='849000' output_fill='27900'    state='4'  />
+<chateau_les_fontaines_reward id='57580911' x='55' y='132' process_end='7231000' output_fill='36000'    state='4'  />
+<gas_station_new id='45335719' x='36' y='37' process_end='849000' output_fill='300'    state='4'  />
+<hotel_complex_shima_stage5 id='41088317' x='9' y='155' process_end='849000' output_fill='135000'    state='4'  />
+<tournament_arena_stage2 id='43993001' x='-109' y='-94' process_end='17002000' output_fill='45000'    state='4'  />
+<hotel_oriente_real id='46543789' x='-5' y='17' process_end='4449000' output_fill='27000'    state='4'  />
+<winter_park_iceberg_stage2 id='59176683' x='-78' y='-125' process_end='28832000' output_fill='40000'    state='4'  />
+<federal_reserve id='46028151' x='57' y='63' process_end='28833000' output_fill='18000'    state='4'  />
+<textile_shop id='55133013' x='7' y='-9' process_end='17002000' output_fill='2100'    state='4'  />
+<business_center_hikari_real id='57596720' x='32' y='115' process_end='849000' output_fill='17000'    state='4'  />
+<leipzig_university id='54018657' x='-16' y='2' process_end='849000' output_fill='110000'    state='4' rotation='true' />
+<sports_center_adrenaline id='38468457' x='46' y='59' process_end='849000' output_fill='7900'    state='4' rotation='true' />
+<musical_instruments_shop_stage1 id='39389710' x='-63' y='100' process_end='788000' output_fill='11000'    state='4'  />
+<shakespeare_bookstore id='40650085' x='67' y='61' process_end='7988000' output_fill='1200'    state='4'  />
+<price_tower_real id='55762672' x='34' y='125' process_end='7235000' output_fill='13000'    state='4'  />
+<mobile_phone_system_center_stage4 id='29165634' x='39' y='47' process_end='11572000' output_fill='3432'  input_fill='10913:2,10921:4,10924:3,10970:3' contract_input='18023'   state='3'  />
+<lighthouse_trade_center_real id='47228418' x='-10' y='-10' process_end='849000' output_fill='18000'    state='4'  />
+<royal_school_etiquette id='50288266' x='-3' y='-1' process_end='849000' output_fill='3200'    state='4'  />
+<castle_casa_loma id='54018658' x='15' y='7' process_end='7236000' output_fill='105000'    state='4'  />
+<music_house id='54018656' x='-5' y='-14' process_end='4449000' output_fill='115000'    state='4'  />
+<crystal_hall_real id='47610760' x='-9' y='11' process_end='4449000' output_fill='35000'    state='4'  />
+<estate_uoddesdon_reward id='59123587' x='65' y='127' process_end='4449000' output_fill='45000'    state='4'  />
+<srnu_factory id='38257561' x='51' y='67' process_end='25926000'  input_fill='10539'   state='3'  />
+<balmoral_reward id='56954312' x='55' y='134' process_end='4449000' output_fill='18500'    state='4'  />
+<srnu_factory id='44612006' x='36' y='68' process_end='25926000'  input_fill='10539'   state='3'  />
+<institute_of_history_stage1 id='38468551' x='64' y='66' process_end='7926000'   contract_input='22039'   state='3'  />
+<polo_club_stage1 id='50164576' x='-82' y='4' process_end='18726000'   contract_input='10015129'   state='3'  />
+<srnu_factory id='41966574' x='41' y='65' process_end='25926000'  input_fill='10539'   state='3'  />
+<business_center_hikari_real id='48722111' x='9' y='15' process_end='849000' output_fill='17000'    state='4'  />
+<albert_hall_reward id='59490504' x='59' y='128' process_end='7237000' output_fill='25000'    state='4'  />
+<business_center_hikari_real id='59490249' x='34' y='114' process_end='849000' output_fill='17000'    state='4'  />
+<chateau_les_fontaines_reward id='59222102' x='55' y='120' process_end='7238000' output_fill='36000'    state='4'  />
+<burj_al_mamlyaka_reward id='59200269' x='69' y='135' process_end='849000' output_fill='18000'    state='4'  />
+<usher_hall id='50954080' x='33' y='64' process_end='14640000' output_fill='66000'    state='4'  />
+<institute_cryophysics id='59209178' x='32' y='106' process_end='28839000' output_fill='7400'    state='4' rotation='true' />
+<theatre_wuhan id='55262685' x='12' y='-10' process_end='18788000' output_fill='20800'    state='4'  />
+<west_temple_stage2 id='44425247' x='120' y='102' process_end='14640000' output_fill='45000'    state='4'  />
+<book_bar id='54694108' x='4' y='-12' process_end='28840000' output_fill='23800'    state='4'  />
+<emerald_plaza id='46028630' x='-9' y='20' process_end='28841000' output_fill='110000'    state='4'  />
+<business_center_berlaymont_real id='35958662' x='45' y='53' process_end='28842000' output_fill='99000'    state='4'  />
+<saint_mark_gardens_stage1 id='36677422' x='9' y='-90' process_end='17002000' output_fill='19000'    state='4'  />
+<tower_spinnaker_real id='57177580' x='32' y='119' process_end='14640000' output_fill='12500'    state='4'  />
+<business_center_hikari_real id='55942312' x='32' y='127' process_end='849000' output_fill='17000'    state='4'  />
+<ningbo_raffles_city id='57104653' x='52' y='132' process_end='849000' output_fill='45100'    state='4'  />
+<library_of_manchester_reward id='57209894' x='45' y='128' process_end='849000' output_fill='36000'    state='4'  />
+<palace_bangalore_reward id='57190477' x='37' y='125' process_end='7988000' output_fill='30000'    state='4'  />
+<sport_shop id='41652382' x='67' y='56' process_end='2602000' output_fill='2000'    state='4'  />
+<srnu_factory id='42220004' x='39' y='67' process_end='25926000'  input_fill='10539'   state='3'  />
+<taipei_new id='36417595' x='32' y='68' process_end='849000' output_fill='13000'    state='4'  />
+<movie_theatre id='28557984' x='48' y='57' process_end='17002000' output_fill='800'    state='4'  />
+<art_gallery_alberta_reward id='57354596' x='42' y='122' process_end='7244000' output_fill='45000'    state='4'  />
+<castle_orchard_stage2 id='48253809' x='-51' y='-7' process_end='849000' output_fill='30000'    state='4'  />
+<ministry_water_bioresources_buildsite id='58361153' x='231' y='52' process_end='7245000' output_fill='19800'    state='4'  />
+<corrers_museum_stage2 id='36677421' x='5' y='-94' process_end='18788000' output_fill='21000'    state='4'  />
+<childrens_theatre_studio id='45285797' x='1' y='-13' process_end='849000' output_fill='5000'    state='4'  />
+<srnu_factory id='40023632' x='53' y='65' process_end='25926000'  input_fill='10539'   state='3'  />
+<statue_burning_man_stage2 id='44425230' x='123' y='107' process_end='14564000'   contract_input='10015140'   state='3'  />
+<hotel_kruazet_stage1 id='40012862' x='60' y='-48' process_end='4388000' output_fill='10000'    state='4'  />
+<service_station id='35958760' x='53' y='56' process_end='17002000' output_fill='8500'    state='4'  />
+<post_office_real_new id='44110652' x='-11' y='-5' process_end='7246000' output_fill='8000'    state='4' rotation='true' />
+<stabling_stage1 id='50164582' x='-90' y='4' process_end='7988000' output_fill='5500'    state='4'  />
+<shopping_center_sq_mart id='33759002' x='51' y='55' process_end='788000' output_fill='11500'    state='4'  />
+<business_centre_dongdaemun id='55330180' x='7' y='-14' process_end='7988000' output_fill='16500'    state='4'  />
+<erhards_house id='54018572' x='-5' y='-3' process_end='7248000' output_fill='25000'    state='4'  />
+<rock_n_roll_hall_stage2 id='39294505' x='-70' y='105' process_end='7988000' output_fill='25000'    state='4'  />
+<tropical_fish_shop_real id='38592107' x='56' y='60' process_end='7249000' output_fill='14000'    state='4'  />
+<dreadful_estate id='57330443' x='42' y='125' process_end='849000' output_fill='7500'    state='4'  />
+<cradle_of_the_world_stage2 id='44425246' x='117' y='107' process_end='18788000' output_fill='35000'    state='4'  />
+<former_galleon id='54195151' x='153' y='-65' process_end='849000' output_fill='3600'    state='4'  />
+<flower_fair id='55330159' x='12' y='-3' process_end='28850000' output_fill='28000'    state='4'  />
+<theatre_dreamland id='56360579' x='49' y='129' process_end='25250000' output_fill='123000'    state='4'  />
+<house_with_ghosts_stage1 id='46745342' x='-36' y='-9' process_end='849000' output_fill='7000'    state='4'  />
+<price_tower_real id='56512689' x='37' y='132' process_end='7250000' output_fill='13000'    state='4'  />
+<roman_pantheon id='47947678' x='-5' y='11' process_end='25606000' output_fill='37000'    state='4'  />
+<gas_station_new id='45335736' x='7' y='-15' process_end='849000' output_fill='300'    state='4'  />
+<taipei_real_new id='43274876' x='-16' y='21' process_end='849000' output_fill='13000'    state='4'  />
+<business_center_hikari_real id='56673058' x='32' y='120' process_end='849000' output_fill='17000'    state='4'  />
+<lifting_system id='54195162' x='162' y='-65' process_end='28850000' output_fill='10600'    state='4'  />
+<business_center_ivory_real id='47117078' x='-2' y='15' process_end='4449000' output_fill='13500'    state='4'  />
+<music_house id='44467399' x='33' y='31' process_end='4449000' output_fill='115000'    state='4'  />
+<restaurant_pearl_stage2 id='45613726' x='-109' y='56' process_end='849000' output_fill='48000'    state='4'  />
+<tower_bahrain id='45750624' x='-5' y='19' process_end='18788000' output_fill='21000'    state='4'  />
+<lau_pa_sat id='48866564' x='-12' y='-13' process_end='25250000' output_fill='126000'    state='4'  />
+<mignon_plaza id='45639687' x='-14' y='19' process_end='28850000' output_fill='18000'    state='4'  />
+<military_academy id='37113832' x='44' y='59' process_end='28850000' output_fill='27000'    state='4' rotation='true' />
+<big_ben_rebalance id='54018685' x='14' y='13' process_end='28850000' output_fill='60000'    state='4'  />
+<naval_station_stage8 id='31925787' x='29' y='15' process_end='14325000'   contract_input='10569'   state='3'  />
+<grape_farm_stage3 id='48253786' x='-56' y='2' process_end='28725000'   contract_input='10015209'   state='3'  />
+<drifting_station_stage2 id='57330439' x='-42' y='-98' process_end='2572000'  input_fill='11442:4,11473:5,11489:5,12183:10' contract_input='10015522'   state='3'  />
+<casino_new_art id='34343912' x='39' y='53' process_end='17002000' output_fill='13500'    state='4'  />
+<srnu_factory id='39889769' x='43' y='67' process_end='25926000'  input_fill='10539'   state='3'  />
+<auto_studio_stage2 id='45335808' x='-44' y='124' process_end='7250000' output_fill='50000'    state='4'  />
+<service_flight_safety_stage2 id='46219062' x='214' y='-21' process_end='7250000' output_fill='20000'    state='4'  />
+<cryogenic_plant_stage2 id='59176631' x='-85' y='-133' process_end='17925000'   contract_input='10015844'   state='3'  />
+<space_research_institute_stage1 id='56245211' x='171' y='70' process_end='726000'  input_fill='11411:3,11408:5' contract_input='10015396'   state='3'  />
+<albert_hall_winter_reskin id='30079491' x='50' y='50' process_end='7250000' output_fill='25000'    state='4'  />
+<price_tower_real id='48176662' x='39' y='56' process_end='7250000' output_fill='13000'    state='4'  />
+<scientific_defense_tower_stage1 id='36639231' x='47' y='146' process_end='4449000' output_fill='45000'    state='4'  />
+<mayan_observatory_stage1 id='53522602' x='164' y='103' process_end='7250000' output_fill='20000'    state='4'  />
+<novartis_campus id='56162035' x='34' y='122' process_end='4449000' output_fill='49700'    state='4' rotation='true' />
+<water_slide_pool_new_real id='55487460' x='18' y='-2' process_end='14640000' output_fill='14000'    state='4'  />
+<srnu_factory id='40136560' x='43' y='65' process_end='25926000'  input_fill='10539'   state='3'  />
+<srnu_factory id='34856480' x='47' y='67' process_end='25926000'  input_fill='10539'   state='3'  />
+<srnu_factory id='39889770' x='41' y='67' process_end='25926000'  input_fill='10539'   state='3'  />
+<srnu_factory id='49685005' x='34' y='68' process_end='25926000'  input_fill='10539'   state='3'  />
+<museum_of_sculpture id='41883014' x='38' y='30' process_end='25250000' output_fill='53000'    state='4'  />
+<big_mart_new_art id='29505614' x='48' y='52' process_end='849000' output_fill='2300'    state='4'  />
+<gift_manufacture_stage1 id='58794290' x='-98' y='-87' process_end='7250000' output_fill='30000'    state='4'  />
+<palace_of_palenque_stage2 id='53522603' x='172' y='103' process_end='14640000' output_fill='60000'    state='4'  />
+<house_tamim id='45662920' x='-5' y='21' process_end='17002000' output_fill='20000'    state='4'  />
+<museum_of_archaeology id='35649209' x='50' y='53' process_end='7250000' output_fill='16000'    state='4'  />
+<center_festive_show_stage2 id='59176640' x='-85' y='-124' process_end='4449000' output_fill='45000'    state='4'  />
+<star_temple_real id='46331815' x='4' y='-8' process_end='28850000' output_fill='17000'    state='4'  />
+<italian_cafe id='35861946' x='47' y='57' process_end='7250000' output_fill='1200'    state='4' rotation='true' />
+<open_air_cinema_stage2 id='40701152' x='53' y='-46' process_end='14640000' output_fill='40000'    state='4'  />
+<chateau_les_fontaines_reward id='57987225' x='37' y='120' process_end='7250000' output_fill='36000'    state='4'  />
+<office_developer id='45625455' x='-9' y='18' process_end='7250000' output_fill='3800'    state='4'  />
+<elis_towers_real id='41275044' x='-14' y='15' process_end='28850000' output_fill='15200'    state='4'  />
+<tower_pelly id='38050457' x='30' y='68' process_end='28850000' output_fill='18500'    state='4'  />
+<mignon_plaza_real id='47277270' x='-14' y='21' process_end='28850000' output_fill='18000'    state='4'  />
+<river_center_of_culture id='42006594' x='38' y='32' process_end='18788000' output_fill='22500'    state='4'  />
+<fairgrounds_stage2 id='45335807' x='-51' y='124' process_end='42172000'   contract_input='10015158'   state='3'  />
+<palace_montserrat_snow id='48722084' x='-14' y='-12' process_end='7988000' output_fill='28000'    state='4' rotation='true' />
+<red_brick_castle_real id='47528780' x='-3' y='13'  output_fill='1540'    state='2'  />
+<tennis_center_stage3 id='45302776' x='-23' y='8' process_end='17002000' output_fill='55000'    state='4'  />
+<apartment_house_hastings_real id='45662925' x='-8' y='-4' process_end='53411000'     state='3'  />
+<summer_palace_peking id='54018633' x='1' y='-16' process_end='4449000' output_fill='142500'    state='4'  />
+<price_tower_real id='57416852' x='32' y='117' process_end='7250000' output_fill='13000'    state='4'  />
+<hotel_vertical_forest_stage2 id='45863378' x='-89' y='11' process_end='14640000' output_fill='40000'    state='4'  />
+<green_city_stage2 id='36813330' x='79' y='136' process_end='788000' output_fill='30000'    state='4'  />
+<srnu_factory id='39982406' x='49' y='65' process_end='25926000'  input_fill='10539'   state='3'  />
+<residential_house id='35222866' x='59' y='56'  output_fill='300'    state='2'  />
+<ancient_tower_chimes id='59062228' x='-86' y='-88' process_end='849000' output_fill='234000'    state='4'  />
+<apartment_house_pagliano_real id='40244488' x='65' y='60'  output_fill='1200'    state='2'  />
+<log_cabin id='28199683' x='57' y='51'  output_fill='100'    state='2'  />
+<high_rise_apartment_new_art id='35191803' x='61' y='60'  output_fill='800'    state='2' rotation='true' />
 <beltway_hoover_bridge_buildsite id='59992688' x='-15' y='171'   input_fill='11480:3'   state='2'  />
 <beltway_ring_buildsite id='59992638' x='18' y='174'  output_fill='0'   coins_left='0'  state='2'  />
 <transport_overpass_stub2_empty id='59992086' x='25' y='178'      state='2'  />
@@ -235,332 +260,324 @@
 <beltway_road_buildsite86 id='59992060' x='-96' y='92'      state='2'  />
 <beltway_road_buildsite88 id='59992059' x='-100' y='59'      state='2'  />
 <beltway_road_buildsite88 id='59992058' x='-100' y='45'      state='2'  />
-<producers_association_stage2 id='39982621' x='62' y='-40' process_end='16251000' output_fill='15000'    state='4'  />
-<graeco_roman_museum id='45662913' x='-16' y='-2' process_end='12652000' output_fill='17800'    state='4'  />
-<country_tennis_club_stage3 id='45302789' x='-25' y='22' process_end='19853000' output_fill='70000'    state='4'  />
-<business_class_residential_building id='28239237' x='59' y='53' process_end='17180000'     state='3'  />
+<producers_association_stage2 id='39982621' x='62' y='-40' process_end='7250000' output_fill='15000'    state='4'  />
+<graeco_roman_museum id='45662913' x='-16' y='-2' process_end='17002000' output_fill='17800'    state='4'  />
+<country_tennis_club_stage3 id='45302789' x='-25' y='22' process_end='18788000' output_fill='70000'    state='4'  />
+<business_class_residential_building id='28239237' x='59' y='53'  output_fill='125'    state='2'  />
 <sculpture_ohtake id='59834095' x='39' y='102'  output_fill='11800'    state='2'  />
-<canada_national_library_reward id='59812707' x='49' y='115' process_end='9054000' output_fill='42000'    state='4'  />
-<business_center_cuff id='59795138' x='32' y='110' process_end='37855000' output_fill='82700'    state='4' rotation='true' />
-<national_palace_museum_in_taipei id='59795137' x='52' y='120' process_end='45056000' output_fill='88500'    state='4' rotation='true' />
-<lau_pa_sat id='59795122' x='59' y='119' process_end='8601000' output_fill='126000'    state='4'  />
-<kalatrava_university id='59795120' x='52' y='124' process_end='37857000' output_fill='113000'    state='4' rotation='true' />
-<public_library id='59795117' x='49' y='118' process_end='30658000' output_fill='115000'    state='4'  />
-<theatre_dreamland id='59795112' x='49' y='121' process_end='8602000' output_fill='123000'    state='4'  />
-<twin_towers_peking id='59795107' x='59' y='135' process_end='37859000' output_fill='96400'    state='4'  />
-<radio_france id='59795088' x='49' y='124' process_end='37860000' output_fill='125000'    state='4'  />
-<summer_palace_peking id='59795085' x='59' y='125' process_end='27061000' output_fill='142500'    state='4'  />
-<skyscraper_mosaic_real id='54291432' x='9' y='21' process_end='9062000' output_fill='27800'    state='4'  />
+<canada_national_library_reward id='59812707' x='49' y='115' process_end='7988000' output_fill='42000'    state='4'  />
+<business_center_cuff id='59795138' x='32' y='110' process_end='28850000' output_fill='82700'    state='4' rotation='true' />
+<national_palace_museum_in_taipei id='59795137' x='52' y='120' process_end='49402000' output_fill='88500'    state='4' rotation='true' />
+<lau_pa_sat id='59795122' x='59' y='119' process_end='25250000' output_fill='126000'    state='4'  />
+<kalatrava_university id='59795120' x='52' y='124' process_end='28850000' output_fill='113000'    state='4' rotation='true' />
+<public_library id='59795117' x='49' y='118' process_end='14640000' output_fill='115000'    state='4'  />
+<theatre_dreamland id='59795112' x='49' y='121' process_end='25250000' output_fill='123000'    state='4'  />
+<twin_towers_peking id='59795107' x='59' y='135' process_end='28850000' output_fill='96400'    state='4'  />
+<radio_france id='59795088' x='49' y='124' process_end='28850000' output_fill='125000'    state='4'  />
+<summer_palace_peking id='59795085' x='59' y='125' process_end='4449000' output_fill='142500'    state='4'  />
+<skyscraper_mosaic_real id='54291432' x='9' y='21' process_end='7988000' output_fill='27800'    state='4'  />
 <advanced_water_tower2_was_new id='59763735' x='64' y='99'  output_fill='4500'    state='2'  />
 <advanced_water_tower2_was_new id='59763734' x='63' y='99'  output_fill='4500'    state='2'  />
-<art_gallery_alberta_reward id='59611325' x='45' y='112' process_end='16263000' output_fill='45000'    state='4'  />
+<art_gallery_alberta_reward id='59611325' x='45' y='112' process_end='7250000' output_fill='45000'    state='4'  />
 <coffee_house_new_tutorial id='28199082' x='50' y='55'  output_fill='300'    state='5'  />
 <burger_joint_new id='28198974' x='47' y='50'  output_fill='250'    state='5' rotation='true' />
-<villa_jorg_palace_real id='54990077' x='12' y='-8' process_end='458000'     state='3'  />
 <living_complex_osaka_real id='54407767' x='-2' y='-6'  output_fill='1240'    state='2'  />
-<hotel_sputnik id='41652610' x='-14' y='17' process_end='6331000'     state='3'  />
-<cultural_center_cobb_reward id='57858674' x='37' y='118' process_end='16266000' output_fill='55000'    state='4'  />
-<the_peak_tower id='54792088' x='4' y='-15' process_end='27067000' output_fill='27500'    state='4' rotation='true' />
-<lawn_tennis_museum_stage1 id='45303224' x='-33' y='13' process_end='30668000' output_fill='20000'    state='4'  />
-<cipriani_hotel id='51074572' x='-5' y='-8' process_end='37869000' output_fill='75000'    state='4' rotation='true' />
-<national_museum_zayed_reward id='59441096' x='59' y='131' process_end='1732000' output_fill='52500'    state='4' rotation='true' />
-<club_military_reconstruction_stage2 id='42220806' x='29' y='29' process_end='1820000'   contract_input='10016505'   state='3'  />
-<association_rock_and_roll id='39269886' x='29' y='64' process_end='16835000'  input_fill='35225'   state='3'  />
-<center_ancient_languages_buildsite id='53522600' x='170' y='120' process_end='12670000' output_fill='2340'    state='4'  />
-<hotel_christmas_eve id='59030552' x='45' y='115' process_end='30671000' output_fill='110100'    state='4'  />
-<glass_workshop id='59030574' x='34' y='116'  output_fill='71400'    state='5'  />
-<bureau_wish_fulfillment id='59030454' x='45' y='117' process_end='37872000' output_fill='8000'    state='4'  />
-<hotel_himmel_stage2 id='58794289' x='-91' y='-88' process_end='37873000' output_fill='25000'    state='4'  />
-<administration_zoo_final id='30870702' x='36' y='52' process_end='16838000'  input_fill='11470:5,10993:15,15417:3,10902:1' contract_input='13440'   state='3'  />
-<spectator_stands_airshow_stage1 id='46219061' x='208' y='-25' process_end='5474000' output_fill='20000'    state='4'  />
-<military_research_institute_stage1 id='34948331' x='47' y='152' process_end='37587000'   contract_input='35193'   state='3'  />
-<salad_spinner_villa id='59013032' x='42' y='110' process_end='17140000'     state='3'  />
+<hotel_sputnik id='41652610' x='-14' y='17'  output_fill='300'    state='2'  />
+<cultural_center_cobb_reward id='57858674' x='37' y='118' process_end='7250000' output_fill='55000'    state='4'  />
+<the_peak_tower id='54792088' x='4' y='-15' process_end='4449000' output_fill='27500'    state='4' rotation='true' />
+<lawn_tennis_museum_stage1 id='45303224' x='-33' y='13' process_end='14640000' output_fill='20000'    state='4'  />
+<cipriani_hotel id='51074572' x='-5' y='-8' process_end='28850000' output_fill='75000'    state='4' rotation='true' />
+<national_museum_zayed_reward id='59441096' x='59' y='131' process_end='25671000' output_fill='52500'    state='4' rotation='true' />
+<club_military_reconstruction_stage2 id='42220806' x='29' y='29' process_end='22326000'   contract_input='10016505'   state='3'  />
+<association_rock_and_roll id='39269886' x='29' y='64' process_end='7125000'  input_fill='35225'   state='3'  />
+<center_ancient_languages_buildsite id='53522600' x='170' y='120' process_end='17002000' output_fill='2340'    state='4'  />
+<hotel_christmas_eve id='59030552' x='45' y='115' process_end='14640000' output_fill='110100'    state='4'  />
+<glass_workshop id='59030574' x='34' y='116' process_end='849000' output_fill='71400'    state='4'  />
+<bureau_wish_fulfillment id='59030454' x='45' y='117' process_end='28850000' output_fill='8000'    state='4'  />
+<hotel_himmel_stage2 id='58794289' x='-91' y='-88' process_end='28850000' output_fill='25000'    state='4'  />
+<administration_zoo_final id='30870702' x='36' y='52' process_end='7125000'  input_fill='11470:5,10993:15,15417:3,10902:1' contract_input='13440'   state='3'  />
+<spectator_stands_airshow_stage1 id='46219061' x='208' y='-25' process_end='4388000' output_fill='20000'    state='4'  />
+<military_research_institute_stage1 id='34948331' x='47' y='152' process_end='28725000'   contract_input='35193'   state='3'  />
+<salad_spinner_villa id='59013032' x='42' y='110'  output_fill='2500'    state='2'  />
 <shadow_pavilion id='59013030' x='39' y='107'  output_fill='33000'    state='2'  />
-<fountain_place id='59013028' x='32' y='113' process_end='27075000' output_fill='61900'    state='4'  />
-<recording_studio_stage2 id='39436770' x='-56' y='105' process_end='16276000' output_fill='45000'    state='4'  />
-<wedding_salon_reskin id='34152209' x='47' y='51' process_end='9077000' output_fill='7700'    state='4' rotation='true' />
-<cultural_center_cobb_reward id='58974136' x='55' y='125' process_end='16278000' output_fill='55000'    state='4'  />
-<wimbledon_lawn_tennis_school id='45243230' x='-16' y='-5' process_end='16279000' output_fill='3700'    state='4'  />
+<fountain_place id='59013028' x='32' y='113' process_end='4449000' output_fill='61900'    state='4'  />
+<recording_studio_stage2 id='39436770' x='-56' y='105' process_end='7250000' output_fill='45000'    state='4'  />
+<wedding_salon_reskin id='34152209' x='47' y='51' process_end='7988000' output_fill='7700'    state='4' rotation='true' />
+<cultural_center_cobb_reward id='58974136' x='55' y='125' process_end='7250000' output_fill='55000'    state='4'  />
+<wimbledon_lawn_tennis_school id='45243230' x='-16' y='-5' process_end='7250000' output_fill='3700'    state='4'  />
 <cathedral_santa_prisca_reward id='58850265' x='45' y='119'  output_fill='21000'    state='4'  />
-<medical_centre_stage3 id='36617194' x='-2' y='138' process_end='31280000'   contract_input='22196'   state='3'  />
-<swan_theater_stage1 id='40650060' x='-29' y='126'  contract_output='10015808'     state='4'  />
-<craigdarroch_castle id='48866584' x='-3' y='1' process_end='8615000' output_fill='25000'    state='4'  />
-<security_agency_armor_real id='45067639' x='-16' y='15'  output_fill='17500'    state='5'  />
-<srnu_factory id='46949294' x='36' y='65' process_end='5187000'  input_fill='10541'   state='3'  />
-<skyscraper_hexagon_new_art_real id='44454652' x='-16' y='19' process_end='52727000' output_fill='18000'    state='4'  />
-<cruise_company_stage2 id='58794283' x='-92' y='-80' process_end='38519000'   contract_input='10144430'   state='3'  />
+<medical_centre_stage3 id='36617194' x='-2' y='138' process_end='29526000'   contract_input='22196'   state='3'  />
+<swan_theater_stage1 id='40650060' x='-29' y='126' process_end='14325000'   contract_input='10015808'   state='3'  />
+<craigdarroch_castle id='48866584' x='-3' y='1' process_end='25250000' output_fill='25000'    state='4'  />
+<security_agency_armor_real id='45067639' x='-16' y='15' process_end='849000' output_fill='17500'    state='4'  />
+<srnu_factory id='46949294' x='36' y='65' process_end='25926000'  input_fill='10539'   state='3'  />
+<skyscraper_hexagon_new_art_real id='44454652' x='-16' y='19' process_end='56602000' output_fill='18000'    state='4'  />
+<cruise_company_stage2 id='58794283' x='-92' y='-80' process_end='36726000'   contract_input='10144430'   state='3'  />
 <railroad_to_port_buildsite id='58746814' x='24' y='15'   input_fill='11419:3,12115:3,12116:2'   state='2' rotation='true' />
-<riga_hotel id='58723075' x='42' y='115' process_end='38741000'     state='3'  />
+<riga_hotel id='58723075' x='42' y='115'  output_fill='4800'    state='2'  />
 <train_station_small_stage1 id='41882940' x='26' y='76'   input_fill='12126:10,11469:10,11419:10,10903:2'   state='2'  />
-<colomares_castle_stage3 id='50749167' x='-63' y='-11' process_end='31269000'   contract_input='35249'   state='3'  />
-<advanced_water_tower2_was_new id='58624970' x='69' y='132'  output_fill='4500'    state='2'  />
-<finance_center_eisenstadt id='48722064' x='-5' y='13' process_end='8617000' output_fill='19200'    state='4'  />
-<prahran_hotel id='57865190' x='45' y='124' process_end='8618000' output_fill='40800'    state='4'  />
-<business_center id='36380765' x='41' y='57' process_end='37880000' output_fill='18500'    state='4'  />
-<bowling_new id='55487463' x='18' y='-3' process_end='37881000' output_fill='1050'    state='4'  />
+<colomares_castle_stage3 id='50749167' x='-63' y='-11' process_end='34972000'   contract_input='35249'   state='3'  />
+<advanced_water_tower2_was_new id='58624970' x='69' y='130'  output_fill='4500'    state='2'  />
+<finance_center_eisenstadt id='48722064' x='-5' y='13' process_end='25250000' output_fill='19200'    state='4'  />
+<prahran_hotel id='57865190' x='45' y='124' process_end='25250000' output_fill='40800'    state='4'  />
+<business_center id='36380765' x='41' y='57' process_end='28850000' output_fill='18500'    state='4'  />
+<bowling_new id='55487463' x='18' y='-3' process_end='28850000' output_fill='1050'    state='4'  />
 <tower_aqueous_synthesis_buildsite id='58624990' x='45' y='98'   input_fill='15457:1,10917:5'   state='2'  />
-<advanced_water_tower2_was_new id='58624973' x='69' y='131'  output_fill='4500'    state='2'  />
-<advanced_water_tower2_was_new id='58624972' x='70' y='131'  output_fill='4500'    state='2'  />
-<advanced_water_tower2_was_new id='58624971' x='70' y='132'  output_fill='4500'    state='2'  />
-<estate_uoddesdon_reward id='58554590' x='55' y='127' process_end='27082000' output_fill='45000'    state='4'  />
-<business_center_leibniz_reward id='58549561' x='37' y='134' process_end='21974000' output_fill='65250'    state='4'  />
-<neuchatel_castle id='56710664' x='65' y='131' process_end='37883000' output_fill='195500'    state='4'  />
-<laundry id='41778317' x='67' y='53' process_end='37884000' output_fill='4500'    state='4'  />
-<national_museum_zayed_reward id='57090902' x='37' y='122' process_end='1735000' output_fill='52500'    state='4'  />
+<advanced_water_tower2_was_new id='58624973' x='69' y='129'  output_fill='4500'    state='2'  />
+<advanced_water_tower2_was_new id='58624972' x='70' y='130'  output_fill='4500'    state='2'  />
+<advanced_water_tower2_was_new id='58624971' x='70' y='129'  output_fill='4500'    state='2'  />
+<estate_uoddesdon_reward id='58554590' x='55' y='127' process_end='4449000' output_fill='45000'    state='4'  />
+<business_center_leibniz_reward id='58549561' x='37' y='134' process_end='11291000' output_fill='65250'    state='4'  />
+<neuchatel_castle id='56710664' x='65' y='131' process_end='28850000' output_fill='195500'    state='4'  />
+<laundry id='41778317' x='67' y='53' process_end='28850000' output_fill='4500'    state='4'  />
+<national_museum_zayed_reward id='57090902' x='37' y='122' process_end='25694000' output_fill='52500'    state='4'  />
 <furniture_factory id='58525951' x='52' y='130'      state='2'  />
 <furniture_factory id='58525950' x='34' y='118'      state='2'  />
 <furniture_factory id='58525944' x='37' y='105'      state='2'  />
 <furniture_factory id='58525939' x='69' y='102'      state='2'  />
 <bahrain_bay_buildsite id='58525934' x='63' y='133'   input_fill='15455:2'   state='2'  />
-<radio_france id='54018643' x='-12' y='-16' process_end='37885000' output_fill='125000'    state='4'  />
-<theatre_dreamland id='54018648' x='12' y='7' process_end='8619000' output_fill='123000'    state='4'  />
-<driving_school_stage1 id='45335810' x='-50' y='117' process_end='5486000' output_fill='10000'    state='4'  />
-<canada_national_library_reward id='57083803' x='42' y='127' process_end='9087000' output_fill='42000'    state='4'  />
-<childrens_football_school id='41652564' x='67' y='50' process_end='5488000' output_fill='4500'    state='4' rotation='true' />
-<saint_mark_hotel_stage1 id='36652613' x='-14' y='-61' process_end='5489000' output_fill='6000'    state='4'  />
+<radio_france id='54018643' x='-12' y='-16' process_end='28850000' output_fill='125000'    state='4'  />
+<theatre_dreamland id='54018648' x='12' y='7' process_end='25250000' output_fill='123000'    state='4'  />
+<driving_school_stage1 id='45335810' x='-50' y='117' process_end='4388000' output_fill='10000'    state='4'  />
+<canada_national_library_reward id='57083803' x='42' y='127' process_end='7988000' output_fill='42000'    state='4'  />
+<childrens_football_school id='41652564' x='67' y='50' process_end='4388000' output_fill='4500'    state='4' rotation='true' />
+<saint_mark_hotel_stage1 id='36652613' x='4' y='-89' process_end='4388000' output_fill='6000'    state='4'  />
 <heliport_stage1 id='48016090' x='117' y='20'   input_fill='10921:10,10995:10,11405:7,11403:8'    state='2'  />
-<skyscraper_mosaic_real id='56054708' x='34' y='129' process_end='9090000' output_fill='27800'    state='4'  />
-<srnu_factory id='39972525' x='47' y='65' process_end='5187000'  input_fill='10541'   state='3'  />
-<tower_arkadij id='38107027' x='-16' y='17' process_end='27091000' output_fill='13000'    state='4'  />
-<urban_sports_center_stage2 id='37646905' x='61' y='44' process_end='8787000'   contract_input='35208'   state='3'  />
-<public_library id='54018653' x='-5' y='-11' process_end='30692000' output_fill='115000'    state='4'  />
+<skyscraper_mosaic_real id='56054708' x='34' y='129' process_end='7988000' output_fill='27800'    state='4'  />
+<srnu_factory id='39972525' x='47' y='65' process_end='25926000'  input_fill='10539'   state='3'  />
+<tower_arkadij id='38107027' x='-16' y='17' process_end='4449000' output_fill='13000'    state='4'  />
+<urban_sports_center_stage2 id='37646905' x='61' y='44' process_end='7926000'   contract_input='35208'   state='3'  />
+<public_library id='54018653' x='-5' y='-11' process_end='14640000' output_fill='115000'    state='4'  />
 <railroad_to_port id='58387435' x='24' y='16'      state='2' rotation='true' />
 <solar_icebox_buildsite id='58361159' x='234' y='30'      state='2'  />
-<center_pond_studies_buildsite id='58361158' x='227' y='30' process_end='37893000' output_fill='6900'    state='4'  />
+<center_pond_studies_buildsite id='58361158' x='227' y='30' process_end='28850000' output_fill='6900'    state='4'  />
 <water_facility_buildsite id='58361152' x='222' y='57'   input_fill='15602:5'   state='2'  />
 <climate_control_service_buildsite id='58361151' x='217' y='42'   input_fill='10985:2,10911:10'   state='2'  />
 <project_administration_buildsite id='58361139' x='218' y='54'   input_fill='11435:5,10015757:1'    state='2'  />
-<vienna_konzerthaus_reward id='58323281' x='55' y='129' process_end='5494000' output_fill='53500'    state='4'  />
+<vienna_konzerthaus_reward id='58323281' x='55' y='129' process_end='4389000' output_fill='53500'    state='4'  />
 <bank_inter_settlement_buildsite id='54896068' x='3' y='-1'   input_fill='15661:1,11429:1,15784:6'    state='2'  />
-<exhibition_jeweler id='53458942' x='12' y='11' process_end='30695000' output_fill='2200'    state='4'  />
-<football_stadium_rebalans id='29299986' x='42' y='50' process_end='27096000' output_fill='3200'    state='4' rotation='true' />
-<residence_philadelphia id='47124200' x='5' y='15' process_end='12697000' output_fill='7800'    state='4' rotation='true' />
-<fake_hills_gym_stage1 id='38796719' x='-62' y='-68' process_end='27098000' output_fill='32000'    state='4'  />
-<shop_of_organic_cosmetics_stage2 id='45613719' x='-106' y='51' process_end='30699000' output_fill='40000'    state='4'  />
-<hotel_azure_castle_real id='47401746' x='-14' y='0' process_end='30700000' output_fill='17500'    state='4'  />
-<museum_royals_stage2 id='43993000' x='-30' y='-14' process_end='30701000' output_fill='55000'    state='4'  />
-<italian_cafe id='50954282' x='36' y='34' process_end='16302000' output_fill='1200'    state='4' rotation='true' />
-<tower_spinnaker_real id='55566880' x='35' y='132' process_end='30703000' output_fill='12500'    state='4' rotation='true' />
-<financial_center_prime_stage1 id='47149349' x='52' y='3'  output_fill='30000' input_fill='10924:6,12158:11,10938:8,10991:4'   state='2'  />
-<club_pilots_stage3 id='46219017' x='205' y='-13'  contract_output='10015175'     state='4'  />
-<administration_hotel_complex_shima_stage1 id='41069323' x='1' y='158' process_end='19587000'   contract_input='10015798'   state='3'  />
-<times_square_stage2 id='30664960' x='-21' y='42'  contract_output='35133'     state='4'  />
-<center_black_panther_stage1 id='51758631' x='20' y='13' process_end='16853000'   contract_input='10015621'   state='3'  />
-<scientific_information_center_fyuzion_stage1 id='47734112' x='41' y='59' process_end='10549000'   contract_input='35244'   state='3'  />
-<bank_of_america id='34827123' x='57' y='65' process_end='16304000' output_fill='17500'    state='4'  />
-<east_pavilion_stage1 id='47228583' x='-71' y='-2' process_end='16305000' output_fill='7000'    state='4'  />
-<night_club_reskin_real id='39856156' x='51' y='60' process_end='9106000' output_fill='7000'    state='4' rotation='true' />
-<london_city_hall id='34879378' x='45' y='50' process_end='19907000' output_fill='15500'    state='4'  />
-<kabuki_theater id='55283777' x='15' y='-1' process_end='30708000' output_fill='50100'    state='4'  />
-<school_guards_orchestra_stage2 id='43992999' x='-29' y='-6' process_end='12709000' output_fill='40000'    state='4'  />
-<press_center id='41652688' x='-11' y='15' process_end='5510000' output_fill='5000'    state='4'  />
-<water_slide_pool_new_real id='54615177' x='-2' y='-14' process_end='30711000' output_fill='14000'    state='4'  />
+<exhibition_jeweler id='53458942' x='12' y='11' process_end='14640000' output_fill='2200'    state='4'  />
+<football_stadium_rebalans id='29299986' x='42' y='50' process_end='4449000' output_fill='3200'    state='4' rotation='true' />
+<residence_philadelphia id='47124200' x='5' y='15' process_end='17002000' output_fill='7800'    state='4' rotation='true' />
+<fake_hills_gym_stage1 id='38796719' x='-62' y='-68' process_end='4449000' output_fill='32000'    state='4'  />
+<shop_of_organic_cosmetics_stage2 id='45613719' x='-106' y='51' process_end='14640000' output_fill='40000'    state='4'  />
+<hotel_azure_castle_real id='47401746' x='-14' y='0' process_end='14640000' output_fill='17500'    state='4'  />
+<museum_royals_stage2 id='43993000' x='-30' y='-14' process_end='14640000' output_fill='55000'    state='4'  />
+<italian_cafe id='50954282' x='36' y='34' process_end='7250000' output_fill='1200'    state='4' rotation='true' />
+<tower_spinnaker_real id='55566880' x='35' y='132' process_end='14640000' output_fill='12500'    state='4' rotation='true' />
+<financial_center_prime id='47149349' x='52' y='3' process_end='21352000'   contract_input='13419'   state='3'  />
+<club_pilots_stage3 id='46219017' x='205' y='-13' process_end='762000'   contract_input='10015175'   state='3'  />
+<administration_hotel_complex_shima_stage1 id='41069323' x='1' y='158' process_end='18726000'   contract_input='10015798'   state='3'  />
+<times_square_stage2 id='30664960' x='-21' y='42' process_end='762000'   contract_input='35133'   state='3'  />
+<center_black_panther_stage1 id='51758631' x='20' y='13' process_end='14325000'   contract_input='10015620'   state='3'  />
+<scientific_information_center_fyuzion_stage1 id='47734112' x='41' y='59' process_end='14564000'   contract_input='35244'   state='3'  />
+<bank_of_america id='34827123' x='57' y='65' process_end='7250000' output_fill='17500'    state='4'  />
+<east_pavilion_stage1 id='47228583' x='-71' y='-2' process_end='7250000' output_fill='7000'    state='4'  />
+<night_club_reskin_real id='39856156' x='51' y='60' process_end='7989000' output_fill='7000'    state='4' rotation='true' />
+<london_city_hall id='34879378' x='45' y='50' process_end='18789000' output_fill='15500'    state='4'  />
+<kabuki_theater id='55283777' x='15' y='-1' process_end='14640000' output_fill='50100'    state='4'  />
+<school_guards_orchestra_stage2 id='43992999' x='-29' y='-6' process_end='17002000' output_fill='40000'    state='4'  />
+<press_center id='41652688' x='-11' y='15' process_end='4389000' output_fill='5000'    state='4'  />
+<water_slide_pool_new_real id='54615177' x='-2' y='-14' process_end='14640000' output_fill='14000'    state='4'  />
 <atomic_power_new id='58137340' x='69' y='100'      state='2'  />
 <park_with_a_grotto_real id='58137412' x='52' y='134'  output_fill='16000'    state='2'  />
 <atomic_power_new id='58137343' x='67' y='101'      state='2'  />
 <atomic_power_new id='58137342' x='69' y='101'      state='2'  />
 <atomic_power_new id='58137341' x='67' y='100'      state='2'  />
 <railroad_to_port id='58137304' x='24' y='17'      state='2' rotation='true' />
-<cultural_center_cobb_reward id='58123109' x='55' y='118' process_end='16312000' output_fill='55000'    state='4'  />
-<temple_athena_nike_buildsite id='55454130' x='139' y='143' process_end='16313000' output_fill='7900'    state='4'  />
-<animals_reabilitation_center_stage2 id='37040893' x='72' y='136' process_end='19914000' output_fill='45000'    state='4'  />
-<price_tower_real id='54938951' x='32' y='125' process_end='16315000' output_fill='13000'    state='4'  />
-<tunnel_inlet_in_buildsite id='58073412' x='82' y='-60'   input_fill='11469:3,12147:4'   state='2'  />
+<cultural_center_cobb_reward id='58123109' x='55' y='118' process_end='7250000' output_fill='55000'    state='4'  />
+<temple_athena_nike_buildsite id='55454130' x='139' y='143' process_end='7250000' output_fill='7900'    state='4'  />
+<animals_reabilitation_center_stage2 id='37040893' x='72' y='136' process_end='18789000' output_fill='45000'    state='4'  />
+<price_tower_real id='54938951' x='32' y='125' process_end='7250000' output_fill='13000'    state='4'  />
+<tunnel_inlet_in_buildsite id='58073412' x='82' y='-60'   input_fill='12147:4,11469:5'   state='2'  />
 <furniture_factory id='57603021' x='42' y='104'      state='2'  />
-<cubic_house_new id='41882996' x='1' y='-7' process_end='30716000' output_fill='118000'    state='4'  />
+<cubic_house_new id='41882996' x='1' y='-7' process_end='14640000' output_fill='118000'    state='4'  />
 <pier_buildsite id='57533564' x='99' y='-26'   input_fill='11430:10,10975:10,12154:10'   state='2'  />
 <rialto_park_real id='57533352' x='42' y='98'  output_fill='13750'    state='2'  />
-<loona_park_stage1 id='57416810' x='-64' y='-109' process_end='37917000' output_fill='15000'    state='4'  />
+<loona_park_stage1 id='57416810' x='-64' y='-109' process_end='28850000' output_fill='15000'    state='4'  />
 <advanced_water_tower2_was_new id='57323118' x='68' y='98'  output_fill='4500'    state='2'  />
 <cathedral_santa_prisca_reward id='56939783' x='49' y='127'  output_fill='21000'    state='4'  />
-<balmoral_reward id='56848563' x='37' y='129' process_end='27118000' output_fill='18500'    state='4'  />
-<radio_station id='32833679' x='52' y='53' process_end='48719000' output_fill='2000'    state='4'  />
-<garlands_shop id='58794314' x='42' y='113' process_end='30720000' output_fill='7800'    state='4'  />
+<balmoral_reward id='56848563' x='37' y='129' process_end='4449000' output_fill='18500'    state='4'  />
+<garlands_shop id='58794314' x='42' y='113' process_end='14640000' output_fill='7800'    state='4'  />
 <railroad_to_port id='56360339' x='24' y='20'      state='2' rotation='true' />
-<green_park_stage1 id='43992998' x='-23' y='-15' process_end='1921000' output_fill='7000'    state='4'  />
-<technical_library_los_angeles id='54018681' x='1' y='4' process_end='30722000' output_fill='82000'    state='4' rotation='true' />
-<acting_school_stage1 id='50749091' x='1' y='15' process_end='19587000'   contract_input='35250'   state='3'  />
+<green_park_stage1 id='43992998' x='-23' y='-15' process_end='789000' output_fill='7000'    state='4'  />
+<technical_library_los_angeles id='54018681' x='1' y='4' process_end='14640000' output_fill='82000'    state='4' rotation='true' />
+<acting_school_stage1 id='50749091' x='1' y='15' process_end='18726000'   contract_input='35250'   state='3'  />
 <plovdiv_fountain id='56074377' x='39' y='98'  output_fill='20300'    state='2'  />
-<westminster_abbey id='54018662' x='3' y='4' process_end='9123000' output_fill='102000'    state='4'  />
-<national_institutes_of_health id='40767988' x='1' y='11' process_end='5524000' output_fill='78000'    state='4'  />
-<hotel_azure_castle id='45778265' x='7' y='8' process_end='30725000' output_fill='17500'    state='4'  />
-<museum_macedonian_struggle id='54018680' x='7' y='11' process_end='8641000' output_fill='98000'    state='4'  />
-<lau_pa_sat id='54018639' x='1' y='-10' process_end='8642000' output_fill='126000'    state='4'  />
-<estate_uoddesdon_reward id='39119168' x='67' y='65' process_end='27126000' output_fill='45000'    state='4' rotation='true' />
+<westminster_abbey id='54018662' x='3' y='4' process_end='7989000' output_fill='102000'    state='4'  />
+<national_institutes_of_health id='40767988' x='1' y='11' process_end='4389000' output_fill='78000'    state='4'  />
+<hotel_azure_castle id='45778265' x='7' y='8' process_end='14640000' output_fill='17500'    state='4'  />
+<museum_macedonian_struggle id='54018680' x='7' y='11' process_end='25250000' output_fill='98000'    state='4'  />
+<lau_pa_sat id='54018639' x='1' y='-10' process_end='25250000' output_fill='126000'    state='4'  />
+<estate_uoddesdon_reward id='39119168' x='67' y='65' process_end='4449000' output_fill='45000'    state='4' rotation='true' />
 <living_complex_osaka_real id='53646554' x='15' y='17'  output_fill='1240'    state='2'  />
-<almere_business_center id='55624516' x='14' y='-10' process_end='16327000' output_fill='36300'    state='4'  />
-<aaron_shipman_hotel id='39715714' x='65' y='50' process_end='27128000' output_fill='6500'    state='4' rotation='true' />
-<srnu_factory id='36664099' x='49' y='67' process_end='5187000'  input_fill='10541'   state='3'  />
-<villa_jorg_palace_real id='55809230' x='34' y='104' process_end='463000'     state='3'  />
-<castle_landsknechts_stage2 id='43993002' x='-28' y='-25'  output_fill='60000'    state='5'  />
-<hall_auction id='41568118' x='67' y='57' process_end='37929000' output_fill='15500'    state='4'  />
-<dalyanian_shell_museum id='41897990' x='60' y='36' process_end='37930000' output_fill='15000'    state='4'  />
-<post_office_new id='35920361' x='43' y='55' process_end='16331000' output_fill='8000'    state='4' rotation='true' />
-<qmart_new id='28557634' x='46' y='52' process_end='37932000' output_fill='275'    state='4'  />
-<palace_of_festivals_stage3 id='40701151' x='56' y='-40' process_end='37933000' output_fill='80000'    state='4'  />
+<almere_business_center id='55624516' x='14' y='-10' process_end='7250000' output_fill='36300'    state='4'  />
+<aaron_shipman_hotel id='39715714' x='65' y='50' process_end='4449000' output_fill='6500'    state='4' rotation='true' />
+<srnu_factory id='36664099' x='49' y='67' process_end='25926000'  input_fill='10539'   state='3'  />
+<villa_jorg_palace_real id='55809230' x='34' y='104'  output_fill='1000'    state='2'  />
+<castle_landsknechts_stage2 id='43993002' x='-118' y='-98' process_end='849000' output_fill='60000'    state='4'  />
+<hall_auction id='41568118' x='67' y='57' process_end='28850000' output_fill='15500'    state='4'  />
+<dalyanian_shell_museum id='41897990' x='60' y='36' process_end='28850000' output_fill='15000'    state='4'  />
+<post_office_new id='35920361' x='43' y='55' process_end='7250000' output_fill='8000'    state='4' rotation='true' />
+<qmart_new id='28557634' x='46' y='52' process_end='28850000' output_fill='275'    state='4'  />
+<palace_of_festivals_stage3 id='40701151' x='56' y='-40' process_end='28850000' output_fill='80000'    state='4'  />
 <minato_complex_real id='35666896' x='-11' y='17'  output_fill='1000'    state='2'  />
 <yellow_flower_patch id='55762677' x='35' y='131'  output_fill='100'    state='2'  />
-<spices_store_real id='46028446' x='45' y='46' process_end='27134000' output_fill='3250'    state='4'  />
-<business_hotel_lotus_new_art_real id='55667661' x='32' y='100' process_end='29265000'     state='3'  />
-<monetary_fund_megapolis_stage1 id='51486001' x='181' y='-65'   input_fill='11453:2'    state='2'  />
+<spices_store_real id='46028446' x='45' y='46' process_end='4449000' output_fill='3250'    state='4'  />
+<business_hotel_lotus_new_art_real id='55667661' x='32' y='100'  output_fill='2000'    state='2'  />
 <park_with_a_grotto_real id='55599649' x='34' y='98'  output_fill='16000'    state='2'  />
 <national_library_greece_buildsite id='55567361' x='148' y='133'   input_fill='15442:2,10894:2,11427:9'   state='2'  />
-<parthenon_buildsite id='55454131' x='137' y='147'   input_fill='15643:1,12189:4,15569:10,11434:3'   state='2'  />
-<ruins_of_acropolis_buildsite id='55454129' x='133' y='143'   input_fill='12111:2,12143:3,12169:4'   state='2'  />
+<parthenon_buildsite id='55454131' x='137' y='147'   input_fill='15643:1,12189:4,15569:10,11434:4'   state='2'  />
+<ruins_of_acropolis_buildsite id='55454129' x='133' y='143'   input_fill='12143:3,12169:5,12111:3'   state='2'  />
 <center_of_classics_buildsite id='55454118' x='138' y='134'   input_fill='12169:3'    state='2'  />
-<geodesic_company_stage1 id='54672522' x='113' y='158'  contract_output='10015476'     state='4'  />
+<geodesic_company_stage1 id='54672522' x='113' y='158' process_end='2572000'   contract_input='10015476'   state='3'  />
 <church_hallgrimura_real id='55359551' x='17' y='-11'  output_fill='38000'    state='4'  />
-<tokyo_skytree_buildsite id='55351258' x='18' y='0'   input_fill='15456:3,12191:7'    state='2'  />
+<tokyo_skytree_buildsite id='55351258' x='18' y='0'   input_fill='15456:3,12191:8'    state='2'  />
 <shwedagon_pagoda id='55336649' x='13' y='-13'  output_fill='35500'    state='4'  />
 <atomic_power_new id='55336565' x='12' y='-12'      state='2' rotation='true' />
 <atomic_power_new id='55336532' x='12' y='-14'      state='2' rotation='true' />
-<dali_museum id='55330162' x='16' y='-3'  output_fill='19500'    state='5'  />
+<dali_museum id='55330162' x='16' y='-3' process_end='850000' output_fill='19500'    state='4'  />
 <ignatius_catholic_church id='55330155' x='20' y='-1'  output_fill='43500'    state='4'  />
-<shopping_center_cor_pacific id='55330153' x='13' y='-16' process_end='9135000' output_fill='46000'    state='4'  />
-<living_complex_osaka_real id='55299301' x='7' y='-11'  output_fill='1240'    state='2'  />
-<museum_of_archaeology_real id='46171863' x='-10' y='-5' process_end='16336000' output_fill='16000'    state='4'  />
-<restoration_complex_stage3 id='53522339' x='174' y='119' process_end='48387000'   contract_input='10015448'   state='3'  />
-<heritage_museum id='46171916' x='-9' y='14' process_end='30737000' output_fill='75000'    state='4' rotation='true' />
+<shopping_center_cor_pacific id='55330153' x='13' y='-16' process_end='7989000' output_fill='46000'    state='4'  />
+<museum_of_archaeology_real id='46171863' x='-10' y='-5' process_end='7250000' output_fill='16000'    state='4'  />
+<restoration_complex_stage3 id='53522339' x='174' y='119' process_end='29526000'   contract_input='10015447'   state='3'  />
+<heritage_museum id='46171916' x='-9' y='14' process_end='14640000' output_fill='75000'    state='4' rotation='true' />
 <pool_zanzibar_real id='55243182' x='17' y='-8'  output_fill='25000'    state='2'  />
-<citys_ecology_institute_stage2 id='36801244' x='85' y='136'  contract_output='35207'     state='4'  />
-<lawn_tennis_association_stage1 id='42670403' x='29' y='31' process_end='9649000'   contract_input='10016512'   state='3'  />
-<night_club_reskin id='34176308' x='39' y='55' process_end='9138000' output_fill='7000'    state='4'  />
-<art_gallery_new_art id='29007227' x='43' y='53' process_end='19939000' output_fill='1150'    state='4'  />
-<library_cottbus_real id='47124168' x='41' y='62' process_end='27140000' output_fill='19000'    state='4'  />
-<business_hotel_lotus_new_art_real id='49236072' x='-11' y='13' process_end='11910000'     state='3'  />
-<villa_jorg_palace_real id='52667100' x='15' y='15' process_end='432000'     state='3'  />
-<residential_complex_lampione id='36015589' x='-2' y='19' process_end='17133000'     state='3'  />
-<business_hotel_lotus_new_art_real id='52511828' x='14' y='11' process_end='11902000'     state='3'  />
-<log_hut id='28198969' x='63' y='52'  output_fill='10'    state='2'  />
-<log_hut id='28199387' x='63' y='54'  output_fill='10'    state='2'  />
-<log_hut_tutorial id='28199051' x='63' y='53'  output_fill='10'    state='2'  />
-<eiffel_tower id='35851055' x='43' y='57' process_end='30741000' output_fill='14000'    state='4'  />
-<concert_hall_stage3 id='39436771' x='-63' y='109'  output_fill='105000'    state='5'  />
-<skyscraper_mosaic_real id='55195616' x='32' y='129' process_end='9142000' output_fill='27800'    state='4'  />
-<tower_spinnaker_real id='54694105' x='4' y='-16' process_end='30743000' output_fill='12500'    state='4'  />
-<house_ventres_real id='38783086' x='61' y='53' process_end='11714000'     state='3' rotation='true' />
-<vikings_camp_stage1 id='43993003' x='-22' y='-31' process_end='5544000' output_fill='7000'    state='4'  />
-<holiday_house_breeze_buildsite id='55133118' x='18' y='2'   input_fill='11431:1'   state='2'  />
+<citys_ecology_institute_stage2 id='36801244' x='85' y='136' process_end='762000'   contract_input='35207'   state='3'  />
+<lawn_tennis_association_stage1 id='42670403' x='29' y='31' process_end='7926000'   contract_input='10016512'   state='3'  />
+<night_club_reskin id='34176308' x='39' y='55' process_end='7989000' output_fill='7000'    state='4'  />
+<art_gallery_new_art id='29007227' x='43' y='53' process_end='18789000' output_fill='1150'    state='4'  />
+<library_cottbus_real id='47124168' x='41' y='62' process_end='4450000' output_fill='19000'    state='4'  />
+<business_hotel_lotus_new_art_real id='49236072' x='-11' y='13'  output_fill='2000'    state='2'  />
+<villa_jorg_palace_real id='52667100' x='15' y='15'  output_fill='1000'    state='2'  />
+<residential_complex_lampione id='36015589' x='-2' y='19'  output_fill='840'    state='2'  />
+<business_hotel_lotus_new_art_real id='52511828' x='14' y='11'  output_fill='2000'    state='2'  />
+<eiffel_tower id='35851055' x='43' y='57' process_end='14640000' output_fill='14000'    state='4'  />
+<concert_hall_stage3 id='39436771' x='-63' y='109' process_end='850000' output_fill='105000'    state='4'  />
+<skyscraper_mosaic_real id='55195616' x='32' y='129' process_end='7989000' output_fill='27800'    state='4'  />
+<tower_spinnaker_real id='54694105' x='4' y='-16' process_end='14640000' output_fill='12500'    state='4'  />
+<house_ventres_real id='38783086' x='61' y='53'  output_fill='750'    state='2' rotation='true' />
+<vikings_camp_stage1 id='43993003' x='-112' y='-104' process_end='4389000' output_fill='7000'    state='4'  />
+<holiday_house_breeze_buildsite id='55133118' x='18' y='2'   input_fill='11431:2'   state='2'  />
 <plant_for_turbines_production id='55133088' x='15' y='1'   input_fill='11485:4,11478:7'   state='2'  />
 <football_club_office_stage1 id='55133059' x='18' y='-6'   input_fill='11430:3'   state='2'  />
 <murphy_plaza_buildsite id='55133044' x='12' y='-1'   input_fill='12151:1,10999:7'   state='2'  />
-<fake_hills_security_stage1 id='38390297' x='-74' y='-68' process_end='9145000' output_fill='7000'    state='4'  />
-<navy_headquarters_buildsite id='55124642' x='12' y='1'   input_fill='11407:1,11439:8'    state='2'  />
+<fake_hills_security_stage1 id='38390297' x='-74' y='-68' process_end='7989000' output_fill='7000'    state='4'  />
+<navy_headquarters_buildsite id='55124642' x='12' y='1'   input_fill='11407:1,11439:9'    state='2'  />
 <navy_design_bureau_buildsite_new id='55124641' x='15' y='4'   input_fill='11430:5,11406:5'    state='2'  />
-<ministry_of_water_resources_buildsite id='55124687' x='17' y='-6'   input_fill='12123:1'   state='2' rotation='true' />
+<ministry_of_water_resources_buildsite id='55124687' x='17' y='-6'   input_fill='12123:6'   state='2' rotation='true' />
 <tower_bitem_buildsite id='55124678' x='32' y='131'   input_fill='10923:1,10916:3,10925:3'   state='2'  />
 <hotel_konrad_buildsite id='55124671' x='32' y='134'   input_fill='15416:7,15571:6'    state='2'  />
 <gates_of_east_buildsite id='55124657' x='7' y='-7'   input_fill='15418:7,15436:4'    state='2'  />
 <institute_wind_energy1 id='55124652' x='14' y='-6'   input_fill='10957:1,11422:2,12108:3'    state='2'  />
-<royal_exhibition_building_buildsite id='55124648' x='7' y='-3'   input_fill='11428:2'    state='2'  />
+<royal_exhibition_building_buildsite id='55124648' x='7' y='-3'   input_fill='11428:5'    state='2'  />
 <school_of_paratroopers_buildsite id='55124645' x='20' y='3'   input_fill='12101:10,12132:4'    state='2'  />
-<institute_for_cosmic_bodies_buildsite id='55124639' x='3' y='-3'   input_fill='11488:5,11464:7'    state='2'  />
-<town_square_buildsite id='55124637' x='7' y='0'   input_fill='11447:2,11410:2,10962:3,10977:2'    state='2' rotation='true' />
-<visa_center id='30516461' x='48' y='53' process_end='9146000' output_fill='4000'    state='4' rotation='true' />
-<astrakhan_theatre id='46028666' x='-2' y='-12'  output_fill='96500'    state='5' rotation='true' />
-<academy_of_computer_science id='37909314' x='64' y='63'  output_fill='72000'    state='5'  />
-<business_center_hikari_real id='55094369' x='14' y='21'  output_fill='17000'    state='5'  />
+<institute_for_cosmic_bodies_buildsite id='55124639' x='3' y='-3'   input_fill='11488:5,11464:8'    state='2'  />
+<town_square_buildsite id='55124637' x='7' y='0'   input_fill='11447:2,11410:2,10962:4,10977:4'    state='2' rotation='true' />
+<visa_center id='30516461' x='48' y='53' process_end='7989000' output_fill='4000'    state='4' rotation='true' />
+<astrakhan_theatre id='46028666' x='-2' y='-12' process_end='850000' output_fill='96500'    state='4' rotation='true' />
+<academy_of_computer_science id='37909314' x='64' y='63' process_end='850000' output_fill='72000'    state='4'  />
+<business_center_hikari_real id='55094369' x='14' y='21' process_end='850000' output_fill='17000'    state='4'  />
 <rialto_park_real id='55038735' x='18' y='4'  output_fill='13750'    state='2'  />
-<noahs_ark_stage2 id='49865407' x='-44' y='-15' process_end='11914000'   contract_input='35247'   state='3'  />
-<library_of_manchester_reward id='57631037' x='42' y='117'  output_fill='36000'    state='5'  />
-<china_construction_bank id='54549591' x='-2' y='-8'  output_fill='22900'    state='5'  />
-<mediatheque id='44663641' x='33' y='29'  output_fill='13000'    state='5'  />
-<villa_jorg_palace_real id='57480008' x='37' y='107' process_end='466000'     state='3'  />
-<glassworks_stage1 id='48253810' x='-57' y='-10' process_end='37947000' output_fill='15000'    state='4'  />
-<satellite_company id='55133039' x='12' y='-6' process_end='12748000' output_fill='13500'    state='4'  />
-<erhards_house_real id='57441355' x='42' y='120' process_end='16349000' output_fill='25000'    state='4'  />
+<noahs_ark_stage2 id='49865407' x='-44' y='-15' process_end='29526000'   contract_input='35246'   state='3'  />
+<library_of_manchester_reward id='57631037' x='42' y='117' process_end='850000' output_fill='36000'    state='4'  />
+<china_construction_bank id='54549591' x='-2' y='-8' process_end='850000' output_fill='22900'    state='4'  />
+<mediatheque id='44663641' x='33' y='29' process_end='850000' output_fill='13000'    state='4'  />
+<villa_jorg_palace_real id='57480008' x='37' y='107'  output_fill='1000'    state='2'  />
+<glassworks_stage1 id='48253810' x='-57' y='-10' process_end='28850000' output_fill='15000'    state='4'  />
+<satellite_company id='55133039' x='12' y='-6' process_end='17002000' output_fill='13500'    state='4'  />
+<erhards_house_real id='57441355' x='42' y='120' process_end='7250000' output_fill='25000'    state='4'  />
 <railroad_tunnel2 id='29122029' x='22' y='79'      state='2'  />
-<architectural_academy_stage1 id='47228579' x='-71' y='-15' process_end='1587000'   contract_input='10016489'   state='3'  />
-<srnu_factory id='39955752' x='45' y='67' process_end='5187000'  input_fill='10541'   state='3'  />
-<temple_east_stage1 id='44425245' x='119' y='112' process_end='1950000' output_fill='7000'    state='4'  />
+<architectural_academy_stage1 id='47228579' x='-71' y='-15' process_end='726000'   contract_input='10016489'   state='3'  />
+<srnu_factory id='39955752' x='45' y='67' process_end='25926000'  input_fill='10539'   state='3'  />
+<temple_east_stage1 id='44425245' x='119' y='112' process_end='789000' output_fill='7000'    state='4'  />
 <park_with_a_grotto_real id='57241889' x='42' y='102'  output_fill='16000'    state='2'  />
 <polo_field_stage1 id='50164583' x='-83' y='-6'   input_fill='15460:5,15436:10,11470:10'   state='2'  />
-<house_capsule_real id='43527906' x='58' y='37' process_end='474000'     state='3'  />
+<house_capsule_real id='43527906' x='58' y='37'  output_fill='650'    state='2'  />
 <church_hallgrimura_real id='56985108' x='59' y='122'  output_fill='38000'    state='4'  />
 <railroad_to_port id='56954069' x='24' y='19'      state='2' rotation='true' />
-<srnu_factory id='43798191' x='39' y='65' process_end='5187000'  input_fill='10541'   state='3'  />
-<chateau_les_fontaines_reward id='56914249' x='37' y='127' process_end='16351000' output_fill='36000'    state='4'  />
+<srnu_factory id='43798191' x='39' y='65' process_end='25926000'  input_fill='10539'   state='3'  />
+<chateau_les_fontaines_reward id='56914249' x='37' y='127' process_end='7250000' output_fill='36000'    state='4'  />
 <living_complex_osaka_real id='56914274' x='39' y='103'  output_fill='1240'    state='2'  />
-<karnak_temple_stage2 id='35488619' x='85' y='57'  contract_output='10589'     state='4'  />
-<canada_national_library_reward id='56866744' x='49' y='132' process_end='9151000' output_fill='42000'    state='4'  />
-<museum_sailing_ships id='55133025' x='9' y='-9' process_end='9151000' output_fill='3250'    state='4'  />
-<burrito_shop_rebalance id='39856375' x='49' y='59' process_end='5551000' output_fill='1050'    state='4'  />
+<karnak_temple_stage2 id='35488619' x='85' y='57' process_end='2572000'   contract_input='10589'   state='3'  />
+<canada_national_library_reward id='56866744' x='49' y='132' process_end='7989000' output_fill='42000'    state='4'  />
+<museum_sailing_ships id='55133025' x='9' y='-9' process_end='7989000' output_fill='3250'    state='4'  />
+<burrito_shop_rebalance id='39856375' x='49' y='59' process_end='4389000' output_fill='1050'    state='4'  />
 <pool_zanzibar_real id='56848572' x='42' y='130'  output_fill='25000'    state='2'  />
-<stonehenge id='35741945' x='45' y='57' process_end='1735000' output_fill='14500'    state='4'  />
-<observatory_new id='35727249' x='53' y='50' process_end='44935000' output_fill='8500'    state='4' rotation='true' />
-<tikal_temple_buildsite id='53522601' x='165' y='109' process_end='30751000' output_fill='4240'    state='4'  />
-<roman_pantheon id='54018664' x='17' y='13' process_end='1735000' output_fill='37000'    state='4'  />
-<swimming_pool_rebalance id='35019780' x='54' y='50' process_end='21974000' output_fill='6500'    state='4' rotation='true' />
-<skyscraper_mosaic_real id='56754321' x='39' y='132' process_end='9151000' output_fill='27800'    state='4'  />
-<srnu_factory id='39856194' x='53' y='67' process_end='5187000'  input_fill='10541'   state='3'  />
-<hotel_complex_new_stage1 id='45335811' x='-48' y='108' process_end='30751000' output_fill='26000'    state='4'  />
-<hps_hydroelectric5 id='31856771' x='25' y='48'   input_fill='15571:10,10993:1,12171:9,15594:2,15589:7,15411:3'   state='2'  />
-<santiago_tower_real id='45838080' x='-2' y='21' process_end='9934000'     state='3'  />
-<coast_hotel_stage3 id='31870713' x='94' y='-13'     input_fill='12114:5,12103:5,11400:3'    state='2'  />
+<stonehenge id='35741945' x='45' y='57' process_end='25754000' output_fill='14500'    state='4'  />
+<observatory_new id='35727249' x='53' y='50' process_end='108240000' output_fill='8500'    state='4' rotation='true' />
+<tikal_temple_buildsite id='53522601' x='165' y='109' process_end='14640000' output_fill='4240'    state='4'  />
+<roman_pantheon id='54018664' x='17' y='13' process_end='25754000' output_fill='37000'    state='4'  />
+<swimming_pool_rebalance id='35019780' x='54' y='50' process_end='11354000' output_fill='6500'    state='4' rotation='true' />
+<skyscraper_mosaic_real id='56754321' x='39' y='132' process_end='7989000' output_fill='27800'    state='4'  />
+<srnu_factory id='39856194' x='53' y='67' process_end='25926000'  input_fill='10539'   state='3'  />
+<hotel_complex_new_stage1 id='45335811' x='-48' y='108' process_end='14640000' output_fill='26000'    state='4'  />
+<hps_hydroelectric5 id='31856771' x='25' y='48'   input_fill='15571:10,12171:9,15594:2,15411:3,15589:8,10993:2'   state='2'  />
+<santiago_tower_real id='45838080' x='-2' y='21'  output_fill='900'    state='2'  />
+<coast_hotel_stage3 id='31870713' x='94' y='-13'     input_fill='12114:5,12103:5,11400:6'    state='2'  />
 <stadium_megapolis_arena_stage2 id='41652266' x='42' y='88'       state='2'  />
-<business_hotel_lotus_new_art_real id='48078241' x='-16' y='8' process_end='11913000'     state='3'  />
-<villa_bianca id='34074204' x='61' y='56' process_end='6375000'     state='3'  />
-<log_cabin id='28199691' x='56' y='51' process_end='960000'     state='3'  />
-<small_japan_house id='28557632' x='55' y='44' process_end='2750000'     state='3'  />
-<villa_acosta_real id='43641765' x='46' y='46' process_end='6349000'     state='3'  />
-<sanatorium_rosalie id='37646581' x='44' y='62' process_end='2748000'     state='3'  />
+<business_hotel_lotus_new_art_real id='48078241' x='-16' y='8'  output_fill='2000'    state='2'  />
+<villa_bianca id='34074204' x='61' y='56'  output_fill='150'    state='2'  />
+<log_cabin id='28199691' x='56' y='51'  output_fill='100'    state='2'  />
+<small_japan_house id='28557632' x='55' y='44'  output_fill='55'    state='2'  />
+<villa_acosta_real id='43641765' x='46' y='46'  output_fill='330'    state='2'  />
+<sanatorium_rosalie id='37646581' x='44' y='62'  output_fill='200'    state='2'  />
 <atomic_power_new id='56703886' x='65' y='98'      state='2'  />
 <atomic_power_new id='56703885' x='65' y='99'      state='2'  />
 <cheese_factory_buildsite id='48253811' x='-63' y='-4'   input_fill='10940:5,10911:5,12184:5,15589:10,11469:10'   state='2'  />
 <solar_ark_stage1 id='45863379' x='-90' y='21'  output_fill='20000'    state='2'  />
-<pizzeria_new id='29488690' x='53' y='58' process_end='14774000' output_fill='550'    state='4'  />
+<pizzeria_new id='29488690' x='53' y='58' process_end='4154000' output_fill='550'    state='4'  />
 <fortress_excavation2_buildsite id='56613606' x='44' y='98'   input_fill='12154:3,12149:1'   state='2'  />
 <rialto_park_real id='56613605' x='34' y='100'  output_fill='13750'    state='2'  />
-<villa_jorg_palace_real id='56566785' x='32' y='104' process_end='464000'     state='3'  />
-<estate_uoddesdon_reward id='56560225' x='32' y='102' process_end='27151000' output_fill='45000'    state='4'  />
+<villa_jorg_palace_real id='56566785' x='32' y='104'  output_fill='1000'    state='2'  />
+<estate_uoddesdon_reward id='56560225' x='32' y='102' process_end='4450000' output_fill='45000'    state='4'  />
 <sport_complex_stage4 id='31356151' x='60' y='66'   input_fill='11402:5,10911:20'   state='2'  />
 <railroad_track_double id='49780702' x='24' y='48'      state='2' rotation='true' />
 <installation_viewpoint id='56523240' x='42' y='100'  output_fill='4200'    state='2'  />
 <installation_lifeforce id='56523230' x='39' y='105'  output_fill='1700'    state='2'  />
 <mobile_phone_communication_tower_stage1 id='40966797' x='65' y='59'  building_position='1402375331000' output_fill='7500' input_fill='11435:3,11452:2'   state='2'  />
-<national_palace_museum_in_taipei id='54018675' x='7' y='6' process_end='45151000' output_fill='88500'    state='4'  />
-<brick_house_new_art id='28239222' x='59' y='52' process_end='17181000'     state='3'  />
-<hotel_continent_new_art id='36483084' x='67' y='59' process_end='17158000'     state='3'  />
-<cottage_albion_new_art id='33247139' x='56' y='52' process_end='2761000'     state='3'  />
-<alfa_sigma_building id='34099243' x='56' y='54' process_end='17163000'     state='3'  />
-<bungalow_siena id='28239234' x='58' y='50'  output_fill='20'    state='2'  />
-<sungkyunkwan_university_library id='47734139' x='-3' y='11' process_end='37951000' output_fill='21000'    state='4'  />
+<national_palace_museum_in_taipei id='54018675' x='7' y='6' process_end='49402000' output_fill='88500'    state='4'  />
+<brick_house_new_art id='28239222' x='59' y='52'  output_fill='75'    state='2'  />
+<hotel_continent_new_art id='36483084' x='67' y='59'  output_fill='900'    state='2'  />
+<cottage_albion_new_art id='33247139' x='56' y='52'  output_fill='120'    state='2'  />
+<alfa_sigma_building id='34099243' x='56' y='54'  output_fill='250'    state='2'  />
+<sungkyunkwan_university_library id='47734139' x='-3' y='11' process_end='28850000' output_fill='21000'    state='4'  />
 <park_with_a_grotto_real id='56393567' x='69' y='98'  output_fill='16000'    state='2'  />
 <purple_flower_patch id='56389920' x='50' y='42'  output_fill='100'    state='2'  />
 <purple_flower_patch id='56389919' x='48' y='45'  output_fill='100'    state='2'  />
-<tower_spinnaker_real id='56350271' x='52' y='136' process_end='30751000' output_fill='12500'    state='4'  />
+<tower_spinnaker_real id='56350271' x='52' y='136' process_end='14640000' output_fill='12500'    state='4'  />
 <house_pavia_real id='39346152' x='62' y='53'  output_fill='540'    state='2' rotation='true' />
-<burj_alam_tower id='56330502' x='49' y='135' process_end='12751000' output_fill='130000'    state='4'  />
-<towers_of_kuwait_buildsite id='56318813' x='34' y='127'   input_fill='15595:3,15660:1,10911:2'   state='2'  />
+<burj_alam_tower id='56330502' x='49' y='135' process_end='17002000' output_fill='130000'    state='4'  />
+<towers_of_kuwait_buildsite id='56318813' x='34' y='127'   input_fill='15595:3,15660:1,10911:5'   state='2'  />
 <museum_emerging_science_innovation_buildsite id='56318809' x='32' y='122'   input_fill='12164:2,15588:3'    state='2' rotation='true' />
-<pirate_fort_stage1 id='44913987' x='10' y='-68'  contract_output='10015145' input_fill='12112:7,11412:10,11482:10'    state='4'  />
-<water_slide_pool_new_real id='56307097' x='39' y='100' process_end='30751000' output_fill='14000'    state='4'  />
+<pirate_fort_stage1 id='44913987' x='10' y='-68' process_end='2572000'  input_fill='12112:7,11412:10,11482:10' contract_input='10015145'   state='3'  />
+<water_slide_pool_new_real id='56307097' x='39' y='100' process_end='14640000' output_fill='14000'    state='4'  />
 <skull_rock_buildsite id='44914017' x='12' y='-57'   input_fill='15590:2,15419:5,11410:8'   state='2'  />
 <academy_xenoarchaeology_buildsite id='56245279' x='189' y='71'      state='2'  />
 <remote_control_buildsite id='56245214' x='179' y='73'   input_fill='15457:5,15656:1'   state='2'  />
-<dawn_palace id='43274848' x='-11' y='2' process_end='19951000' output_fill='56000'    state='4'  />
+<dawn_palace id='43274848' x='-11' y='2' process_end='18789000' output_fill='56000'    state='4'  />
 <church_hallgrimura_real id='56203687' x='42' y='134'  output_fill='38000'    state='4'  />
-<tech_support_center_stage2 id='36639434' x='53' y='141' process_end='37951000' output_fill='60000'    state='4'  />
-<fake_hills_parking_stage1 id='38783120' x='-70' y='-68'  output_fill='20000'    state='5'  />
-<fake_hills_restaurant_stage1 id='38783121' x='-66' y='-68' process_end='37951000' output_fill='30000'    state='4'  />
+<tech_support_center_stage2 id='36639434' x='53' y='141' process_end='28850000' output_fill='60000'    state='4'  />
+<fake_hills_parking_stage1 id='38783120' x='-70' y='-68' process_end='850000' output_fill='20000'    state='4'  />
+<fake_hills_restaurant_stage1 id='38783121' x='-66' y='-68' process_end='28850000' output_fill='30000'    state='4'  />
 <living_complex_osaka_real id='56156450' x='37' y='103'  output_fill='1240'    state='2'  />
 <pool_zanzibar_real id='56108957' x='37' y='100'  output_fill='25000'    state='2' rotation='true' />
-<gold_mining_company_stage2 id='43526189' x='94' y='110' process_end='30387000'   contract_input='10016537'   state='3'  />
-<sq_city_stage2 id='34402981' x='1' y='18' process_end='12387000'  input_fill='11446:2,10996:5' contract_input='10564'   state='3'  />
-<goldmine_stage2 id='43642218' x='98' y='119' process_end='19951000' output_fill='20000'    state='4'  />
-<mount_vernon_stage1 id='39769650' x='7' y='3' process_end='15987000'   contract_input='99103'   state='3'  />
-<sawmill_middle id='33574954' x='32' y='37' process_end='5187000'  input_fill='11469:1,10993:1,11475:2' contract_input='10543'   state='3'  />
-<laboratory_levitation id='44803098' x='-11' y='21' process_end='8647000' output_fill='17000'    state='4'  />
-<national_sylvan_theatre id='39734593' x='49' y='60' process_end='30751000' output_fill='6250'    state='4'  />
+<gold_mining_company_stage2 id='43526189' x='94' y='110' process_end='21525000'   contract_input='10016537'   state='3'  />
+<sq_city_stage2 id='34402981' x='1' y='18' process_end='11526000'  input_fill='11446:2,10996:5' contract_input='10564'   state='3'  />
+<goldmine_stage2 id='43642218' x='98' y='119' process_end='18789000' output_fill='20000'    state='4'  />
+<mount_vernon_stage1 id='39769650' x='7' y='3' process_end='7125000'   contract_input='99103'   state='3'  />
+<sawmill_middle id='33574954' x='32' y='37' process_end='36726000'  input_fill='11469:1,10993:1,11475:3' contract_input='10582'   state='3'  />
+<laboratory_levitation id='44803098' x='-11' y='21' process_end='25250000' output_fill='17000'    state='4'  />
+<national_sylvan_theatre id='39734593' x='49' y='60' process_end='14640000' output_fill='6250'    state='4'  />
 <rialto_park_real id='55879090' x='37' y='98'  output_fill='13750'    state='2'  />
-<exhibition_hall_stage2 id='43641987' x='-28' y='114' process_end='30751000' output_fill='40000'    state='4'  />
-<skyscraper_mosaic_real id='48722097' x='7' y='21' process_end='9151000' output_fill='27800'    state='4'  />
-<business_hotel_lotus_new_art_real id='53904657' x='16' y='11' process_end='11901000'     state='3'  />
+<exhibition_hall_stage2 id='43641987' x='-28' y='114' process_end='14640000' output_fill='40000'    state='4'  />
+<skyscraper_mosaic_real id='48722097' x='7' y='21' process_end='7989000' output_fill='27800'    state='4'  />
+<business_hotel_lotus_new_art_real id='53904657' x='16' y='11'  output_fill='2000'    state='2'  />
 <sea_naval_station_buildsite id='55835297' x='32' y='9'   input_fill='11449:3'    state='2'  />
-<radio_station id='30516462' x='53' y='52' process_end='48751000' output_fill='2000'    state='4'  />
+<radio_station id='30516462' x='53' y='52' process_end='47589000' output_fill='2000'    state='4'  />
 <park_with_a_grotto_real id='54771500' x='1' y='-3'  output_fill='16000'    state='2'  />
 <academy_magnetic_anomalies_buildsite id='54672577' x='132' y='156'   input_fill='15587:5,15638:1'   state='2'  />
-<museum_glass_ceramics_geneva id='54653733' x='4' y='1' process_end='37951000' output_fill='52300'    state='4' rotation='true' />
+<museum_glass_ceramics_geneva id='54653733' x='4' y='1' process_end='28850000' output_fill='52300'    state='4' rotation='true' />
 <sequoia_geperion_reward id='43274881' x='-14' y='13'  output_fill='12000'    state='2'  />
 <marine_corps id='40966562' x='20' y='22'  output_fill='6000'    state='2'  />
 <tree_poplar id='54018696' x='22' y='11'  output_fill='100'    state='2'  />
@@ -573,97 +590,95 @@
 <living_complex_osaka_real id='52961949' x='-14' y='11'  output_fill='1240'    state='2'  />
 <church_hallgrimura_real id='54489714' x='12' y='15'  output_fill='38000'    state='4'  />
 <mobile_phone_communication_tower_stage2 id='40966833' x='66' y='50'  building_position='1402375396000' output_fill='12500'    state='2'  />
-<ashgabat_tower_real id='38874194' x='49' y='63' process_end='12751000' output_fill='7400'    state='4'  />
-<log_hut id='28198968' x='63' y='51'  output_fill='10'    state='2'  />
-<log_hut id='28199358' x='63' y='50'  output_fill='10'    state='2'  />
-<central_port_stage4 id='32048571' x='27' y='2'  contract_output='13407'     state='4'  />
-<national_center_cinema id='39982608' x='41' y='47' process_end='30387000'  input_fill='10015610'   state='3'  />
-<air_gates_stage2 id='46219074' x='200' y='-35' process_end='37951000' output_fill='60000'    state='4'  />
-<fake_hills_complex_stage4 id='38373998' x='-74' y='-62' process_end='35121000'     state='3'  />
-<acacia_house_new id='36568597' x='47' y='62' process_end='13546000'     state='3'  />
+<ashgabat_tower_real id='38874194' x='49' y='63' process_end='17003000' output_fill='7400'    state='4'  />
+<central_port_stage4 id='32048571' x='27' y='2' process_end='25421000'   contract_input='13406'   state='3'  />
+<national_center_cinema id='39982608' x='41' y='47' process_end='14564000'  input_fill='10015610'   state='3'  />
+<air_gates_stage2 id='46219074' x='200' y='-35' process_end='28850000' output_fill='60000'    state='4'  />
+<fake_hills_complex_stage4 id='38373998' x='-74' y='-62'  output_fill='7200'    state='2'  />
+<acacia_house_new id='36568597' x='47' y='62'  output_fill='1000'    state='2'  />
 <stadium_excavation_stage3 id='33247143' x='61' y='50'  output_fill='21000'    state='2' rotation='true' />
 <pool_zanzibar_real id='54350917' x='20' y='20'  output_fill='25000'    state='2'  />
-<old_mansion id='41810855' x='45' y='41' process_end='16351000' output_fill='36500'    state='4' rotation='true' />
+<old_mansion id='41810855' x='45' y='41' process_end='7250000' output_fill='36500'    state='4' rotation='true' />
 <complex_deepwater_craft_buildsite id='54195160' x='149' y='-57'   input_fill='10958:5,15488:5'   state='2'  />
 <station_submersible_bottom_buildsite id='54195149' x='141' y='-73'   input_fill='15488:2,10958:5'   state='2'  />
 <maritime_intelligence_platform_buildsite id='54195127' x='139' y='-61'   input_fill='11440:2,10919:7'    state='2'  />
-<villa_jorg_palace_real id='48722132' x='-5' y='1' process_end='449000'     state='3'  />
-<cottadge_oak id='34073464' x='56' y='53' process_end='9962000'     state='3'  />
-<tower_rondskrift id='37557098' x='63' y='56' process_end='11717000'     state='3'  />
+<villa_jorg_palace_real id='48722132' x='-5' y='1' process_end='28208000'     state='3'  />
+<cottadge_oak id='34073464' x='56' y='53'  output_fill='150'    state='2'  />
+<tower_rondskrift id='37557098' x='63' y='56'  output_fill='300'    state='2'  />
 <marine_corps id='40966567' x='20' y='2'  output_fill='6000'    state='2'  />
 <distribution_warehouse id='54165942' x='20' y='-10'      state='2'  />
 <distribution_warehouse id='54165943' x='20' y='-13'      state='2'  />
 <distribution_warehouse id='54165953' x='20' y='-16'      state='2'  />
-<distribution_warehouse id='54165944' x='20' y='-4'   input_fill='11424:4,12130:2,12156:4,12125:2'   state='2'  />
+<distribution_warehouse id='54165944' x='20' y='-4'   input_fill='11424:4,12156:4,12125:2,12130:3'   state='2'  />
 <distribution_warehouse id='54165939' x='20' y='-7'   input_fill='12156:1,11424:4'   state='2'  />
-<business_center_hikari_real id='54155597' x='7' y='15'  output_fill='17000'    state='5'  />
+<business_center_hikari_real id='54155597' x='7' y='15' process_end='850000' output_fill='17000'    state='4'  />
 <port_warehouse_stage4 id='40056120' x='25' y='-27'       state='2'  />
 <rialto_park_real id='54100776' x='-2' y='-16'  output_fill='13750'    state='2'  />
-<big_brick_house id='30079406' x='58' y='52' process_end='2769000'     state='3'  />
+<big_brick_house id='30079406' x='58' y='52'  output_fill='80'    state='2'  />
 <hotel_bald_mountain_buildsite id='46745350' x='-43' y='-5'   input_fill='15640:5,12119:5,15661:10,10912:7'   state='2'  />
-<big_brick_house id='33247188' x='58' y='51' process_end='2767000'     state='3'  />
+<big_brick_house id='33247188' x='58' y='51'  output_fill='80'    state='2'  />
 <atomic_power_new id='54041251' x='12' y='-16'      state='2' rotation='true' />
 <atomic_power_new id='54041250' x='21' y='15'      state='2' rotation='true' />
 <kazan_cathedral id='54018701' x='-2' y='-3'  output_fill='19000'    state='4'  />
 <floating_forwarding_laboratory_buildsite id='54195161' x='152' y='-74'   input_fill='11487:5,11481:3,10911:10,11465:3'   state='2'  />
 <information_analysis_center_buildsite id='47691667' x='155' y='-21'   input_fill='15442:1,15438:8'    state='2'  />
 <preobrazhenskiy_church_reward id='58016961' x='34' y='120'  output_fill='18250'    state='4'  />
-<villa_jorg_palace_real id='54049751' x='-14' y='8' process_end='442000'     state='3'  />
+<villa_jorg_palace_real id='54049751' x='-14' y='8'  output_fill='1000'    state='2'  />
 <department_of_archaeology_buildsite id='49378512' x='-8' y='-13'   input_fill='12110:5,12109:4,11498:5'   state='2'  />
 <railroad_tunnel3_stage1 id='29122030' x='34' y='79'   input_fill='10901:5,11469:5,12118:8'   state='2'  />
-<service_landscaping_megapolis_buildsite id='45863380' x='-82' y='19'   input_fill='10919:7,10901:7'   state='2'  />
-<bowling_new id='28558178' x='53' y='55' process_end='37951000' output_fill='1050'    state='4'  />
+<service_landscaping_megapolis_stage1 id='45863380' x='-82' y='19'   input_fill='15460:1,11470:3,15436:2'   state='2'  />
+<bowling_new id='28558178' x='53' y='55' process_end='28850000' output_fill='1050'    state='4'  />
 <church_hallgrimura_real id='57897755' x='45' y='121'  output_fill='38000'    state='4'  />
-<business_center_leibniz_reward id='57781526' x='65' y='134' process_end='21974000' output_fill='65250'    state='4'  />
+<business_center_leibniz_reward id='57781526' x='65' y='134' process_end='11354000' output_fill='65250'    state='4'  />
 <pool_zanzibar_real id='57768894' x='45' y='126'  output_fill='25000'    state='2'  />
 <railroad_to_port id='57768823' x='24' y='18'      state='2' rotation='true' />
-<uaythollsky_palace_stage2 id='43992922' x='-23' y='-8' process_end='2466000'   contract_input='10016544'   state='3'  />
-<skyscraper_mosaic_real id='57711272' x='63' y='135' process_end='9151000' output_fill='27800'    state='4'  />
-<house_opus_real id='46795544' x='-5' y='15' process_end='17132000'     state='3'  />
-<data_center_real id='44899630' x='35' y='29' process_end='16351000' output_fill='17000'    state='4'  />
-<gothic_castle_stage3 id='46745285' x='-36' y='0' process_end='16724000'   contract_input='10015193'   state='3'  />
-<sailing_center_stage3 id='33396838' x='93' y='-28' process_end='31300000'  input_fill='10975:2,11423:3' contract_input='13467'   state='3'  />
-<ottawa_convention_centre_stage1 id='56637649' x='-37' y='-20' process_end='37587000'   contract_input='9015489'   state='3'  />
-<srnu_factory id='40012820' x='51' y='65' process_end='5187000'  input_fill='10541'   state='3'  />
-<pirate_frigate_stage1 id='44944370' x='26' y='-73' process_end='9151000' output_fill='6000'    state='4'  />
-<the_mint id='51486074' x='3' y='7' process_end='9151000' output_fill='3600'    state='4'  />
-<city_library_new id='34053392' x='51' y='57' process_end='16351000' output_fill='11750'    state='4' rotation='true' />
-<shopping_center_cor_pacific id='41966540' x='-11' y='-1' process_end='9151000' output_fill='46000'    state='4'  />
+<uaythollsky_palace_stage2 id='43992922' x='-23' y='-8' process_end='7125000'   contract_input='10016542'   state='3'  />
+<skyscraper_mosaic_real id='57711272' x='63' y='135' process_end='7989000' output_fill='27800'    state='4'  />
+<house_opus_real id='46795544' x='-5' y='15'  output_fill='1200'    state='2'  />
+<data_center_real id='44899630' x='35' y='29' process_end='7250000' output_fill='17000'    state='4'  />
+<gothic_castle_stage3 id='46745285' x='-36' y='0' process_end='28725000'   contract_input='10015193'   state='3'  />
+<sailing_center_stage3 id='33396838' x='93' y='-28' process_end='14564000'  input_fill='10975:2,11423:4' contract_input='13467'   state='3'  />
+<ottawa_convention_centre_stage1 id='56637649' x='-37' y='-20' process_end='14564000'   contract_input='9015488'   state='3'  />
+<srnu_factory id='40012820' x='51' y='65' process_end='25926000'  input_fill='10539'   state='3'  />
+<pirate_frigate_stage1 id='44944370' x='26' y='-73' process_end='7989000' output_fill='6000'    state='4'  />
+<the_mint id='51486074' x='3' y='7' process_end='7989000' output_fill='3600'    state='4'  />
+<city_library_new id='34053392' x='51' y='57' process_end='7250000' output_fill='11750'    state='4' rotation='true' />
+<shopping_center_cor_pacific id='41966540' x='-11' y='-1' process_end='7989000' output_fill='46000'    state='4'  />
 <advanced_water_tower2_was_new id='57323119' x='67' y='98'  output_fill='4500'    state='2'  />
-<business_hotel_lotus_new_art_real id='57323307' x='-11' y='11' process_end='11909000'     state='3'  />
+<business_hotel_lotus_new_art_real id='57323307' x='-11' y='11'  output_fill='2000'    state='2'  />
 <advanced_water_tower2_was_new id='57323121' x='67' y='99'  output_fill='4500'    state='2'  />
 <advanced_water_tower2_was_new id='57323120' x='68' y='99'  output_fill='4500'    state='2'  />
-<business_hotel_lotus_new_art_real id='57300626' x='52' y='128' process_end='29267000'     state='3'  />
-<public_library_real id='35958568' x='39' y='50' process_end='30751000' output_fill='115000'    state='4'  />
-<pyramid id='36885507' x='78' y='48' process_end='21852000'   contract_input='10592'   state='3'  />
-<holidays_agency_stage1 id='34434487' x='-114' y='53'  contract_output='35182'     state='4'  />
-<institute_of_demography id='38373917' x='67' y='47' process_end='38445000'  input_fill='35217'   state='3'  />
-<shakespeare_gardens_stage2 id='43641985' x='-25' y='121' process_end='16351000' output_fill='21000'    state='4'  />
-<luxembourg_hotel_real id='41689198' x='67' y='54'  output_fill='13200'    state='5'  />
-<volleyball_court_new_art_real id='45511267' x='-11' y='-3'  output_fill='24000'    state='5'  />
-<business_hotel_lotus_new_art_real id='53238264' x='7' y='13' process_end='11904000'     state='3'  />
+<business_hotel_lotus_new_art_real id='57300626' x='52' y='128'  output_fill='2000'    state='2'  />
+<public_library_real id='35958568' x='39' y='50' process_end='14640000' output_fill='115000'    state='4'  />
+<pyramid id='36885507' x='78' y='48' process_end='7926000'   contract_input='10591'   state='3'  />
+<holidays_agency_stage1 id='34434487' x='-114' y='53' process_end='14325000'   contract_input='35182'   state='3'  />
+<institute_of_demography id='38373917' x='67' y='47' process_end='762000'  input_fill='35216'   state='3'  />
+<shakespeare_gardens_stage2 id='43641985' x='-25' y='121' process_end='7250000' output_fill='21000'    state='4'  />
+<luxembourg_hotel_real id='41689198' x='67' y='54' process_end='850000' output_fill='13200'    state='4'  />
+<volleyball_court_new_art_real id='45511267' x='-11' y='-3' process_end='850000' output_fill='24000'    state='4'  />
+<business_hotel_lotus_new_art_real id='53238264' x='7' y='13'  output_fill='2000'    state='2'  />
 <cottage_marika id='31209359' x='56' y='50'  output_fill='35'    state='2'  />
-<price_tower_real id='53996417' x='16' y='21' process_end='16351000' output_fill='13000'    state='4'  />
-<business_hotel_lotus_new_art_real id='54826057' x='1' y='-1' process_end='11905000'     state='3'  />
+<price_tower_real id='53996417' x='16' y='21' process_end='7250000' output_fill='13000'    state='4'  />
+<business_hotel_lotus_new_art_real id='54826057' x='1' y='-1'  output_fill='2000'    state='2'  />
 <freight_terminal_stage3 id='40110071' x='19' y='-33'  output_fill='140000'    state='2'  />
-<institute_of_nutrition id='37646714' x='49' y='46' process_end='16351000' output_fill='5000'    state='4'  />
-<health_palace_stage2 id='37646948' x='63' y='47' process_end='15987000'   contract_input='35210'   state='3'  />
-<sun_pyramid_stage2 id='53522599' x='167' y='114'  output_fill='20000'    state='5'  />
+<institute_of_nutrition id='37646714' x='49' y='46' process_end='7250000' output_fill='5000'    state='4'  />
+<health_palace_stage2 id='37646948' x='63' y='47' process_end='7125000'   contract_input='35210'   state='3'  />
+<sun_pyramid_stage2 id='53522599' x='167' y='114' process_end='850000' output_fill='20000'    state='4'  />
 <fishing_terminal_stage6 id='40117613' x='30' y='-23'  output_fill='170000'    state='2'  />
-<help_centre_final id='34278678' x='-8' y='139' process_end='41187000'   contract_input='22192'   state='3'  />
-<tv_tower_new_art id='42638997' x='38' y='36' process_end='1735000' output_fill='13500'    state='4'  />
-<kappa_mu_delta_building id='45667648' x='-11' y='8' process_end='13528000'     state='3'  />
-<babylon_house_new id='36617093' x='-16' y='11' process_end='38729000'     state='3'  />
-<villa_jorg_palace_real id='53354877' x='-14' y='6' process_end='443000'     state='3'  />
-<gold_processing_plant_stage2 id='43642216' x='101' y='113' process_end='30751000' output_fill='50000'    state='4'  />
-<small_office_building_new_art id='28558161' x='45' y='52' process_end='48751000' output_fill='550'    state='4'  />
-<business_centre_dongdaemun id='47691723' x='7' y='18' process_end='9151000' output_fill='16500'    state='4'  />
+<help_centre_final id='34278678' x='-8' y='139' process_end='40326000'   contract_input='22192'   state='3'  />
+<tv_tower_new_art id='42638997' x='38' y='36' process_end='25754000' output_fill='13500'    state='4'  />
+<kappa_mu_delta_building id='45667648' x='-11' y='8'  output_fill='220'    state='2'  />
+<babylon_house_new id='36617093' x='-16' y='11'  output_fill='1500'    state='2'  />
+<villa_jorg_palace_real id='53354877' x='-14' y='6'  output_fill='1000'    state='2'  />
+<gold_processing_plant_stage2 id='43642216' x='101' y='113' process_end='14640000' output_fill='50000'    state='4'  />
+<small_office_building_new_art id='28558161' x='45' y='52' process_end='47589000' output_fill='550'    state='4'  />
+<business_centre_dongdaemun id='47691723' x='7' y='18' process_end='7989000' output_fill='16500'    state='4'  />
 <bungalow_new_art id='28198970' x='58' y='53'  output_fill='15'    state='2'  />
-<pharmacy_new id='35767257' x='48' y='55' process_end='21974000' output_fill='4000'    state='4'  />
-<statue_of_liberty id='36249841' x='41' y='53' process_end='1735000' output_fill='16000'    state='4'  />
-<srnu_factory id='39856252' x='45' y='65' process_end='5187000'  input_fill='10541'   state='3'  />
-<investment_company id='41070322' x='65' y='56' process_end='37951000' output_fill='3500'    state='4' rotation='true' />
-<rains_palace_stage2 id='35919837' x='-12' y='-57' process_end='11965000'   contract_input='35202'   state='3'  />
+<pharmacy_new id='35767257' x='48' y='55' process_end='11354000' output_fill='4000'    state='4'  />
+<statue_of_liberty id='36249841' x='41' y='53' process_end='25754000' output_fill='16000'    state='4'  />
+<srnu_factory id='39856252' x='45' y='65' process_end='25926000'  input_fill='10539'   state='3'  />
+<investment_company id='41070322' x='65' y='56' process_end='28850000' output_fill='3500'    state='4' rotation='true' />
+<rains_palace_stage2 id='35919837' x='6' y='-85' process_end='56572000'   contract_input='35202'   state='3'  />
 <advanced_water_tower2_was_new id='54100823' x='18' y='-14'  output_fill='4500'    state='2'  />
 <advanced_water_tower2_was_new id='54100836' x='33' y='98'  output_fill='4500'    state='2'  />
 <advanced_water_tower2_was_new id='54100837' x='32' y='99'  output_fill='4500'    state='2'  />
@@ -675,13 +690,13 @@
 <advanced_water_tower2_was_new id='54100824' x='18' y='-13'  output_fill='4500'    state='2'  />
 <advanced_water_tower2_was_new id='54100822' x='18' y='-15'  output_fill='4500'    state='2'  />
 <advanced_water_tower2_was_new id='54100821' x='18' y='-16'  output_fill='4500'    state='2'  />
-<condo_new id='32679460' x='58' y='55' process_end='17173000'     state='3'  />
-<rich_hotel id='35326457' x='58' y='60' process_end='13556000'     state='3'  />
+<condo_new id='32679460' x='58' y='55'  output_fill='200'    state='2'  />
+<rich_hotel id='35326457' x='58' y='60'  output_fill='700'    state='2'  />
 <church id='54018698' x='17' y='19'  output_fill='12500'    state='4'  />
 <wooded_grove id='54018707' x='-9' y='-13'  output_fill='200'    state='2' rotation='true' />
-<peace_embassy_stage2 id='37089124' x='78' y='143' process_end='30751000' output_fill='60000'    state='4'  />
-<textile_shop id='45243216' x='-14' y='-7' process_end='12751000' output_fill='2100'    state='4'  />
-<towers_of_hercules_real id='35958674' x='39' y='58' process_end='52730000' output_fill='66000'    state='4' rotation='true' />
+<peace_embassy_stage2 id='37089124' x='78' y='143' process_end='14640000' output_fill='60000'    state='4'  />
+<textile_shop id='45243216' x='-14' y='-7' process_end='17003000' output_fill='2100'    state='4'  />
+<towers_of_hercules_real id='35958674' x='39' y='58' process_end='56603000' output_fill='66000'    state='4' rotation='true' />
 <police_station_new_art id='28557637' x='58' y='48'  output_fill='500'    state='4'  />
 <tunnel_love id='34529370' x='59' y='45'  output_fill='15000'    state='2'  />
 <railroad_track_double id='34549240' x='24' y='66'      state='2' rotation='true' />
@@ -719,7 +734,7 @@
 <railroad_track_double id='35578231' x='24' y='63'      state='2' rotation='true' />
 <railroad_tunnel1 id='29122028' x='19' y='79'      state='2'  />
 <railroad_bridge id='29122032' x='24' y='49'      state='2'  />
-<railroad_tunnel5_stage1 id='29122035' x='75' y='69'   input_fill='10901:5,11469:1'   state='2'  />
+<railroad_tunnel5_stage1 id='29122035' x='75' y='69'   input_fill='10901:5,11469:3'   state='2'  />
 <stock_exchange id='29143299' x='56' y='67'  output_fill='6000'    state='2'  />
 <railroad_track_double id='35648728' x='24' y='62'      state='2' rotation='true' />
 <thermal_power_new id='36635379' x='40' y='38'      state='2'  />
@@ -770,7 +785,7 @@
 <the_oak_park id='38390059' x='48' y='46'  output_fill='750'    state='2'  />
 <dream_flash_park id='38390136' x='61' y='40'  output_fill='3000'    state='2'  />
 <topiary_zarcero_real id='39734208' x='58' y='38'  output_fill='6200'    state='2'  />
-<business_hotel_lotus_new_art id='37557001' x='62' y='57' process_end='12159000'     state='3'  />
+<business_hotel_lotus_new_art id='37557001' x='62' y='57'  output_fill='2000'    state='2'  />
 <underwater_tunnel_step5_stage2 id='34624515' x='59' y='7'  output_fill='200000'    state='2'  />
 <advanced_water_tower2_was_new id='44135137' x='17' y='-16'  output_fill='4500'    state='2'  />
 <advanced_water_tower2_was_new id='44135138' x='19' y='-16'  output_fill='4500'    state='2'  />
@@ -780,16 +795,16 @@
 <railroad_to_port id='52613329' x='24' y='23'      state='2' rotation='true' />
 <lincoln_memorial id='39784335' x='31' y='66'  output_fill='13500'    state='4'  />
 <monument_to_habarov id='39026797' x='63' y='40'  output_fill='3200'    state='2'  />
-<airbase_stage4 id='33490727' x='82' y='34' process_end='15987000'  input_fill='11450:5,11463:4,11448:3' contract_input='10575'   state='3'  />
-<central_station id='32833583' x='-9' y='78' process_end='19126000'   contract_input='10593'   state='3'  />
-<air_design_office id='53169956' x='12' y='18'  output_fill='9200'    state='5'  />
-<hypermarket_stage2 id='34707051' x='52' y='60'  output_fill='45000'    state='5'  />
-<brick_house_new_art id='28239223' x='60' y='52' process_end='17180000'     state='3'  />
-<mansion_manon_real id='43274928' x='40' y='34' process_end='19340000'     state='3' rotation='true' />
-<air_house_real id='42816672' x='40' y='36' process_end='471000'     state='3'  />
+<airbase_stage4 id='33490727' x='82' y='34' process_end='28725000'  input_fill='11450:5,11463:4,11448:3' contract_input='10574'   state='3'  />
+<central_station id='32833583' x='-9' y='78' process_end='3822000'   contract_input='10593'   state='3'  />
+<air_design_office id='53169956' x='12' y='18' process_end='850000' output_fill='9200'    state='4'  />
+<hypermarket_stage2 id='34707051' x='52' y='60' process_end='850000' output_fill='45000'    state='4'  />
+<brick_house_new_art id='28239223' x='60' y='52'  output_fill='75'    state='2'  />
+<mansion_manon_real id='43274928' x='40' y='34'  output_fill='900'    state='2' rotation='true' />
+<air_house_real id='42816672' x='40' y='36'  output_fill='1050'    state='2'  />
 <bungalow_new_art id='28239232' x='57' y='53'  output_fill='15'    state='2'  />
 <cottage_atlas id='28772965' x='57' y='50'  output_fill='85'    state='2'  />
-<megapolis_university_training id='31800734' x='-48' y='99'  contract_output='22093'     state='4'  />
+<megapolis_university_training id='31800734' x='-48' y='99' process_end='762000'   contract_input='22093'   state='3'  />
 <advanced_water_tower2_was_new id='39820383' x='18' y='8'  output_fill='4500'    state='2'  />
 <atomic_power_new id='46747774' x='22' y='15'      state='2' rotation='true' />
 <atomic_power_new id='46747773' x='20' y='15'      state='2' rotation='true' />
@@ -809,15 +824,14 @@
 <loading_railway_station_stage2 id='40066951' x='25' y='-16'  output_fill='95000'    state='2'  />
 <advanced_water_tower2_was_new id='40173873' x='16' y='-14'  output_fill='4500'    state='2'  />
 <magic_tree id='40280435' x='50' y='43'  output_fill='25000'    state='4'  />
-<large_apartment id='29460059' x='62' y='55' process_end='17180000'     state='3'  />
+<large_apartment id='29460059' x='62' y='55'  output_fill='350'    state='2'  />
 <mobile_phone_communication_tower_stage2 id='31861965' x='52' y='54'  building_position='1390055347000' output_fill='12500'    state='2'  />
-<swimming_pool_rebalance id='40198010' x='48' y='50' process_end='21974000' output_fill='6500'    state='4' rotation='true' />
+<swimming_pool_rebalance id='40198010' x='48' y='50' process_end='11354000' output_fill='6500'    state='4' rotation='true' />
 <theatre_alley_real id='40543823' x='62' y='38'  output_fill='4200'    state='2'  />
 <advanced_water_tower2_was_new id='49354436' x='16' y='-15'  output_fill='4500'    state='2'  />
 <advanced_water_tower2_was_new id='49354438' x='9' y='-16'  output_fill='4500'    state='2'  />
 <advanced_water_tower2_was_new id='49354440' x='1' y='8'  output_fill='4500'    state='2'  />
 <park_with_a_grotto_real id='48078244' x='-14' y='-14'  output_fill='16000'    state='2'  />
-<hotel id='28199196' x='60' y='56'  output_fill='75'    state='2'  />
 <flowerbed_zipper id='40637694' x='56' y='38'  output_fill='4000'    state='2'  />
 <trinity_washington_university id='40637738' x='60' y='63'  output_fill='46000'    state='4'  />
 <advanced_water_tower2_was_new id='45558873' x='29' y='35'  output_fill='4500'    state='2'  />
@@ -828,7 +842,7 @@
 <thermal_power_new id='34177366' x='38' y='43'      state='2' rotation='true' />
 <dream_flash_park id='34434356' x='59' y='47'  output_fill='3000'    state='2'  />
 <church_real id='41445789' x='65' y='54'  output_fill='12500'    state='4'  />
-<hotel_turtagro id='34074283' x='60' y='54' process_end='496000'     state='3' rotation='true' />
+<hotel_turtagro id='34074283' x='60' y='54'  output_fill='480'    state='2' rotation='true' />
 <urban_garden_furniture_real id='41541042' x='65' y='52'  output_fill='12000'    state='2'  />
 <emerald_alley_real id='45015549' x='47' y='38'  output_fill='8000'    state='2' rotation='true' />
 <purple_flower_patch id='41568119' x='66' y='59'  output_fill='100'    state='2'  />
@@ -838,7 +852,7 @@
 <railroad id='41882912' x='16' y='79'      state='2'  />
 <prod_under_palm_real id='42003016' x='64' y='37'  output_fill='10300'    state='2' rotation='true' />
 <eco_power_stage2 id='46747772' x='12' y='4'      state='2'  />
-<historic_house_real id='42078879' x='-16' y='0' process_end='4054000'     state='3'  />
+<historic_house_real id='42078879' x='-16' y='0'  output_fill='1200'    state='2'  />
 <paramount_theatre_stage1 id='45613855' x='-20' y='46'  output_fill='63000'    state='2'  />
 <fountain_atlas_real id='42220309' x='62' y='36'  output_fill='14000'    state='2'  />
 <students_pond_real id='44335666' x='-8' y='1'  output_fill='17000'    state='2'  />
@@ -865,14 +879,14 @@
 <railroad id='45718692' x='17' y='79'      state='2'  />
 <fountain_grande_real id='45765771' x='57' y='37'  output_fill='4500'    state='2'  />
 <pyramid_of_sun_stage3 id='39820385' x='45' y='131'  output_fill='37000'    state='2'  />
-<villa_moebius_real id='44899680' x='-8' y='5' process_end='4706000'     state='3'  />
+<villa_moebius_real id='44899680' x='-8' y='5'  output_fill='850'    state='2'  />
 <arch_of_neutrality_real id='44899670' x='64' y='36'  output_fill='2750'    state='2'  />
 <pirate_statue id='44913922' x='65' y='41'  output_fill='1100'    state='2'  />
 <pirate_dock_buildsite id='44914016' x='22' y='-63'   input_fill='15416:5,12184:5,12157:5,11476:2'   state='2'  />
-<swallow_nest_stage1 id='44950665' x='-33' y='-47'  output_fill='12000'    state='2'  />
-<japan_house id='28808692' x='57' y='45' process_end='17151000'     state='3'  />
+<swallow_nest_stage1 id='44950665' x='-123' y='-120'  output_fill='12000'    state='2'  />
+<japan_house id='28808692' x='57' y='45'  output_fill='175'    state='2'  />
 <solar_power_new id='48176665' x='39' y='61'      state='2'  />
-<italian_villa_new id='35121722' x='59' y='50' process_end='17182000'     state='3'  />
+<italian_villa_new id='35121722' x='59' y='50'  output_fill='1000'    state='2'  />
 <temple_wat_chalong_real id='45236299' x='-8' y='-1'  output_fill='18500'    state='4'  />
 <railroad_to_port id='45902318' x='24' y='34'      state='2' rotation='true' />
 <railroad_track_double id='45902317' x='24' y='36'      state='2' rotation='true' />
@@ -892,23 +906,23 @@
 <railroad_track_double id='52681478' x='24' y='47'      state='2' rotation='true' />
 <railroad id='46321887' x='18' y='79'      state='2'  />
 <railroad_track_double id='49185686' x='24' y='43'      state='2' rotation='true' />
-<house_giuseppe_capponi id='46423527' x='4' y='-6' process_end='17135000'     state='3'  />
+<house_giuseppe_capponi id='46423527' x='4' y='-6'  output_fill='890'    state='2'  />
 <fountain_wandering_real id='46423560' x='-12' y='-7'  output_fill='16300'    state='2'  />
 <railroad_to_port id='46454478' x='24' y='32'      state='2' rotation='true' />
 <railroad_track_double id='46454477' x='24' y='38'      state='2' rotation='true' />
 <business_sculpture id='47149316' x='57' y='1'      state='2'  />
 <business_coast_park id='47149317' x='57' y='4'      state='2'  />
 <fountain_barcaccia id='46487451' x='-10' y='-7'  output_fill='13500'    state='2'  />
-<airport_stage1_level1 id='46498350' x='39' y='70'   input_fill='10931:10,10920:1'    state='2'  />
+<airport_stage1_level1 id='46498350' x='39' y='70'   input_fill='10931:10,10920:2,10901:1'    state='2'  />
 <north_pavilion_buildsite id='47228584' x='-72' y='2'   input_fill='15417:5,10911:10,15416:5'   state='2'  />
-<south_pavilion_stage2 id='47228581' x='-72' y='-8' process_end='37951000' output_fill='30000'    state='4'  />
+<south_pavilion_stage2 id='47228581' x='-72' y='-8' process_end='28850000' output_fill='30000'    state='4'  />
 <west_pavilion_buildsite id='47228582' x='-76' y='-3'   input_fill='10931:10,12142:10'   state='2'  />
-<hotel_coliseum_real id='45662935' x='-16' y='-7' process_end='13526000'     state='3'  />
-<living_complex_osaka_real id='50601414' x='-5' y='-1'  output_fill='1240'    state='2'  />
+<hotel_coliseum_real id='45662935' x='-16' y='-7'  output_fill='700'    state='2'  />
+<living_complex_osaka_real id='50601414' x='-5' y='-1' process_end='24609000'     state='3'  />
 <railroad_track_double id='47274390' x='24' y='40'      state='2' rotation='true' />
 <pond_reflections_real id='47277260' x='-8' y='-10'  output_fill='17500'    state='2'  />
 <railroad_to_port id='47330644' x='24' y='30'      state='2' rotation='true' />
-<court_house_new id='34977101' x='41' y='55' process_end='37951000' output_fill='12000'    state='4'  />
+<court_house_new id='34977101' x='41' y='55' process_end='28850000' output_fill='12000'    state='4'  />
 <advanced_water_tower2_was_new id='48384630' x='19' y='-15'  output_fill='4500'    state='2'  />
 <advanced_water_tower2_was_new id='48384612' x='19' y='-14'  output_fill='4500'    state='2'  />
 <park_iqbal_real id='47489553' x='-14' y='-16'  output_fill='18500'    state='2'  />
@@ -918,25 +932,25 @@
 <solar_power_new id='47734109' x='39' y='63'      state='2'  />
 <red_flower_patch id='47734104' x='35' y='37'  output_fill='100'    state='2'  />
 <railroad_to_port id='47792129' x='24' y='29'      state='2' rotation='true' />
-<motel_road_real id='38374541' x='67' y='63' process_end='16351000' output_fill='12200'    state='4'  />
+<motel_road_real id='38374541' x='67' y='63' process_end='7250000' output_fill='12200'    state='4'  />
 <railroad_track_double id='51670551' x='24' y='45'      state='2' rotation='true' />
 <pool_zanzibar_real id='48722073' x='-3' y='3'  output_fill='25000'    state='2'  />
 <church_hallgrimura_real id='48722066' x='1' y='1'  output_fill='38000'    state='4'  />
 <rialto_park_real id='48722117' x='-8' y='-12'  output_fill='13750'    state='2'  />
-<hydrothermal_power_station_buildsite id='50669486' x='62' y='-63'   input_fill='10968:6,11441:3'   state='2'  />
+<hydrothermal_power_station_buildsite id='50669486' x='62' y='-63'   input_fill='10968:6,11441:3,12157:1'   state='2'  />
 <advanced_water_tower2_was_new id='41070440' x='16' y='-12'  output_fill='4500'    state='2'  />
 <advanced_water_tower2_was_new id='50683991' x='19' y='-13'  output_fill='4500'    state='2'  />
 <logging_railway_station_stage1 id='49780705' x='31' y='43'   input_fill='12156:10,11442:2,12152:4,11419:1'   state='2'  />
-<eco_mansion id='37041019' x='59' y='40' process_end='37951000' output_fill='25000'    state='4' rotation='true' />
+<eco_mansion id='37041019' x='59' y='40' process_end='28850000' output_fill='25000'    state='4' rotation='true' />
 <big_family_home_new id='28560306' x='60' y='53'  output_fill='45'    state='2'  />
 <museum_of_ancient_egypt_stage1 id='50755720' x='20' y='11'  output_fill='30000'    state='2'  />
 <railroad_tunnel4_stage1 id='29122034' x='71' y='69'   input_fill='11469:5'   state='2'  />
 <railroad_to_port id='52850701' x='24' y='22'      state='2' rotation='true' />
-<business_hotel_lotus_new_art_real id='51758547' x='12' y='13' process_end='11903000'     state='3'  />
+<business_hotel_lotus_new_art_real id='51758547' x='12' y='13'  output_fill='2000'    state='2'  />
 <m_city_buildsite id='50817982' x='20' y='7'   input_fill='11409:2,15601:10'    state='2'  />
-<hirshhorn_museum id='39749269' x='49' y='61' process_end='12751000' output_fill='13000'    state='4'  />
-<carnival_costumes_shop id='44061072' x='30' y='34' process_end='27151000' output_fill='4000'    state='4'  />
-<catering_polo_players_stage3 id='50164584' x='-89' y='-5' process_end='30751000' output_fill='90000'    state='4'  />
+<hirshhorn_museum id='39749269' x='49' y='61' process_end='17003000' output_fill='13000'    state='4'  />
+<carnival_costumes_shop id='44061072' x='30' y='34' process_end='4450000' output_fill='4000'    state='4'  />
+<catering_polo_players_stage3 id='50164584' x='-89' y='-5' process_end='14640000' output_fill='90000'    state='4'  />
 <royal_gardens id='50288263' x='-5' y='-16'  output_fill='1850'    state='2'  />
 <rialto_park_real id='50288235' x='15' y='19'  output_fill='13750'    state='2'  />
 <childrens_medical_center id='50953945' x='59' y='57'  output_fill='65000'    state='4'  />
@@ -949,23 +963,23 @@
 <police_station_new_art id='50954142' x='35' y='63'  output_fill='500'    state='4'  />
 <fire_station id='50954052' x='56' y='63'  output_fill='5000'    state='4' rotation='true' />
 <childrens_medical_center id='50954130' x='36' y='62'  output_fill='65000'    state='4' rotation='true' />
-<italian_cafe id='50999765' x='-3' y='-16' process_end='16351000' output_fill='1200'    state='4' rotation='true' />
+<italian_cafe id='50999765' x='-3' y='-16' process_end='7250000' output_fill='1200'    state='4' rotation='true' />
 <railroad_to_port id='51022655' x='24' y='26'      state='2' rotation='true' />
-<mansion_klermor_real id='46795561' x='-13' y='-5' process_end='453000'     state='3'  />
-<house_bigley id='35210365' x='61' y='55' process_end='9974000'     state='3'  />
-<central_museum id='37206781' x='51' y='62' process_end='30751000' output_fill='39000'    state='4'  />
-<marciana_library_stage2 id='36652615' x='-15' y='-66' process_end='52739000' output_fill='55000'    state='4'  />
+<mansion_klermor_real id='46795561' x='-13' y='-5'  output_fill='1450'    state='2'  />
+<house_bigley id='35210365' x='61' y='55'  output_fill='130'    state='2'  />
+<central_museum id='37206781' x='51' y='62' process_end='14640000' output_fill='39000'    state='4'  />
+<marciana_library_stage2 id='36652615' x='3' y='-94' process_end='56603000' output_fill='55000'    state='4'  />
 <house_fort_pale_real id='46795552' x='-16' y='-16'  output_fill='1400'    state='2'  />
-<house_darmstadt_real id='46939856' x='-12' y='-10' process_end='10542000'     state='3'  />
-<babylon_house_real_new id='43730786' x='-16' y='13' process_end='38730000'     state='3'  />
+<house_darmstadt_real id='46939856' x='-12' y='-10'  output_fill='1650'    state='2'  />
+<babylon_house_real_new id='43730786' x='-16' y='13'  output_fill='1500'    state='2'  />
 <railroad_track_double id='51050477' x='24' y='44'      state='2' rotation='true' />
 <saint_mark_lion id='51074856' x='7' y='-16'  output_fill='7500'    state='2'  />
-<villa_jorg_palace_real id='51116510' x='17' y='15' process_end='431000'     state='3'  />
-<villa_jorg_palace_real id='51931478' x='-14' y='4' process_end='445000'     state='3'  />
+<villa_jorg_palace_real id='51116510' x='17' y='15'  output_fill='1000'    state='2'  />
+<villa_jorg_palace_real id='51931478' x='-14' y='4'  output_fill='1000'    state='2'  />
 <railroad_to_port id='52026679' x='24' y='24'      state='2' rotation='true' />
-<hotel_ocean_club_tower id='47277254' x='-2' y='17' process_end='16351000' output_fill='14700'    state='4'  />
+<hotel_ocean_club_tower id='47277254' x='-2' y='17' process_end='7250000' output_fill='14700'    state='4'  />
 <cottage_bosfor id='28649718' x='57' y='52'  output_fill='30'    state='2'  />
-<scrapbooking_workshop_stage1 id='34487316' x='-110' y='47' process_end='16351000' output_fill='11000'    state='4'  />
+<scrapbooking_workshop_stage1 id='34487316' x='-110' y='47' process_end='7250000' output_fill='11000'    state='4'  />
 <railroad_track_double id='52048375' x='24' y='46'      state='2' rotation='true' />
 <railroad_to_port id='53096775' x='24' y='21'      state='2' rotation='true' />
 <sistema_wind_turbines_stage1 id='43642215' x='102' y='107'  output_fill='14000'    state='2'  />
@@ -2321,7 +2335,26 @@
 
 
 
-<bracelet_winner id='12163' quantity='50' updated_at='1453763010000' />
+
+
+
+
+
+
+
+
+
+
+<bracelet_winner id='12163' quantity='50' updated_at='1454660486000' />
+
+
+
+
+
+
+
+
+<rich_ore id='16151' quantity='5' updated_at='1454783942000' />
 
 
 
@@ -2340,17 +2373,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
-<bar_of_gold id='12168' quantity='49' updated_at='1453763010000' />
-<gold_medal id='12166' quantity='49' updated_at='1453412464000' />
+<bar_of_gold id='12168' quantity='50' updated_at='1454165958000' />
+<gold_medal id='12166' quantity='50' updated_at='1454453800000' />
 
 
 
@@ -2365,7 +2389,17 @@
 
 
 
-<coal id='16152' quantity='15' updated_at='1453760920000' />
+
+
+
+
+
+
+
+
+
+
+<coke id='16153' quantity='5' updated_at='1454783942000' />
 
 
 
@@ -2386,19 +2420,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-<poker_trophy id='12161' quantity='50' updated_at='1453763010000' />
-
-
+<poker_trophy id='12161' quantity='50' updated_at='1454763653000' />
 
 
 
@@ -2417,7 +2439,7 @@
 <tubes id='15487' quantity='1' updated_at='1449082123000' />
 <plastic_seat id='11497' quantity='1' updated_at='1449954940000' />
 <gambler_cup id='12167' quantity='50' updated_at='1453763010000' />
-<iron_ore id='16150' quantity='15' updated_at='1453760920000' />
+
 <color_plastic_panels id='15449' quantity='1' updated_at='1448926337000' />
 
 
@@ -2442,7 +2464,7 @@
 
 
 
-<night_vision_devices id='10988' quantity='9' updated_at='1453283016000' />
+<night_vision_devices id='10988' quantity='10' updated_at='1454448893000' />
 
 
 
@@ -2472,10 +2494,9 @@
 <lead_plates id='15441' quantity='2' updated_at='1452525016000' />
 
 
-
 <laser_layer id='15644' quantity='4' updated_at='1446676979000' />
 
-<winch id='12154' quantity='1' updated_at='1453761376000' />
+
 
 
 
@@ -2492,9 +2513,9 @@
 <snow_generator id='12140' quantity='4' updated_at='1452539907000' />
 
 
+<packed_tube id='16155' quantity='1' updated_at='1454810872000' />
 
-
-<condition_system id='10925' quantity='5' updated_at='1452759840000' />
+<condition_system id='10925' quantity='6' updated_at='1454624355000' />
 
 
 
@@ -2512,7 +2533,7 @@
 
 <coupling id='12126' quantity='4' updated_at='1452342060000' />
 
-<oil_receiving_device id='10974' quantity='6' updated_at='1452387569000' />
+<oil_receiving_device id='10974' quantity='7' updated_at='1454107545000' />
 <rails_fasteners id='12120' quantity='3' updated_at='1452982856000' />
 
 
@@ -2522,19 +2543,19 @@
 <soffit id='12144' quantity='4' updated_at='1451490702000' />
 
 
-<cement id='11469' quantity='5' updated_at='1453499205000' />
+<cement id='11469' quantity='5' updated_at='1454705616000' />
 
 
 <heliport id='10923' quantity='6' updated_at='1452945714000' />
 
-<led_lights id='11445' quantity='4' updated_at='1453761693000' />
 
 
 
 
 
 
-<golden_dice id='12162' quantity='49' updated_at='1453671922000' />
+
+<golden_dice id='12162' quantity='50' updated_at='1454751406000' />
 
 
 
@@ -2553,7 +2574,7 @@
 
 
 
-<requested_fuel id='16105' quantity='67' updated_at='1453761376000' />
+<requested_fuel id='16105' quantity='47' updated_at='1454797314000' />
 
 
 
@@ -2562,12 +2583,12 @@
 <sunbed id='10905' quantity='1' updated_at='1453411926000' />
 
 <parasol id='10906' quantity='8' updated_at='1451517228000' />
-<valleyball_ball id='11415' quantity='4' updated_at='1452965962000' />
+
 
 <chest_action_tower1 id='90002' quantity='5' updated_at='1440872551000' />
 
 
-
+<polyurethane id='10938' quantity='2' updated_at='1454084595000' />
 
 
 
@@ -2582,6 +2603,7 @@
 <weather_balloon id='10966' quantity='5' updated_at='1452100219000' />
 
 <territory_healthy_score id='24580' quantity='30' updated_at='1396902709000' />
+
 
 
 
@@ -2607,12 +2629,11 @@
 <crane_for_launching id='10981' quantity='6' updated_at='1451463316000' />
 
 
-
 <conveyer_belt id='12155' quantity='1' updated_at='1445693496000' />
 
 <baseball_bats id='11496' quantity='6' updated_at='1449956304000' />
 
-<pads id='12128' quantity='3' updated_at='1453136898000' />
+<pads id='12128' quantity='4' updated_at='1454624355000' />
 
 <naval_fuel id='11451' quantity='1' updated_at='1452945714000' />
 
@@ -2737,7 +2758,7 @@
 
 
 
-<banknote_detector id='11495' quantity='4' updated_at='1447797878000' />
+
 
 
 
@@ -2765,7 +2786,7 @@
 
 
 
-<park_with_a_grotto_real id='12402' quantity='1' updated_at='1453761148000' />
+
 
 
 
@@ -2781,14 +2802,14 @@
 <fuel_station id='10980' quantity='5' updated_at='1453073605000' />
 
 
-<sarcophagus id='11413' quantity='4' updated_at='1448624494000' />
+<sarcophagus id='11413' quantity='5' updated_at='1453910175000' />
 <overpass id='15570' quantity='2' updated_at='1446102845000' />
 
 
 <jumping_obstacle id='12160' quantity='8' updated_at='1451050934000' />
-<equipment_for_restoration id='12107' quantity='4' updated_at='1452100219000' />
+<equipment_for_restoration id='12107' quantity='5' updated_at='1454534751000' />
 
-<jack id='10933' quantity='10' updated_at='1451818855000' />
+<jack id='10933' quantity='11' updated_at='1454624355000' />
 
 
 <water_scooter id='11418' quantity='3' updated_at='1447625209000' />
@@ -2799,11 +2820,11 @@
 <circus_equipment id='11492' quantity='7' updated_at='1446471769000' />
 <radiation_shield id='15485' quantity='2' updated_at='1446068664000' />
 <microscope id='15452' quantity='3' updated_at='1443036016000' />
-<trains_tracking_system id='12133' quantity='1' updated_at='1443437428000' />
+<trains_tracking_system id='12133' quantity='2' updated_at='1454114794000' />
 
-<gas_capacity id='10934' quantity='10' updated_at='1447750117000' />
+<gas_capacity id='10934' quantity='11' updated_at='1453806840000' />
 <scan_radar id='11454' quantity='2' updated_at='1451463316000' />
-<automatic_skimmer id='10972' quantity='5' updated_at='1449918785000' />
+<automatic_skimmer id='10972' quantity='7' updated_at='1454107545000' />
 <block_oil id='10941' quantity='5' updated_at='1449918785000' />
 
 
@@ -2826,18 +2847,18 @@
 
 <dolphin id='11468' quantity='14' updated_at='1452724314000' />
 <mud_pump id='10929' quantity='13' updated_at='1453073605000' />
-<centralized_traffic_system id='12135' quantity='6' updated_at='1453447259000' />
+<centralized_traffic_system id='12135' quantity='7' updated_at='1454362120000' />
 
 <pharaon_treasure id='11414' quantity='5' updated_at='1451129385000' />
 <rescue_vessel id='11458' quantity='2' updated_at='1449127584000' />
 <dosimeter id='15439' quantity='6' updated_at='1449498491000' />
 
 <furniture id='10927' quantity='7' updated_at='1446891900000' />
+<ion_filter id='10959' quantity='2' updated_at='1454436489000' />
 
 
 
-
-
+<diesel_generator id='10936' quantity='1' updated_at='1454281972000' />
 <torpedoes id='11456' quantity='5' updated_at='1443350987000' />
 <river_pump id='10907' quantity='8' updated_at='1452362039000' />
 
@@ -2871,7 +2892,6 @@
 <grocery_carts id='11493' quantity='5' updated_at='1451818855000' />
 
 
-<palms id='11417' quantity='4' updated_at='1451421813000' />
 
 
 
@@ -2897,7 +2917,7 @@
 
 
 
-<front_glue id='10015758' quantity='4' updated_at='1451028294000' />
+<front_glue id='10015758' quantity='5' updated_at='1454569318000' />
 
 
 
@@ -3203,7 +3223,7 @@
 <quest id='20432' completed_at='1391258554' completed='true' quest_ready='false' />
 <quest id='20389' completed_at='1390882716' completed='true' quest_ready='false' />
 <quest id='20929' completed_at='1392562331' completed='true' quest_ready='false' />
-<quest id='20393' order='2' quest_ready='false' />
+<quest id='20393' order='1' quest_ready='false' />
 <quest id='20392' completed_at='1390882738' completed='true' quest_ready='false' />
 <quest id='20391' completed_at='1390882793' completed='true' quest_ready='false' />
 <quest id='12115' completed_at='1404228083' completed='true' quest_ready='false' />
@@ -3393,8 +3413,8 @@
 <quest id='20441' completed_at='1406409844' completed='true' quest_ready='false' />
 <quest id='20384' completed_at='1448715662' completed='true' quest_ready='false' />
 <quest id='20400' completed_at='1402868101' completed='true' quest_ready='false' />
-<quest id='20445' order='1' quest_ready='false' />
-<quest id='20402' order='0' quest_ready='false' />
+<quest id='20445' order='0' quest_ready='false' />
+<quest id='20402' completed_at='1454325228' completed='true' quest_ready='false' />
 <quest id='20401' completed_at='1404159073' completed='true' quest_ready='false' />
 <quest id='10010796' order='1' quest_ready='false' />
 <quest id='10010795' order='1' quest_ready='false' />
@@ -3404,13 +3424,13 @@
 <quest id='20408' completed_at='1404159235' completed='true' quest_ready='false' />
 <quest id='20410' completed_at='1404159252' completed='true' quest_ready='false' />
 <quest id='20414' completed_at='1404193130' completed='true' quest_ready='false' />
-<quest id='20411' order='3' quest_ready='false' />
+<quest id='20411' order='2' quest_ready='false' />
 <quest id='20416' completed_at='1404193214' completed='true' quest_ready='false' />
 <quest id='20415' completed_at='1404193494' completed='true' quest_ready='false' />
 <quest id='20418' completed_at='1404193289' completed='true' quest_ready='false' />
 <quest id='20419' completed_at='1404193338' completed='true' quest_ready='false' />
-<quest id='20420' order='5' quest_ready='false' />
-<quest id='20417' order='4' quest_ready='false' />
+<quest id='20420' order='4' quest_ready='false' />
+<quest id='20417' order='3' quest_ready='false' />
 <quest id='12116' completed_at='1404386356' completed='true' quest_ready='false' />
 <quest id='10010735' order='1' quest_ready='false' />
 <quest id='10010734' order='1' quest_ready='false' />
@@ -3478,7 +3498,7 @@
 <quest id='20444' completed_at='1415118110' completed='true' quest_ready='false' />
 <quest id='12102' completed_at='1447831457' completed='true' quest_ready='false' />
 <quest id='22007' completed_at='1416848001' completed='true' quest_ready='false' />
-<quest id='12161' order='0' quest_ready='false' />
+<quest id='12161' completed_at='1454706477' completed='true' quest_ready='false' />
 <quest id='10070740' end_date='1416689999' order='1' quest_ready='false' />
 <quest id='10070751' order='0' quest_ready='false' />
 <quest id='22008' completed_at='1416848019' completed='true' quest_ready='false' />
@@ -3588,10 +3608,10 @@
 <quest id='12148' completed_at='1443968018' completed='true' quest_ready='false' />
 <quest id='10079270' end_date='1430341199' order='0' started_at='1429535317' quest_ready='false' />
 <quest id='10079282' order='0' started_at='1429535317' quest_ready='false' />
-<quest id='25123' counters='1,0,0' order='3' started_at='1429659846' quest_ready='false' />
-<quest id='20242' order='4' started_at='1429824679' quest_ready='false' />
-<quest id='20227' counters='0,50000,0' order='5' started_at='1430004213' quest_ready='false' />
-<quest id='20290' order='6' started_at='1430384804' quest_ready='false' />
+<quest id='25123' counters='1,0,0' order='2' started_at='1429659846' quest_ready='false' />
+<quest id='20242' order='3' started_at='1429824679' quest_ready='false' />
+<quest id='20227' counters='0,50000,0' order='4' started_at='1430004213' quest_ready='false' />
+<quest id='20290' order='5' started_at='1430384804' quest_ready='false' />
 <quest id='10011439' order='1' started_at='1430418250' quest_ready='false' />
 <quest id='10011438' order='1' started_at='1430418250' quest_ready='false' />
 <quest id='10073942' order='0' started_at='1431010009' quest_ready='false' />
@@ -3612,7 +3632,7 @@
 <quest id='10075682' order='1' started_at='1435569343' quest_ready='false' />
 <quest id='10079386' order='1' started_at='1435569343' quest_ready='false' />
 <quest id='10079385' order='1' started_at='1435569343' quest_ready='false' />
-<quest id='20275' order='8' started_at='1435952211' quest_ready='false' />
+<quest id='20275' order='7' started_at='1435952211' quest_ready='false' />
 <quest id='21351' end_date='1436734799' order='0' started_at='1436440101' quest_ready='false' />
 <quest id='10073977' order='0' started_at='1436440101' quest_ready='false' />
 <quest id='10073966' end_date='1437598799' order='1' started_at='1436792096' quest_ready='false' />
@@ -3631,7 +3651,7 @@
 <quest id='9010767' order='1' started_at='1438880391' quest_ready='false' />
 <quest id='9010768' order='1' started_at='1438880391' quest_ready='false' />
 <quest id='25133' completed_at='1442610707' completed='true' quest_ready='false' />
-<quest id='20293' order='9' started_at='1438881050' quest_ready='false' />
+<quest id='20293' order='8' started_at='1438881050' quest_ready='false' />
 <quest id='20268' completed_at='1438881146' completed='true' quest_ready='false' />
 <quest id='20269' completed_at='1438932445' completed='true' quest_ready='false' />
 <quest id='20270' completed_at='1438954471' completed='true' quest_ready='false' />
@@ -3643,26 +3663,26 @@
 <quest id='9010769' order='1' started_at='1440091823' quest_ready='false' />
 <quest id='10073990' end_date='1441227599' order='0' started_at='1440412128' quest_ready='false' />
 <quest id='10074001' order='0' started_at='1440412128' quest_ready='false' />
-<quest id='20439' order='6' started_at='1441441854' quest_ready='false' />
+<quest id='20439' order='5' started_at='1441441854' quest_ready='false' />
 <quest id='12087' completed_at='1441580355' completed='true' quest_ready='false' />
 <quest id='12088' order='10' started_at='1441580355' quest_ready='false' />
 <quest id='10075702' end_date='1442437199' order='0' started_at='1441640921' quest_ready='false' />
 <quest id='10075713' order='0' started_at='1441640921' quest_ready='false' />
 <quest id='10010772' order='1' started_at='1442233375' quest_ready='false' />
 <quest id='10010771' order='1' started_at='1442233375' quest_ready='false' />
-<quest id='25134' order='0' started_at='1442610708' quest_ready='false' />
+<quest id='25134' completed_at='1454401829' completed='true' quest_ready='false' />
 <quest id='21116' order='0' started_at='1442748789' quest_ready='false' />
 <quest id='10079206' end_date='1443646799' order='0' started_at='1442854747' quest_ready='false' />
 <quest id='10075700' order='0' started_at='1442854747' quest_ready='false' />
 <quest id='10079217' order='0' started_at='1442854747' quest_ready='false' />
-<quest id='25127' counters='20,0,0' order='1' started_at='1442872243' quest_ready='false' />
+<quest id='25127' counters='20,0,0' order='0' started_at='1442872243' quest_ready='false' />
 <quest id='21353' end_date='1443387599' order='0' started_at='1443097999' quest_ready='false' />
 <quest id='10010774' order='1' started_at='1443696371' quest_ready='false' />
 <quest id='10010773' order='1' started_at='1443696371' quest_ready='false' />
-<quest id='20247' order='2' started_at='1443834436' quest_ready='false' />
+<quest id='20247' order='1' started_at='1443834436' quest_ready='false' />
 <quest id='10074013' end_date='1444683599' order='0' started_at='1444038353' quest_ready='false' />
 <quest id='10074012' order='0' started_at='1444038353' quest_ready='false' />
-<quest id='25131' order='7' started_at='1444252925' quest_ready='false' />
+<quest id='25131' order='6' started_at='1444252925' quest_ready='false' />
 <quest id='21354' end_date='1444597199' completed_at='1444558915' completed='true' quest_ready='false' />
 <quest id='10020178' end_date='1446189933' order='0' started_at='1444980333' quest_ready='false' />
 <quest id='10020151' order='1' started_at='1444980333' quest_ready='false' />
@@ -3709,31 +3729,31 @@
 <quest id='10075691' order='0' started_at='1448389062' quest_ready='false' />
 <quest id='10010785' order='1' started_at='1448624389' quest_ready='false' />
 <quest id='10010784' order='1' started_at='1448624389' quest_ready='false' />
-<quest id='20385' order='7' started_at='1448715662' quest_ready='false' />
+<quest id='20385' order='6' started_at='1448715662' quest_ready='false' />
 <quest id='10075942' end_date='1449867599' order='0' started_at='1449226108' quest_ready='false' />
 <quest id='10075953' order='1' started_at='1449226108' quest_ready='false' />
 <quest id='21355' end_date='1449781199' counters='0,10000,0' order='0' started_at='1449589318' quest_ready='false' />
 <quest id='22071' order='0' started_at='1449647401' quest_ready='false' />
-<quest id='9980100' end_date='1452027599' kill_time_left="-1738319" completed_at='1450462654' completed='true' quest_ready='false' />
-<quest id='10080100' end_date='1452027599' kill_time_left="-1738319" completed_at='1451158538' completed='true' quest_ready='false' />
+<quest id='9980100' end_date='1452027599' kill_time_left="-2784246" completed_at='1450462654' completed='true' quest_ready='false' />
+<quest id='10080100' end_date='1452027599' kill_time_left="-2784246" completed_at='1451158538' completed='true' quest_ready='false' />
 <quest id='10080109' completed_at='1451158552' completed='true' quest_ready='true' />
-<quest id='9980101' end_date='1450817999' kill_time_left="-2947919" order='0' started_at='1450462656' quest_ready='false' />
-<quest id='10080050' end_date='1452027599' kill_time_left="-1738319" completed_at='1451553906' completed='true' quest_ready='false' />
+<quest id='9980101' end_date='1450817999' kill_time_left="-3993846" order='0' started_at='1450462656' quest_ready='false' />
+<quest id='10080050' end_date='1452027599' kill_time_left="-2784246" completed_at='1451553906' completed='true' quest_ready='false' />
 <quest id='10080060' completed_at='1451553935' completed='true' quest_ready='true' />
-<quest id='9980102' end_date='1451077199' kill_time_left="-2688719" order='0' started_at='1450825787' quest_ready='false' />
+<quest id='9980102' end_date='1451077199' kill_time_left="-3734646" order='0' started_at='1450825787' quest_ready='false' />
 <quest id='10071428' completed_at='1451960292' completed='true' quest_ready='true' />
-<quest id='10080150' end_date='1452027599' kill_time_left="-1738319" completed_at='1451960286' completed='true' quest_ready='false' />
-<quest id='9980103' end_date='1451422799' kill_time_left="-2343119" order='0' started_at='1451084159' quest_ready='false' />
+<quest id='10080150' end_date='1452027599' kill_time_left="-2784246" completed_at='1451960286' completed='true' quest_ready='false' />
+<quest id='9980103' end_date='1451422799' kill_time_left="-3389046" order='0' started_at='1451084159' quest_ready='false' />
 <quest id='10080011' order='0' started_at='1451401678' quest_ready='false' />
 <quest id='10010787' order='1' started_at='1451401678' quest_ready='false' />
 <quest id='10010786' order='1' started_at='1451401678' quest_ready='false' />
-<quest id='9980104' end_date='1452027599' kill_time_left="-1738319" order='0' started_at='1451463280' quest_ready='false' />
-<quest id='10080000' end_date='1452027599' kill_time_left="-1738319" order='0' started_at='1451463280' quest_ready='false' />
-<quest id='10073943' end_date='1453237199' kill_time_left="-528719" order='0' started_at='1452624884' quest_ready='false' />
+<quest id='9980104' end_date='1452027599' kill_time_left="-2784246" order='0' started_at='1451463280' quest_ready='false' />
+<quest id='10080000' end_date='1452027599' kill_time_left="-2784246" order='0' started_at='1451463280' quest_ready='false' />
+<quest id='10073943' end_date='1453237199' kill_time_left="-1574646" order='0' started_at='1452624884' quest_ready='false' />
 <quest id='10073953' order='0' started_at='1452624884' quest_ready='false' />
 <quest id='10010789' order='1' started_at='1452856462' quest_ready='false' />
 <quest id='10010788' order='1' started_at='1452856462' quest_ready='false' />
-<quest id='10075900' end_date='1454350927' order='0' started_at='1453486927' timeout='585009' quest_ready='false' />
+<quest id='10075900' end_date='1454350927' order='0' started_at='1453486927' quest_ready='false' />
 <quest id='10075721' order='3' started_at='1453486927' quest_ready='false' />
 <quest id='10075720' order='2' started_at='1453486927' quest_ready='false' />
 <quest id='10075719' order='1' started_at='1453486927' quest_ready='false' />
@@ -3749,4 +3769,16 @@
 <quest id='10075731' order='1' started_at='1453486927' quest_ready='false' />
 <quest id='10075733' order='1' started_at='1453486927' quest_ready='false' />
 <quest id='10075732' order='1' started_at='1453486927' quest_ready='false' />
-<quest id='10075901' order='0' started_at='1453486929' quest_ready='false' /></quests><sqbar>{"bar_id":"city_vk_1","parent":null,"version":1,"reward":[{"roll":0,"items":[{"planetarium":{"min_quantity":1}}]}],"steps":{"InstallGame":{"done":1},"Like":{"done":0},"GroupMember":{"done":0,"group_id":18108426},"SteadyPlay":{"done":0,"target":5,"current":6},"FriendsAmount":{"done":0,"target":5}}}</sqbar><items_activity av="1"/><quests_activity><![CDATA[{"10080100":{"finish_time_left":-1738319,"start_end_time_left":-728981946,"kill_time_left":-1738319},"10080050":{"finish_time_left":-1738319,"start_end_time_left":-728981946,"kill_time_left":-1738319},"10080000":{"finish_time_left":-1738319,"start_end_time_left":-728981946,"kill_time_left":-1738319},"9980100":{"finish_time_left":-1738319,"start_end_time_left":-728981946,"kill_time_left":-1738319},"9980101":{"finish_time_left":-2947919,"start_end_time_left":-728981946,"kill_time_left":-2947919},"9980102":{"finish_time_left":-2688719,"start_end_time_left":-728981946,"kill_time_left":-2688719},"9980103":{"finish_time_left":-2343119,"start_end_time_left":-728981946,"kill_time_left":-2343119},"9980104":{"finish_time_left":-1738319,"start_end_time_left":-728981946,"kill_time_left":-1738319},"10080150":{"finish_time_left":-1738319,"start_end_time_left":-728981946,"kill_time_left":-1738319}}]]></quests_activity><neighbors max_neighbors='0' last_suggest_neighbors_date='1444579053'><new_neighbors><friend id='UD_a963b092a411cd59e8c1bc5e' level='64' vip_status_end='0' is_payer='false' exp='1543645' achievement_score='37' christmas_score='0' population='1053250' max_population='1333250' bounds='{"size_x":{"x":37,"y":37,"width":25,"height":25},"size_x_3":{"x":13,"y":13,"width":11,"height":11}}' respect_level='14' request_reward_count='9' owner_room_info='{"rooms":{"room_5":{"available":true,"size_x":21,"size_y":21,"max_population":743375,"population":678260},"room_4":{"available":true,"size_x":9,"size_y":9,"max_population":399140,"population":303220},"room_2":{"available":true,"size_x":9,"size_y":9,"max_population":209160,"population":186195},"room_1":{"available":true,"size_x":15,"size_y":15,"max_population":582600,"population":398450},"room_0":{"available":true,"size_x":25,"size_y":25,"size_x_3":11,"size_y_3":11}}}' send_requests='{}' achievement_bonus='0' social_params='{"UD":"B4D82BA1-BE7B-4E7E-8047-995CADB4BAFB"}' have_gift='false'  city_name="Сан-Даниэле" first_name="" avatar_url="" max_neighbors='0' help_points='12' last_platform='ios' wish_list='11487,11421,11427,10919,11428,12112,11412,11405'  requests='{"visit_domical_acrobatics":{"time":1453553161,"pushed":1453466761,"count":1,"user":["GC_a1a534c50660b7ecc5278910","UD_a0b5c919b3643f2dab339154","UD_6c47281512143171335b41fb","GC_101508fbfad5c88ee1551129","UD_52a9193754e1b47cc45e093d"],"item_id":56617124,"room_id":5},"visit_long_distance_flights":{"time":1453553256,"pushed":1453466856,"count":0,"user":["GC_a1a534c50660b7ecc5278910","UD_a0b5c919b3643f2dab339154","UD_6c47281512143171335b41fb","GC_101508fbfad5c88ee1551129"],"item_id":54699471,"room_id":4},"share_quest70081":{"time":1453553311,"pushed":1453466911,"count":0,"user":["GC_a1a534c50660b7ecc5278910","UD_a0b5c919b3643f2dab339154","UD_6c47281512143171335b41fb","GC_101508fbfad5c88ee1551129","UD_52a9193754e1b47cc45e093d"]},"visit_statement_attic_tragedy":{"time":1453554640,"pushed":1453468240,"count":3,"user":["GC_a1a534c50660b7ecc5278910","UD_a0b5c919b3643f2dab339154","UD_6c47281512143171335b41fb","GC_101508fbfad5c88ee1551129","UD_52a9193754e1b47cc45e093d"],"item_id":54508535,"room_id":0},"visit_project_conference":{"time":1453554656,"pushed":1453468256,"count":0,"user":["GC_a1a534c50660b7ecc5278910","UD_a0b5c919b3643f2dab339154","UD_6c47281512143171335b41fb","GC_101508fbfad5c88ee1551129"],"item_id":57356982,"room_id":0}}' help_items='' friends_top_score = '422'  region="Russia" active="true" next_gift_time='-11403' country_name='Russian Federation' bus_region='Russia'/></new_neighbors></neighbors></country>
+<quest id='10075901' order='0' started_at='1453486929' quest_ready='false' />
+<quest id='10010791' order='1' started_at='1454072397' quest_ready='false' />
+<quest id='10010790' order='1' started_at='1454072397' quest_ready='false' />
+<quest id='20407' completed_at='1454325311' completed='true' quest_ready='false' />
+<quest id='20403' order='7' started_at='1454325228' quest_ready='false' />
+<quest id='20409' completed_at='1454325450' completed='true' quest_ready='false' />
+<quest id='25135' counters='0,75,0' order='9' started_at='1454401829' quest_ready='false' />
+<quest id='10076000' end_date='1455310799' kill_time_left="498954" order='0' started_at='1454675758' timeout='498954' quest_ready='false' />
+<quest id='10076011' order='0' started_at='1454675758' quest_ready='false' />
+<quest id='10076001' completed_at='1454676020' completed='true' quest_ready='false' />
+<quest id='10076002' completed_at='1454676077' completed='true' quest_ready='false' />
+<quest id='10076003' order='0' started_at='1454676077' quest_ready='false' />
+<quest id='12162' order='0' started_at='1454706478' quest_ready='false' /></quests><sqbar>{"bar_id":"city_vk_1","parent":null,"version":1,"reward":[{"roll":0,"items":[{"planetarium":{"min_quantity":1}}]}],"steps":{"InstallGame":{"done":1},"Like":{"done":0},"GroupMember":{"done":0,"group_id":18108426},"SteadyPlay":{"done":0,"target":5,"current":18},"FriendsAmount":{"done":0,"target":5}}}</sqbar><items_activity av="1"/><quests_activity><![CDATA[{"10080100":{"finish_time_left":-2784246,"start_end_time_left":-730027873,"kill_time_left":-2784246},"10080050":{"finish_time_left":-2784246,"start_end_time_left":-730027873,"kill_time_left":-2784246},"10080000":{"finish_time_left":-2784246,"start_end_time_left":-730027873,"kill_time_left":-2784246},"9980100":{"finish_time_left":-2784246,"start_end_time_left":-730027873,"kill_time_left":-2784246},"9980101":{"finish_time_left":-3993846,"start_end_time_left":-730027873,"kill_time_left":-3993846},"9980102":{"finish_time_left":-3734646,"start_end_time_left":-730027873,"kill_time_left":-3734646},"9980103":{"finish_time_left":-3389046,"start_end_time_left":-730027873,"kill_time_left":-3389046},"9980104":{"finish_time_left":-2784246,"start_end_time_left":-730027873,"kill_time_left":-2784246},"10080150":{"finish_time_left":-2784246,"start_end_time_left":-730027873,"kill_time_left":-2784246}}]]></quests_activity><neighbors max_neighbors='1' last_suggest_neighbors_date='1454811285'><new_neighbors></new_neighbors></neighbors></country>

@@ -827,6 +827,13 @@ function signContract($location_data, $room_id) {
                     'contract' => 'hydrowave_ocean_clean', 'friends_request' => true
                 ),
                 'actions' => array('pick', 'put')
+            ),
+            //Финансовый центр "Прайм"
+            'financial_center_prime' => array(
+                'short' => array(
+                    'contract' => 'exchange_trading'
+                ),
+                'actions' => array('pick', 'put')
             )
         );
     elseif ($room_id == 1)
