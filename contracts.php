@@ -846,6 +846,14 @@ function signContract($location_data, $room_id) {
                     'contract' => 'passenger_flights'
                 ),
                 'actions' => array('pick', 'put')
+            ),
+
+            //Каркас валютного фонда Мегаполиса
+            'monetary_fund_megapolis_stage1' => array(
+                'short' => array(
+                    'contract' => 'manufacturing_gift_set_coins'
+                ),
+                'actions' => array('pick', 'put')
             )
         );
     elseif ($room_id == 1)
