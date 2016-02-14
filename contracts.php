@@ -828,10 +828,19 @@ function signContract($location_data, $room_id) {
                 ),
                 'actions' => array('pick', 'put')
             ),
+
             //Финансовый центр "Прайм"
             'financial_center_prime' => array(
                 'short' => array(
                     'contract' => 'exchange_trading'
+                ),
+                'actions' => array('pick', 'put')
+            ),
+
+            //Хелипорт
+            'heliport_stage2' => array(
+                'short' => array(
+                    'contract' => 'passenger_flights'
                 ),
                 'actions' => array('pick', 'put')
             )
