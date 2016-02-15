@@ -502,7 +502,7 @@ function signContract($location_data, $room_id) {
             //Геодезическая компания
             'geodesic_company_stage1' => array(
                  'short' => array(
-                     'contract' => 'analysis_of_soil'
+                     'contract' => 'dev_special_costumes_protection'
                  ),
                 'actions' => array('pick', 'put')
             ),
