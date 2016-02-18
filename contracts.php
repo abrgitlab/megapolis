@@ -248,6 +248,7 @@ if (count($received_gifts) > 0) {
     curl_exec($ch);
     curl_close($ch);
     ++$rn;
+    echo 'Принято подарков: ' . count($received_gifts) . "\n";
 }
 
 signContract($location_data, 0);
