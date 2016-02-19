@@ -674,7 +674,7 @@ function signContract($location_data, $room_id) {
             ),
 
             //Истребитель
-            'airbase_stage5' => array(
+            'airbase_stage6' => array(
                  'short' => array(
                      'contract' => 'pilots_training'
                  ),
