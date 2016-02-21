@@ -503,7 +503,7 @@ function signContract($location_data, $room_id) {
             //Геодезическая компания
             'geodesic_company_stage1' => array(
                  'short' => array(
-                     'contract' => 'dev_special_costumes_protection'
+                     'contract' => 'mineralic_analysis_territory'
                  ),
                 'actions' => array('pick', 'put')
             ),
@@ -855,7 +855,18 @@ function signContract($location_data, $room_id) {
                     'contract' => 'manufacturing_gift_set_coins'
                 ),
                 'actions' => array('pick', 'put')
-            )
+            ),
+
+            //Информационно-аналитический центр
+            'information_analysis_center_stage1' => array(
+                'short' => array(
+                    'contract' => 'logging_information'
+                ),
+                'long' => array(
+                    'contract' => 'analysis_of_information_security'
+                ),
+                'actions' => array('pick', 'put')
+            ),
         );
     elseif ($room_id == 1)
         $buildings_list = array(
