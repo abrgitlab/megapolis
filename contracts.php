@@ -536,7 +536,7 @@ function signContract($location_data, $room_id) {
             ),
 
             //Карнакский храм
-            /*'karnak_temple_stage2' => array(
+            'karnak_temple_stage2' => array(
                  'short' => array(
                      'contract' => 'discovery_of_cave_painting'
                  ),
@@ -544,7 +544,7 @@ function signContract($location_data, $room_id) {
                     'contract' => 'study_of_ancient_writing'
                 ),
                 'actions' => array('pick', 'put')
-            ),*/
+            ),
 
             //Пиратский форт
             'pirate_fort_stage1' => array(
