@@ -6,6 +6,28 @@
  * Time: 1:21
  */
 
+$config = [];
+if (file_exists(__DIR__ . '/config.json')) {
+    $config = json_decode(file_get_contents(__DIR__ . '/config.json'), true);
+    if ($config == null) {
+        echo "Конфиг невозможно распарсить\n";
+    } else {
+        if (isset($config['lock']) && $config['lock'] == true) {
+            echo "Выполнение скрипта заблокировано параметром lock в конфиге\n";
+            exit;
+        }
+        if (isset($config['next_time'])) {
+            $next_time = $config['next_time'];
+            if (time() < $next_time) {
+                echo 'Время следующего выполнения щё не наступило. Скрипт запустится не раньше ' . date('H:i:s', $next_time) . " \n";
+                exit;
+            }
+        }
+    }
+} else {
+    echo "Конфиг не найден\n";
+}
+
 $options = getopt('', ['long']);
 
 $host = 'web146.socialquantum.com';
@@ -312,7 +334,12 @@ $location_data = gzdecode(curl_exec($ch));
 curl_close($ch);
 ++$rn;
 
-echo 'Выполнено в ' . date('H:i:s' . "\n");
+echo 'Выполнено в ' . date('H:i:s') . "\n";
+$next_time = rand(3600, 5400) + time();
+echo 'Следующее выполнение в ' . date('H:i:s', $next_time) . "\n";
+$config['next_time'] = $next_time;
+$config['lock'] = false;
+file_put_contents(__DIR__ . '/config.json', json_encode($config));
 
 function signContract($location_data, $room_id) {
     global $tidy, $tidy_config, $host, $client_version, $iauth, $user_id, $rn, $cmd_id, $friends, $long;
