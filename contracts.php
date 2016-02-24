@@ -6,6 +6,16 @@
  * Time: 1:21
  */
 
+/*
+ * Параметры командной строки:
+ *
+ * @var long - означает, что пора вызывать долгие контракты
+ * @var manual - означает, что скрипт запущен вручную и можно игнорировать следующее время выполнения
+ *
+ */
+
+$options = getopt('', ['long', 'manual']);
+
 $config = [];
 if (file_exists(__DIR__ . '/config.json')) {
     $config = json_decode(file_get_contents(__DIR__ . '/config.json'), true);
@@ -18,7 +28,7 @@ if (file_exists(__DIR__ . '/config.json')) {
         }
         if (isset($config['next_time'])) {
             $next_time = $config['next_time'];
-            if (time() < $next_time) {
+            if (time() < $next_time && !isset($options['manual'])) {
                 echo 'Время следующего выполнения щё не наступило. Скрипт запустится не раньше ' . date('H:i:s', $next_time) . " \n";
                 exit;
             }
@@ -28,7 +38,9 @@ if (file_exists(__DIR__ . '/config.json')) {
     echo "Конфиг не найден\n";
 }
 
-$options = getopt('', ['long']);
+$config['lock'] = true;
+unset($config['next_time']);
+file_put_contents(__DIR__ . '/config.json', json_encode($config));
 
 $host = 'web146.socialquantum.com';
 $host_static = 'mb.static.socialquantum.ru';
