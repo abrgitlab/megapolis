@@ -348,7 +348,7 @@ curl_close($ch);
 
 echo 'Выполнено в ' . date('H:i:s') . "\n";
 $next_time = rand(3600, 5400) + time();
-echo 'Следующее выполнение в ' . date('H:i:s', $next_time) . "\n";
+echo 'Следующее выполнение - не раньше ' . date('H:i:s', $next_time) . "\n";
 $config['next_time'] = $next_time;
 $config['lock'] = false;
 file_put_contents(__DIR__ . '/config.json', json_encode($config));
