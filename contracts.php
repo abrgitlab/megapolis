@@ -540,12 +540,12 @@ function signContract($location_data, $room_id) {
             ),
 
             //Геодезическая компания
-            'geodesic_company_stage1' => array(
+            /*'geodesic_company_stage1' => array(
                  'short' => array(
                      'contract' => 'mineralic_analysis_territory'
                  ),
                 'actions' => array('pick', 'put')
-            ),
+            ),*/
 
             //Золотодобывающая корпорация
             'gold_mining_company_stage2' => array(
