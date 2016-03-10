@@ -44,7 +44,7 @@ file_put_contents(__DIR__ . '/config.json', json_encode($config));
 
 $host = 'web146.socialquantum.com';
 $host_static = 'mb.static.socialquantum.ru';
-$build = '10623';
+$build = '11131';
 $client_version = '2.70.' . $build;
 $iauth = '277997eba7f4e51051b0a0a9450afe73';
 $user_id = 'UD_5cd98e974c0fec35013c4790';
@@ -540,12 +540,12 @@ function signContract($location_data, $room_id) {
             ),
 
             //Геодезическая компания
-            'geodesic_company_stage1' => array(
+            /*'geodesic_company_stage1' => array(
                  'short' => array(
                      'contract' => 'mineralic_analysis_territory'
                  ),
                 'actions' => array('pick', 'put')
-            ),
+            ),*/
 
             //Золотодобывающая корпорация
             'gold_mining_company_stage2' => array(
@@ -713,7 +713,7 @@ function signContract($location_data, $room_id) {
             ),
 
             //Истребитель
-            'airbase_stage6' => array(
+            /*'airbase_stage6' => array(
                  'short' => array(
                      'contract' => 'pilots_training'
                  ),
@@ -721,7 +721,7 @@ function signContract($location_data, $room_id) {
                     'contract' => 'armor_transport'
                 ),
                 'actions' => array('pick', 'put')
-            ),
+            ),*/
 
             //Дрейфующая станция
             'drifting_station_stage2' => array(
@@ -897,12 +897,12 @@ function signContract($location_data, $room_id) {
             ),
 
             //Информационно-аналитический центр
-            'information_analysis_center_stage1' => array(
+            'information_analysis_center_stage2' => array(
                 'short' => array(
                     'contract' => 'logging_information'
                 ),
                 'long' => array(
-                    'contract' => 'analysis_of_information_security'
+                    'contract' => 'introduction_of_new_security_protocols', 'friends_request' => true
                 ),
                 'actions' => array('pick', 'put')
             ),
