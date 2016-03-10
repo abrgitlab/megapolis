@@ -716,7 +716,7 @@ function signContract($location_data, $room_id) {
             ),
 
             //Истребитель
-            /*'airbase_stage6' => array(
+            'airbase_stage8' => array(
                  'short' => array(
                      'contract' => 'pilots_training'
                  ),
@@ -724,7 +724,7 @@ function signContract($location_data, $room_id) {
                     'contract' => 'armor_transport'
                 ),
                 'actions' => array('pick', 'put')
-            ),*/
+            ),
 
             //Дрейфующая станция
             'drifting_station_stage2' => array(
