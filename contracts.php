@@ -562,10 +562,13 @@ function signContract($location_data, $room_id) {
             ),
 
             //Институт исследований космоса
-            'space_research_institute_stage1' => array(
+            'space_research_institute_stage2' => array(
                  'short' => array(
                      'contract' => 'develop_interstellar_dating', 'friends_request' => true
                  ),
+                'long' => array(
+                    'contract' => 'calculating_coordinates_send_messages', 'friends_request' => true
+                ),
                 'actions' => array('pick', 'put')
             ),
 
@@ -589,7 +592,7 @@ function signContract($location_data, $room_id) {
             ),
 
             //Пиратский форт
-            'pirate_fort_stage1' => array(
+            'pirate_fort_stage2' => array(
                  'short' => array(
                      'contract' => 'themed_tours'
                  ),
@@ -597,7 +600,7 @@ function signContract($location_data, $room_id) {
             ),
 
             //Администрация зоопарка
-            'administration_zoo_final' => array(
+            'administration_zoo_up1' => array(
                  'short' => array(
                      'contract' => 'exhibition_of_birds', 'friends_request' => true
                  ),
@@ -909,6 +912,30 @@ function signContract($location_data, $room_id) {
                 ),
                 'actions' => array('pick', 'put')
             ),
+
+            //Пассажирский авиалайнер
+            'passenger_airplane3_buildsite' => array(
+                'short' => array(
+                    'contract' => 'air_walk1'
+                ),
+                'actions' => array('pick', 'put')
+            ),
+
+            //Пассажирский авиалайнер
+            'passenger_airplane4_buildsite' => array(
+                'short' => array(
+                    'contract' => 'air_walk1'
+                ),
+                'actions' => array('pick', 'put')
+            ),
+
+            //Грузовой самолёт
+            'cargo_airplane7_buildsite' => array(
+                'short' => array(
+                    'contract' => 'urgent_cargo_delivery1'
+                ),
+                'actions' => array('pick', 'put')
+            )
         );
     elseif ($room_id == 1)
         $buildings_list = array(
@@ -1000,7 +1027,10 @@ function signContract($location_data, $room_id) {
 
             //Старинный форт
             'ancient_fort_stage2' => array(
-                'actions' => array('pick')
+                'short' => array(
+                    'contract' => 'excursion_to_historic_fort', 'friends_request' => true
+                ),
+                'actions' => array('pick', 'put')
             ),
 
             //Отель на воде
@@ -1008,6 +1038,22 @@ function signContract($location_data, $room_id) {
                  'short' => array(
                      'contract' => 'press_conference', 'friends_request' => true
                  ),
+                'actions' => array('pick', 'put')
+            ),
+
+            //Аквапарк
+            'aquapark_stage2' => array(
+                'short' => array(
+                    'contract' => 'conducting_childrens_holiday'
+                ),
+                'actions' => array('pick', 'put')
+            ),
+
+            //Морской терминал
+            'marine_terminal_stage3' => array(
+                'short' => array(
+                    'contract' => 'delivery_tourists_on_yahte'
+                ),
                 'actions' => array('pick', 'put')
             )
         );
