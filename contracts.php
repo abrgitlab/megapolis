@@ -407,7 +407,10 @@ function signContract($location_data, $room_id) {
             //Региональный центр сотовой связи
             'mobile_phone_system_center_stage4' => array(
                  'short' => array(
-                     'contract' => 'ggg_connection'
+                     'contract' => 'ggg_connection',
+                     'additional_fields' => array(
+                         'affected_items' => '31861965%3A35861946%2C39734593%2C39856375%2C28557984%2C34053392%2C29488690%2C35767257%2C28239235%2C28557634%2C34152209%2C30516461%2C29505614%2C28199082%2C33759002%2C35958760%2C35649209%2C32833679%2C28558178%2C35862765%2C28198974%2C40198010%2C30079491%2C30516462%2C28239236%2C35727249%2C35019780%3B31811512%3A35958674%2C48176662%2C34176308%2C34343912%2C36380765%2C35851055%2C34977101%2C35920361%2C35741945%2C36249841%2C29007227%2C35958568%2C29299986%2C35958662%2C28558161%2C34879378%3B40966797%3A%3B40966833%3A41652382%2C39715714%2C41924920%2C41689198%2C41778317%2C41652564%3B'
+                     )
                  ),
                 'actions' => array('pick', 'put')
             ),
@@ -1044,9 +1047,14 @@ function signContract($location_data, $room_id) {
             //Аквапарк
             'aquapark_stage2' => array(
                 'short' => array(
-                    'contract' => 'conducting_childrens_holiday'
+                    'contract' => 'conducting_childrens_holiday',
+                    'quest_inc_counter' => array(
+                        'quest_id' => '20417',
+                        'counter' => '0',
+                        'count' => '100'
+                    )
                 ),
-                'actions' => array('pick', 'put')
+                'actions' => array('pick', 'put'),
             ),
 
             //Морской терминал
@@ -1227,13 +1235,25 @@ function signContract($location_data, $room_id) {
                         $cached_part = array('command' => 'put', 'cmd_id' => $cmd_id, 'room_id' => $room_id, 'item_id' => $field_id, 'klass' => $contract_data['contract']);
                         ++$cmd_id;
 
-                        if ($field_id == '29165634' && $contract_data['contract'] == 'ggg_connection') //Хак для мобильного центра
-                            $cached_part['affected_items'] = '31861965%3A35861946%2C39734593%2C39856375%2C28557984%2C34053392%2C29488690%2C35767257%2C28239235%2C28557634%2C34152209%2C30516461%2C29505614%2C28199082%2C33759002%2C35958760%2C35649209%2C32833679%2C28558178%2C35862765%2C28198974%2C40198010%2C30079491%2C30516462%2C28239236%2C35727249%2C35019780%3B31811512%3A35958674%2C48176662%2C34176308%2C34343912%2C36380765%2C35851055%2C34977101%2C35920361%2C35741945%2C36249841%2C29007227%2C35958568%2C29299986%2C35958662%2C28558161%2C34879378%3B40966797%3A%3B40966833%3A41652382%2C39715714%2C41924920%2C41689198%2C41778317%2C41652564%3B';
+                        if (isset($contract_data['additional_fields']))
+                            foreach ($contract_data['additional_fields'] as $key => $value) {
+                                $cached_part[$key] = $value;
+                            }
+
+                        /*if ($field_id == '29165634' && $contract_data['contract'] == 'ggg_connection') //Хак для мобильного центра
+                            $cached_part['affected_items'] = '31861965%3A35861946%2C39734593%2C39856375%2C28557984%2C34053392%2C29488690%2C35767257%2C28239235%2C28557634%2C34152209%2C30516461%2C29505614%2C28199082%2C33759002%2C35958760%2C35649209%2C32833679%2C28558178%2C35862765%2C28198974%2C40198010%2C30079491%2C30516462%2C28239236%2C35727249%2C35019780%3B31811512%3A35958674%2C48176662%2C34176308%2C34343912%2C36380765%2C35851055%2C34977101%2C35920361%2C35741945%2C36249841%2C29007227%2C35958568%2C29299986%2C35958662%2C28558161%2C34879378%3B40966797%3A%3B40966833%3A41652382%2C39715714%2C41924920%2C41689198%2C41778317%2C41652564%3B';*/
 
                         $cached_array[] = $cached_part;
 
                         if (isset($contract_data['friends_request']) && $contract_data['friends_request']) {
                             $cached_part = array('command' => 'send_request', 'cmd_id' => $cmd_id, 'room_id' => $room_id, 'name' => 'visit_' . $contract_data['contract'], 'friend_ids' => implode('%2C', $friends), 'item_id' => $field_id);
+                            ++$cmd_id;
+
+                            $cached_array[] = $cached_part;
+                        }
+
+                        if (isset($contract_data['quest_inc_counter'])) {
+                            $cached_part = array('command' => 'quest_inc_counter', 'cmd_id' => $cmd_id, 'room_id' => $room_id, 'quest_id' => $contract_data['quest_inc_counter']['quest_id'], 'counter' => $contract_data['quest_inc_counter']['counter'], 'count' => $contract_data['quest_inc_counter']['count']);
                             ++$cmd_id;
 
                             $cached_array[] = $cached_part;
