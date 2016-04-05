@@ -14,28 +14,32 @@
  *
  */
 
-$options = getopt('', ['long', 'manual']);
+$options = getopt('D', ['long', 'manual', 'force', 'debug']);
+
+$debug = isset($options['D']) || isset($options['debug']);
 
 $config = [];
 if (file_exists(__DIR__ . '/config.json')) {
     $config = json_decode(file_get_contents(__DIR__ . '/config.json'), true);
     if ($config == null) {
-        echo "Конфиг невозможно распарсить\n";
+        if ($debug) echo "Конфиг невозможно распарсить\n";
     } else {
-        if (isset($config['lock']) && $config['lock'] == true) {
-            echo "Выполнение скрипта заблокировано параметром lock в конфиге\n";
-            exit;
-        }
-        if (isset($config['next_time'])) {
-            $next_time = $config['next_time'];
-            if (time() < $next_time && !isset($options['manual'])) {
-                echo 'Время следующего выполнения щё не наступило. Скрипт запустится не раньше ' . date('H:i:s', $next_time) . " \n";
+        if (!isset($options['force'])) {
+            if (isset($config['lock']) && $config['lock'] == true) {
+                if ($debug) echo "Выполнение скрипта заблокировано параметром lock в конфиге\n";
                 exit;
+            }
+            if (isset($config['next_time'])) {
+                $next_time = $config['next_time'];
+                if (time() < $next_time && !isset($options['manual'])) {
+                    if ($debug) echo 'Время следующего выполнения щё не наступило. Скрипт запустится не раньше ' . date('H:i:s', $next_time) . " \n";
+                    exit;
+                }
             }
         }
     }
 } else {
-    echo "Конфиг не найден\n";
+    if ($debug) echo "Конфиг не найден\n";
 }
 
 $config['lock'] = true;
@@ -1191,6 +1195,14 @@ function signContract($location_data, $room_id) {
                  ),
                 'long' => array(
                     'contract' => 'festive_hologram_presentation'
+                ),
+                'actions' => array('pick', 'put')
+            ),
+
+            //Штаб-квартира секретной организации
+            'headquarters_secret_organization_stage1' => array(
+                'short' => array(
+                    'contract' => 'planning_secret_operation_ny'
                 ),
                 'actions' => array('pick', 'put')
             )
