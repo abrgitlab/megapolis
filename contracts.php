@@ -1205,6 +1205,14 @@ function signContract($location_data, $room_id) {
                     'contract' => 'planning_secret_operation_ny'
                 ),
                 'actions' => array('pick', 'put')
+            ),
+
+            //Тренировочный центр скалолазанья
+            'climbing_training_center_stage1' => array(
+                'short' => array(
+                    'contract' => 'set_school_climbers'
+                ),
+                'actions' => array('pick', 'put')
             )
         );
 
