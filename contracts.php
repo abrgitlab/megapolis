@@ -1200,7 +1200,7 @@ function signContract($location_data, $room_id) {
             ),
 
             //Штаб-квартира секретной организации
-            'headquarters_secret_organization_stage1' => array(
+            'headquarters_secret_organization_stage3' => array(
                 'short' => array(
                     'contract' => 'creating_network_agents'
                 ),
