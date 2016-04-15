@@ -1067,6 +1067,17 @@ function signContract($location_data, $room_id) {
                     'contract' => 'delivery_tourists_on_yahte'
                 ),
                 'actions' => array('pick', 'put')
+            ),
+
+            //Институт римской цивилизации
+            'institute_roman_civilization_stage1' => array(
+                'short' => array(
+                    'contract' => 'archaeological_expertise_ruins', 'friends_request' => true
+                ),
+                'long' => array(
+                    'contract' => 'exhibition_pompei_art'
+                ),
+                'actions' => array('pick', 'put')
             )
         );
     /*elseif ($room_id == 3)
