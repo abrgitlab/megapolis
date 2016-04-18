@@ -1242,9 +1242,12 @@ function signContract($location_data, $room_id) {
             ),*/
 
             //Тренировочный центр скалолазанья
-            'climbing_training_center_stage2' => array(
+            'climbing_training_center_stage3' => array(
                 'short' => array(
                     'contract' => 'set_school_climbers'
+                ),
+                'long' => array(
+                    'contract' => 'demo_performances_climbers'
                 ),
                 'actions' => array('pick', 'put')
             )
