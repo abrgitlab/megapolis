@@ -46,10 +46,10 @@ $config['lock'] = true;
 unset($config['next_time']);
 file_put_contents(__DIR__ . '/config.json', json_encode($config));
 
-$host = 'web146.socialquantum.com';
+$host = 'web155.socialquantum.com';
 $host_static = 'mb.static.socialquantum.ru';
-$build = '11131';
-$client_version = '2.70.' . $build;
+$build = '12149';
+$client_version = '2.85.' . $build;
 $iauth = '277997eba7f4e51051b0a0a9450afe73';
 $user_id = 'UD_5cd98e974c0fec35013c4790';
 
@@ -131,6 +131,17 @@ $location_data = $tidy->repairString($location_data, $tidy_config);
 
 $location_data_xml = new DOMDocument();
 $location_data_xml->loadXML($location_data);
+
+$barn_data_xml = new DOMDocument();
+$barn_data_xml->loadXML($location_data_xml->saveXML($location_data_xml->getElementsByTagName('barn')->item(0)));
+
+$city_goods = "0";
+foreach($barn_data_xml->childNodes->item(0)->childNodes as $barn) {
+    if ($barn->localName == 'city_goods') {
+        $city_goods = $barn->attributes->getNamedItem('quantity')->nodeValue;
+        break;
+    }
+}
 
 $friends = [];
 $friends_for_invite_in_gambling_zone = [];
@@ -358,7 +369,7 @@ $config['lock'] = false;
 file_put_contents(__DIR__ . '/config.json', json_encode($config));
 
 function signContract($location_data, $room_id) {
-    global $tidy, $tidy_config, $host, $client_version, $iauth, $user_id, $rn, $cmd_id, $friends, $long;
+    global $tidy, $tidy_config, $host, $client_version, $iauth, $user_id, $rn, $cmd_id, $friends, $city_goods, $long;
 
     echo "Работа с контрактами в комнате $room_id\n";
 
@@ -371,7 +382,7 @@ function signContract($location_data, $room_id) {
     $field_data_xml->loadXML($location_data_xml->saveXML($location_data_xml->getElementsByTagName('field')->item(0)));
 
     $buildings_list = [];
-    if ($room_id == 0)
+    if ($room_id == 0) {
         $buildings_list = array(
             //НИЯУ
             'srnu_factory' => array(
@@ -386,44 +397,44 @@ function signContract($location_data, $room_id) {
 
             //Институт истории
             'institute_of_history_stage1' => array(
-                 'short' => array(
-                     'contract' => 'stratigraphic_studies'
-                 ),
+                'short' => array(
+                    'contract' => 'stratigraphic_studies'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Дворец здоровья
             'health_palace_stage2' => array(
-                 'short' => array(
-                     'contract' => 'rehabilitation_of_athletes'
-                 ),
+                'short' => array(
+                    'contract' => 'rehabilitation_of_athletes'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Городской центр спорта
             'urban_sports_center_stage2' => array(
-                 'short' => array(
-                     'contract' => 'tournament_on_mini_football'
-                 ),
+                'short' => array(
+                    'contract' => 'tournament_on_mini_football'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Региональный центр сотовой связи
             'mobile_phone_system_center_stage4' => array(
-                 'short' => array(
-                     'contract' => 'ggg_connection',
-                     'additional_fields' => array(
-                         'affected_items' => '31861965%3A35861946%2C39734593%2C39856375%2C28557984%2C34053392%2C29488690%2C35767257%2C28239235%2C28557634%2C34152209%2C30516461%2C29505614%2C28199082%2C33759002%2C35958760%2C35649209%2C32833679%2C28558178%2C35862765%2C28198974%2C40198010%2C30079491%2C30516462%2C28239236%2C35727249%2C35019780%3B31811512%3A35958674%2C48176662%2C34176308%2C34343912%2C36380765%2C35851055%2C34977101%2C35920361%2C35741945%2C36249841%2C29007227%2C35958568%2C29299986%2C35958662%2C28558161%2C34879378%3B40966797%3A%3B40966833%3A41652382%2C39715714%2C41924920%2C41689198%2C41778317%2C41652564%3B'
-                     )
-                 ),
+                'short' => array(
+                    'contract' => 'ggg_connection',
+                    'additional_fields' => array(
+                        'affected_items' => '31861965%3A39734593%2C35861946%2C39856375%2C28557984%2C34053392%2C29488690%2C35767257%2C28239235%2C28557634%2C28199082%2C34152209%2C30516461%2C29505614%2C33759002%2C35649209%2C28198974%2C35958760%2C40198010%2C32833679%2C28558178%2C35862765%2C30079491%2C30516462%2C28239236%2C35727249%2C35019780%3B31811512%3A35958674%2C48176662%2C34176308%2C34343912%2C36380765%2C34977101%2C36249841%2C35851055%2C35920361%2C35741945%2C29007227%2C35958568%2C29299986%2C28558161%2C35958662%2C34879378%3B40966797%3A%3B40966833%3A41689198%2C41778317%2C39715714%2C41924920%2C41652564%3B'
+                    )
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Лесопырка
             'sawmill_middle' => array(
-                 'short' => array(
-                     'contract' => 'industrial_wood'
-                 ),
+                'short' => array(
+                    'contract' => 'industrial_wood'
+                ),
                 'long' => array(
                     'contract' => 'case_furniture'
                 ),
@@ -432,9 +443,9 @@ function signContract($location_data, $room_id) {
 
             //Крейсер
             'naval_station_stage8' => array(
-                 'short' => array(
-                     'contract' => 'marine_corps_training'
-                 ),
+                'short' => array(
+                    'contract' => 'marine_corps_training'
+                ),
                 'long' => array(
                     'contract' => 'patrol_maritime_borders'
                 ),
@@ -443,17 +454,17 @@ function signContract($location_data, $room_id) {
 
             //Центр управления пароходными линиями
             'central_port_stage4' => array(
-                 'short' => array(
-                     'contract' => 'industrial_fishing'
-                 ),
+                'short' => array(
+                    'contract' => 'industrial_fishing'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //SQ-Сити
             'sq_city_stage2' => array(
-                 'short' => array(
-                     'contract' => 'government_proceedings'
-                 ),
+                'short' => array(
+                    'contract' => 'government_proceedings'
+                ),
                 'long' => array(
                     'contract' => 'trading'
                 ),
@@ -462,41 +473,41 @@ function signContract($location_data, $room_id) {
 
             //Школа актёрского мастерства
             'acting_school_stage1' => array(
-                 'short' => array(
-                     'contract' => 'lesson_of_acting_skills'
-                 ),
+                'short' => array(
+                    'contract' => 'lesson_of_acting_skills'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Поместье Маунт-Вернон
             'mount_vernon_stage1' => array(
-                 'short' => array(
-                     'contract' => 'organization_of_the_state_reception'
-                 ),
+                'short' => array(
+                    'contract' => 'organization_of_the_state_reception'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Уайтхолльский дворец
             'uaythollsky_palace_stage2' => array(
-                 'short' => array(
-                     'contract' => 'salute_of_guns_combat'
-                 ),
+                'short' => array(
+                    'contract' => 'salute_of_guns_combat'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Национальный центр кинематографии
             'national_center_cinema' => array(
-                 'short' => array(
-                     'contract' => 'awarding_of_prizes'
-                 ),
+                'short' => array(
+                    'contract' => 'awarding_of_prizes'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Ассоциация тенниса
             'lawn_tennis_association_stage1' => array(
-                 'short' => array(
-                     'contract' => 'exhibition_history_tennis'
-                 ),
+                'short' => array(
+                    'contract' => 'exhibition_history_tennis'
+                ),
                 'long' => array(
                     'contract' => 'welcome_participants_tournament', 'friends_request' => true
                 ),
@@ -505,33 +516,33 @@ function signContract($location_data, $room_id) {
 
             //Готический замок
             'gothic_castle_stage3' => array(
-                 'short' => array(
-                     'contract' => 'parade_monsters'
-                 ),
+                'short' => array(
+                    'contract' => 'parade_monsters'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Виноградная ферма
             'grape_farm_stage3' => array(
-                 'short' => array(
-                     'contract' => 'festival_fr_cuisine'
-                 ),
+                'short' => array(
+                    'contract' => 'festival_fr_cuisine'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Поло-клуб
             'polo_club_stage1' => array(
-                 'short' => array(
-                     'contract' => 'participants_championship', 'friends_request' => true
-                 ),
+                'short' => array(
+                    'contract' => 'participants_championship', 'friends_request' => true
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Експоцентр
             'fairgrounds_stage2' => array(
-                 'short' => array(
-                     'contract' => 'tune_sportscar'
-                 ),
+                'short' => array(
+                    'contract' => 'tune_sportscar'
+                ),
                 'long' => array(
                     'contract' => 'presentation_supercar'
                 ),
@@ -540,9 +551,9 @@ function signContract($location_data, $room_id) {
 
             //Институт военных разработок
             'military_research_institute_stage1' => array(
-                 'short' => array(
-                     'contract' => 'introduction_of_protective_artificial_intelligence'
-                 ),
+                'short' => array(
+                    'contract' => 'introduction_of_protective_artificial_intelligence'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
@@ -552,16 +563,16 @@ function signContract($location_data, $room_id) {
                     'contract' => 'mineralic_analysis_territory'
                 ),
                 'long' => array(
-                     'contract' => 'study_of_the_mineral'
-                 ),
+                    'contract' => 'study_of_the_mineral'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Золотодобывающая корпорация
             'gold_mining_company_stage2' => array(
-                 'short' => array(
-                     'contract' => 'investigation_methods_enriching'
-                 ),
+                'short' => array(
+                    'contract' => 'investigation_methods_enriching'
+                ),
                 'long' => array(
                     'contract' => 'enrichment_gold_ore'
                 ),
@@ -570,9 +581,9 @@ function signContract($location_data, $room_id) {
 
             //Институт исследований космоса
             'space_research_institute_stage2' => array(
-                 'short' => array(
-                     'contract' => 'develop_interstellar_dating', 'friends_request' => true
-                 ),
+                'short' => array(
+                    'contract' => 'develop_interstellar_dating', 'friends_request' => true
+                ),
                 'long' => array(
                     'contract' => 'calculating_coordinates_send_messages', 'friends_request' => true
                 ),
@@ -581,17 +592,17 @@ function signContract($location_data, $room_id) {
 
             //Центральная панорама
             'statue_burning_man_stage2' => array(
-                 'short' => array(
-                     'contract' => 'performance_viewpoint'
-                 ),
+                'short' => array(
+                    'contract' => 'performance_viewpoint'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Карнакский храм
             'karnak_temple_stage2' => array(
-                 'short' => array(
-                     'contract' => 'discovery_of_cave_painting'
-                 ),
+                'short' => array(
+                    'contract' => 'discovery_of_cave_painting'
+                ),
                 'long' => array(
                     'contract' => 'study_of_ancient_writing'
                 ),
@@ -600,33 +611,33 @@ function signContract($location_data, $room_id) {
 
             //Пиратский форт
             'pirate_fort_stage2' => array(
-                 'short' => array(
-                     'contract' => 'themed_tours'
-                 ),
+                'short' => array(
+                    'contract' => 'themed_tours'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Администрация зоопарка
             'administration_zoo_up1' => array(
-                 'short' => array(
-                     'contract' => 'exhibition_of_birds', 'friends_request' => true
-                 ),
+                'short' => array(
+                    'contract' => 'exhibition_of_birds', 'friends_request' => true
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Ассоциация рок-н-ролла
             'association_rock_and_roll' => array(
-                 'short' => array(
-                     'contract' => 'festival_of_young_rock_musicians', 'friends_request' => true
-                 ),
+                'short' => array(
+                    'contract' => 'festival_of_young_rock_musicians', 'friends_request' => true
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Центр военно-исторической реконструкции
             'club_military_reconstruction_stage2' => array(
-                 'short' => array(
-                     'contract' => 'making_knightly_accoutrements'
-                 ),
+                'short' => array(
+                    'contract' => 'making_knightly_accoutrements'
+                ),
                 'long' => array(
                     'contract' => 'joust', 'friends_request' => true
                 ),
@@ -635,9 +646,9 @@ function signContract($location_data, $room_id) {
 
             //Центр "Чёрная пантера"
             'center_black_panther_stage1' => array(
-                 'short' => array(
-                     'contract' => 'seminar_on_fashion_and_art', 'friends_request' => true
-                 ),
+                'short' => array(
+                    'contract' => 'seminar_on_fashion_and_art', 'friends_request' => true
+                ),
                 'long' => array(
                     'contract' => 'exhibition_expensive_clothes', 'friends_request' => true
                 ),
@@ -646,9 +657,9 @@ function signContract($location_data, $room_id) {
 
             //Фестивальный замок
             'colomares_castle_stage3' => array(
-                 'short' => array(
-                     'contract' => 'preparatory_work'
-                 ),
+                'short' => array(
+                    'contract' => 'preparatory_work'
+                ),
                 'long' => array(
                     'contract' => 'capture_a_fort', 'friends_request' => true
                 ),
@@ -657,25 +668,25 @@ function signContract($location_data, $room_id) {
 
             //Архитектурная академия
             'architectural_academy_stage1' => array(
-                 'short' => array(
-                     'contract' => 'architectural_projects_ecology_estimation'
-                 ),
+                'short' => array(
+                    'contract' => 'architectural_projects_ecology_estimation'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Новогодний Таймс-сквер
             'times_square_stage2' => array(
-                 'short' => array(
-                     'contract' => 'show_retro_films'
-                 ),
+                'short' => array(
+                    'contract' => 'show_retro_films'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Агентство праздников
             'holidays_agency_stage1' => array(
-                 'short' => array(
-                     'contract' => 'order_copyright_postcards'
-                 ),
+                'short' => array(
+                    'contract' => 'order_copyright_postcards'
+                ),
                 'long' => array(
                     'contract' => 'holidays_party', 'friends_request' => true
                 ),
@@ -684,25 +695,25 @@ function signContract($location_data, $room_id) {
 
             //Научно-информационный центр "Фьюжн"
             'scientific_information_center_fyuzion_stage1' => array(
-                 'short' => array(
-                     'contract' => 'development_of_new_safety_systems', 'friends_request' => true
-                 ),
+                'short' => array(
+                    'contract' => 'development_of_new_safety_systems', 'friends_request' => true
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Университет Мегаполиса
             'megapolis_university_training' => array(
-                 'short' => array(
-                     'contract' => 'term_paper_writing'
-                 ),
+                'short' => array(
+                    'contract' => 'term_paper_writing'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Театр "Лебедь"
             'swan_theater_stage1' => array(
-                 'short' => array(
-                     'contract' => 'theatrical_makeup_master_class'
-                 ),
+                'short' => array(
+                    'contract' => 'theatrical_makeup_master_class'
+                ),
                 'long' => array(
                     'contract' => 'shakespeare_costume_parade', 'friends_request' => true
                 ),
@@ -711,25 +722,25 @@ function signContract($location_data, $room_id) {
 
             //Администрация отельного комплекса "Шимао"
             'administration_hotel_complex_shima_stage1' => array(
-                 'short' => array(
-                     'contract' => 'inauguration_hotel_shima'
-                 ),
+                'short' => array(
+                    'contract' => 'inauguration_hotel_shima'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Расширение территории института
             'citys_ecology_institute_stage2' => array(
-                 'short' => array(
-                     'contract' => 'earth_hour'
-                 ),
+                'short' => array(
+                    'contract' => 'earth_hour'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Истребитель
             'airbase_stage8' => array(
-                 'short' => array(
-                     'contract' => 'pilots_training'
-                 ),
+                'short' => array(
+                    'contract' => 'pilots_training'
+                ),
                 'long' => array(
                     'contract' => 'armor_transport'
                 ),
@@ -738,17 +749,17 @@ function signContract($location_data, $room_id) {
 
             //Дрейфующая станция
             'drifting_station_stage2' => array(
-                 'short' => array(
-                     'contract' => 'grand_opening_loona_park'
-                 ),
+                'short' => array(
+                    'contract' => 'grand_opening_loona_park'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Институт експериментальной медицины
             'medical_centre_stage3' => array(
-                 'short' => array(
-                     'contract' => 'medical_conference'
-                 ),
+                'short' => array(
+                    'contract' => 'medical_conference'
+                ),
                 'long' => array(
                     'contract' => 'innovation_heal_methods_developing', 'friends_request' => true
                 ),
@@ -757,9 +768,9 @@ function signContract($location_data, $room_id) {
 
             //Реставрационный комплекс
             'restoration_complex_stage3' => array(
-                 'short' => array(
-                     'contract' => 'sampling_gold'
-                 ),
+                'short' => array(
+                    'contract' => 'sampling_gold'
+                ),
                 'long' => array(
                     'contract' => 'calculation_coordinates_city_of_gold'
                 ),
@@ -768,25 +779,25 @@ function signContract($location_data, $room_id) {
 
             //Клуб пилотов
             'club_pilots_stage3' => array(
-                 'short' => array(
-                     'contract' => 'championship_airslalom'
-                 ),
+                'short' => array(
+                    'contract' => 'championship_airslalom'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Центр парусного спорта
             'sailing_center_stage3' => array(
-                 'short' => array(
-                     'contract' => 'windsurfing', 'friends_request' => true
-                 ),
+                'short' => array(
+                    'contract' => 'windsurfing', 'friends_request' => true
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Круизная компания
             'cruise_company_stage2' => array(
-                 'short' => array(
-                     'contract' => 'competition_kissing_mistletoe'
-                 ),
+                'short' => array(
+                    'contract' => 'competition_kissing_mistletoe'
+                ),
                 'long' => array(
                     'contract' => 'solemn_liner_departure', 'friends_request' => true
                 ),
@@ -795,9 +806,9 @@ function signContract($location_data, $room_id) {
 
             //Институт демографии
             'institute_of_demography' => array(
-                 'short' => array(
-                     'contract' => 'family_day_at_restaurant'
-                 ),
+                'short' => array(
+                    'contract' => 'family_day_at_restaurant'
+                ),
                 'long' => array(
                     'contract' => 'fitness_marathon', 'friends_request' => true
                 ),
@@ -806,17 +817,17 @@ function signContract($location_data, $room_id) {
 
             //Оттавский комплекс для конференций
             'ottawa_convention_centre_stage1' => array(
-                 'short' => array(
-                     'contract' => 'onference_of_information_technology', 'friends_request' => true
-                 ),
+                'short' => array(
+                    'contract' => 'onference_of_information_technology', 'friends_request' => true
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Выставочный зал "Ноев Ковчег"
             'noahs_ark_stage2' => array(
-                 'short' => array(
-                     'contract' => 'exhibition_life_on_earth'
-                 ),
+                'short' => array(
+                    'contract' => 'exhibition_life_on_earth'
+                ),
                 'long' => array(
                     'contract' => 'installation_discworld'
                 ),
@@ -825,41 +836,41 @@ function signContract($location_data, $room_id) {
 
             //Центральный вокзал
             'central_station' => array(
-                 'short' => array(
-                     'contract' => 'international_passenger_traffic', 'friends_request' => true
-                 ),
+                'short' => array(
+                    'contract' => 'international_passenger_traffic', 'friends_request' => true
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Единая служба спасения
             'help_centre_final' => array(
-                 'short' => array(
-                     'contract' => 'open_help_centers'
-                 ),
+                'short' => array(
+                    'contract' => 'open_help_centers'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Пирамида
             'pyramid' => array(
-                 'short' => array(
-                     'contract' => 'archaeological_excavations'
-                 ),
+                'short' => array(
+                    'contract' => 'archaeological_excavations'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Площадь святого Марка
             'rains_palace_stage2' => array(
-                 'short' => array(
-                     'contract' => 'carnival_night_organization', 'friends_request' => true
-                 ),
+                'short' => array(
+                    'contract' => 'carnival_night_organization', 'friends_request' => true
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Криогенная установка
             'cryogenic_plant_stage2' => array(
-                 'short' => array(
-                     'contract' => 'christmas_flashmob', 'friends_request' => true
-                 ),
+                'short' => array(
+                    'contract' => 'christmas_flashmob', 'friends_request' => true
+                ),
                 'long' => array(
                     'contract' => 'contest_ice_sculptures', 'friends_request' => true
                 ),
@@ -868,17 +879,17 @@ function signContract($location_data, $room_id) {
 
             //Центр изучения окружающей среды
             'center_environmental_studies_stage3' => array(
-                 'short' => array(
-                     'contract' => 'international_summit_green_energy'
-                 ),
+                'short' => array(
+                    'contract' => 'international_summit_green_energy'
+                ),
                 'actions' => array('pick', 'put')
             ),
 
             //Плавучий екополис
             'congress_center_hangzhou_stage2' => array(
-                 'short' => array(
-                     'contract' => 'introduction_graphene_capacitors'
-                 ),
+                'short' => array(
+                    'contract' => 'introduction_graphene_capacitors'
+                ),
                 'long' => array(
                     'contract' => 'hydrowave_ocean_clean', 'friends_request' => true
                 ),
@@ -942,9 +953,21 @@ function signContract($location_data, $room_id) {
                     'contract' => 'urgent_cargo_delivery1'
                 ),
                 'actions' => array('pick', 'put')
+            ),
+
+            //
+            'port_warehouse_stage4' => array(
+                'short' => array(
+                    'contract' => 'city_goods_export'
+                ),
+                'actions' => array('pick')
             )
         );
-    elseif ($room_id == 1)
+
+        if ($city_goods >= 5) {
+            $buildings_list['port_warehouse_stage4']['actions'][] = 'put';
+        }
+    } elseif ($room_id == 1)
         $buildings_list = array(
             //НИИ геологии
             'geological_institute_stage2' => array(
@@ -1051,12 +1074,12 @@ function signContract($location_data, $room_id) {
             //Аквапарк
             'aquapark_stage2' => array(
                 'short' => array(
-                    'contract' => 'conducting_childrens_holiday',
-                    'quest_inc_counter' => array(
+                    'contract' => 'conducting_childrens_holiday'
+                    /*'quest_inc_counter' => array(
                         'quest_id' => '20417',
                         'counter' => '0',
                         'count' => '100'
-                    )
+                    )*/
                 ),
                 'actions' => array('pick', 'put'),
             ),
@@ -1271,9 +1294,6 @@ function signContract($location_data, $room_id) {
                                 $cached_part[$key] = $value;
                             }
 
-                        /*if ($field_id == '29165634' && $contract_data['contract'] == 'ggg_connection') //Хак для мобильного центра
-                            $cached_part['affected_items'] = '31861965%3A35861946%2C39734593%2C39856375%2C28557984%2C34053392%2C29488690%2C35767257%2C28239235%2C28557634%2C34152209%2C30516461%2C29505614%2C28199082%2C33759002%2C35958760%2C35649209%2C32833679%2C28558178%2C35862765%2C28198974%2C40198010%2C30079491%2C30516462%2C28239236%2C35727249%2C35019780%3B31811512%3A35958674%2C48176662%2C34176308%2C34343912%2C36380765%2C35851055%2C34977101%2C35920361%2C35741945%2C36249841%2C29007227%2C35958568%2C29299986%2C35958662%2C28558161%2C34879378%3B40966797%3A%3B40966833%3A41652382%2C39715714%2C41924920%2C41689198%2C41778317%2C41652564%3B';*/
-
                         $cached_array[] = $cached_part;
 
                         if (isset($contract_data['friends_request']) && $contract_data['friends_request']) {
@@ -1326,16 +1346,18 @@ function signContract($location_data, $room_id) {
     $cached_array = [];
     $cached_id = 0;
 
-    foreach($field_data_xml->childNodes->item(0)->childNodes as $field) {
-        if ($field->attributes !== NULL) {
-            $field_id = $field->attributes->getNamedItem('id')->nodeValue;
-            $field_state = $field->attributes->getNamedItem('state')->nodeValue;
+    if ($room_id != 0) { //Временно блокируем основную локацию от получения монет
+        foreach ($field_data_xml->childNodes->item(0)->childNodes as $field) {
+            if ($field->attributes !== NULL) {
+                $field_id = $field->attributes->getNamedItem('id')->nodeValue;
+                $field_state = $field->attributes->getNamedItem('state')->nodeValue;
 
-            if ($field_state == 5) {
-                $cached_part = array('command' => 'clean', 'cmd_id' => $cmd_id, 'room_id' => $room_id, 'item_id' => $field_id);
-                ++$cmd_id;
+                if ($field_state == 5) {
+                    $cached_part = array('command' => 'clean', 'cmd_id' => $cmd_id, 'room_id' => $room_id, 'item_id' => $field_id);
+                    ++$cmd_id;
 
-                $cached_array[] = $cached_part;
+                    $cached_array[] = $cached_part;
+                }
             }
         }
     }
