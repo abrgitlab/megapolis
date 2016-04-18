@@ -955,7 +955,7 @@ function signContract($location_data, $room_id) {
                 'actions' => array('pick', 'put')
             ),
 
-            //
+            //Портовый склад
             'port_warehouse_stage4' => array(
                 'short' => array(
                     'contract' => 'city_goods_export'
@@ -1234,12 +1234,12 @@ function signContract($location_data, $room_id) {
             ),
 
             //Штаб-квартира секретной организации
-            /*'headquarters_secret_organization_stage3' => array(
+            'headquarters_secret_organization_stage3' => array(
                 'short' => array(
                     'contract' => 'creating_network_agents'
                 ),
                 'actions' => array('pick', 'put')
-            ),*/
+            ),
 
             //Тренировочный центр скалолазанья
             'climbing_training_center_stage3' => array(
