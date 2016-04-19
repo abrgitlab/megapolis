@@ -132,32 +132,13 @@ $location_data = $tidy->repairString($location_data, $tidy_config);
 $location_data_xml = new DOMDocument();
 $location_data_xml->loadXML($location_data);
 
-$chest = $location_data_xml->getElementsByTagName('country')->item(0)->attributes->getNamedItem('chest');
-if ($chest)
-    $chest = json_decode($chest->nodeValue);
-$chest_actions = $location_data_xml->getElementsByTagName('country')->item(0)->attributes->getNamedItem('chest_actions');
-if ($chest_actions) {
-    $chest_actions = json_decode($chest_actions->nodeValue);
-    $chest_time_last_open = $chest_actions->chest_event16->last_open;
-}
-
 $barn_data_xml = new DOMDocument();
 $barn_data_xml->loadXML($location_data_xml->saveXML($location_data_xml->getElementsByTagName('barn')->item(0)));
 
 $city_goods = "0";
-$chest_action_tower1 = null;
-$chest_action_chest1 = null;
 foreach($barn_data_xml->childNodes->item(0)->childNodes as $barn) {
     if ($barn->localName == 'city_goods') {
         $city_goods = $barn->attributes->getNamedItem('quantity')->nodeValue;
-    }
-
-    if ($barn->localName == 'chest_action_tower1') {
-        $chest_action_tower1 = $barn->attributes->getNamedItem('quantity')->nodeValue;
-    }
-
-    if ($barn->localName == 'chest_action_chest1') {
-        $chest_action_chest1 = $barn->attributes->getNamedItem('quantity')->nodeValue;
     }
 }
 
@@ -318,8 +299,7 @@ if (count($received_gifts) > 0) {
     echo 'Принято подарков: ' . count($received_gifts) . "\n";
 }
 
-if ($chest_actions)
-    openChest();
+openChest($location_data);
 
 signContract($location_data, 0);
 
@@ -1561,12 +1541,45 @@ function casinoPickFriend($location_data) {
     }
 }
 
-function openChest() {
-    global $chest, $chest_actions, $chest_time_last_open, $chest_action_tower1, $chest_action_chest1, $iauth, $user_id, $host, $client_version, $cmd_id, $rn;
+function openChest($location_data) {
+    global $tidy, $tidy_config, $iauth, $user_id, $host, $client_version, $cmd_id, $rn;
+
+    $location_data = $tidy->repairString($location_data, $tidy_config);
+
+    $location_data_xml = new DOMDocument();
+    $location_data_xml->loadXML($location_data);
+
+    $roll_counter = $location_data_xml->getElementsByTagName('country')->item(0)->attributes->getNamedItem('roll_counter')->nodeValue;
+
+    $chest = $location_data_xml->getElementsByTagName('country')->item(0)->attributes->getNamedItem('chest');
+    if ($chest)
+        $chest = json_decode($chest->nodeValue);
+    $chest_actions = $location_data_xml->getElementsByTagName('country')->item(0)->attributes->getNamedItem('chest_actions');
+    $chest_time_last_open = time();
+    if ($chest_actions) {
+        $chest_actions = json_decode($chest_actions->nodeValue);
+        $chest_time_last_open = $chest_actions->chest_event16->last_open;
+    }
+
+    $barn_data_xml = new DOMDocument();
+    $barn_data_xml->loadXML($location_data_xml->saveXML($location_data_xml->getElementsByTagName('barn')->item(0)));
+
+    $chest_action_tower1 = null;
+    $chest_action_chest1 = null;
+    foreach($barn_data_xml->childNodes->item(0)->childNodes as $barn) {
+        if ($barn->localName == 'chest_action_tower1') {
+            $chest_action_tower1 = $barn->attributes->getNamedItem('quantity')->nodeValue;
+        }
+
+        if ($barn->localName == 'chest_action_chest1') {
+            $chest_action_chest1 = $barn->attributes->getNamedItem('quantity')->nodeValue;
+        }
+    }
+
     if (time() - $chest_time_last_open > 3600 && $chest_action_chest1 > 0) {
         echo "Открываем сундук\n";
 
-        $cached_string = "cached[0][command]=chest_action_open_chest&cached[0][cmd_id]=$cmd_id&cached[0][room_id]=0&cached[0][name]=chest_event16&cached[0][v]=2&cached[0][type]=coins&cached[0][uxtime]=" . time();
+        $cached_string = "cached[0][command]=chest_action_open_chest&cached[0][cmd_id]=$cmd_id&cached[0][roll_counter]=$roll_counter&cached[0][room_id]=0&cached[0][name]=chest_event16&cached[0][v]=2&cached[0][type]=coins&cached[0][uxtime]=" . time();
         ++$cmd_id;
 
         $url = "iauth=$iauth&user_id=$user_id&daily_gift=2&room_id=0&serv_ver=1$cached_string&lang=ru&rand=0." . rand(0, 9999999) . "&live_update=true&rn=$rn";
