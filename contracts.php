@@ -1579,7 +1579,7 @@ function openChest($location_data) {
     if (time() - $chest_time_last_open > 3600 && $chest_action_chest1 > 0) {
         echo "Открываем сундук\n";
 
-        $cached_string = "cached[0][command]=chest_action_open_chest&cached[0][cmd_id]=$cmd_id&cached[0][roll_counter]=$roll_counter&cached[0][room_id]=0&cached[0][name]=chest_event16&cached[0][v]=2&cached[0][type]=coins&cached[0][uxtime]=" . time();
+        $cached_string = "&cached[0][command]=chest_action_open_chest&cached[0][cmd_id]=$cmd_id&cached[0][roll_counter]=$roll_counter&cached[0][room_id]=0&cached[0][name]=chest_event16&cached[0][v]=2&cached[0][type]=coins&cached[0][uxtime]=" . time();
         ++$cmd_id;
 
         $url = "iauth=$iauth&user_id=$user_id&daily_gift=2&room_id=0&serv_ver=1$cached_string&lang=ru&rand=0." . rand(0, 9999999) . "&live_update=true&rn=$rn";
