@@ -114,7 +114,12 @@ class Bot
         Bot::$game->changeRoom(1);
         Bot::$game->signContracts();
 
-        //$this->config->generateNextStartTime();
+        $this->config->generateNextStartTime();
+        $this->config->lock = false;
+        $this->config->commit();
+
+        echo 'Выполнено в ' . date('H:i:s') . "\n";
+        echo 'Следующее выполнение - не раньше ' . date('H:i:s', $this->config->next_time) . "\n";
     }
 
     public static function getGame() {

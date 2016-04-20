@@ -67,7 +67,7 @@ class Friend
 
         foreach ($friend_rooms as $room_id) {
             if ($this->help_points > 0) {
-                echo 'Заходим к другу с ID ' . $this->id . ' в комнату '. $room_id . '\n';
+                echo 'Заходим к другу с ID ' . $this->id . ' в комнату '. $room_id . "\n";
                 $room_data = Bot::getGame()->visitFriend($this->id, $last_room_id, $room_id);
 
                 $last_room_id = $room_id;

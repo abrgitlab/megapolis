@@ -46,6 +46,43 @@ class Config
         } else {
             if (Bot::$options['debug']) echo "Конфиг не найден\n";
         }
+
+        $dateParams = $this->getDateParams(time());
+        if (!Bot::$options['manual']) {
+            //Пн-Пт > 21:30
+            if ($dateParams['dow'] >= 1 && $dateParams['dow'] <= 5 && ($dateParams['hour'] == 21 && $dateParams['min'] >= 30 || $dateParams['hour'] > 21))
+                Bot::$options['long'] = true;
+
+            //Все дни > 23:30
+            if ($dateParams['hour'] == 23 && $dateParams['min'] >= 30)
+                Bot::$options['long'] = true;
+
+            //Все дни < 08:00
+            if ($dateParams['hour'] < 8)
+                Bot::$options['long'] = true;
+
+            //Сб, Вс < 12:00
+            if (($dateParams['dow'] == 7 || $dateParams['dow'] == 6) && $dateParams['hour'] < 12)
+                Bot::$options['long'] = true;
+        }
+
+        if (Bot::$options['debug']) {
+            if (Bot::$options['long'])
+                echo "Будут подписаны длинные контракты\n";
+            else
+                echo "Будут подписаны короткие контракты\n";
+        }
+    }
+
+    /**
+     *
+     */
+    private function getDateParams($time) {
+        return [
+            'min' => date('i', $time),
+            'hour' => date('H', $time),
+            'dow' => date('N', $time)
+        ];
     }
 
     /**
@@ -57,6 +94,22 @@ class Config
             $config['next_time'] = $this->next_time;
 
         file_put_contents(BASE_PATH . '/config.json', json_encode($config));
+    }
+
+    /**
+     * Генерирует следующее время выполнения скрипта
+     */
+    public function generateNextStartTime() {
+        $time = time();
+        $dateParams = $this->getDateParams($time);
+        if ($dateParams['hour'] >= 8)
+            $this->next_time = $time + rand(3600, 5400);
+        elseif (($dateParams['dow'] == 6 && $dateParams['hour'] > 2 || $dateParams['dow'] == 7 && $dateParams['hour'] > 3) && $dateParams['hour'] < 12)
+            $this->next_time = strtotime('12:00', $time) + rand(0, 1800);
+        elseif ($dateParams['dow'] >= 1 && $dateParams['dow'] <= 5 && $dateParams['hour'] > 1 && $dateParams['hour'] < 8)
+            $this->next_time = strtotime('08:00', $time) + rand(0, 1800);
+        else
+            $this->next_time = $time + rand(3600, 5400);
     }
 
 }
