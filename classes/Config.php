@@ -29,7 +29,7 @@ class Config
             if ($config == null) {
                 if (Bot::$options['debug']) echo "Конфиг невозможно распарсить\n";
             } else {
-                if (!isset($options['force'])) {
+                if (!isset(Bot::$options['force'])) {
                     if (isset($config['lock']) && $config['lock'] == true) {
                         if (Bot::$options['debug']) echo "Выполнение скрипта заблокировано параметром lock в конфиге\n";
                         exit;

@@ -312,7 +312,7 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
         $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&no_field=true&social_id[SQ]=abr_mail%40mail.ru&device_id=45cca1a3-973a-3f7f-b226-da8d8301cfb6&platform=android&build=' . Bot::$build . '&app=city&device_model=Genymotion%20vbox86p&os=4.1.1&gloc=ru&dloc=ru&net=wf&social=sqsocial%3Aprod&odin_id=949c34f735162b0bd21f1f63db51cc2bb9e935ac&android_id=f337e0e35a1e6dd5&mac=0800270cc3c5&advertising_id=e4959f11-12a8-4cb1-a5d3-0c3649406e3b';
-        if (Bot::$options['debug']) echo "$url\n";
+        if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
 
@@ -342,7 +342,7 @@ class Game
         } else {
             $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&room_id=' . Bot::$last_room_id . '&change_room=1&view_room_id=' . $room_id . '&serv_ver=1&lang=ru&rand=0.' . rand(0, 9999999) . '&client_type=android&rn=' . $this->popRN();
         }
-        if (Bot::$options['debug']) echo "$url\n";
+        if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
 
@@ -360,7 +360,7 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
         $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&view_friend_id=' . $friend_id . '&room_id=' . $last_room_id . '&change_room=1&view_room_id=' . $room_id . '&serv_ver=1&lang=ru&rand=0.' . rand(0, 9999999) . '&client_type=android&rn=' . $this->popRN();
-        if (Bot::$options['debug']) echo "$url\n";
+        if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
 
@@ -386,7 +386,7 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
         $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&room_id=' . $this->room->getId() . '&owner_id=' . $friend_id . '&serv_ver=1' . $cached_string . '&lang=ru&rand=0.' . rand(0, 9999999) . '&live_update=true&rn=' . $this->popRN();
-        if (Bot::$options['debug']) echo "$url\n";
+        if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
 
@@ -411,7 +411,7 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
         $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&room_id=' . $this->room->getId() . '&serv_ver=1' . $cached_string . '&lang=ru&rand=0.' . rand(0, 9999999) . '&live_update=true&rn=' . $this->popRN();
-        if (Bot::$options['debug']) echo "$url\n";
+        if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
 

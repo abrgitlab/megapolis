@@ -235,7 +235,12 @@ class Room
         $cached = [];
 
         $contracts = [];
-        $friends_for_invite_in_gambling_zone = Bot::getGame()->getFriendsForInviteInGamblingZone();
+
+        $friends_for_invite_in_gambling_zone = [];
+        foreach (Bot::getGame()->getFriendsForInviteInGamblingZone() as $friend) {
+            $friends_for_invite_in_gambling_zone[] = $friend->getId();
+        }
+
         foreach ($room_staff as $friend_id => $friend) {
             if (isset($friend->time_end)) {
                 if ($friend->time_end == 0) {

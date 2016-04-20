@@ -56,9 +56,9 @@ class Bot
      */
     function __construct()
     {
-        $options = getopt('D', ['long', 'manual', 'force', 'debug']);
-        Bot::$options['debug'] = isset($options['D']) || isset($options['debug']);
-        Bot::$options['long'] = isset($options['long']);
+        Bot::$options = getopt('D', ['long', 'manual', 'force', 'debug']);
+        Bot::$options['debug'] = isset(Bot::$options['D']) || isset(Bot::$options['debug']);
+        Bot::$options['long'] = isset(Bot::$options['long']);
 
         Bot::$tidy = new Tidy();
         Bot::$tidy_config = [
@@ -113,6 +113,8 @@ class Bot
 
         Bot::$game->changeRoom(1);
         Bot::$game->signContracts();
+
+        //$this->config->generateNextStartTime();
     }
 
     public static function getGame() {
