@@ -99,6 +99,20 @@ class Bot
         Bot::$game->receiveGifts();
         Bot::$game->sendFriendsToGamblingZone();
         Bot::$game->openChest();
+        Bot::$game->signContracts();
+
+        Bot::$game->changeRoom(5);
+        Bot::$game->signContracts();
+
+        Bot::$game->changeRoom(2);
+        Bot::$game->signContracts();
+
+        Bot::$game->changeRoom(4);
+        Bot::$game->casinoPickFriends();
+        Bot::$game->signContracts();
+
+        Bot::$game->changeRoom(1);
+        Bot::$game->signContracts();
     }
 
     public static function getGame() {

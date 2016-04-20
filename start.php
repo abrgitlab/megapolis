@@ -11,6 +11,7 @@ require_once 'classes/Config.php';
 require_once 'classes/Game.php';
 require_once 'classes/Room.php';
 require_once 'classes/Friend.php';
+require_once 'classes/Contracts.php';
 
 define('BASE_PATH', __DIR__);
 

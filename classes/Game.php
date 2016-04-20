@@ -255,6 +255,21 @@ class Game
     }
 
     /**
+     * Забирает выручку с выполненных контрактов,
+     * заключает новые, собирает монеты
+     */
+    public function signContracts() {
+        $this->room->signContracts();
+    }
+
+    /**
+     * Отправляет друзей играть в казино
+     */
+    public function casinoPickFriends() {
+        $this->room->casinoPickFriends();
+    }
+
+    /**
      * Возвращает имя объекта по его идентификатору
      * @param $id int
      * @return null|string
@@ -266,6 +281,13 @@ class Game
         }
 
         return null;
+    }
+
+    /**
+     * @return Friend[]
+     */
+    public function getFriends() {
+        return $this->friends;
     }
 
     /**
@@ -282,6 +304,9 @@ class Game
         return ++$this->cmd_id;
     }
 
+    /**
+     * @return string
+     */
     public function getUserStat() {
         curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/get_user_stat');
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
@@ -294,12 +319,20 @@ class Game
         return gzdecode(curl_exec(Bot::$curl));
     }
 
+    /**
+     * @return string
+     */
     public function getRevision() {
         curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host_static . '/mobile_assets/revision.xml?rand=' . time());
         curl_setopt(Bot::$curl, CURLOPT_POST, false);
         return gzdecode(curl_exec(Bot::$curl));
     }
 
+    /**
+     * @param $room_id int
+     * @param $first_request bool
+     * @return string
+     */
     public function getRoomStat($room_id, $first_request = false) {
         curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/get_user_stat');
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
@@ -316,6 +349,12 @@ class Game
         return gzdecode(curl_exec(Bot::$curl));
     }
 
+    /**
+     * @param $friend_id string
+     * @param $last_room_id int
+     * @param $room_id int
+     * @return string
+     */
     public function visitFriend($friend_id, $last_room_id, $room_id) {
         curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/get_user_stat');
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
@@ -328,6 +367,11 @@ class Game
         return gzdecode(curl_exec(Bot::$curl));
     }
 
+    /**
+     * @param $friend_id string
+     * @param $cached array
+     * @return string
+     */
     public function checkAndPerformFriend($friend_id, $cached) {
         $cached_string = '';
         $cached_id = 0;
@@ -349,6 +393,10 @@ class Game
         return gzdecode(curl_exec(Bot::$curl));
     }
 
+    /**
+     * @param $cached array
+     * @return string
+     */
     public function checkAndPerform($cached) {
         $cached_string = '';
         $cached_id = 0;

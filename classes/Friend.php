@@ -62,7 +62,7 @@ class Friend
     }
 
     public function visit() {
-        $friend_rooms = ['0', '5', '2', '4', '1'];
+        $friend_rooms = [0, 5, 2, 4, 1];
         $last_room_id = $friend_rooms[0];
 
         foreach ($friend_rooms as $room_id) {
@@ -124,6 +124,9 @@ class Friend
         return $this->send_requests;
     }
 
+    /**
+     * @return mixed
+     */
     public function getRequests() {
         return $this->requests;
     }
