@@ -370,7 +370,7 @@ $config['lock'] = false;
 file_put_contents(__DIR__ . '/config.json', json_encode($config));
 
 function signContract($location_data, $room_id) {
-    global $tidy, $tidy_config, $host, $client_version, $iauth, $user_id, $rn, $cmd_id, $friends, $city_goods, $long;
+    global $tidy, $tidy_config, $host, $client_version, $iauth, $user_id, $rn, $cmd_id, $friends, $city_goods, $long, $debug;
 
     echo "Работа с контрактами в комнате $room_id\n";
 
@@ -967,6 +967,8 @@ function signContract($location_data, $room_id) {
 
         if ($city_goods >= 5) {
             $buildings_list['port_warehouse_stage4']['actions'][] = 'put';
+        } else {
+            if ($debug) echo "Количество городских товаров меньше пяти\n";
         }
     } elseif ($room_id == 1)
         $buildings_list = array(
