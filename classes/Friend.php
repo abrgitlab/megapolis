@@ -67,10 +67,12 @@ class Friend
 
         $help_items = $xml_node->attributes->getNamedItem('help_items');
         if ($help_items) {
-            $help_items = explode(',', $help_items->nodeValue);
-            foreach ($help_items as $help_item) {
-                $item = explode(':', $help_item);
-                $this->help_items[$item[0]] = $item[1];
+            if ($help_items->nodeValue != '') {
+                $help_items = explode(',', $help_items->nodeValue);
+                foreach ($help_items as $help_item) {
+                    $item = explode(':', $help_item);
+                    $this->help_items[$item[0]] = $item[1];
+                }
             }
         }
     }
