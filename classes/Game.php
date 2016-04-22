@@ -49,6 +49,11 @@ class Game
     private $friends = [];
 
     /**
+     * @var $available_gifts DOMDocument|mixed
+     */
+    private $available_gifts;
+
+    /**
      * @inheritdoc
      */
     function __construct()
@@ -97,6 +102,7 @@ class Game
         } else {
             Bot::$last_room_id = 0;
             $this->room = new Room($id, true);
+            $this->loadGiftsData();
         }
     }
 
@@ -176,6 +182,23 @@ class Game
         }
 
         return $result;
+    }
+
+    /**
+     * Загружает данные о подарках
+     */
+    public function loadGiftsData() {
+        $gifts_data = $this->room->getLocationData()->getElementsByTagName('gifts');
+        if ($gifts_data) {
+            $gifts_data_xml = new DOMDocument();
+            $gifts_data_xml->loadXML($this->room->getLocationData()->saveXML($gifts_data->item(0)));
+
+            $available_gifts = $gifts_data_xml->getElementsByTagName('available');
+            if ($available_gifts) {
+                $this->available_gifts = new DOMDocument();
+                $this->available_gifts->loadXML($gifts_data_xml->saveXML($available_gifts->item(0)));
+            }
+        }
     }
 
     /**

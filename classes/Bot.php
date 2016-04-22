@@ -99,7 +99,7 @@ class Bot
         Bot::$game->receiveGifts();
         Bot::$game->sendFriendsToGamblingZone();
         Bot::$game->openChest();
-        Bot::$game->applyHelp();
+        //Bot::$game->applyHelp();
         Bot::$game->signContracts();
 
         Bot::$game->changeRoom(5);
