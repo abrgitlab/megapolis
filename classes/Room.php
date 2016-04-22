@@ -180,7 +180,7 @@ class Room
         }
 
         $cached = [];
-        if ($this->room_id != 0) { //Временно блокируем основную локацию от получения монет
+        //if ($this->room_id != 0) { //Временно блокируем основную локацию от получения монет
             foreach ($this->field_data->childNodes->item(0)->childNodes as $field) {
                 if ($field->attributes !== NULL) {
                     $field_id = $field->attributes->getNamedItem('id')->nodeValue;
@@ -196,7 +196,7 @@ class Room
                     }
                 }
             }
-        }
+        //}
 
         if (count($cached) > 0) {
             for ($i = count($cached); $i > 0; --$i) {
