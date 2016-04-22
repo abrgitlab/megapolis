@@ -30,6 +30,11 @@ class Friend
     private $help_points = 0;
 
     /**
+     * @var $help_points array;
+     */
+    private $help_items = [];
+
+    /**
      * @var $requests mixed
      */
     private $requests;
@@ -59,6 +64,15 @@ class Friend
         $requests = $xml_node->attributes->getNamedItem('requests');
         if ($requests)
             $this->requests = json_decode($requests->nodeValue);
+
+        $help_items = $xml_node->attributes->getNamedItem('help_items');
+        if ($help_items) {
+            $help_items = explode(',', $help_items->nodeValue);
+            foreach ($help_items as $help_item) {
+                $item = explode(':', $help_item);
+                $this->help_items[$item[0]] = $item[1];
+            }
+        }
     }
 
     public function visit() {
@@ -129,6 +143,13 @@ class Friend
      */
     public function getRequests() {
         return $this->requests;
+    }
+
+    /**
+     * @return array
+     */
+    public function getHelpItems() {
+        return $this->help_items;
     }
 
 }

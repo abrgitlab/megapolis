@@ -137,6 +137,31 @@ class Game
         }
     }
 
+    public function applyHelp() {
+        $cached = [];
+        foreach ($this->friends as $friend) {
+            foreach ($friend->getHelpItems() as $helpItem => $value) {
+                $cached[] = [
+                    'command' => 'apply_help',
+                    'cmd_id' => Bot::getGame()->popCmdId(),
+                    'room_id' => Bot::getGame()->room->getId(),
+                    'item_id' => $helpItem,
+                    'friend_id' => $friend->getId()
+                ];
+            }
+        }
+
+        if (count($cached) > 0) {
+            for ($i = count($cached); $i > 0; --$i) {
+                echo "Получение помощи от друзей $i сек.\n";
+                $cached[count($cached) - $i]['uxtime'] = time();
+                sleep(1);
+            }
+
+            Bot::getGame()->checkAndPerform($cached);
+        }
+    }
+
     /**
      * @return Friend[]
      */

@@ -719,15 +719,15 @@ class Contracts
             ],
 
             //Институт римской цивилизации
-            /*'institute_roman_civilization_stage1' => [
+            'institute_roman_civilization_stage2' => [
                 'short' => [
                     'contract' => 'archaeological_expertise_ruins', 'friends_request' => true
                 ],
                 'long' => [
-                    'contract' => 'exhibition_pompei_art'
+                    'contract' => 'excursion_pompei'
                 ],
                 'actions' => ['pick', 'put']
-            ]*/
+            ]
         ],
 
         //3-я комната
