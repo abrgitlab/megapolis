@@ -48,7 +48,7 @@ class Config
         }
 
         $dateParams = $this->getDateParams(time());
-        if (!Bot::$options['manual']) {
+        if (!isset(Bot::$options['manual'])) {
             //Пн-Пт > 21:30
             if ($dateParams['dow'] >= 1 && $dateParams['dow'] <= 5 && ($dateParams['hour'] == 21 && $dateParams['min'] >= 30 || $dateParams['hour'] > 21))
                 Bot::$options['long'] = true;
