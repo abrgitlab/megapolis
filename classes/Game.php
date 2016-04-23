@@ -147,13 +147,15 @@ class Game
         $cached = [];
         foreach ($this->friends as $friend) {
             foreach ($friend->getHelpItems() as $helpItem => $value) {
-                $cached[] = [
-                    'command' => 'apply_help',
-                    'cmd_id' => Bot::getGame()->popCmdId(),
-                    'room_id' => Bot::getGame()->room->getId(),
-                    'item_id' => $helpItem,
-                    'friend_id' => $friend->getId()
-                ];
+                if ($value == $this->room->getId()) {
+                    $cached[] = [
+                        'command' => 'apply_help',
+                        'cmd_id' => Bot::getGame()->popCmdId(),
+                        'room_id' => Bot::getGame()->room->getId(),
+                        'item_id' => $helpItem,
+                        'friend_id' => $friend->getId()
+                    ];
+                }
             }
         }
 
@@ -303,14 +305,6 @@ class Game
     }
 
     /**
-     * Забирает выручку с выполненных контрактов,
-     * заключает новые, собирает монеты
-     */
-    public function signContracts() {
-        $this->room->signContracts();
-    }
-
-    /**
      * Отправляет друзей играть в казино
      */
     public function casinoPickFriends() {
@@ -350,6 +344,13 @@ class Game
      */
     public function popCmdId() {
         return ++$this->cmd_id;
+    }
+
+    /**
+     * @return Room
+     */
+    public function getRoom() {
+        return $this->room;
     }
 
     /**

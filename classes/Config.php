@@ -29,14 +29,14 @@ class Config
             if ($config == null) {
                 if (Bot::$options['debug']) echo "Конфиг невозможно распарсить\n";
             } else {
-                if (!isset(Bot::$options['force'])) {
+                if (!Bot::$options['force']) {
                     if (isset($config['lock']) && $config['lock'] == true) {
                         if (Bot::$options['debug']) echo "Выполнение скрипта заблокировано параметром lock в конфиге\n";
                         exit;
                     }
                     if (isset($config['next_time'])) {
                         $this->next_time = $config['next_time'];
-                        if (time() < $this->next_time && !isset(Bot::$options['manual'])) {
+                        if (time() < $this->next_time && !Bot::$options['manual']) {
                             if (Bot::$options['debug']) echo 'Время следующего выполнения щё не наступило. Скрипт запустится не раньше ' . date('H:i:s', $this->next_time) . " \n";
                             exit;
                         }
@@ -48,7 +48,7 @@ class Config
         }
 
         $dateParams = $this->getDateParams(time());
-        if (!isset(Bot::$options['manual'])) {
+        if (!Bot::$options['manual']) {
             //Пн-Пт > 21:30
             if ($dateParams['dow'] >= 1 && $dateParams['dow'] <= 5 && ($dateParams['hour'] == 21 && $dateParams['min'] >= 30 || $dateParams['hour'] > 21))
                 Bot::$options['long'] = true;

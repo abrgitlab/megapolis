@@ -57,8 +57,10 @@ class Bot
     function __construct()
     {
         Bot::$options = getopt('D', ['long', 'manual', 'force', 'debug']);
-        Bot::$options['debug'] = isset(Bot::$options['D']) || isset(Bot::$options['debug']);
         Bot::$options['long'] = isset(Bot::$options['long']);
+        Bot::$options['manual'] = isset(Bot::$options['manual']);
+        Bot::$options['force'] = isset(Bot::$options['force']);
+        Bot::$options['debug'] = isset(Bot::$options['D']) || isset(Bot::$options['debug']);
 
         Bot::$tidy = new Tidy();
         Bot::$tidy_config = [
@@ -98,22 +100,32 @@ class Bot
         Bot::$game->visitFriends();
         Bot::$game->receiveGifts();
         Bot::$game->sendFriendsToGamblingZone();
-        Bot::$game->openChest();
-        //Bot::$game->applyHelp();
-        Bot::$game->signContracts();
+        //Bot::$game->openChest();
+        Bot::$game->getRoom()->signContracts();
+        if (!isset(Bot::$options['manual'])) //Временно блокируем основную локацию от получения монет во время ручного запуска
+            Bot::$game->getRoom()->getCoins();
+        Bot::$game->applyHelp();
 
         Bot::$game->changeRoom(5);
-        Bot::$game->signContracts();
+        Bot::$game->getRoom()->signContracts();
+        Bot::$game->getRoom()->getCoins();
+        Bot::$game->applyHelp();
 
         Bot::$game->changeRoom(2);
-        Bot::$game->signContracts();
+        Bot::$game->getRoom()->signContracts();
+        Bot::$game->getRoom()->getCoins();
+        Bot::$game->applyHelp();
 
         Bot::$game->changeRoom(4);
         Bot::$game->casinoPickFriends();
-        Bot::$game->signContracts();
+        Bot::$game->getRoom()->signContracts();
+        Bot::$game->getRoom()->getCoins();
+        Bot::$game->applyHelp();
 
         Bot::$game->changeRoom(1);
-        Bot::$game->signContracts();
+        Bot::$game->getRoom()->signContracts();
+        Bot::$game->getRoom()->getCoins();
+        Bot::$game->applyHelp();
 
         $this->config->generateNextStartTime();
         $this->config->lock = false;

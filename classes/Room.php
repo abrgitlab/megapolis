@@ -178,22 +178,25 @@ class Room
 
             Bot::getGame()->checkAndPerform($cached);
         }
+    }
 
+    /**
+     * Собирает монеты
+     */
+    public function getCoins() {
         $cached = [];
-        if (isset(Bot::$options['manual']) && $this->room_id != 0) { //Временно блокируем основную локацию от получения монет во время ручного запуска
-            foreach ($this->field_data->childNodes->item(0)->childNodes as $field) {
-                if ($field->attributes !== NULL) {
-                    $field_id = $field->attributes->getNamedItem('id')->nodeValue;
-                    $field_state = $field->attributes->getNamedItem('state')->nodeValue;
+        foreach ($this->field_data->childNodes->item(0)->childNodes as $field) {
+            if ($field->attributes !== NULL) {
+                $field_id = $field->attributes->getNamedItem('id')->nodeValue;
+                $field_state = $field->attributes->getNamedItem('state')->nodeValue;
 
-                    if ($field_state == 5) {
-                        $cached[] = [
-                            'command' => 'clean',
-                            'cmd_id' => Bot::getGame()->popCmdId(),
-                            'room_id' => $this->room_id,
-                            'item_id' => $field_id
-                        ];
-                    }
+                if ($field_state == 5) {
+                    $cached[] = [
+                        'command' => 'clean',
+                        'cmd_id' => Bot::getGame()->popCmdId(),
+                        'room_id' => $this->room_id,
+                        'item_id' => $field_id
+                    ];
                 }
             }
         }
