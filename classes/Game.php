@@ -305,13 +305,6 @@ class Game
     }
 
     /**
-     * Отправляет друзей играть в казино
-     */
-    public function casinoPickFriends() {
-        $this->room->casinoPickFriends();
-    }
-
-    /**
      * Возвращает имя объекта по его идентификатору
      * @param $id int
      * @return null|string

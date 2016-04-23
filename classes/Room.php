@@ -257,7 +257,7 @@ class Room
                         'item_id' => '39052472'
                     ];
 
-                    $friends_for_invite_in_gambling_zone[] = $friend_id; //TODO: проверить, правильно ли я делаю, приглашая поиграть соседа, с которого только что снял барыш
+                    $friends_for_invite_in_gambling_zone[] = $friend_id;
                 } elseif ($friend->time_end > 0) {
                     if (isset($contracts[$friend->contract_id]))
                         ++$contracts[$friend->contract_id];
@@ -285,7 +285,7 @@ class Room
                     else
                         break;
                 }
-//                ++$roll_counter;
+                ++$roll_counter;
             }
         }
 

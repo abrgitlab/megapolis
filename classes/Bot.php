@@ -117,7 +117,7 @@ class Bot
         Bot::$game->applyHelp();
 
         Bot::$game->changeRoom(4);
-        Bot::$game->casinoPickFriends();
+        Bot::$game->getRoom()->casinoPickFriends();
         Bot::$game->getRoom()->signContracts();
         Bot::$game->getRoom()->getCoins();
         Bot::$game->applyHelp();
