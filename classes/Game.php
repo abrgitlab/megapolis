@@ -261,31 +261,31 @@ class Game
         }
     }
 
+    /**
+     * Раздаривает подарки друзьям
+     */
     public function sendGifts() {
         $sending_gifts = [];
-        echo "Ждём раздаривания подарков\n";
-        $cnt = 0;
         foreach ($this->friends as $friend) {
-            if ($friend->getNextGiftTime() < 0 && $friend->getId() == 'UD_b2877ea9cfa48ddc383861ec') {
+            if ($friend->getNextGiftTime() < 0) {
                 foreach ($friend->getWishList() as $item) {
                     if (in_array($item, $this->available_gifts)) {
-                        $sending_gifts[$friend->getId()][] = $item;
-                        ++$cnt;
+                        $sending_gifts[$item][] = $friend->getId();
                     }
                 }
             }
         }
 
         $cached = [];
-        foreach ($sending_gifts as $friend => $list) {
-            if (count($list) == 1) {
+        foreach ($sending_gifts as $item => $friends) {
+            if (count($friends) == 1) {
                 $cached[] = [
                     'command' => 'send_gift',
                     'cmd_id' => $this->popCmdId(),
                     'room_id' => $this->room->getId(),
-                    'item_id' => $list[0],
-                    'type_id' => $list[0],
-                    'second_user_id' => $friend
+                    'item_id' => $item,
+                    'type_id' => $item,
+                    'second_user_id' => $friends[0]
                 ];
             }
         }
