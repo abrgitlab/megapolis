@@ -12,6 +12,25 @@ class Game
     //TODO: анализ списка желаний друзей и раздаривание материалов
 
     public static $casino_materials = ['poker_trophy', 'golden_dice', 'bracelet_winner', 'gold_medal', 'gambler_cup', 'bar_of_gold'];
+    public static $friends_exception = [
+        'GC_edf35cc69e155f6e9d5777ff',
+        'UD_cd78ad8577c178ec91904023',
+        'GC_1df222d4ccb142f7947194e9',
+        'UD_7c5fc1389ed1fda161958c75',
+        'UD_55377e7ad03d7ad5dddf4257',
+        'UD_af1b46ee6e58002ce81bb1c2',
+        'UD_c489bde8529b908e7877c0e7',
+        'UD_bf639cd63c606f536a1d7b9a',
+        'UD_d9944b5e05dc71f2bac4d4fe',
+        'GC_79f4352d6d9e9a27d54de5d9',
+        'UD_010f298b1f6d8751974a4701',
+        'UD_0f58411f7b8b14e19abde9f4',
+        'UD_f9551fc6a87fa1b9b2f2b38b',
+        'UD_bd88d3680e19cbaed0e6838f',
+        'GC_40565cfc34d3621d518ff310',
+        'UD_e51f71c25e5e4a579047915f',
+        'UD_3b79ee90fd30515dbc701e53'
+    ];
 
     /**
      * @var $rn int
@@ -49,7 +68,7 @@ class Game
     private $friends = [];
 
     /**
-     * @var $available_gifts DOMDocument|mixed
+     * @var $available_gifts array
      */
     private $available_gifts;
 
@@ -123,10 +142,9 @@ class Game
                 if ($friend_item->localName == 'friend') {
                     $friend = new Friend();
 
-                    if ($friend->getId() == 0) {
+                    $friend->loadFromXmlNode($friend_item);
+                    if (!in_array($friend->getId(), Game::$friends_exception))
                         $this->friends[] = $friend;
-                        $friend->loadFromXmlNode($friend_item);
-                    }
                 }
             }
         }
@@ -190,6 +208,7 @@ class Game
      * Загружает данные о подарках
      */
     public function loadGiftsData() {
+        $this->available_gifts = [];
         $gifts_data = $this->room->getLocationData()->getElementsByTagName('gifts');
         if ($gifts_data) {
             $gifts_data_xml = new DOMDocument();
@@ -197,8 +216,15 @@ class Game
 
             $available_gifts = $gifts_data_xml->getElementsByTagName('available');
             if ($available_gifts) {
-                $this->available_gifts = new DOMDocument();
-                $this->available_gifts->loadXML($gifts_data_xml->saveXML($available_gifts->item(0)));
+                $available_gifts_xml = new DOMDocument();
+                $available_gifts_xml->loadXML($gifts_data_xml->saveXML($available_gifts->item(0)));
+
+                foreach ($available_gifts->item(0)->childNodes as $gift) {
+                    if (get_class($gift) == 'DOMElement') {
+                        for ($i = 0; $i < $gift->attributes->getNamedItem('quantity')->nodeValue; ++$i)
+                            $this->available_gifts[] = $gift->attributes->getNamedItem('id')->nodeValue;
+                    }
+                }
             }
         }
     }
@@ -232,6 +258,46 @@ class Game
             $this->checkAndPerform($cached);
 
             echo 'Принято подарков: ' . count($received_gifts) . "\n";
+        }
+    }
+
+    public function sendGifts() {
+        $sending_gifts = [];
+        echo "Ждём раздаривания подарков\n";
+        $cnt = 0;
+        foreach ($this->friends as $friend) {
+            if ($friend->getNextGiftTime() < 0 && $friend->getId() == 'UD_b2877ea9cfa48ddc383861ec') {
+                foreach ($friend->getWishList() as $item) {
+                    if (in_array($item, $this->available_gifts)) {
+                        $sending_gifts[$friend->getId()][] = $item;
+                        ++$cnt;
+                    }
+                }
+            }
+        }
+
+        $cached = [];
+        foreach ($sending_gifts as $friend => $list) {
+            if (count($list) == 1) {
+                $cached[] = [
+                    'command' => 'send_gift',
+                    'cmd_id' => $this->popCmdId(),
+                    'room_id' => $this->room->getId(),
+                    'item_id' => $list[0],
+                    'type_id' => $list[0],
+                    'second_user_id' => $friend
+                ];
+            }
+        }
+
+        if (count($cached) > 0) {
+            for ($i = count($cached); $i > 0; --$i) {
+                echo "Ждём раздаривания подарков $i сек.\n";
+                $current = [$cached[$i - 1]];
+                $current[0]['uxtime'] = time();
+                Bot::getGame()->checkAndPerform($current);
+                sleep(1);
+            }
         }
     }
 

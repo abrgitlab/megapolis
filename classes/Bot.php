@@ -98,6 +98,7 @@ class Bot
         Bot::$game->changeRoom(0);
         Bot::$game->loadFriends();
         Bot::$game->visitFriends();
+        Bot::$game->sendGifts(); //TODO: проследить, работает ли после введения списка исключения друзей
         Bot::$game->receiveGifts();
         Bot::$game->sendFriendsToGamblingZone();
         //Bot::$game->openChest();

@@ -17,7 +17,12 @@ class Friend
     /**
      * @var $wish_list array
      */
-    private $wish_list;
+    private $wish_list = [];
+
+    /**
+     * @var int
+     */
+    private $next_gift_time;
 
     /**
      * @var $send_requests mixed
@@ -52,6 +57,10 @@ class Friend
         $wish_list = $xml_node->attributes->getNamedItem('wish_list');
         if ($wish_list)
             $this->wish_list = explode(',', $wish_list->nodeValue);
+
+        $next_gift_time = $xml_node->attributes->getNamedItem('next_gift_time');
+        if ($next_gift_time)
+            $this->next_gift_time = $next_gift_time->nodeValue;
 
         $send_requests = $xml_node->attributes->getNamedItem('send_requests');
         if ($send_requests)
@@ -154,4 +163,17 @@ class Friend
         return $this->help_items;
     }
 
+    /**
+     * @return array
+     */
+    public function getWishList() {
+        return $this->wish_list;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNextGiftTime() {
+        return $this->next_gift_time;
+    }
 }
