@@ -589,6 +589,25 @@ class Contracts
                     'contract' => 'city_goods_export'
                 ],
                 'actions' => ['pick']
+            ],
+
+            //Администрация проекта
+            'project_administration_stage1' => [
+                'short' => [
+                    'contract' => 'oasis_ecosystem_exploration'
+                ],
+                'long' => [
+                    'contract' => 'project_conference', 'friends_request' => true
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Морская разведывательная платформа
+            'maritime_intelligence_platform_stage1' => [
+                'short' => [
+                    'contract' => 'trial_run_lifting_mechanism'
+                ],
+                'actions' => ['pick', 'put']
             ]
         ],
 
