@@ -237,7 +237,7 @@ class Game
         foreach ($this->friends as $friend) {
             if (isset($friend->getRequests()->send_gift_new)) {
                 foreach ($friend->getRequests()->send_gift_new->st_items as $gift_id) {
-                    $city_item_name = $this->getCityItemById($gift_id);
+                    $city_item_name = $this->getCityItemById($gift_id)['item_name'];
                     if ($city_item_name)
                         $received_gifts[] = array('name' => 'send_gift_new', 'friend_id' => $friend->getId(), 'st_item' => $gift_id, 'gift_name' => $city_item_name);
                     else
@@ -277,16 +277,34 @@ class Game
         }
 
         $cached = [];
-        foreach ($sending_gifts as $item => $friends) {
-            if (count($friends) == 1) {
-                $cached[] = [
-                    'command' => 'send_gift',
-                    'cmd_id' => $this->popCmdId(),
-                    'room_id' => $this->room->getId(),
-                    'item_id' => $item,
-                    'type_id' => $item,
-                    'second_user_id' => $friends[0]
-                ];
+        while (count($sending_gifts) > 0 && count($this->available_gifts) > 0) {
+            $item = array_keys($sending_gifts)[0];
+            $friend = $sending_gifts[$item][array_keys($sending_gifts[$item])[0]];
+            echo $this->getCityItemById($item)['description'] . ' => ' . $friend . "\n";
+            $cached[] = [
+                'command' => 'send_gift',
+                'cmd_id' => $this->popCmdId(),
+                'room_id' => $this->room->getId(),
+                'item_id' => $item,
+                'type_id' => $item,
+                'second_user_id' => $friend
+            ];
+
+            $removing_available_gift = array_search($item, $this->available_gifts);
+            unset($this->available_gifts[$removing_available_gift]);
+
+            if (!in_array($item, $this->available_gifts)) {
+                unset($sending_gifts[$item]);
+            }
+
+            foreach ($sending_gifts as $sending_item => $recipients) {
+                $removing_recipient = array_search($friend, $recipients);
+                if ($removing_recipient !== false) {
+                    unset($sending_gifts[$sending_item][$removing_recipient]);
+                    if (count($sending_gifts[$sending_item]) == 0) {
+                        unset($sending_gifts[$sending_item]);
+                    }
+                }
             }
         }
 
@@ -377,8 +395,10 @@ class Game
      */
     public function getCityItemById($id) {
         foreach ($this->city_items as $item_name => $city_item) {
-            if (isset($city_item['id']) && $city_item['id'] == $id)
-                return $item_name;
+            if (isset($city_item['id']) && $city_item['id'] == $id) {
+                $city_item['item_name'] = $item_name;
+                return $city_item;
+            }
         }
 
         return null;

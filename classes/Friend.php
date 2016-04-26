@@ -50,6 +50,11 @@ class Friend
     private $room_data;
 
     /**
+     * @var $city_name string
+     */
+    private $city_name;
+
+    /**
      * @param $xml_node DOMNode
      */
     public function loadFromXmlNode($xml_node) {
@@ -73,6 +78,10 @@ class Friend
         $requests = $xml_node->attributes->getNamedItem('requests');
         if ($requests)
             $this->requests = json_decode($requests->nodeValue);
+
+        $city_name = $xml_node->attributes->getNamedItem('city_name');
+        if ($city_name)
+            $this->city_name = utf8_decode($city_name->nodeValue);
 
         $help_items = $xml_node->attributes->getNamedItem('help_items');
         if ($help_items) {
@@ -175,5 +184,9 @@ class Friend
      */
     public function getNextGiftTime() {
         return $this->next_gift_time;
+    }
+
+    public function getCityName() {
+        return $this->city_name;
     }
 }
