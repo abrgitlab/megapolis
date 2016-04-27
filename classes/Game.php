@@ -13,7 +13,7 @@ class Game
 
     public static $casino_materials = ['poker_trophy', 'golden_dice', 'bracelet_winner', 'gold_medal', 'gambler_cup', 'bar_of_gold'];
     public static $friends_exception = [
-        'GC_edf35cc69e155f6e9d5777ff',
+        /*'GC_edf35cc69e155f6e9d5777ff',
         'UD_cd78ad8577c178ec91904023',
         'GC_1df222d4ccb142f7947194e9',
         'UD_7c5fc1389ed1fda161958c75',
@@ -29,7 +29,7 @@ class Game
         'UD_bd88d3680e19cbaed0e6838f',
         'GC_40565cfc34d3621d518ff310',
         'UD_e51f71c25e5e4a579047915f',
-        'UD_3b79ee90fd30515dbc701e53'
+        'UD_3b79ee90fd30515dbc701e53'*/
     ];
 
     /**
@@ -264,7 +264,7 @@ class Game
     /**
      * Раздаривает подарки друзьям
      */
-    public function sendGifts() {
+    public function sendGifts($send_the_rest_gifts = false) {
         $sending_gifts = [];
         foreach ($this->friends as $friend) {
             if ($friend->getNextGiftTime() < 0) {
@@ -276,10 +276,13 @@ class Game
             }
         }
 
+        $friends_proceeded = [];
+
         $cached = [];
         while (count($sending_gifts) > 0 && count($this->available_gifts) > 0) {
             $item = array_keys($sending_gifts)[0];
             $friend = $sending_gifts[$item][array_keys($sending_gifts[$item])[0]];
+            $friends_proceeded[] = $friend;
             $cached[] = [
                 'command' => 'send_gift',
                 'cmd_id' => $this->popCmdId(),
@@ -307,12 +310,27 @@ class Game
             }
         }
 
+        if ($send_the_rest_gifts) {
+            foreach ($this->friends as $friend) {
+                if ($friend->getNextGiftTime() < 0 && !in_array($friend, $friends_proceeded) && count($this->available_gifts) > 0) {
+                    $cached[] = [
+                        'command' => 'send_gift',
+                        'cmd_id' => $this->popCmdId(),
+                        'room_id' => $this->room->getId(),
+                        'item_id' => $this->available_gifts[array_keys($this->available_gifts)[0]],
+                        'type_id' => $this->available_gifts[array_keys($this->available_gifts)[0]],
+                        'second_user_id' => $friend->getId()
+                    ];
+                    unset($this->available_gifts[array_keys($this->available_gifts)[0]]);
+                }
+            }
+        }
+
         if (count($cached) > 0) {
             for ($i = count($cached); $i > 0; --$i) {
                 echo "Ждём раздаривания подарков $i сек.\n";
                 $current = [$cached[count($cached) - $i]];
                 $current[0]['uxtime'] = time();
-                var_dump($current);
                 Bot::getGame()->checkAndPerform($current);
                 sleep(1);
             }
