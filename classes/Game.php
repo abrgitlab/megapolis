@@ -280,7 +280,6 @@ class Game
         while (count($sending_gifts) > 0 && count($this->available_gifts) > 0) {
             $item = array_keys($sending_gifts)[0];
             $friend = $sending_gifts[$item][array_keys($sending_gifts[$item])[0]];
-            echo $this->getCityItemById($item)['description'] . ' => ' . $friend . "\n";
             $cached[] = [
                 'command' => 'send_gift',
                 'cmd_id' => $this->popCmdId(),
@@ -311,8 +310,9 @@ class Game
         if (count($cached) > 0) {
             for ($i = count($cached); $i > 0; --$i) {
                 echo "Ждём раздаривания подарков $i сек.\n";
-                $current = [$cached[$i - 1]];
+                $current = [$cached[count($cached) - $i]];
                 $current[0]['uxtime'] = time();
+                var_dump($current);
                 Bot::getGame()->checkAndPerform($current);
                 sleep(1);
             }
