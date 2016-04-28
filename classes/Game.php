@@ -341,19 +341,27 @@ class Game
      * Отправляет друзей в игровую зону
      */
     public function sendFriendsToGamblingZone() {
+        $cached = [];
         foreach ($this->friends as $friend) {
             if (isset($friend->getRequests()->gambling_zone_staff_back->user) && count($friend->getRequests()->gambling_zone_staff_back->user) == 0) {
-                $cached = [[
+                $cached[] = [
                     'command' => 'commit_request',
                     'cmd_id' => $this->popCmdId(),
                     'room_id' => $this->room->getId(),
                     'name' => 'gambling_zone_staff_back',
                     'friend_id' => $friend->getId(),
-                    'item_id' => 0,
-                    'uxtime' => time()
-                ]];
+                    'item_id' => 0
+                ];
+            }
+        }
 
-                $this->checkAndPerform($cached);
+        if (count($cached) > 0) {
+            for ($i = count($cached); $i > 0; --$i) {
+                echo "Отправляем друзей в игровую зону $i сек.\n";
+                $current = [$cached[count($cached) - $i]];
+                $current[0]['uxtime'] = time();
+                Bot::getGame()->checkAndPerform($current);
+                sleep(1);
             }
         }
     }
