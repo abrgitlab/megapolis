@@ -709,7 +709,7 @@ class Contracts
             ],
 
             //Отель на воде
-            'hotel_on_water_stage2' => [
+            'hotel_on_water_stage3' => [
                 'short' => [
                     'contract' => 'press_conference', 'friends_request' => true
                 ],
