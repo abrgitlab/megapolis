@@ -655,7 +655,7 @@ class Contracts
             ],
 
             //Горно-обогатительный комбинат
-            'mining_processing_plant_stage2' => [
+            'mining_processing_plant_stage3' => [
                 'actions' => ['pick']
             ],
 
