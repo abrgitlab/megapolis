@@ -785,12 +785,12 @@ class Contracts
             ],
 
             //Паромная станция
-            'gambling_ferry_station_stage1' => [
+            'gambling_ferry_station_stage2' => [
                 'short' => [
-                    'contract' => 'crossing_cable_car'
+                    'contract' => 'trial_run_hydropower'
                 ],
                 'long' => [
-                    'contract' => 'master_class_paragliding', 'friends_request' => true
+                    'contract' => 'inauguration_lighthouse', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
             ],
