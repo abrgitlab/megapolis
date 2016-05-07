@@ -97,6 +97,7 @@ class Bot
         Bot::$game = new Game();
         Bot::$game->changeRoom(0);
         Bot::$game->loadFriends();
+        Bot::$game->acceptFriends();
         Bot::$game->visitFriends();
         if (date('H') < '22')
             Bot::$game->sendGifts();

@@ -45,6 +45,11 @@ class Friend
     private $requests;
 
     /**
+     * @var $pending boolean
+     */
+    private $pending;
+
+    /**
      * @var $room_data DOMNode
      */
     private $room_data;
@@ -78,6 +83,10 @@ class Friend
         $requests = $xml_node->attributes->getNamedItem('requests');
         if ($requests)
             $this->requests = json_decode($requests->nodeValue);
+
+        $pending = $xml_node->attributes->getNamedItem('pending');
+        if ($pending)
+            $this->pending = $pending->nodeValue == 'true';
 
         $city_name = $xml_node->attributes->getNamedItem('city_name');
         if ($city_name)

@@ -237,7 +237,10 @@ class Room
 
         $cached = [];
 
-        $contracts = [];
+        $contracts = [
+            '15306' => 0,
+            '15305' => 0
+        ];
 
         $friends_for_invite_in_gambling_zone = [];
         foreach (Bot::getGame()->getFriendsForInviteInGamblingZone() as $friend) {

@@ -151,6 +151,20 @@ class Game
     }
 
     /**
+     * Принимает просящихся в друзья
+     */
+    public function acceptFriends() {
+        foreach ($this->friends as $friend) {
+            if (isset($friend->getRequests()->invite_suggested_neighbors) && isset($friend->getRequests()->pending)) {
+                if ($friend->getRequests()->pending === true && $friend->getRequests()->invite_suggested_neighbors->count > 0) {
+                    echo 'Принимаем в друзья город ' . $friend->getId() . "\n";
+                    $this->processAcceptFriend($friend->getId(), $friend->getRequests()->invite_suggested_neighbors->pushed);
+                }
+            }
+        }
+    }
+
+    /**
      * Посещение друзей
      */
     public function visitFriends() {
@@ -168,8 +182,8 @@ class Game
                 if ($value == $this->room->getId()) {
                     $cached[] = [
                         'command' => 'apply_help',
-                        'cmd_id' => Bot::getGame()->popCmdId(),
-                        'room_id' => Bot::getGame()->room->getId(),
+                        'cmd_id' => $this->popCmdId(),
+                        'room_id' => $this->room->getId(),
                         'item_id' => $helpItem,
                         'friend_id' => $friend->getId()
                     ];
@@ -184,7 +198,7 @@ class Game
                 sleep(1);
             }
 
-            Bot::getGame()->checkAndPerform($cached);
+            $this->checkAndPerform($cached);
         }
     }
 
@@ -331,7 +345,7 @@ class Game
                 echo "Ждём раздаривания подарков $i сек.\n";
                 $current = [$cached[count($cached) - $i]];
                 $current[0]['uxtime'] = time();
-                Bot::getGame()->checkAndPerform($current);
+                $this->checkAndPerform($current);
                 sleep(1);
             }
         }
@@ -360,7 +374,7 @@ class Game
                 echo "Отправляем друзей в игровую зону $i сек.\n";
                 $current = [$cached[count($cached) - $i]];
                 $current[0]['uxtime'] = time();
-                Bot::getGame()->checkAndPerform($current);
+                $this->checkAndPerform($current);
                 sleep(1);
             }
         }
@@ -540,6 +554,18 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
         $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&room_id=' . $this->room->getId() . '&owner_id=' . $friend_id . '&serv_ver=1' . $cached_string . '&lang=ru&rand=0.' . rand(0, 9999999) . '&live_update=true&rn=' . $this->popRN();
+        if (Bot::$options['debug']) echo "\n$url\n\n";
+
+        curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
+
+        return gzdecode(curl_exec(Bot::$curl));
+    }
+
+    public function processAcceptFriend($friend_id, $pushed) {
+        curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/process');
+        curl_setopt(Bot::$curl, CURLOPT_POST, true);
+
+        $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&command=commit_request&cmd_id=' . $this->popCmdId() . '&room_id=' . $this->room->getId() . '&name=invite_suggested_neighbors&friend_id=' . $friend_id . '&count=1&pushed=' . $pushed . '&room_id=' . $this->room->getId() . '&only_head=1&serv_ver=1&lang=ru&rand=0.' . rand(0, 9999999) . '&live_update=true&rn=' . $this->popRN();
         if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
