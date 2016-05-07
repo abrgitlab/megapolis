@@ -392,18 +392,9 @@ class Game
         }
 
         $chest_action_tower1 = null;
-        $chest_action_chest1 = null;
-        foreach($this->room->barn_data->childNodes->item(0)->childNodes as $barn) {
-            if ($barn->localName == 'chest_action_tower1') {
-                $chest_action_tower1 = $barn->attributes->getNamedItem('quantity')->nodeValue;
-            }
+        $chest_action_chest1 = $this->room->getBarn('chest_action_chest1');
 
-            if ($barn->localName == 'chest_action_chest1') {
-                $chest_action_chest1 = $barn->attributes->getNamedItem('quantity')->nodeValue;
-            }
-        }
-
-        if (time() - $chest_time_last_open > 3600 && $chest_action_chest1 > 0) {
+        if (time() - $chest_time_last_open > 3600 && $chest_action_chest1 !== null && $chest_action_chest1 > 0) {
             echo "Открываем сундук\n";
 
             $cached = [[

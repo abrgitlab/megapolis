@@ -906,7 +906,8 @@ class Contracts
      */
     public static function getContractsList($room) {
         $result = Contracts::$data[$room->id];
-        if ($room->id == 0 && $room->city_goods >= 5) {
+        $city_goods = $room->getBarn('city_goods');
+        if ($room->id == 0 && $city_goods !== null && $city_goods >= 5) {
             $result['port_warehouse_stage4']['actions'][] = 'put';
         }
 

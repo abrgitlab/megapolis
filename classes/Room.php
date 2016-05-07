@@ -30,11 +30,6 @@ class Room
     private $field_data;
 
     /**
-     * @var $city_goods int
-     */
-    public $city_goods = 0; //TODO: возвращать barn item через getBarn
-
-    /**
      * @inheritdoc
      */
     function __construct($room_id, $first_request)
@@ -70,12 +65,6 @@ class Room
         if ($barn_data) {
             $this->barn_data = new DOMDocument();
             $this->barn_data->loadXML($this->location_data->saveXML($barn_data->item(0)));
-
-            foreach($this->barn_data->childNodes->item(0)->childNodes as $barn) {
-                if ($barn->localName == 'city_goods') {
-                    $this->city_goods = $barn->attributes->getNamedItem('quantity')->nodeValue;
-                }
-            }
         }
     }
 
@@ -337,6 +326,16 @@ class Room
 
             Bot::$game->checkAndPerform($cached);
         }
+    }
+
+    public function getBarn($name) {
+        foreach($this->barn_data->childNodes->item(0)->childNodes as $barn) {
+            if ($barn->localName == $name) {
+                return $barn->attributes->getNamedItem('quantity')->nodeValue;
+            }
+        }
+
+        return null;
     }
 
 }
