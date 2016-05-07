@@ -49,7 +49,7 @@ class Bot
     /**
      * @var $game Game
      */
-    private static $game;
+    public static $game;
 
     /**
      * @inheritdoc
@@ -106,30 +106,30 @@ class Bot
         Bot::$game->receiveGifts();
         Bot::$game->sendFriendsToGamblingZone();
         //Bot::$game->openChest();
-        Bot::$game->getRoom()->signContracts();
+        Bot::$game->room->signContracts();
         if (!isset(Bot::$options['manual'])) //Временно блокируем основную локацию от получения монет во время ручного запуска
-            Bot::$game->getRoom()->getCoins();
+            Bot::$game->room->getCoins();
         Bot::$game->applyHelp();
 
         Bot::$game->changeRoom(5);
-        Bot::$game->getRoom()->signContracts();
-        Bot::$game->getRoom()->getCoins();
+        Bot::$game->room->signContracts();
+        Bot::$game->room->getCoins();
         Bot::$game->applyHelp();
 
         Bot::$game->changeRoom(2);
-        Bot::$game->getRoom()->signContracts();
-        Bot::$game->getRoom()->getCoins();
+        Bot::$game->room->signContracts();
+        Bot::$game->room->getCoins();
         Bot::$game->applyHelp();
 
         Bot::$game->changeRoom(4);
-        Bot::$game->getRoom()->casinoPickFriends();
-        Bot::$game->getRoom()->signContracts();
-        Bot::$game->getRoom()->getCoins();
+        Bot::$game->room->casinoPickFriends();
+        Bot::$game->room->signContracts();
+        Bot::$game->room->getCoins();
         Bot::$game->applyHelp();
 
         Bot::$game->changeRoom(1);
-        Bot::$game->getRoom()->signContracts();
-        Bot::$game->getRoom()->getCoins();
+        Bot::$game->room->signContracts();
+        Bot::$game->room->getCoins();
         Bot::$game->applyHelp();
 
         $this->config->generateNextStartTime();
@@ -138,10 +138,6 @@ class Bot
 
         echo 'Выполнено в ' . date('H:i:s') . "\n";
         echo 'Следующее выполнение - не раньше ' . date('H:i:s', $this->config->next_time) . "\n";
-    }
-
-    public static function getGame() {
-        return Bot::$game;
     }
 
 }

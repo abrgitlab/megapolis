@@ -55,17 +55,12 @@ class Game
     /**
      * @var $room_id Room
      */
-    private $room;
-
-    /**
-     * @var $barn_data mixed
-     */
-    private $barn_data;
+    public $room;
 
     /**
      * @var $friends Friend[]
      */
-    private $friends = [];
+    public $friends = [];
 
     /**
      * @var $available_gifts array
@@ -116,7 +111,7 @@ class Game
      */
     public function changeRoom($id) {
         if ($this->room) {
-            Bot::$last_room_id = $this->room->getId();
+            Bot::$last_room_id = $this->room->id;
             $this->room = new Room($id, false);
         } else {
             Bot::$last_room_id = 0;
@@ -136,14 +131,14 @@ class Game
      * Загружает список друзей
      */
     public function loadFriends() {
-        $friends = $this->room->getLocationData()->getElementsByTagName('friends');
+        $friends = $this->room->location_data->getElementsByTagName('friends');
         if ($friends) {
             foreach ($friends->item(0)->childNodes as $friend_item) {
                 if ($friend_item->localName == 'friend') {
                     $friend = new Friend();
 
                     $friend->loadFromXmlNode($friend_item);
-                    if (!in_array($friend->getId(), Game::$friends_exception))
+                    if (!in_array($friend->id, Game::$friends_exception))
                         $this->friends[] = $friend;
                 }
             }
@@ -155,10 +150,10 @@ class Game
      */
     public function acceptFriends() {
         foreach ($this->friends as $friend) {
-            if (isset($friend->getRequests()->invite_suggested_neighbors) && isset($friend->getRequests()->pending)) {
-                if ($friend->getRequests()->pending === true && $friend->getRequests()->invite_suggested_neighbors->count > 0) {
-                    echo 'Принимаем в друзья город ' . $friend->getId() . "\n";
-                    $this->processAcceptFriend($friend->getId(), $friend->getRequests()->invite_suggested_neighbors->pushed);
+            if (isset($friend->requests->invite_suggested_neighbors) && isset($friend->requests->pending)) {
+                if ($friend->pending === true && $friend->requests->invite_suggested_neighbors->count > 0) {
+                    echo 'Принимаем в друзья город ' . $friend->id . "\n";
+                    $this->processAcceptFriend($friend->id, $friend->requests->invite_suggested_neighbors->pushed);
                 }
             }
         }
@@ -169,7 +164,7 @@ class Game
      */
     public function visitFriends() {
         foreach ($this->friends as $friend) {
-            if ($friend->getId() != '-41' && $friend->getId() != '-43') {
+            if ($friend->id != '-41' && $friend->id != '-43') {
                 $friend->visit();
             }
         }
@@ -178,14 +173,14 @@ class Game
     public function applyHelp() {
         $cached = [];
         foreach ($this->friends as $friend) {
-            foreach ($friend->getHelpItems() as $helpItem => $value) {
-                if ($value == $this->room->getId()) {
+            foreach ($friend->help_items as $helpItem => $value) {
+                if ($value == $this->room->id) {
                     $cached[] = [
                         'command' => 'apply_help',
                         'cmd_id' => $this->popCmdId(),
-                        'room_id' => $this->room->getId(),
+                        'room_id' => $this->room->id,
                         'item_id' => $helpItem,
-                        'friend_id' => $friend->getId()
+                        'friend_id' => $friend->id
                     ];
                 }
             }
@@ -208,8 +203,8 @@ class Game
     public function getFriendsForInviteInGamblingZone() {
         $result = [];
         foreach ($this->friends as $friend) {
-            if ($friend->getSendRequests()) {
-                if (isset($friend->getSendRequests()->gambling_zone_staff->user) && count($friend->getSendRequests()->gambling_zone_staff->user) > 0 && $friend->getSendRequests()->gambling_zone_staff->user[0] == $friend->getId()) {
+            if ($friend->send_requests) {
+                if (isset($friend->send_requests->gambling_zone_staff->user) && count($friend->send_requests->gambling_zone_staff->user) > 0 && $friend->send_requests->gambling_zone_staff->user[0] == $friend->id) {
                     $result[] = $friend;
                 }
             }
@@ -223,10 +218,10 @@ class Game
      */
     public function loadGiftsData() {
         $this->available_gifts = [];
-        $gifts_data = $this->room->getLocationData()->getElementsByTagName('gifts');
+        $gifts_data = $this->room->location_data->getElementsByTagName('gifts');
         if ($gifts_data) {
             $gifts_data_xml = new DOMDocument();
-            $gifts_data_xml->loadXML($this->room->getLocationData()->saveXML($gifts_data->item(0)));
+            $gifts_data_xml->loadXML($this->room->location_data->saveXML($gifts_data->item(0)));
 
             $available_gifts = $gifts_data_xml->getElementsByTagName('available');
             if ($available_gifts) {
@@ -249,11 +244,11 @@ class Game
     public function receiveGifts() {
         $received_gifts = [];
         foreach ($this->friends as $friend) {
-            if (isset($friend->getRequests()->send_gift_new)) {
-                foreach ($friend->getRequests()->send_gift_new->st_items as $gift_id) {
+            if (isset($friend->requests->send_gift_new)) {
+                foreach ($friend->requests->send_gift_new->st_items as $gift_id) {
                     $city_item_name = $this->getCityItemById($gift_id)['item_name'];
                     if ($city_item_name)
-                        $received_gifts[] = array('name' => 'send_gift_new', 'friend_id' => $friend->getId(), 'st_item' => $gift_id, 'gift_name' => $city_item_name);
+                        $received_gifts[] = array('name' => 'send_gift_new', 'friend_id' => $friend->id, 'st_item' => $gift_id, 'gift_name' => $city_item_name);
                     else
                         echo "Неизвестный материал, id $gift_id\n";
                 }
@@ -264,7 +259,7 @@ class Game
             $cached = [[
                 'command' => 'mass_commit_request',
                 'cmd_id' => $this->popCmdId(),
-                'room_id' => $this->room->getId(),
+                'room_id' => $this->room->id,
                 'data' => urlencode(json_encode($received_gifts)),
                 'uxtime' => time()
             ]];
@@ -281,10 +276,10 @@ class Game
     public function sendGifts($send_the_rest_gifts = false) {
         $sending_gifts = [];
         foreach ($this->friends as $friend) {
-            if ($friend->getNextGiftTime() < 0) {
-                foreach ($friend->getWishList() as $item) {
+            if ($friend->next_gift_time < 0) {
+                foreach ($friend->wish_list as $item) {
                     if (in_array($item, $this->available_gifts)) {
-                        $sending_gifts[$item][] = $friend->getId();
+                        $sending_gifts[$item][] = $friend->id;
                     }
                 }
             }
@@ -300,7 +295,7 @@ class Game
             $cached[] = [
                 'command' => 'send_gift',
                 'cmd_id' => $this->popCmdId(),
-                'room_id' => $this->room->getId(),
+                'room_id' => $this->room->id,
                 'item_id' => $item,
                 'type_id' => $item,
                 'second_user_id' => $friend
@@ -326,14 +321,14 @@ class Game
 
         if ($send_the_rest_gifts) {
             foreach ($this->friends as $friend) {
-                if ($friend->getNextGiftTime() < 0 && !in_array($friend, $friends_proceeded) && count($this->available_gifts) > 0) {
+                if ($friend->next_gift_time < 0 && !in_array($friend, $friends_proceeded) && count($this->available_gifts) > 0) {
                     $cached[] = [
                         'command' => 'send_gift',
                         'cmd_id' => $this->popCmdId(),
-                        'room_id' => $this->room->getId(),
+                        'room_id' => $this->room->id,
                         'item_id' => $this->available_gifts[array_keys($this->available_gifts)[0]],
                         'type_id' => $this->available_gifts[array_keys($this->available_gifts)[0]],
-                        'second_user_id' => $friend->getId()
+                        'second_user_id' => $friend->id
                     ];
                     unset($this->available_gifts[array_keys($this->available_gifts)[0]]);
                 }
@@ -357,13 +352,13 @@ class Game
     public function sendFriendsToGamblingZone() {
         $cached = [];
         foreach ($this->friends as $friend) {
-            if (isset($friend->getRequests()->gambling_zone_staff_back->user) && count($friend->getRequests()->gambling_zone_staff_back->user) == 0) {
+            if (isset($friend->requests->gambling_zone_staff_back->user) && count($friend->requests->gambling_zone_staff_back->user) == 0) {
                 $cached[] = [
                     'command' => 'commit_request',
                     'cmd_id' => $this->popCmdId(),
-                    'room_id' => $this->room->getId(),
+                    'room_id' => $this->room->id,
                     'name' => 'gambling_zone_staff_back',
-                    'friend_id' => $friend->getId(),
+                    'friend_id' => $friend->id,
                     'item_id' => 0
                 ];
             }
@@ -384,12 +379,12 @@ class Game
      * Открываем сундук
      */
     public function openChest() {
-        $roll_counter = $this->room->getLocationData()->getElementsByTagName('country')->item(0)->attributes->getNamedItem('roll_counter')->nodeValue;
+        $roll_counter = $this->room->location_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('roll_counter')->nodeValue;
 
-        $chest = $this->room->getLocationData()->getElementsByTagName('country')->item(0)->attributes->getNamedItem('chest');
+        $chest = $this->room->location_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('chest');
         if ($chest)
             $chest = json_decode($chest->nodeValue);
-        $chest_actions = $this->room->getLocationData()->getElementsByTagName('country')->item(0)->attributes->getNamedItem('chest_actions');
+        $chest_actions = $this->room->location_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('chest_actions');
         $chest_time_last_open = time();
         if ($chest_actions) {
             $chest_actions = json_decode($chest_actions->nodeValue);
@@ -398,7 +393,7 @@ class Game
 
         $chest_action_tower1 = null;
         $chest_action_chest1 = null;
-        foreach($this->room->getBarnData()->childNodes->item(0)->childNodes as $barn) {
+        foreach($this->room->barn_data->childNodes->item(0)->childNodes as $barn) {
             if ($barn->localName == 'chest_action_tower1') {
                 $chest_action_tower1 = $barn->attributes->getNamedItem('quantity')->nodeValue;
             }
@@ -415,7 +410,7 @@ class Game
                 'command' => 'chest_action_open_chest',
                 'cmd_id' => $this->popCmdId(),
                 'roll_counter' => $roll_counter,
-                'room_id' => $this->room->getId(),
+                'room_id' => $this->room->id,
                 'name' => 'chest_event16',
                 'v' => 2,
                 'type' => 'coins',
@@ -445,13 +440,6 @@ class Game
     }
 
     /**
-     * @return Friend[]
-     */
-    public function getFriends() {
-        return $this->friends;
-    }
-
-    /**
      * @return int
      */
     public function popRN() {
@@ -463,13 +451,6 @@ class Game
      */
     public function popCmdId() {
         return ++$this->cmd_id;
-    }
-
-    /**
-     * @return Room
-     */
-    public function getRoom() {
-        return $this->room;
     }
 
     /**
@@ -553,7 +534,7 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/check_and_perform');
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
-        $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&room_id=' . $this->room->getId() . '&owner_id=' . $friend_id . '&serv_ver=1' . $cached_string . '&lang=ru&rand=0.' . rand(0, 9999999) . '&live_update=true&rn=' . $this->popRN();
+        $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&room_id=' . $this->room->id . '&owner_id=' . $friend_id . '&serv_ver=1' . $cached_string . '&lang=ru&rand=0.' . rand(0, 9999999) . '&live_update=true&rn=' . $this->popRN();
         if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
@@ -565,7 +546,7 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/process');
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
-        $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&command=commit_request&cmd_id=' . $this->popCmdId() . '&room_id=' . $this->room->getId() . '&name=invite_suggested_neighbors&friend_id=' . $friend_id . '&count=1&pushed=' . $pushed . '&room_id=' . $this->room->getId() . '&only_head=1&serv_ver=1&lang=ru&rand=0.' . rand(0, 9999999) . '&live_update=true&rn=' . $this->popRN();
+        $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&command=commit_request&cmd_id=' . $this->popCmdId() . '&room_id=' . $this->room->id . '&name=invite_suggested_neighbors&friend_id=' . $friend_id . '&count=1&pushed=' . $pushed . '&room_id=' . $this->room->id . '&only_head=1&serv_ver=1&lang=ru&rand=0.' . rand(0, 9999999) . '&live_update=true&rn=' . $this->popRN();
         if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
@@ -590,7 +571,7 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/check_and_perform');
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
-        $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&room_id=' . $this->room->getId() . '&serv_ver=1' . $cached_string . '&lang=ru&rand=0.' . rand(0, 9999999) . '&live_update=true&rn=' . $this->popRN();
+        $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&room_id=' . $this->room->id . '&serv_ver=1' . $cached_string . '&lang=ru&rand=0.' . rand(0, 9999999) . '&live_update=true&rn=' . $this->popRN();
         if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);

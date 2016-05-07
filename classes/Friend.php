@@ -12,22 +12,22 @@ class Friend
     /**
      * @var $id string
      */
-    private $id;
+    public $id;
 
     /**
      * @var $wish_list array
      */
-    private $wish_list = [];
+    public $wish_list = [];
 
     /**
      * @var int
      */
-    private $next_gift_time;
+    public $next_gift_time;
 
     /**
      * @var $send_requests mixed
      */
-    private $send_requests;
+    public $send_requests;
 
     /**
      * @var $help_points int;
@@ -37,17 +37,17 @@ class Friend
     /**
      * @var $help_points array;
      */
-    private $help_items = [];
+    public $help_items = [];
 
     /**
      * @var $requests mixed
      */
-    private $requests;
+    public $requests;
 
     /**
      * @var $pending boolean
      */
-    private $pending;
+    public $pending;
 
     /**
      * @var $room_data DOMNode
@@ -57,7 +57,7 @@ class Friend
     /**
      * @var $city_name string
      */
-    private $city_name;
+    public $city_name;
 
     /**
      * @param $xml_node DOMNode
@@ -111,7 +111,7 @@ class Friend
         foreach ($friend_rooms as $room_id) {
             if ($this->help_points > 0) {
                 echo 'Заходим к другу с ID ' . $this->id . ' в комнату '. $room_id . "\n";
-                $room_data = Bot::getGame()->visitFriend($this->id, $last_room_id, $room_id);
+                $room_data = Bot::$game->visitFriend($this->id, $last_room_id, $room_id);
 
                 $last_room_id = $room_id;
 
@@ -136,7 +136,7 @@ class Friend
                 foreach ($ids as $id) {
                     $cached[] = [
                         'command' => 'help',
-                        'cmd_id' => Bot::getGame()->popCmdId(),
+                        'cmd_id' => Bot::$game->popCmdId(),
                         'room_id' => $room_id,
                         'owner_id' => $this->id,
                         'item_id' => $id['id'],
@@ -146,56 +146,11 @@ class Friend
                     ];
                 }
 
-                Bot::getGame()->checkAndPerformFriend($this->id, $cached);
+                Bot::$game->checkAndPerformFriend($this->id, $cached);
 
                 $this->help_points -= count($ids);
             }
         }
     }
 
-    /**
-     * @return string
-     */
-    public function getId() {
-        return $this->id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSendRequests() {
-        return $this->send_requests;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRequests() {
-        return $this->requests;
-    }
-
-    /**
-     * @return array
-     */
-    public function getHelpItems() {
-        return $this->help_items;
-    }
-
-    /**
-     * @return array
-     */
-    public function getWishList() {
-        return $this->wish_list;
-    }
-
-    /**
-     * @return int
-     */
-    public function getNextGiftTime() {
-        return $this->next_gift_time;
-    }
-
-    public function getCityName() {
-        return $this->city_name;
-    }
 }

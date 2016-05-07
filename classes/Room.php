@@ -10,19 +10,19 @@ class Room
 {
 
     /**
-     * @var $room_id int
+     * @var $id int
      */
-    private $room_id;
+    public $id;
 
     /**
      * @var $location_data mixed
      */
-    private $location_data;
+    public $location_data;
 
     /**
      * @var $barn_data DOMDocument|mixed
      */
-    private $barn_data;
+    public $barn_data;
 
     /**
      * @var $field_data DOMDocument|mixed
@@ -32,16 +32,16 @@ class Room
     /**
      * @var $city_goods int
      */
-    private $city_goods = 0;
+    public $city_goods = 0; //TODO: возвращать barn item через getBarn
 
     /**
      * @inheritdoc
      */
     function __construct($room_id, $first_request)
     {
-        $this->room_id = $room_id;
+        $this->id = $room_id;
 
-        $location_data = Bot::getGame()->getRoomStat($this->room_id, $first_request);
+        $location_data = Bot::$game->getRoomStat($this->id, $first_request);
         $location_data = Bot::$tidy->repairString($location_data, Bot::$tidy_config);
 
         $this->location_data = new DOMDocument();
@@ -84,7 +84,7 @@ class Room
      * заключает новые, собирает монеты
      */
     public function signContracts() {
-        echo "Работа с контрактами в комнате $this->room_id\n";
+        echo "Работа с контрактами в комнате $this->id\n";
 
         $contracts_list = Contracts::getContractsList($this);
 
@@ -99,8 +99,8 @@ class Room
                     if ($field_state == 4) {
                         $cached[] = [
                             'command' => 'pick',
-                            'cmd_id' => Bot::getGame()->popCmdId(),
-                            'room_id' => $this->room_id,
+                            'cmd_id' => Bot::$game->popCmdId(),
+                            'room_id' => $this->id,
                             'item_id' => $field_id
                         ];
                     }
@@ -126,8 +126,8 @@ class Room
                         if ($contract_data) {
                             $cached[] = [
                                 'command' => 'put',
-                                'cmd_id' => Bot::getGame()->popCmdId(),
-                                'room_id' => $this->room_id,
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
                                 'item_id' => $field_id,
                                 'klass' => $contract_data['contract']
                             ];
@@ -138,15 +138,15 @@ class Room
                                 }
 
                             $friends = [];
-                            foreach (Bot::getGame()->getFriends() as $friend) {
-                                $friends[] = $friend->getId();
+                            foreach (Bot::$game->friends as $friend) {
+                                $friends[] = $friend->id;
                             }
 
                             if (isset($contract_data['friends_request']) && $contract_data['friends_request']) {
                                 $cached[] = [
                                     'command' => 'send_request',
-                                    'cmd_id' => Bot::getGame()->popCmdId(),
-                                    'room_id' => $this->room_id,
+                                    'cmd_id' => Bot::$game->popCmdId(),
+                                    'room_id' => $this->id,
                                     'name' => 'visit_' . $contract_data['contract'],
                                     'friend_ids' => implode('%2C', $friends),
                                     'item_id' => $field_id
@@ -156,8 +156,8 @@ class Room
                             if (isset($contract_data['quest_inc_counter'])) {
                                 $cached[] = [
                                     'command' => 'quest_inc_counter',
-                                    'cmd_id' => Bot::getGame()->popCmdId(),
-                                    'room_id' => $this->room_id,
+                                    'cmd_id' => Bot::$game->popCmdId(),
+                                    'room_id' => $this->id,
                                     'quest_id' => $contract_data['quest_inc_counter']['quest_id'],
                                     'counter' => $contract_data['quest_inc_counter']['counter'],
                                     'count' => $contract_data['quest_inc_counter']['count']
@@ -176,7 +176,7 @@ class Room
                 sleep(1);
             }
 
-            Bot::getGame()->checkAndPerform($cached);
+            Bot::$game->checkAndPerform($cached);
         }
     }
 
@@ -193,8 +193,8 @@ class Room
                 if ($field_state == 5) {
                     $cached[] = [
                         'command' => 'clean',
-                        'cmd_id' => Bot::getGame()->popCmdId(),
-                        'room_id' => $this->room_id,
+                        'cmd_id' => Bot::$game->popCmdId(),
+                        'room_id' => $this->id,
                         'item_id' => $field_id
                     ];
                 }
@@ -208,7 +208,7 @@ class Room
                 sleep(1);
             }
 
-            Bot::getGame()->checkAndPerform($cached);
+            Bot::$game->checkAndPerform($cached);
         }
     }
 
@@ -216,7 +216,7 @@ class Room
      *
      */
     public function casinoPickFriends() {
-        if ($this->room_id != 4)
+        if ($this->id != 4)
             return;
 
         $material_list = array('poker_trophy', 'golden_dice', 'bracelet_winner', 'gold_medal', 'gambler_cup', 'bar_of_gold');
@@ -243,8 +243,8 @@ class Room
         ];
 
         $friends_for_invite_in_gambling_zone = [];
-        foreach (Bot::getGame()->getFriendsForInviteInGamblingZone() as $friend) {
-            $friends_for_invite_in_gambling_zone[] = $friend->getId();
+        foreach (Bot::$game->getFriendsForInviteInGamblingZone() as $friend) {
+            $friends_for_invite_in_gambling_zone[] = $friend->id;
         }
 
         foreach ($room_staff as $friend_id => $friend) {
@@ -254,8 +254,8 @@ class Room
 
                     $cached[] = [
                         'command' => 'pick_room_staff',
-                        'cmd_id' => Bot::getGame()->popCmdId(),
-                        'room_id' => $this->room_id,
+                        'cmd_id' => Bot::$game->popCmdId(),
+                        'room_id' => $this->id,
                         'friend_id' => $friend_id,
                         'item_id' => '39052472'
                     ];
@@ -274,11 +274,11 @@ class Room
             if (!isset($friend->time_end)) {
                 $cached[] = [
                     'command' => 'put_room_staff',
-                    'cmd_id' => Bot::getGame()->popCmdId(),
+                    'cmd_id' => Bot::$game->popCmdId(),
                     'roll_counter' => $roll_counter,
                     'friend_id' => $friend_id,
                     'item_id' => '39052472',
-                    'room_id' => $this->room_id
+                    'room_id' => $this->id
                 ];
                 if ($contracts['15306'] < 6)
                     $cached_part['contract_id'] = '15306';
@@ -295,8 +295,8 @@ class Room
         if (count($friends_for_invite_in_gambling_zone) > 0) {
             $cached[] = [
                 'command' => 'send_mass_request',
-                'cmd_id' => Bot::getGame()->popCmdId(),
-                'room_id' => $this->room_id,
+                'cmd_id' => Bot::$game->popCmdId(),
+                'room_id' => $this->id,
                 'name' => 'gambling_zone_staff',
                 'friend_ids' => implode('%2C', $friends_for_invite_in_gambling_zone)
             ];
@@ -309,7 +309,7 @@ class Room
                 sleep(1);
             }
 
-            Bot::getGame()->checkAndPerform($cached);
+            Bot::$game->checkAndPerform($cached);
         }
 
         $cached = [];
@@ -319,8 +319,8 @@ class Room
                 for ($i = 50; $i < $barn_count; ++$i) {
                     $cached[] = [
                         'command' => 'sell_barn',
-                        'cmd_id' => Bot::getGame()->popCmdId(),
-                        'room_id' => $this->room_id,
+                        'cmd_id' => Bot::$game->popCmdId(),
+                        'room_id' => $this->id,
                         'item_id' => $barn_id,
                         'quantity' => 1
                     ];
@@ -335,32 +335,8 @@ class Room
                 sleep(1);
             }
 
-            Bot::getGame()->checkAndPerform($cached);
+            Bot::$game->checkAndPerform($cached);
         }
-    }
-
-    /**
-     * Возвращает id комнаты
-     * @return int
-     */
-    public function getId() {
-        return $this->room_id;
-    }
-
-    /**
-     * Возвращает нестроевые данные комнаты
-     * @return DOMDocument|mixed
-     */
-    public function getBarnData() {
-        return $this->barn_data;
-    }
-
-    /**
-     * Возвращает данные комнаты
-     * @return DOMDocument|mixed
-     */
-    public function getLocationData() {
-        return $this->location_data;
     }
 
 }
