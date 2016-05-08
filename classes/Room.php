@@ -210,8 +210,6 @@ class Room
 
         $material_list = array('poker_trophy', 'golden_dice', 'bracelet_winner', 'gold_medal', 'gambler_cup', 'bar_of_gold');
 
-        echo "Работа с друзьями в казино\n";
-
         $room_staff = json_decode($this->location_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('room_staff')->nodeValue);
         $roll_counter = $this->location_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('roll_counter')->nodeValue;
 

@@ -45,9 +45,19 @@ class Friend
     public $requests;
 
     /**
+     * @var $letters array
+     */
+    public $letters = [];
+
+    /**
+     * @var $active boolean
+     */
+    public $active = false;
+
+    /**
      * @var $pending boolean
      */
-    public $pending;
+    public $pending = true;
 
     /**
      * @var $room_data DOMNode
@@ -88,6 +98,10 @@ class Friend
         if ($pending)
             $this->pending = $pending->nodeValue == 'true';
 
+        $active = $xml_node->attributes->getNamedItem('active');
+        if ($active)
+            $this->active = $active->nodeValue == 'true';
+
         $city_name = $xml_node->attributes->getNamedItem('city_name');
         if ($city_name)
             $this->city_name = utf8_decode($city_name->nodeValue);
@@ -101,6 +115,21 @@ class Friend
                     $this->help_items[$item[0]] = $item[1];
                 }
             }
+        }
+
+        if ($this->requests) {
+            foreach ($this->requests as $request_name => $request) {
+                if (isset($request->count) && isset($request->user) && $request->count > 0 && !in_array(Bot::$user_id, $request->user) && $request->time > time() && $this->active) {
+                    $this->letters[$request_name] = $request;
+                }
+            }
+            /*if (isset($this->requests->ask_material_common)) {
+                if ($this->requests->ask_material_common->count > count($this->requests->ask_material_common->user) && !in_array(Bot::$user_id, $this->requests->ask_material_common->user)) {
+                    $this->letters['ask_material_common'] = [
+                        'id' => $this->requests->ask_material_common->material_id
+                    ];
+                }
+            }*/
         }
     }
 

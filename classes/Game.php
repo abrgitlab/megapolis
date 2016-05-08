@@ -133,6 +133,7 @@ class Game
     public function loadFriends() {
         $friends = $this->room->location_data->getElementsByTagName('friends');
         if ($friends) {
+            $letters_amount = 0;
             foreach ($friends->item(0)->childNodes as $friend_item) {
                 if ($friend_item->localName == 'friend') {
                     $friend = new Friend();
@@ -140,9 +141,23 @@ class Game
                     $friend->loadFromXmlNode($friend_item);
                     if (!in_array($friend->id, Game::$friends_exception))
                         $this->friends[] = $friend;
+
+                    if (count($friend->letters) > 0 && !$friend->pending) {
+                        echo $friend->id . "\n";
+                        var_dump($friend->letters);
+                        $letters_amount += count($friend->letters);
+                    }
                 }
             }
+            echo "Писем: $letters_amount\n";
         }
+    }
+
+    /**
+     * Обрабатывает список писем
+     */
+    public function handleLetters() {
+
     }
 
     /**
@@ -381,9 +396,9 @@ class Game
     public function openChest() {
         $roll_counter = $this->room->location_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('roll_counter')->nodeValue;
 
-        $chest = $this->room->location_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('chest');
+        /*$chest = $this->room->location_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('chest');
         if ($chest)
-            $chest = json_decode($chest->nodeValue);
+            $chest = json_decode($chest->nodeValue);*/
         $chest_actions = $this->room->location_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('chest_actions');
         $chest_time_last_open = time();
         if ($chest_actions) {

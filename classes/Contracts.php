@@ -730,12 +730,12 @@ class Contracts
             ),
 
             //Морской терминал
-            'marine_terminal_stage3' => [
+            /*'marine_terminal_stage3' => [
                 'short' => [
                     'contract' => 'delivery_tourists_on_yahte'
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
             //Институт римской цивилизации
             'institute_roman_civilization_stage2' => [

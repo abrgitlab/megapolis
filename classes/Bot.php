@@ -97,13 +97,14 @@ class Bot
         Bot::$game = new Game();
         Bot::$game->changeRoom(0);
         Bot::$game->loadFriends();
-        Bot::$game->acceptFriends();
         Bot::$game->visitFriends();
         if (date('H') < '22')
             Bot::$game->sendGifts();
         else
             Bot::$game->sendGifts(true);
         Bot::$game->receiveGifts();
+        Bot::$game->acceptFriends();
+        Bot::$game->handleLetters();
         Bot::$game->sendFriendsToGamblingZone();
         //Bot::$game->openChest();
         Bot::$game->room->signContracts();
