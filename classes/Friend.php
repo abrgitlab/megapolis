@@ -123,13 +123,6 @@ class Friend
                     $this->letters[$request_name] = $request;
                 }
             }
-            /*if (isset($this->requests->ask_material_common)) {
-                if ($this->requests->ask_material_common->count > count($this->requests->ask_material_common->user) && !in_array(Bot::$user_id, $this->requests->ask_material_common->user)) {
-                    $this->letters['ask_material_common'] = [
-                        'id' => $this->requests->ask_material_common->material_id
-                    ];
-                }
-            }*/
         }
     }
 

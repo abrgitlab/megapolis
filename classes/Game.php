@@ -12,25 +12,6 @@ class Game
     //TODO: анализ списка желаний друзей и раздаривание материалов
 
     public static $casino_materials = ['poker_trophy', 'golden_dice', 'bracelet_winner', 'gold_medal', 'gambler_cup', 'bar_of_gold'];
-    public static $friends_exception = [
-        /*'GC_edf35cc69e155f6e9d5777ff',
-        'UD_cd78ad8577c178ec91904023',
-        'GC_1df222d4ccb142f7947194e9',
-        'UD_7c5fc1389ed1fda161958c75',
-        'UD_55377e7ad03d7ad5dddf4257',
-        'UD_af1b46ee6e58002ce81bb1c2',
-        'UD_c489bde8529b908e7877c0e7',
-        'UD_bf639cd63c606f536a1d7b9a',
-        'UD_d9944b5e05dc71f2bac4d4fe',
-        'GC_79f4352d6d9e9a27d54de5d9',
-        'UD_010f298b1f6d8751974a4701',
-        'UD_0f58411f7b8b14e19abde9f4',
-        'UD_f9551fc6a87fa1b9b2f2b38b',
-        'UD_bd88d3680e19cbaed0e6838f',
-        'GC_40565cfc34d3621d518ff310',
-        'UD_e51f71c25e5e4a579047915f',
-        'UD_3b79ee90fd30515dbc701e53'*/
-    ];
 
     /**
      * @var $rn int
@@ -133,24 +114,32 @@ class Game
     public function loadFriends() {
         $friends = $this->room->location_data->getElementsByTagName('friends');
         if ($friends) {
-            $letters_amount = 0;
             foreach ($friends->item(0)->childNodes as $friend_item) {
                 if ($friend_item->localName == 'friend') {
                     $friend = new Friend();
 
                     $friend->loadFromXmlNode($friend_item);
-                    if (!in_array($friend->id, Game::$friends_exception))
+                    if (!$friend->pending)
                         $this->friends[] = $friend;
-
-                    if (count($friend->letters) > 0 && !$friend->pending) {
-                        echo $friend->id . "\n";
-                        var_dump($friend->letters);
-                        $letters_amount += count($friend->letters);
-                    }
                 }
             }
-            echo "Писем: $letters_amount\n";
         }
+    }
+
+    /**
+     * Показывает количество и содержимое писем
+     * TODO: временная функция
+     */
+    public function showLetters() {
+        $letters_amount = 0;
+        foreach ($this->friends as $friend) {
+            if (count($friend->letters) > 0) {
+                echo $friend->id . "\n";
+                var_dump($friend->letters);
+                $letters_amount += count($friend->letters);
+            }
+        }
+        echo "Писем: $letters_amount\n";
     }
 
     /**
@@ -165,11 +154,15 @@ class Game
      */
     public function acceptFriends() {
         foreach ($this->friends as $friend) {
-            if (isset($friend->requests->invite_suggested_neighbors) && isset($friend->requests->pending)) {
+            /*if (isset($friend->requests->invite_suggested_neighbors) && isset($friend->requests->pending)) {
                 if ($friend->pending === true && $friend->requests->invite_suggested_neighbors->count > 0) {
                     echo 'Принимаем в друзья город ' . $friend->id . "\n";
                     $this->processAcceptFriend($friend->id, $friend->requests->invite_suggested_neighbors->pushed);
                 }
+            }*/
+            if (isset($friend->letters['invite_suggested_neighbors'])) {
+                echo 'Принимаем в друзья город ' . $friend->id . "\n";
+                $this->processAcceptFriend($friend->id, $friend->letters['invite_suggested_neighbors']->pushed);
             }
         }
     }

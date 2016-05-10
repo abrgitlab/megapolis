@@ -133,6 +133,9 @@ class Bot
         Bot::$game->room->getCoins();
         Bot::$game->applyHelp();
 
+        Bot::$game->changeRoom(0);
+        Bot::$game->showLetters();
+
         $this->config->generateNextStartTime();
         $this->config->lock = false;
         $this->config->commit();
