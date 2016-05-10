@@ -134,7 +134,7 @@ class Bot
         Bot::$game->applyHelp();
 
         Bot::$game->changeRoom(0);
-        Bot::$game->showLetters();
+        if (Bot::$options['debug']) Bot::$game->showLetters();
 
         $this->config->generateNextStartTime();
         $this->config->lock = false;

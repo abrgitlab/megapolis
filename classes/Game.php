@@ -119,11 +119,12 @@ class Game
                     $friend = new Friend();
 
                     $friend->loadFromXmlNode($friend_item);
-                    if (!$friend->pending)
+                    if (!$friend->pending || $friend->id < 0)
                         $this->friends[] = $friend;
                 }
             }
         }
+        if (BOT::$options['debug']) echo 'Друзей: ' . count($this->friends) . "\n";
     }
 
     /**
@@ -146,7 +147,35 @@ class Game
      * Обрабатывает список писем
      */
     public function handleLetters() {
-
+        echo "Работаем с письмами\n";
+        foreach ($this->friends as $friend) {
+            foreach ($friend->letters as $letter_name => $letter_params) {
+                if ($letter_name == 'ask_material_common') {
+                    $cached = [[
+                        'command' => 'discard_request',
+                        'cmd_id' => $this->popCmdId(),
+                        'room_id' => $this->room->id,
+                        'name' => $letter_name,
+                        'friend_id' => $friend->id,
+                        'uxtime' => time()
+                    ]];
+                    $this->checkAndPerform($cached);
+                    sleep(1);
+                }
+                if ($letter_name == 'request_fuel' || $letter_name == 'share_badge_water4') {
+                    $cached = [[
+                        'command' => 'commit_request',
+                        'cmd_id' => $this->popCmdId(),
+                        'room_id' => $this->room->id,
+                        'name' => $letter_name,
+                        'friend_id' => $friend->id,
+                        'uxtime' => time()
+                    ]];
+                    $this->checkAndPerform($cached);
+                    sleep(1);
+                }
+            }
+        }
     }
 
     /**

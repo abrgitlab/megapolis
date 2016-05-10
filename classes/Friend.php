@@ -57,7 +57,7 @@ class Friend
     /**
      * @var $pending boolean
      */
-    public $pending = false;
+    public $pending = true;
 
     /**
      * @var $room_data DOMNode
