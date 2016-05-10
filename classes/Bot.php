@@ -11,8 +11,8 @@ class Bot
 
     public static $host = 'web155.socialquantum.com';
     public static $host_static = 'mb.static.socialquantum.ru';
-    public static $build = '12149';
-    public static $client_version = '2.85';
+    public static $build = '12726';
+    public static $client_version = '2.90';
     public static $iauth = '277997eba7f4e51051b0a0a9450afe73';
     public static $user_id = 'UD_5cd98e974c0fec35013c4790';
 
@@ -104,8 +104,8 @@ class Bot
             Bot::$game->sendGifts(true);
         Bot::$game->receiveGifts();
         Bot::$game->acceptFriends();
-        Bot::$game->handleLetters();
         Bot::$game->sendFriendsToGamblingZone();
+        Bot::$game->handleLetters();
         //Bot::$game->openChest();
         Bot::$game->room->signContracts();
         if (!isset(Bot::$options['manual'])) //Временно блокируем основную локацию от получения монет во время ручного запуска
