@@ -92,6 +92,17 @@ class Room
                             'room_id' => $this->id,
                             'item_id' => $field_id
                         ];
+
+                        if (isset($contract_data['quest_inc_counter']) && $contract_data['quest_inc_counter']['on'] == 'pick') {
+                            $cached[] = [
+                                'command' => 'quest_inc_counter',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'quest_id' => $contract_data['quest_inc_counter']['quest_id'],
+                                'counter' => $contract_data['quest_inc_counter']['counter'],
+                                'count' => $contract_data['quest_inc_counter']['count']
+                            ];
+                        }
                     }
                 }
             }
@@ -142,7 +153,7 @@ class Room
                                 ];
                             }
 
-                            if (isset($contract_data['quest_inc_counter'])) {
+                            if (isset($contract_data['quest_inc_counter']) && $contract_data['quest_inc_counter']['on'] == 'put') {
                                 $cached[] = [
                                     'command' => 'quest_inc_counter',
                                     'cmd_id' => Bot::$game->popCmdId(),
