@@ -1,5 +1,5 @@
-/apk
-/city_items.yml.*
-/.idea/
 /config.json
 /php.log
+/files
+
+/.idea/

@@ -105,6 +105,8 @@ class Bot
         Bot::$game->receiveGifts();
         Bot::$game->acceptFriends();
         Bot::$game->sendFriendsToGamblingZone();
+        Bot::$game->discardAskMaterial();
+        Bot::$game->sendFuelToFriends();
         Bot::$game->handleLetters();
         //Bot::$game->openChest();
         Bot::$game->room->signContracts();

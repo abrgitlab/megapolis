@@ -9,7 +9,9 @@
 class Game
 {
 
-    //TODO: анализ списка желаний друзей и раздаривание материалов
+    //TODO: при любых отмене/принятии письма, удалять ето письмо из списка
+
+    public static $files_directory;
 
     public static $casino_materials = ['poker_trophy', 'golden_dice', 'bracelet_winner', 'gold_medal', 'gambler_cup', 'bar_of_gold'];
 
@@ -34,6 +36,11 @@ class Game
     private $city_items;
 
     /**
+     * @var $requests_items mixed
+     */
+    private $requests_items;
+
+    /**
      * @var $room_id Room
      */
     public $room;
@@ -53,6 +60,8 @@ class Game
      */
     function __construct()
     {
+        Game::$files_directory = BASE_PATH . "/files";
+
         $this->checkUpdates();
         $this->loadCityItems();
 
@@ -67,7 +76,7 @@ class Game
     }
 
     /**
-     * Проверяет новые данные city_items
+     * Проверяет новые данные city_items и city_requests
      * и скачивает их, если обновления имеются
      */
     public function checkUpdates() {
@@ -79,10 +88,37 @@ class Game
         $revision_data_xml->loadXML($revision_data);
 
         $this->revision = $revision_data_xml->getElementsByTagName('revision_info')->item(0)->attributes->getNamedItem('revision')->nodeValue;
-        if (!file_exists(BASE_PATH . "/city_items.yml.$this->revision")) {
+        if (!is_dir(Game::$files_directory))
+            mkdir(Game::$files_directory);
+
+        $files_for_loading = [];
+        if (!file_exists(Game::$files_directory . "/city_items.yml.$this->revision"))
+            $files_for_loading[] = 'city_items';
+        if (!file_exists(Game::$files_directory . "/city_requests.yml.$this->revision"))
+            $files_for_loading[] = 'city_requests';
+
+        if (count($files_for_loading) > 0) {
             echo "Получение обновлений\n";
-            $city_items_yaml = file_get_contents("http://mb.static.socialquantum.ru/mobile_assets/city_items.yml?rev=$this->revision");
-            file_put_contents(BASE_PATH . "/city_items.yml.$this->revision", $city_items_yaml);
+            $files = scandir(Game::$files_directory);
+            $old_files = [];
+            foreach ($files as $index => $file) {
+                if (!in_array($file, ['.', '..']))
+                    $old_files[] = $file;
+            }
+
+            foreach ($files_for_loading as $file) {
+                $yaml = file_get_contents("http://mb.static.socialquantum.ru/mobile_assets/$file.yml?rev=$this->revision");
+                file_put_contents(Game::$files_directory . "/$file.yml.$this->revision", $yaml);
+
+                foreach ($old_files as &$old_file) {
+                    if (substr($old_file, 0, strlen($file)) == $file) {
+                        if (Bot::$options['debug'])
+                            echo 'Удаляем ' . Game::$files_directory . '/' . $old_file . "\n";
+                        unlink(Game::$files_directory . '/' . $old_file);
+                        unset($old_file);
+                    }
+                }
+            }
         }
     }
 
@@ -102,10 +138,11 @@ class Game
     }
 
     /**
-     * Загружает данные объектов игры из yml-фалйа
+     * Загружает данные объектов игры из yml-файла
      */
     public function loadCityItems() {
-        $this->city_items = yaml_parse(file_get_contents(BASE_PATH . "/city_items.yml.$this->revision"));
+        $this->city_items = yaml_parse(file_get_contents(Game::$files_directory . "/city_items.yml.$this->revision"));
+        $this->requests_items = yaml_parse(file_get_contents(Game::$files_directory . "/city_requests.yml.$this->revision"));
     }
 
     /**
@@ -144,37 +181,118 @@ class Game
     }
 
     /**
-     * Обрабатывает список писем
+     * Отказывает друзьям в просьбе материалов
      */
-    public function handleLetters() {
-        echo "Работаем с письмами\n";
+    public function discardAskMaterial() {
+        $items = [];
         foreach ($this->friends as $friend) {
             foreach ($friend->letters as $letter_name => $letter_params) {
                 if ($letter_name == 'ask_material_common') {
-                    $cached = [[
+                    $items[] = [
                         'command' => 'discard_request',
                         'cmd_id' => $this->popCmdId(),
                         'room_id' => $this->room->id,
                         'name' => $letter_name,
-                        'friend_id' => $friend->id,
-                        'uxtime' => time()
-                    ]];
-                    $this->checkAndPerform($cached);
-                    sleep(1);
+                        'friend_id' => $friend->id
+                    ];
                 }
-                if ($letter_name == 'request_fuel' || $letter_name == 'share_badge_water4') {
-                    $cached = [[
+            }
+        }
+
+        for ($i = count($items); $i > 0; --$i) {
+            echo "Отказываем друзьям в материалах $i сек.\n";
+            $current = [$items[count($items) - $i]];
+            $current[0]['uxtime'] = time();
+            $this->checkAndPerform($current);
+            sleep(1);
+        }
+    }
+
+    /**
+     * Отправляет нефть друзьям
+     */
+    public function sendFuelToFriends() {
+        $items = [];
+        foreach ($this->friends as $friend) {
+            foreach ($friend->letters as $letter_name => $letter_params) {
+                if ($letter_name == 'request_fuel') {
+                    $items[] = [
                         'command' => 'commit_request',
                         'cmd_id' => $this->popCmdId(),
                         'room_id' => $this->room->id,
                         'name' => $letter_name,
-                        'friend_id' => $friend->id,
-                        'uxtime' => time()
-                    ]];
-                    $this->checkAndPerform($cached);
-                    sleep(1);
+                        'friend_id' => $friend->id
+                    ];
                 }
             }
+        }
+
+        for ($i = count($items); $i > 0; --$i) {
+            echo "Отправка нефти друзьям $i сек.\n";
+            $current = [$items[count($items) - $i]];
+            $current[0]['uxtime'] = time();
+            $this->checkAndPerform($current);
+            sleep(1);
+        }
+    }
+
+    /**
+     * Удаляет невыгодные письма
+     */
+    public function handleLetters() { //TODO: определять, когда достигнут дневной лимит отвеченных писем
+        $items = [];
+        foreach ($this->friends as $friend) {
+            foreach ($friend->letters as $letter_name => $letter_params) {
+                if ($letter_name == 'send_gift_new' || $letter_name == 'request_fuel' || $letter_name == 'gambling_zone_staff_back' || $letter_name == 'gambling_zone_staff')
+                    continue; //TODO: убрать ето дебильное условие, когда реализую удаление письма после ответа на него
+
+                $profit = [
+                    'expirience' => 0,
+                    'coins' => 0
+                ];
+                $request_template = $this->requests_items['requests'][$letter_name];
+                if (isset($request_template['reward'])) {
+                    foreach ($request_template['reward'] as $reward) {
+                        if (isset($reward['items'])) {
+                            foreach ($reward['items'] as $item) {
+                                if (isset($item['exp']['min_quantity'])) {
+                                    $profit['expirience'] = $item['exp']['min_quantity'];
+                                }
+                                if (isset($item['coins']['min_quantity'])) {
+                                    $profit['coins'] = $item['coins']['min_quantity'];
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+
+                if ($profit['expirience'] >= 200) {
+                    $items[] = [
+                        'command' => 'commit_request',
+                        'cmd_id' => $this->popCmdId(),
+                        'room_id' => $this->room->id,
+                        'name' => $letter_name,
+                        'friend_id' => $friend->id
+                    ];
+                } elseif ($profit['expirience'] < 200 && $profit['coins'] < 1500) {
+                    $items[] = [
+                        'command' => 'discard_request',
+                        'cmd_id' => $this->popCmdId(),
+                        'room_id' => $this->room->id,
+                        'name' => $letter_name,
+                        'friend_id' => $friend->id
+                    ];
+                }
+            }
+        }
+
+        for ($i = count($items); $i > 0; --$i) {
+            echo "Обработка писем $i сек.\n";
+            $current = [$items[count($items) - $i]];
+            $current[0]['uxtime'] = time();
+            $this->checkAndPerform($current);
+            sleep(1);
         }
     }
 
@@ -207,6 +325,9 @@ class Game
         }
     }
 
+    /**
+     * Получение помощи от друзей
+     */
     public function applyHelp() {
         $cached = [];
         foreach ($this->friends as $friend) {
