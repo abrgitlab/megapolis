@@ -9,6 +9,8 @@
 class Friend
 {
 
+    private static $requests_not_letters = ['send_gift_new'];
+
     /**
      * @var $id string
      */
@@ -119,7 +121,7 @@ class Friend
 
         if ($this->requests) {
             foreach ($this->requests as $request_name => $request) {
-                if (isset($request->count) && isset($request->user) && $request->count > 0 && !in_array(Bot::$user_id, $request->user) && $request->time > time() && $this->active) {
+                if (!in_array($request_name, Friend::$requests_not_letters) && isset($request->count) && isset($request->user) && $request->count > 0 && !in_array(Bot::$user_id, $request->user) && $request->time > time() && $this->active) {
                     $this->letters[$request_name] = $request;
                 }
             }

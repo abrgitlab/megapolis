@@ -195,6 +195,8 @@ class Game
                         'name' => $letter_name,
                         'friend_id' => $friend->id
                     ];
+
+                    unset($friend->letters['ask_material_common']);
                 }
             }
         }
@@ -223,6 +225,8 @@ class Game
                         'name' => $letter_name,
                         'friend_id' => $friend->id
                     ];
+
+                    unset($friend->letters['request_fuel']);
                 }
             }
         }
@@ -243,8 +247,8 @@ class Game
         $items = [];
         foreach ($this->friends as $friend) {
             foreach ($friend->letters as $letter_name => $letter_params) {
-                if ($letter_name == 'send_gift_new' || $letter_name == 'request_fuel' || $letter_name == 'gambling_zone_staff_back' || $letter_name == 'gambling_zone_staff')
-                    continue; //TODO: убрать ето дебильное условие, когда реализую удаление письма после ответа на него
+//                if ($letter_name == 'request_fuel' || $letter_name == 'gambling_zone_staff_back' || $letter_name == 'gambling_zone_staff')
+//                    continue; //TODO: убрать ето дебильное условие, когда реализую удаление письма после ответа на него
 
                 $profit = [
                     'expirience' => 0,
@@ -275,6 +279,8 @@ class Game
                         'name' => $letter_name,
                         'friend_id' => $friend->id
                     ];
+
+                    unset($friend->letters[$letter_name]);
                 } elseif ($profit['expirience'] < 200 && $profit['coins'] < 1500) {
                     $items[] = [
                         'command' => 'discard_request',
@@ -283,6 +289,8 @@ class Game
                         'name' => $letter_name,
                         'friend_id' => $friend->id
                     ];
+
+                    unset($friend->letters[$letter_name]);
                 }
             }
         }
@@ -310,6 +318,8 @@ class Game
             if (isset($friend->letters['invite_suggested_neighbors'])) {
                 echo 'Принимаем в друзья город ' . $friend->id . "\n";
                 $this->processAcceptFriend($friend->id, $friend->letters['invite_suggested_neighbors']->pushed);
+
+                unset($friend->letters['invite_suggested_neighbors']);
             }
         }
     }
@@ -519,6 +529,8 @@ class Game
                     'friend_id' => $friend->id,
                     'item_id' => 0
                 ];
+
+                unset($friend->letters['gambling_zone_staff_back']);
             }
         }
 
