@@ -720,38 +720,32 @@ class Contracts
             'aquapark_stage2' => array(
                 'short' => array(
                     'contract' => 'conducting_childrens_holiday'
-                    /*'quest_inc_counter' => [
-                        'on' => 'put',
-                        'quest_id' => '20417',
-                        'counter' => '0',
-                        'count' => '100'
-                    ]*/
                 ),
-                'actions' => ['pick', 'put'],
+                /*'quest_inc_counter' => [
+                    'on' => 'put',
+                    'quest_id' => '20417',
+                    'counter' => '0',
+                    'count' => '100'
+                ],*/
+                'actions' => ['pick', 'put']
             ),
 
             //Морской терминал
-//            'marine_terminal_stage3' => [
-//                'short' => [
-//                    'contract' => 'delivery_tourists_on_yahte',
-//                    'quest_inc_counter' => [
-//                        'on' => 'pick',
-//                        'quest_id' => '10148',
-//                        'counter' => '0',
-//                        'count' => '200'
-//                    ]
-//                ],
-//                'long' => [
-//                    'contract' => 'delivery_tourists_on_seaplane',
-//                    'quest_inc_counter' => [
-//                        'on' => 'pick',
-//                        'quest_id' => '10148',
-//                        'counter' => '0',
-//                        'count' => '200'
-//                    ]
-//                ],
-//                'actions' => ['pick', 'put']
-//            ],
+            'marine_terminal_stage3' => [
+                'short' => [
+                    'contract' => 'delivery_tourists_on_yahte',
+                ],
+                'long' => [
+                    'contract' => 'delivery_tourists_on_seaplane',
+                ],
+                'quest_inc_counter' => [
+                    'on' => 'pick',
+                    'quest_id' => '10148',
+                    'counter' => '0',
+                    'count' => '200'
+                ],
+                'actions' => ['pick', 'put']
+            ],
 
             //Институт римской цивилизации
             'institute_roman_civilization_stage2' => [

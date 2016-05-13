@@ -117,23 +117,23 @@ class Room
 
                     if ($field_state == 2 || $field_state == 4) {
                         if (Bot::$options['long'] && isset($contract_data['long']))
-                            $contract_data = $contract_data['long'];
+                            $contract = $contract_data['long'];
                         elseif (isset($contract_data['short']))
-                            $contract_data = $contract_data['short'];
+                            $contract = $contract_data['short'];
                         else
-                            $contract_data = null;
+                            $contract = null;
 
-                        if ($contract_data) {
+                        if ($contract) {
                             $cached[] = [
                                 'command' => 'put',
                                 'cmd_id' => Bot::$game->popCmdId(),
                                 'room_id' => $this->id,
                                 'item_id' => $field_id,
-                                'klass' => $contract_data['contract']
+                                'klass' => $contract['contract']
                             ];
 
-                            if (isset($contract_data['additional_fields']))
-                                foreach ($contract_data['additional_fields'] as $key => $value) {
+                            if (isset($contract['additional_fields']))
+                                foreach ($contract['additional_fields'] as $key => $value) {
                                     $cached_part[$key] = $value;
                                 }
 
@@ -142,12 +142,12 @@ class Room
                                 $friends[] = $friend->id;
                             }
 
-                            if (isset($contract_data['friends_request']) && $contract_data['friends_request']) {
+                            if (isset($contract['friends_request']) && $contract['friends_request']) {
                                 $cached[] = [
                                     'command' => 'send_request',
                                     'cmd_id' => Bot::$game->popCmdId(),
                                     'room_id' => $this->id,
-                                    'name' => 'visit_' . $contract_data['contract'],
+                                    'name' => 'visit_' . $contract['contract'],
                                     'friend_ids' => implode('%2C', $friends),
                                     'item_id' => $field_id
                                 ];
