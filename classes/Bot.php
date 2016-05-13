@@ -11,7 +11,7 @@ class Bot
 
     public static $host = 'web155.socialquantum.com';
     public static $host_static = 'mb.static.socialquantum.ru';
-    public static $build = '12726';
+    public static $build = '12738';
     public static $client_version = '2.90';
     public static $iauth = '277997eba7f4e51051b0a0a9450afe73';
     public static $user_id = 'UD_5cd98e974c0fec35013c4790';
@@ -89,13 +89,13 @@ class Bot
      */
     public function start() {
         $this->config = new Config();
-
         $this->config->lock = true;
         $this->config->next_time = null;
         $this->config->commit();
 
         Bot::$game = new Game();
-        Bot::$game->changeRoom(0);
+        if (Bot::$game->room->id != 0)
+            Bot::$game->changeRoom(0);
         Bot::$game->loadFriends();
         Bot::$game->visitFriends();
         if (date('H') < '22')
@@ -108,7 +108,6 @@ class Bot
         Bot::$game->discardAskMaterial();
         Bot::$game->sendFuelToFriends();
         Bot::$game->handleLetters();
-        //Bot::$game->openChest();
         Bot::$game->room->signContracts();
         if (!isset(Bot::$options['manual'])) //Временно блокируем основную локацию от получения монет во время ручного запуска
             Bot::$game->room->getCoins();

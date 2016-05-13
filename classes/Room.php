@@ -32,15 +32,19 @@ class Room
     /**
      * @inheritdoc
      */
-    function __construct($room_id, $first_request)
+    function __construct($room_id/*, $first_request*/, $location_data = null)
     {
         $this->id = $room_id;
 
-        $location_data = Bot::$game->getRoomStat($this->id, $first_request);
-        $location_data = Bot::$tidy->repairString($location_data, Bot::$tidy_config);
+        if ($location_data) {
+            $this->location_data = $location_data;
+        } else {
+            $location_data = Bot::$game->getRoomStat($this->id/*, $first_request*/);
+            $location_data = Bot::$tidy->repairString($location_data, Bot::$tidy_config);
 
-        $this->location_data = new DOMDocument();
-        $this->location_data->loadXML($location_data);
+            $this->location_data = new DOMDocument();
+            $this->location_data->loadXML($location_data);
+        }
 
         $this->loadFieldData();
         $this->loadBarnData();

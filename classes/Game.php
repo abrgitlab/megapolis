@@ -56,6 +56,16 @@ class Game
     private $available_gifts;
 
     /**
+     * @var $user_data mixed
+     */
+    private $user_data;
+
+    /**
+     * @var $session_key string
+     */
+    private $session_key;
+
+    /**
      * @inheritdoc
      */
     function __construct()
@@ -65,14 +75,19 @@ class Game
         $this->checkUpdates();
         $this->loadCityItems();
 
+        $this->associate();
         $user_data = $this->getUserStat();
 
         $user_data = Bot::$tidy->repairString($user_data, Bot::$tidy_config);
 
-        $user_data_xml = new DOMDocument();
-        $user_data_xml->loadXML($user_data);
+        $this->user_data = new DOMDocument();
+        $this->user_data->loadXML($user_data);
 
-        $this->cmd_id = $user_data_xml->getElementsByTagName('country')->item(0)->attributes->getNamedItem('server_cmd_id')->nodeValue;
+        $this->cmd_id = $this->user_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('server_cmd_id')->nodeValue;
+        $this->session_key = $this->user_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('session_key')->nodeValue;
+        $room_id = $this->user_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('room_id')->nodeValue;
+        $this->room = new Room($room_id/*, false*/, $this->user_data);
+        $this->loadGiftsData();
     }
 
     /**
@@ -127,14 +142,14 @@ class Game
      * @param $id int
      */
     public function changeRoom($id) {
-        if ($this->room) {
+        //if ($this->room) {
             Bot::$last_room_id = $this->room->id;
             $this->room = new Room($id, false);
-        } else {
+        /*} else {
             Bot::$last_room_id = 0;
             $this->room = new Room($id, true);
             $this->loadGiftsData();
-        }
+        }*/
     }
 
     /**
@@ -149,7 +164,7 @@ class Game
      * Загружает список друзей
      */
     public function loadFriends() {
-        $friends = $this->room->location_data->getElementsByTagName('friends');
+        $friends = $this->user_data->getElementsByTagName('friends');
         if ($friends) {
             foreach ($friends->item(0)->childNodes as $friend_item) {
                 if ($friend_item->localName == 'friend') {
@@ -247,8 +262,6 @@ class Game
         $items = [];
         foreach ($this->friends as $friend) {
             foreach ($friend->letters as $letter_name => $letter_params) {
-//                if ($letter_name == 'request_fuel' || $letter_name == 'gambling_zone_staff_back' || $letter_name == 'gambling_zone_staff')
-//                    continue; //TODO: убрать ето дебильное условие, когда реализую удаление письма после ответа на него
 
                 $profit = [
                     'expirience' => 0,
@@ -331,8 +344,16 @@ class Game
         foreach ($this->friends as $friend) {
             if ($friend->id != '-41' && $friend->id != '-43') {
                 $friend->visit();
+                $this->goHome();
             }
         }
+    }
+
+    /**
+     * Возвращаемся в родной город
+     */
+    public function goHome() {
+
     }
 
     /**
@@ -386,10 +407,10 @@ class Game
      */
     public function loadGiftsData() {
         $this->available_gifts = [];
-        $gifts_data = $this->room->location_data->getElementsByTagName('gifts');
+        $gifts_data = $this->user_data->getElementsByTagName('gifts');
         if ($gifts_data) {
             $gifts_data_xml = new DOMDocument();
-            $gifts_data_xml->loadXML($this->room->location_data->saveXML($gifts_data->item(0)));
+            $gifts_data_xml->loadXML($this->user_data->saveXML($gifts_data->item(0)));
 
             $available_gifts = $gifts_data_xml->getElementsByTagName('available');
             if ($available_gifts) {
@@ -604,7 +625,7 @@ class Game
      * @return int
      */
     public function popRN() {
-        return ++$this->rn;
+        return $this->rn++;
     }
 
     /**
@@ -615,13 +636,26 @@ class Game
     }
 
     /**
+     *
+     */
+    public function associate() {
+        curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/associate');
+        curl_setopt(Bot::$curl, CURLOPT_POST, true);
+
+        $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&no_field=true&social_id[SQ]=abr_mail%40mail.ru&device_id=45cca1a3-973a-3f7f-b226-da8d8301cfb6&platform=android&build=' . Bot::$build . '&app=city&device_model=Genymotion%20vbox86p&os=4.1.1&gloc=ru&dloc=ru&net=wf&social=sqsocial%3Aprod&odin_id=949c34f735162b0bd21f1f63db51cc2bb9e935ac&android_id=f337e0e35a1e6dd5&mac=0800270cc3c5&advertising_id=e4959f11-12a8-4cb1-a5d3-0c3649406e3b';
+        if (Bot::$options['debug']) echo "\n$url\n\n";
+
+        curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
+    }
+
+    /**
      * @return string
      */
     public function getUserStat() {
         curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/get_user_stat');
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
-        $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&no_field=true&social_id[SQ]=abr_mail%40mail.ru&device_id=45cca1a3-973a-3f7f-b226-da8d8301cfb6&platform=android&build=' . Bot::$build . '&app=city&device_model=Genymotion%20vbox86p&os=4.1.1&gloc=ru&dloc=ru&net=wf&social=sqsocial%3Aprod&odin_id=949c34f735162b0bd21f1f63db51cc2bb9e935ac&android_id=f337e0e35a1e6dd5&mac=0800270cc3c5&advertising_id=e4959f11-12a8-4cb1-a5d3-0c3649406e3b';
+        $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&revision=android-' . Bot::$client_version . '.' . Bot::$build . '&user_first_name=%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%B8%D0%B9&user_last_name=%D0%9C%D0%B0%D0%BB%D0%B0%D1%85%D0%BE%D0%B2&user_sex=0&avatar_url=http%3A%2F%2Flh3.googleusercontent.com%2F-XdUIqdMkCWA%2FAAAAAAAAAAI%2FAAAAAAAAAAA%2F4252rscbv5M%2Fphoto.jpg%3Fsz%3D100&access_token=' . Bot::$iauth . '&lang=ru&client_type=android&room_id=0&odin_id=949c34f735162b0bd21f1f63db51cc2bb9e935ac&android_id=f337e0e35a1e6dd5&mac=0800270cc3c5&advertising_id=e4959f11-12a8-4cb1-a5d3-0c3649406e3b&device_id=0d594f8e-f575-3c25-901a-75d76d79af8c&first_request=true&location=&rn=' . $this->popRN();
         if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
@@ -643,15 +677,15 @@ class Game
      * @param $first_request bool
      * @return string
      */
-    public function getRoomStat($room_id, $first_request = false) {
+    public function getRoomStat($room_id/*, $first_request = false*/) {
         curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/get_user_stat');
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
-        if ($first_request) {
+        /*if ($first_request) {
             $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&revision=android-' . Bot::$client_version . '.' . Bot::$build . '&access_token=' . Bot::$iauth . '&lang=ru&client_type=android&room_id=' . $room_id . '&odin_id=949c34f735162b0bd21f1f63db51cc2bb9e935ac&android_id=f337e0e35a1e6dd5&mac=0800270cc3c5&advertising_id=e4959f11-12a8-4cb1-a5d3-0c3649406e3b&device_id=45cca1a3-973a-3f7f-b226-da8d8301cfb6&first_request=true&location=&rn=' . $this->popRN();
-        } else {
-            $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&room_id=' . Bot::$last_room_id . '&change_room=1&view_room_id=' . $room_id . '&serv_ver=1&lang=ru&rand=0.' . rand(0, 9999999) . '&client_type=android&rn=' . $this->popRN();
-        }
+        } else {*/
+            $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&session_key=' . $this->session_key . '&room_id=' . Bot::$last_room_id . '&change_room=1&view_room_id=' . $room_id . '&serv_ver=1&lang=ru&rand=0.' . rand(0, 9999999) . '&client_type=android&rn=' . $this->popRN();
+        //}
         if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
@@ -669,12 +703,25 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/get_user_stat');
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
-        $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&view_friend_id=' . $friend_id . '&room_id=' . $last_room_id . '&change_room=1&view_room_id=' . $room_id . '&serv_ver=1&lang=ru&rand=0.' . rand(0, 9999999) . '&client_type=android&rn=' . $this->popRN();
+        $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&session_key=' . $this->session_key . '&view_friend_id=' . $friend_id . '&room_id=' . $last_room_id . '&change_room=1&view_room_id=' . $room_id . '&lang=ru&client_type=android&rn=' . $this->popRN();
         if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
 
         return gzdecode(curl_exec(Bot::$curl));
+    }
+
+    /**
+     * @param $from_friend string
+     */
+    public function goHomeRequest($from_friend) {
+        curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/get_user_stat');
+        curl_setopt(Bot::$curl, CURLOPT_POST, true);
+
+        $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&session_key=' . $this->session_key . '&owner_id=' . $from_friend . '&room_id=' . $this->room->id . '&change_room=1&view_room_id=' . $this->room->id . '&lang=ru&client_type=android&rn=' . $this->popRN();
+        if (Bot::$options['debug']) echo "\n$url\n\n";
+
+        curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
     }
 
     /**
@@ -695,7 +742,7 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/check_and_perform');
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
-        $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&room_id=' . $this->room->id . '&owner_id=' . $friend_id . '&serv_ver=1' . $cached_string . '&lang=ru&rand=0.' . rand(0, 9999999) . '&live_update=true&rn=' . $this->popRN();
+        $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&session_key=' . $this->session_key . '&room_id=' . $this->room->id . '&owner_id=' . $friend_id . '&serv_ver=1' . $cached_string . '&lang=ru&rand=0.' . rand(0, 9999999) . '&live_update=true&rn=' . $this->popRN();
         if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
@@ -703,6 +750,11 @@ class Game
         return gzdecode(curl_exec(Bot::$curl));
     }
 
+    /**
+     * @param $friend_id string
+     * @param $pushed string
+     * @return string
+     */
     public function processAcceptFriend($friend_id, $pushed) {
         curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/process');
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
@@ -732,7 +784,7 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/check_and_perform');
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
-        $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&room_id=' . $this->room->id . '&serv_ver=1' . $cached_string . '&lang=ru&rand=0.' . rand(0, 9999999) . '&live_update=true&rn=' . $this->popRN();
+        $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&session_key=' . $this->session_key . '&room_id=' . $this->room->id . '&serv_ver=1' . $cached_string . '&lang=ru&rand=0.' . rand(0, 9999999) . '&live_update=true&rn=' . $this->popRN();
         if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
