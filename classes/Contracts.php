@@ -731,27 +731,27 @@ class Contracts
             ),
 
             //Морской терминал
-            'marine_terminal_stage3' => [
-                'short' => [
-                    'contract' => 'delivery_tourists_on_yahte',
-                    'quest_inc_counter' => [
-                        'on' => 'pick',
-                        'quest_id' => '10148',
-                        'counter' => '0',
-                        'count' => '200'
-                    ]
-                ],
-                'long' => [
-                    'contract' => 'delivery_tourists_on_seaplane',
-                    'quest_inc_counter' => [
-                        'on' => 'pick',
-                        'quest_id' => '10148',
-                        'counter' => '0',
-                        'count' => '200'
-                    ]
-                ],
-                'actions' => ['pick', 'put']
-            ],
+//            'marine_terminal_stage3' => [
+//                'short' => [
+//                    'contract' => 'delivery_tourists_on_yahte',
+//                    'quest_inc_counter' => [
+//                        'on' => 'pick',
+//                        'quest_id' => '10148',
+//                        'counter' => '0',
+//                        'count' => '200'
+//                    ]
+//                ],
+//                'long' => [
+//                    'contract' => 'delivery_tourists_on_seaplane',
+//                    'quest_inc_counter' => [
+//                        'on' => 'pick',
+//                        'quest_id' => '10148',
+//                        'counter' => '0',
+//                        'count' => '200'
+//                    ]
+//                ],
+//                'actions' => ['pick', 'put']
+//            ],
 
             //Институт римской цивилизации
             'institute_roman_civilization_stage2' => [
