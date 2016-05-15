@@ -109,8 +109,8 @@ class Bot
         Bot::$game->sendFuelToFriends();
         Bot::$game->handleLetters();
         Bot::$game->room->signContracts();
-        if (!isset(Bot::$options['manual'])) //Временно блокируем основную локацию от получения монет во время ручного запуска
-            Bot::$game->room->getCoins();
+        //if (!Bot::$options['manual']) //Временно блокируем основную локацию от получения монет во время ручного запуска
+        Bot::$game->room->getCoins();
         Bot::$game->applyHelp();
 
         Bot::$game->changeRoom(5);
