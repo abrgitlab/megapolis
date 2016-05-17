@@ -592,7 +592,7 @@ class Contracts
             ],
 
             //Администрация проекта
-            'project_administration_stage1' => [
+            'project_administration_stage2' => [
                 'short' => [
                     'contract' => 'oasis_ecosystem_exploration'
                 ],
@@ -709,7 +709,7 @@ class Contracts
             ],
 
             //Отель на воде
-            'hotel_on_water_stage3' => [
+            'hotel_on_water_stage4' => [
                 'short' => [
                     'contract' => 'press_conference', 'friends_request' => true
                 ],
