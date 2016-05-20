@@ -58,16 +58,16 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
-            //Лесопырка
-            'sawmill_middle' => [
+            //Деревообрабатывающий завод
+            /*'sawmill_large' => [
                 'short' => [
-                    'contract' => 'industrial_wood'
+                    'contract' => 'chipboard'
                 ],
                 'long' => [
-                    'contract' => 'case_furniture'
+                    'contract' => 'parquet_surface'
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
             //Крейсер
             'naval_station_stage8' => [
@@ -594,10 +594,10 @@ class Contracts
             //Администрация проекта
             'project_administration_stage2' => [
                 'short' => [
-                    'contract' => 'oasis_ecosystem_exploration'
+                    'contract' => 'project_conference', 'friends_request' => true
                 ],
                 'long' => [
-                    'contract' => 'project_conference', 'friends_request' => true
+                    'contract' => 'remote_areas_water_supply', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
             ],
