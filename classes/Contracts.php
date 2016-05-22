@@ -59,7 +59,7 @@ class Contracts
             ],
 
             //Деревообрабатывающий завод
-            /*'sawmill_large' => [
+            'sawmill_large' => [
                 'short' => [
                     'contract' => 'chipboard'
                 ],
@@ -67,7 +67,7 @@ class Contracts
                     'contract' => 'parquet_surface'
                 ],
                 'actions' => ['pick', 'put']
-            ],*/
+            ],
 
             //Крейсер
             'naval_station_stage8' => [
@@ -639,8 +639,18 @@ class Contracts
                 'actions' => ['pick']
             ],
 
+            //Вибрационная мельница
+            /*'' => [
+                'actions' => ['pick']
+            ],*/
+
             //Полноповортный екскаватор
             'coal_mine_medium_excavator' => [
+                'actions' => ['pick']
+            ],
+
+            //Цепной екскаватор
+            'coal_mine_small_excavator' => [
                 'actions' => ['pick']
             ],
 
