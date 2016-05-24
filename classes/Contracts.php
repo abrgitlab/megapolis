@@ -634,15 +634,20 @@ class Contracts
                 'actions' => ['pick']
             ],
 
+            //Вибрационный грохот
+            'clinker_technic1' => [
+                'actions' => ['pick']
+            ],
+
             //Роторная дробилка
             'crushing_plant2' => [
                 'actions' => ['pick']
             ],
 
             //Вибрационная мельница
-            /*'' => [
+            'crushing_plant1' => [
                 'actions' => ['pick']
-            ],*/
+            ],
 
             //Полноповортный екскаватор
             'coal_mine_medium_excavator' => [
@@ -656,6 +661,11 @@ class Contracts
 
             //Камнекольный станок
             'natural_stone_mine_technic2' => [
+                'actions' => ['pick']
+            ],
+
+            //Камнекольный станок
+            'natural_stone_mine_technic1' => [
                 'actions' => ['pick']
             ],
 
