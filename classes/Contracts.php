@@ -630,84 +630,84 @@ class Contracts
             ],
 
             //Вибрационный грохот
-            'clinker_technic2' => [
+            /*'clinker_technic2' => [
                 'actions' => ['pick']
-            ],
+            ],*/
 
             //Вибрационный грохот
-            'clinker_technic1' => [
+            /*'clinker_technic1' => [
                 'actions' => ['pick']
-            ],
+            ],*/
 
             //Роторная дробилка
-            'crushing_plant2' => [
+            /*'crushing_plant2' => [
                 'actions' => ['pick']
-            ],
+            ],*/
 
             //Вибрационная мельница
-            'crushing_plant1' => [
+            /*'crushing_plant1' => [
                 'actions' => ['pick']
-            ],
+            ],*/
 
             //Полноповортный екскаватор
-            'coal_mine_medium_excavator' => [
+            /*'coal_mine_medium_excavator' => [
                 'actions' => ['pick']
-            ],
+            ],*/
 
             //Цепной екскаватор
-            'coal_mine_small_excavator' => [
+            /*'coal_mine_small_excavator' => [
                 'actions' => ['pick']
-            ],
+            ],*/
 
             //Камнекольный станок
-            'natural_stone_mine_technic2' => [
+            /*'natural_stone_mine_technic2' => [
                 'actions' => ['pick']
-            ],
+            ],*/
 
             //Камнекольный станок
-            'natural_stone_mine_technic1' => [
+            /*'natural_stone_mine_technic1' => [
                 'actions' => ['pick']
-            ],
+            ],*/
 
             //Угольный комплекс
-            'coal_industry' => [
+            /*'coal_industry' => [
                 'actions' => ['pick']
-            ],
+            ],*/
 
             //Горно-обогатительный комбинат
-            'mining_processing_plant_stage3' => [
+            /*'mining_processing_plant_stage3' => [
                 'actions' => ['pick']
-            ],
+            ],*/
 
             //Завод сыпучих материалов
-            'cement_plant_final' => [
+            /*'cement_plant_final' => [
                 'actions' => ['pick']
-            ],
+            ],*/
 
             //Камнедробильный комплекс
-            'stone_crushing_plant_mining_up1' => [
+            /*'stone_crushing_plant_mining_up1' => [
                 'actions' => ['pick']
-            ],
+            ],*/
 
             //Прокатно-калибровочный цех
-            'rolling_mill_stage3' => [
+            /*'rolling_mill_stage3' => [
                 'actions' => ['pick']
-            ],
+            ],*/
 
             //Строительно-промышленный комплекс
-            'construction_and_industrial_complex_final' => [
+            /*'construction_and_industrial_complex_final' => [
                 'actions' => ['pick']
-            ],
+            ],*/
 
             //Комплекс железобетонных изделий
-            'complex_of_concrete_products_stage2' => [
+            /*'complex_of_concrete_products_stage2' => [
                 'actions' => ['pick']
-            ],
+            ],*/
 
             //Металлургический комбинат
-            'iron_and_steel_works' => [
+            /*'iron_and_steel_works' => [
                 'actions' => ['pick']
-            ]
+            ]*/
         ],
 
         //2-я комната
