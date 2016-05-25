@@ -622,12 +622,12 @@ class Contracts
             ],
 
             //Транспортный вокзал "Лазурная река"
-            'busstation_azure_river_up1' => [
+            /*'busstation_azure_river_up1' => [
                 'short' => [
                     'contract' => 'long_distance_bus'
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
             //Вибрационный грохот
             /*'clinker_technic2' => [
