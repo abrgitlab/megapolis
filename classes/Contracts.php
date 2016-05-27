@@ -776,7 +776,15 @@ class Contracts
                     'contract' => 'excursion_pompei'
                 ],
                 'actions' => ['pick', 'put']
-            ]
+            ],
+
+            //Термальные ванны
+            'termal_bath_stage2' => [
+                'short' => [
+                    'contract' => 'mineral_baths', 'friends_request' => true
+                ],
+                'actions' => ['pick', 'put']
+            ],
         ],
 
         //3-я комната
