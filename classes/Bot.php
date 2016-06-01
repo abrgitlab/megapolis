@@ -106,10 +106,9 @@ class Bot
         Bot::$game->acceptFriends();
         Bot::$game->sendFriendsToGamblingZone();
         Bot::$game->discardAskMaterial();
-        Bot::$game->sendFuelToFriends();
+//        Bot::$game->sendFuelToFriends();
         Bot::$game->handleLetters();
         Bot::$game->room->signContracts();
-        //if (!Bot::$options['manual']) //Временно блокируем основную локацию от получения монет во время ручного запуска
         Bot::$game->room->getCoins();
         Bot::$game->applyHelp();
 
