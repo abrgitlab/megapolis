@@ -593,7 +593,7 @@ class Game
                 'cmd_id' => $this->popCmdId(),
                 'roll_counter' => $roll_counter,
                 'room_id' => $this->room->id,
-                'name' => 'chest_event16',
+                'name' => 'chest_event17',
                 'v' => 2,
                 'type' => 'coins',
                 'uxtime' => time()

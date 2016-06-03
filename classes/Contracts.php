@@ -89,12 +89,12 @@ class Contracts
             ],
 
             //SQ-Сити
-//            'sq_city_stage2' => [
+//            'sq_city_stage3' => [
 //                'short' => [
 //                    'contract' => 'government_proceedings'
 //                ],
 //                'long' => [
-//                    'contract' => 'trading'
+//                    'contract' => 'business_center_rent'
 //                ],
 //                'actions' => ['pick', 'put']
 //            ],
