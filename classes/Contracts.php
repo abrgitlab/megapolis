@@ -89,15 +89,15 @@ class Contracts
             ],
 
             //SQ-Сити
-            'sq_city_stage2' => [
-                'short' => [
-                    'contract' => 'government_proceedings'
-                ],
-                'long' => [
-                    'contract' => 'trading'
-                ],
-                'actions' => ['pick', 'put']
-            ],
+//            'sq_city_stage2' => [
+//                'short' => [
+//                    'contract' => 'government_proceedings'
+//                ],
+//                'long' => [
+//                    'contract' => 'trading'
+//                ],
+//                'actions' => ['pick', 'put']
+//            ],
 
             //Школа актёрского мастерства
             'acting_school_stage1' => [
