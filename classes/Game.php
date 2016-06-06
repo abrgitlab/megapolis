@@ -579,7 +579,7 @@ class Game
         $chest_time_last_open = time();
         if ($chest_actions) {
             $chest_actions = json_decode($chest_actions->nodeValue);
-            $chest_time_last_open = $chest_actions->chest_event16->last_open;
+            $chest_time_last_open = $chest_actions->chest_event17->last_open;
         }
 
         $chest_action_tower1 = null;

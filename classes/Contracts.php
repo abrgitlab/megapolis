@@ -89,15 +89,15 @@ class Contracts
             ],
 
             //SQ-Сити
-//            'sq_city_stage3' => [
-//                'short' => [
-//                    'contract' => 'government_proceedings'
-//                ],
-//                'long' => [
-//                    'contract' => 'business_center_rent'
-//                ],
-//                'actions' => ['pick', 'put']
-//            ],
+            'sq_city_stage3' => [
+                'short' => [
+                    'contract' => 'government_proceedings'
+                ],
+                'long' => [
+                    'contract' => 'business_center_rent'
+                ],
+                'actions' => ['pick', 'put']
+            ],
 
             //Школа актёрского мастерства
             'acting_school_stage1' => [
@@ -606,6 +606,14 @@ class Contracts
             'maritime_intelligence_platform_stage1' => [
                 'short' => [
                     'contract' => 'trial_run_lifting_mechanism'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Стадион "Мегаполис-арена"
+            'stadium_megapolis_arena_stage3' => [
+                'short' => [
+                    'contract' => 'open_training_session', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
             ]
