@@ -238,12 +238,12 @@ class Contracts
             ],
 
             //Пиратский форт
-            'pirate_fort_stage2' => [
+            /*'pirate_fort_stage2' => [
                 'short' => [
                     'contract' => 'themed_tours'
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
             //Администрация зоопарка
             'administration_zoo_up1' => [
@@ -766,12 +766,12 @@ class Contracts
                 'long' => [
                     'contract' => 'delivery_tourists_on_seaplane',
                 ],
-                'quest_inc_counter' => [
+                /*'quest_inc_counter' => [
                     'on' => 'pick',
                     'quest_id' => '10148',
                     'counter' => '0',
                     'count' => '200'
-                ],
+                ],*/
                 'actions' => ['pick', 'put']
             ],
 
