@@ -238,12 +238,12 @@ class Contracts
             ],
 
             //Пиратский форт
-            /*'pirate_fort_stage2' => [
+            'pirate_fort_stage3' => [
                 'short' => [
-                    'contract' => 'themed_tours'
+                    'contract' => 'premiere_film_pirates'
                 ],
                 'actions' => ['pick', 'put']
-            ],*/
+            ],
 
             //Администрация зоопарка
             'administration_zoo_up1' => [
