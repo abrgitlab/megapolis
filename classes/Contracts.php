@@ -208,12 +208,12 @@ class Contracts
             ],
 
             //Институт исследований космоса
-            'space_research_institute_stage2' => [
+            'space_research_institute_stage3' => [
                 'short' => [
-                    'contract' => 'develop_interstellar_dating', 'friends_request' => true
+                    'contract' => 'confirm_extraterrestrial_civilizations', 'friends_request' => true
                 ],
                 'long' => [
-                    'contract' => 'calculating_coordinates_send_messages', 'friends_request' => true
+                    'contract' => 'send_encrypted_messages', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
             ],
@@ -611,9 +611,9 @@ class Contracts
             ],
 
             //Стадион "Мегаполис-арена"
-            'stadium_megapolis_arena_stage3' => [
+            'stadium_megapolis_arena_stage4' => [
                 'short' => [
-                    'contract' => 'open_training_session', 'friends_request' => true
+                    'contract' => 'childrens_championship', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
             ]
