@@ -616,7 +616,15 @@ class Contracts
                     'contract' => 'childrens_championship', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
-            ]
+            ],
+
+            //Королевский выставочный центр
+            'royal_exhibition_building_stage1' => [
+                'short' => [
+                    'contract' => 'guided_tours_through_halls_exhibition_center'
+                ],
+                'actions' => ['pick', 'put']
+            ],
         ],
 
         //1-я комната
