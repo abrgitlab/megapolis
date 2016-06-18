@@ -611,7 +611,7 @@ class Contracts
             ],
 
             //Стадион "Мегаполис-арена"
-            'stadium_megapolis_arena_stage4' => [
+            'stadium_megapolis_arena_stage5' => [
                 'short' => [
                     'contract' => 'childrens_championship', 'friends_request' => true
                 ],
@@ -948,6 +948,14 @@ class Contracts
                 ],
                 'long' => [
                     'contract' => 'demo_performances_climbers'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Отель "Снежная вершина"
+            'hotel_snowy_peak_buildsite' => [
+                'short' => [
+                    'contract' => 'development_insulated_tramcars'
                 ],
                 'actions' => ['pick', 'put']
             ]
