@@ -619,7 +619,7 @@ class Contracts
             ],
 
             //Королевский выставочный центр
-            'royal_exhibition_building_stage1' => [
+            'royal_exhibition_building_stage2' => [
                 'short' => [
                     'contract' => 'guided_tours_through_halls_exhibition_center'
                 ],
