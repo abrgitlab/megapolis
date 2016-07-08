@@ -858,6 +858,14 @@ class Contracts
                     'contract' => 'christmas_laser_show'
                 ],
                 'actions' => ['pick', 'put']
+            ],
+
+            //Фундамент департамента природных катаклизмов
+            'department_natural_disasters_buildsite' => [
+                'short' => [
+                    'contract' => 'sale_products_igneous_rocks'
+                ],
+                'actions' => ['pick', 'put']
             ]
         ],
 
