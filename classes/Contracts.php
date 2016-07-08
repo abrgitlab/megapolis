@@ -866,7 +866,18 @@ class Contracts
                     'contract' => 'sale_products_igneous_rocks'
                 ],
                 'actions' => ['pick', 'put']
-            ]
+            ],
+
+            //Департамент развития туризма
+            'department_tourism_development_stage1' => [
+                'short' => [
+                    'contract' => 'release_tools_cutting_stone'
+                ],
+                'long' => [
+                    'contract' => 'show_film_stone_jungle'
+                ],
+                'actions' => ['pick', 'put']
+            ],
         ],
 
         //5-я комната
