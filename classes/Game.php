@@ -570,6 +570,8 @@ class Game
      * Открываем сундук
      */
     public function openChest() {
+        $chest_name = 'chest_event20';
+
         $roll_counter = $this->room->location_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('roll_counter')->nodeValue;
 
         /*$chest = $this->room->location_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('chest');
@@ -579,7 +581,7 @@ class Game
         $chest_time_last_open = time();
         if ($chest_actions) {
             $chest_actions = json_decode($chest_actions->nodeValue);
-            $chest_time_last_open = $chest_actions->chest_event17->last_open;
+            $chest_time_last_open = $chest_actions->$chest_name->last_open;
         }
 
         $chest_action_tower1 = null;
@@ -593,7 +595,7 @@ class Game
                 'cmd_id' => $this->popCmdId(),
                 'roll_counter' => $roll_counter,
                 'room_id' => $this->room->id,
-                'name' => 'chest_event17',
+                'name' => $chest_name,
                 'v' => 2,
                 'type' => 'coins',
                 'uxtime' => time()
