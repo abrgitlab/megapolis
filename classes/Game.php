@@ -78,6 +78,9 @@ class Game
         $this->associate();
         $user_data = $this->getUserStat();
 
+        //Из-за UTF-8 в CDATA в разделе marketplace php не парсит xml
+        $user_data = preg_replace('/<marketplace>.*<\/marketplace>/', '', $user_data);
+
         $user_data = Bot::$tidy->repairString($user_data, Bot::$tidy_config);
 
         $this->user_data = new DOMDocument();

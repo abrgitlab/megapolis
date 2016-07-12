@@ -68,7 +68,8 @@ class Bot
             'clean' => true,
             'input-xml' => true,
             'output-xml' => true,
-            'wrap' => false
+            'wrap' => false,
+//            'output-encoding' => 'utf8',
         ];
 
         Bot::$curl = curl_init();
