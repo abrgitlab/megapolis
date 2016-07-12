@@ -32,14 +32,14 @@ class Room
     /**
      * @inheritdoc
      */
-    function __construct($room_id/*, $first_request*/, $location_data = null)
+    function __construct($room_id, $location_data = null)
     {
         $this->id = $room_id;
 
         if ($location_data) {
             $this->location_data = $location_data;
         } else {
-            $location_data = Bot::$game->getRoomStat($this->id/*, $first_request*/);
+            $location_data = Bot::$game->getRoomStat($this->id);
 
             //Из-за UTF-8 в CDATA в разделе marketplace php не парсит xml
             $location_data = preg_replace('/<marketplace>.*<\/marketplace>/', '', $location_data);

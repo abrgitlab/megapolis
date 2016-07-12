@@ -89,7 +89,7 @@ class Game
         $this->cmd_id = $this->user_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('server_cmd_id')->nodeValue;
         $this->session_key = $this->user_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('session_key')->nodeValue;
         $room_id = $this->user_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('room_id')->nodeValue;
-        $this->room = new Room($room_id/*, false*/, $this->user_data);
+        $this->room = new Room($room_id, $this->user_data);
         $this->loadGiftsData();
     }
 
@@ -145,14 +145,8 @@ class Game
      * @param $id int
      */
     public function changeRoom($id) {
-        //if ($this->room) {
-            Bot::$last_room_id = $this->room->id;
-            $this->room = new Room($id, false);
-        /*} else {
-            Bot::$last_room_id = 0;
-            $this->room = new Room($id, true);
-            $this->loadGiftsData();
-        }*/
+        Bot::$last_room_id = $this->room->id;
+        $this->room = new Room($id, false);
     }
 
     /**
@@ -231,7 +225,7 @@ class Game
     /**
      * Отправляет нефть друзьям
      */
-    public function sendFuelToFriends() {
+    /*public function sendFuelToFriends() {
         $items = [];
         foreach ($this->friends as $friend) {
             foreach ($friend->letters as $letter_name => $letter_params) {
@@ -256,7 +250,7 @@ class Game
             $this->checkAndPerform($current);
             sleep(1);
         }
-    }
+    }*/
 
     /**
      * Удаляет невыгодные письма
