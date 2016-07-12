@@ -40,6 +40,10 @@ class Room
             $this->location_data = $location_data;
         } else {
             $location_data = Bot::$game->getRoomStat($this->id/*, $first_request*/);
+
+            //Из-за UTF-8 в CDATA в разделе marketplace php не парсит xml
+            $location_data = preg_replace('/<marketplace>.*<\/marketplace>/', '', $location_data);
+
             $location_data = Bot::$tidy->repairString($location_data, Bot::$tidy_config);
 
             $this->location_data = new DOMDocument();
