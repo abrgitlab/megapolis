@@ -13,6 +13,7 @@ class Contracts
         //0-я комната
         [
             //НИЯУ
+            //окончательно
             'srnu_factory' => [
                 'short' => [
                     'contract' => 'radioisotopes_preparations'
@@ -24,6 +25,7 @@ class Contracts
             ],
 
             //Институт истории
+            //не окончательно
             'institute_of_history_stage1' => [
                 'short' => [
                     'contract' => 'stratigraphic_studies'
@@ -32,6 +34,7 @@ class Contracts
             ],
 
             //Дворец здоровья
+            //окончательно
             'health_palace_stage2' => [
                 'short' => [
                     'contract' => 'rehabilitation_of_athletes'
@@ -40,6 +43,7 @@ class Contracts
             ],
 
             //Городской центр спорта
+            //окончательно
             'urban_sports_center_stage2' => [
                 'short' => [
                     'contract' => 'tournament_on_mini_football'
@@ -48,6 +52,7 @@ class Contracts
             ],
 
             //Региональный центр сотовой связи
+            //не окончательно
             'mobile_phone_system_center_stage4' => [
                 'short' => [
                     'contract' => 'ggg_connection',
@@ -59,6 +64,7 @@ class Contracts
             ],
 
             //Деревообрабатывающий завод
+            //не окончательно
             'sawmill_large' => [
                 'short' => [
                     'contract' => 'chipboard'
@@ -70,6 +76,7 @@ class Contracts
             ],
 
             //Крейсер
+            //окончательно
             'naval_station_stage8' => [
                 'short' => [
                     'contract' => 'marine_corps_training'
@@ -81,14 +88,15 @@ class Contracts
             ],
 
             //Центр управления пароходными линиями
-            'central_port_stage4' => [
+            /*'central_port_stage4' => [
                 'short' => [
                     'contract' => 'industrial_fishing'
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
             //SQ-Сити
+            //не окончательно
             'sq_city_stage3' => [
                 'short' => [
                     'contract' => 'government_proceedings'
@@ -100,6 +108,7 @@ class Contracts
             ],
 
             //Школа актёрского мастерства
+            //окончательно
             'acting_school_stage1' => [
                 'short' => [
                     'contract' => 'lesson_of_acting_skills'
@@ -108,6 +117,7 @@ class Contracts
             ],
 
             //Поместье Маунт-Вернон
+            //окончательно
             'mount_vernon_stage1' => [
                 'short' => [
                     'contract' => 'organization_of_the_state_reception'
@@ -116,6 +126,7 @@ class Contracts
             ],
 
             //Уайтхолльский дворец
+            //не окончательно
             'uaythollsky_palace_stage2' => [
                 'short' => [
                     'contract' => 'salute_of_guns_combat'
@@ -124,14 +135,16 @@ class Contracts
             ],
 
             //Национальный центр кинематографии
-            'national_center_cinema' => [
+            //не окончательно
+/*            'national_center_cinema' => [
                 'short' => [
                     'contract' => 'awarding_of_prizes'
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
             //Ассоциация тенниса
+            //не окончательно
             'lawn_tennis_association_stage1' => [
                 'short' => [
                     'contract' => 'exhibition_history_tennis'
@@ -143,6 +156,7 @@ class Contracts
             ],
 
             //Готический замок
+            //не окончательно
             'gothic_castle_stage3' => [
                 'short' => [
                     'contract' => 'parade_monsters'
@@ -151,6 +165,7 @@ class Contracts
             ],
 
             //Виноградная ферма
+            //не окончательно
             'grape_farm_stage3' => [
                 'short' => [
                     'contract' => 'festival_fr_cuisine'
@@ -159,6 +174,7 @@ class Contracts
             ],
 
             //Поло-клуб
+            //не окончательно
             'polo_club_stage1' => [
                 'short' => [
                     'contract' => 'participants_championship', 'friends_request' => true
@@ -167,6 +183,7 @@ class Contracts
             ],
 
             //Експоцентр
+            //не окончательно
             'fairgrounds_stage2' => [
                 'short' => [
                     'contract' => 'tune_sportscar'
@@ -178,6 +195,7 @@ class Contracts
             ],
 
             //Институт военных разработок
+            //окончательно
             'military_research_institute_stage1' => [
                 'short' => [
                     'contract' => 'introduction_of_protective_artificial_intelligence'
@@ -186,6 +204,7 @@ class Contracts
             ],
 
             //Геодезическая компания
+            //не окончательно
             'geodesic_company_stage3' => [
                 'short' => [
                     'contract' => 'mineralic_analysis_territory'
@@ -197,6 +216,7 @@ class Contracts
             ],
 
             //Золотодобывающая корпорация
+            //не окончательно
             'gold_mining_company_stage2' => [
                 'short' => [
                     'contract' => 'investigation_methods_enriching'
@@ -208,6 +228,7 @@ class Contracts
             ],
 
             //Институт исследований космоса
+            //не окончательно
             'space_research_institute_stage3' => [
                 'short' => [
                     'contract' => 'confirm_extraterrestrial_civilizations', 'friends_request' => true
@@ -219,14 +240,16 @@ class Contracts
             ],
 
             //Центральная панорама
-            'statue_burning_man_stage2' => [
+            //не окончательно
+/*            'statue_burning_man_stage2' => [
                 'short' => [
                     'contract' => 'performance_viewpoint'
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
             //Карнакский храм
+            //окончательно
             'karnak_temple_stage2' => [
                 'short' => [
                     'contract' => 'discovery_of_cave_painting'
@@ -238,6 +261,7 @@ class Contracts
             ],
 
             //Пиратский форт
+            //не окончательно
             'pirate_fort_stage3' => [
                 'short' => [
                     'contract' => 'premiere_film_pirates'
@@ -246,6 +270,7 @@ class Contracts
             ],
 
             //Администрация зоопарка
+            //не окончательно
             'administration_zoo_up1' => [
                 'short' => [
                     'contract' => 'exhibition_of_birds', 'friends_request' => true
@@ -254,6 +279,7 @@ class Contracts
             ],
 
             //Ассоциация рок-н-ролла
+            //не окончательно
             'association_rock_and_roll' => [
                 'short' => [
                     'contract' => 'festival_of_young_rock_musicians', 'friends_request' => true
@@ -262,6 +288,7 @@ class Contracts
             ],
 
             //Центр военно-исторической реконструкции
+            //не окончательно
             'club_military_reconstruction_stage2' => [
                 'short' => [
                     'contract' => 'making_knightly_accoutrements'
@@ -273,6 +300,7 @@ class Contracts
             ],
 
             //Центр "Чёрная пантера"
+            //окончательно
             'center_black_panther_stage1' => [
                 'short' => [
                     'contract' => 'seminar_on_fashion_and_art', 'friends_request' => true
@@ -284,6 +312,7 @@ class Contracts
             ],
 
             //Фестивальный замок
+            //окончательно
             'colomares_castle_stage3' => [
                 'short' => [
                     'contract' => 'preparatory_work'
@@ -295,6 +324,7 @@ class Contracts
             ],
 
             //Архитектурная академия
+            //не окончательно
             'architectural_academy_stage1' => [
                 'short' => [
                     'contract' => 'architectural_projects_ecology_estimation'
@@ -303,6 +333,7 @@ class Contracts
             ],
 
             //Новогодний Таймс-сквер
+            //не окончательно
             'times_square_stage2' => [
                 'short' => [
                     'contract' => 'show_retro_films'
@@ -311,6 +342,7 @@ class Contracts
             ],
 
             //Агентство праздников
+            //не окончательно
             'holidays_agency_stage1' => [
                 'short' => [
                     'contract' => 'order_copyright_postcards'
@@ -322,14 +354,16 @@ class Contracts
             ],
 
             //Научно-информационный центр "Фьюжн"
-            'scientific_information_center_fyuzion_stage1' => [
+            //не окончательно
+/*            'scientific_information_center_fyuzion_stage1' => [
                 'short' => [
                     'contract' => 'development_of_new_safety_systems', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
             //Университет Мегаполиса
+            //не окончательно
             'megapolis_university_training' => [
                 'short' => [
                     'contract' => 'term_paper_writing'
@@ -338,6 +372,7 @@ class Contracts
             ],
 
             //Театр "Лебедь"
+            //не окончательно
             'swan_theater_stage1' => [
                 'short' => [
                     'contract' => 'theatrical_makeup_master_class'
@@ -349,6 +384,7 @@ class Contracts
             ],
 
             //Администрация отельного комплекса "Шимао"
+            //не окончательно
             'administration_hotel_complex_shima_stage1' => [
                 'short' => [
                     'contract' => 'inauguration_hotel_shima'
@@ -357,6 +393,7 @@ class Contracts
             ],
 
             //Расширение территории института
+            //окончательно
             'citys_ecology_institute_stage2' => [
                 'short' => [
                     'contract' => 'earth_hour'
@@ -365,6 +402,7 @@ class Contracts
             ],
 
             //Истребитель
+            //окончательно
             'airbase_stage8' => [
                 'short' => [
                     'contract' => 'pilots_training'
@@ -376,6 +414,7 @@ class Contracts
             ],
 
             //Дрейфующая станция
+            //не окончательно
             'drifting_station_stage2' => [
                 'short' => [
                     'contract' => 'grand_opening_loona_park'
@@ -384,6 +423,7 @@ class Contracts
             ],
 
             //Институт експериментальной медицины
+            //окончательно
             'medical_centre_stage3' => [
                 'short' => [
                     'contract' => 'medical_conference'
@@ -395,6 +435,7 @@ class Contracts
             ],
 
             //Реставрационный комплекс
+            //окончательно
             'restoration_complex_stage3' => [
                 'short' => [
                     'contract' => 'sampling_gold'
@@ -406,6 +447,7 @@ class Contracts
             ],
 
             //Клуб пилотов
+            //не окончательно
             'club_pilots_stage3' => [
                 'short' => [
                     'contract' => 'championship_airslalom'
@@ -414,14 +456,16 @@ class Contracts
             ],
 
             //Центр парусного спорта
-            'sailing_center_stage3' => [
+            //не окончательно
+/*            'sailing_center_stage3' => [
                 'short' => [
                     'contract' => 'windsurfing', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
             //Круизная компания
+            //окончательно
             'cruise_company_stage2' => [
                 'short' => [
                     'contract' => 'competition_kissing_mistletoe'
@@ -433,6 +477,7 @@ class Contracts
             ],
 
             //Институт демографии
+            //не окончательно
             'institute_of_demography' => [
                 'short' => [
                     'contract' => 'family_day_at_restaurant'
@@ -444,14 +489,16 @@ class Contracts
             ],
 
             //Оттавский комплекс для конференций
-            'ottawa_convention_centre_stage1' => [
+            //не окончательно
+/*            'ottawa_convention_centre_stage1' => [
                 'short' => [
                     'contract' => 'onference_of_information_technology', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
             //Выставочный зал "Ноев Ковчег"
+            //окончательно
             'noahs_ark_stage2' => [
                 'short' => [
                     'contract' => 'exhibition_life_on_earth'
@@ -463,6 +510,7 @@ class Contracts
             ],
 
             //Центральный вокзал
+            //не окончательно
             'central_station' => [
                 'short' => [
                     'contract' => 'international_passenger_traffic', 'friends_request' => true
@@ -471,6 +519,7 @@ class Contracts
             ],
 
             //Единая служба спасения
+            //окончательно
             'help_centre_final' => [
                 'short' => [
                     'contract' => 'open_help_centers'
@@ -479,6 +528,7 @@ class Contracts
             ],
 
             //Пирамида
+            //окончательно
             'pyramid' => [
                 'short' => [
                     'contract' => 'archaeological_excavations'
@@ -487,14 +537,16 @@ class Contracts
             ],
 
             //Площадь святого Марка
-            'rains_palace_stage2' => [
+            //не окончательно
+/*            'rains_palace_stage2' => [
                 'short' => [
                     'contract' => 'carnival_night_organization', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
             //Криогенная установка
+            //окончательно
             'cryogenic_plant_stage2' => [
                 'short' => [
                     'contract' => 'christmas_flashmob', 'friends_request' => true
@@ -506,6 +558,7 @@ class Contracts
             ],
 
             //Центр изучения окружающей среды
+            //не окончательно
             'center_environmental_studies_stage3' => [
                 'short' => [
                     'contract' => 'international_summit_green_energy'
@@ -514,6 +567,7 @@ class Contracts
             ],
 
             //Плавучий екополис
+            //не окончательно
             'congress_center_hangzhou_stage2' => [
                 'short' => [
                     'contract' => 'introduction_graphene_capacitors'
@@ -525,14 +579,16 @@ class Contracts
             ],
 
             //Финансовый центр "Прайм"
-            'financial_center_prime' => [
+            //не окончательно
+/*            'financial_center_prime' => [
                 'short' => [
                     'contract' => 'exchange_trading'
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
             //Хелипорт
+            //не окончательно
             'heliport_stage2' => [
                 'short' => [
                     'contract' => 'passenger_flights'
@@ -541,6 +597,7 @@ class Contracts
             ],
 
             //Каркас валютного фонда Мегаполиса
+            //не окончательно
             'monetary_fund_megapolis_stage1' => [
                 'short' => [
                     'contract' => 'manufacturing_gift_set_coins'
@@ -549,6 +606,7 @@ class Contracts
             ],
 
             //Информационно-аналитический центр
+            //окончательно
             'information_analysis_center_stage2' => [
                 'short' => [
                     'contract' => 'logging_information'
@@ -560,6 +618,7 @@ class Contracts
             ],
 
             //Пассажирский авиалайнер
+            //окончательно
             'passenger_airplane3_buildsite' => [
                 'short' => [
                     'contract' => 'air_walk1'
@@ -568,6 +627,7 @@ class Contracts
             ],
 
             //Пассажирский авиалайнер
+            //окончательно
             'passenger_airplane4_buildsite' => [
                 'short' => [
                     'contract' => 'air_walk1'
@@ -576,6 +636,7 @@ class Contracts
             ],
 
             //Грузовой самолёт
+            //окончательно
             'cargo_airplane7_buildsite' => [
                 'short' => [
                     'contract' => 'urgent_cargo_delivery1'
@@ -584,6 +645,7 @@ class Contracts
             ],
 
             //Портовый склад
+            //не окончательно
             'port_warehouse_stage4' => [
                 'short' => [
                     'contract' => 'city_goods_export'
@@ -592,6 +654,7 @@ class Contracts
             ],
 
             //Администрация проекта
+            //окончательно
             'project_administration_stage2' => [
                 'short' => [
                     'contract' => 'project_conference', 'friends_request' => true
@@ -603,6 +666,7 @@ class Contracts
             ],
 
             //Морская разведывательная платформа
+            //не окончательно
             'maritime_intelligence_platform_stage1' => [
                 'short' => [
                     'contract' => 'trial_run_lifting_mechanism'
@@ -611,6 +675,7 @@ class Contracts
             ],
 
             //Стадион "Мегаполис-арена"
+            //окончательно
             'stadium_megapolis_arena_stage5' => [
                 'short' => [
                     'contract' => 'childrens_championship', 'friends_request' => true
@@ -619,23 +684,25 @@ class Contracts
             ],
 
             //Королевский выставочный центр
-            'royal_exhibition_building_stage2' => [
+            //не окончательно
+/*            'royal_exhibition_building_stage2' => [
                 'short' => [
                     'contract' => 'guided_tours_through_halls_exhibition_center'
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
         ],
 
         //1-я комната
         [
             //НИИ геологии
-            'geological_institute_stage2' => [
+            //не окончательно
+/*            'geological_institute_stage2' => [
                 'short' => [
                     'contract' => 'research_of_solid'
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
             //Транспортный вокзал "Лазурная река"
             /*'busstation_azure_river_up1' => [
@@ -729,6 +796,7 @@ class Contracts
         //2-я комната
         [
             //Аеропорт
+            //окончательно
             'island_airport_stage2' => [
                 'short' => [
                     'contract' => 'local_flights'
@@ -737,14 +805,16 @@ class Contracts
             ],
 
             //Старинный форт
-            'ancient_fort_stage2' => [
+            //не окончательно
+/*            'ancient_fort_stage2' => [
                 'short' => [
                     'contract' => 'excursion_to_historic_fort', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
-            //Отель на воде
+            //Роял отель на воде
+            //окончательно
             'hotel_on_water_stage4' => [
                 'short' => [
                     'contract' => 'press_conference', 'friends_request' => true
@@ -753,20 +823,22 @@ class Contracts
             ],
 
             //Аквапарк
+            //не окончательно
             'aquapark_stage2' => array(
                 'short' => array(
                     'contract' => 'conducting_childrens_holiday'
                 ),
-                /*'quest_inc_counter' => [
-                    'on' => 'put',
-                    'quest_id' => '20417',
-                    'counter' => '0',
-                    'count' => '100'
-                ],*/
+//                'quest_inc_counter' => [
+//                    'on' => 'put',
+//                    'quest_id' => '20417',
+//                    'counter' => '0',
+//                    'count' => '100'
+//                ],
                 'actions' => ['pick', 'put']
             ),
 
             //Морской терминал
+            //не окончательно
             'marine_terminal_stage3' => [
                 'short' => [
                     'contract' => 'delivery_tourists_on_yahte',
@@ -774,16 +846,17 @@ class Contracts
                 'long' => [
                     'contract' => 'delivery_tourists_on_seaplane',
                 ],
-                /*'quest_inc_counter' => [
-                    'on' => 'pick',
-                    'quest_id' => '10148',
-                    'counter' => '0',
-                    'count' => '200'
-                ],*/
+//                'quest_inc_counter' => [
+//                    'on' => 'pick',
+//                    'quest_id' => '10148',
+//                    'counter' => '0',
+//                    'count' => '200'
+//                ],
                 'actions' => ['pick', 'put']
             ],
 
             //Институт римской цивилизации
+            //не окончательно
             'institute_roman_civilization_stage2' => [
                 'short' => [
                     'contract' => 'archaeological_expertise_ruins', 'friends_request' => true
@@ -795,6 +868,7 @@ class Contracts
             ],
 
             //Термальные ванны
+            //окончательно
             'termal_bath_stage2' => [
                 'short' => [
                     'contract' => 'mineral_baths', 'friends_request' => true
@@ -809,6 +883,7 @@ class Contracts
         //4-я комната
         [
             //Турбовинтовой самолёт
+            //не окончательно
             'airport_gamble_plane2_buildsite' => [
                 'short' => [
                     'contract' => 'organization_of_jumps'
@@ -828,6 +903,7 @@ class Contracts
 //            ],
 
             //Турбореактивный самолёт
+            //не окончательно
             'airport_gamble_plane1_stage2' => [
                 'short' => [
                     'contract' => 'organization_of_jumps'
@@ -839,6 +915,7 @@ class Contracts
             ],
 
             //Паромная станция
+            //не окончательно
             'gambling_ferry_station_stage2' => [
                 'short' => [
                     'contract' => 'trial_run_hydropower'
@@ -850,6 +927,7 @@ class Contracts
             ],
 
             //Казино "Люминус Холл"
+            //окончательно
             'casino_lyuminus_hall_stage2' => [
                 'short' => [
                     'contract' => 'marathon_running_lights'
@@ -861,6 +939,7 @@ class Contracts
             ],
 
             //Фундамент департамента природных катаклизмов
+            //не окончательно
             'department_natural_disasters_buildsite' => [
                 'short' => [
                     'contract' => 'sale_products_igneous_rocks'
@@ -869,6 +948,7 @@ class Contracts
             ],
 
             //Департамент развития туризма
+            //не окончательно
             'department_tourism_development_stage1' => [
                 'short' => [
                     'contract' => 'release_tools_cutting_stone'
@@ -883,6 +963,7 @@ class Contracts
         //5-я комната
         [
             //НИЯУ
+            //окончательно
             'srnu_factory' => [
                 'short' => [
                     'contract' => 'radioisotopes_preparations'
@@ -894,6 +975,7 @@ class Contracts
             ],
 
             //Церемониальная площадь
+            //не окончательно
             'victory_stadium_stage2' => [
                 'short' => [
                     'contract' => 'preparation_of_stadiums_for_winter_games'
@@ -902,6 +984,7 @@ class Contracts
             ],
 
             //Медиа-центр
+            //не окончательно
             'media_center_snow_stage1' => [
                 'short' => [
                     'contract' => 'meeting_competitors'
@@ -910,14 +993,16 @@ class Contracts
             ],
 
             //Горный отель
-            'mountain_hotel_stage1' => [
+            //не окончательно
+/*            'mountain_hotel_stage1' => [
                 'short' => [
                     'contract' => 'snowboarding'
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
             //Архитектурный исследовательский комплекс
+            //окончательно
             'macau_centre_hotel' => [
                 'short' => [
                     'contract' => 'deciphering_secret_blueprints'
@@ -926,6 +1011,7 @@ class Contracts
             ],
 
             //Горный хелипорт
+            //окончательно
             'mountain_heliport_stage1' => [
                 'short' => [
                     'contract' => 'helicopter_tour_of_rockies'
@@ -934,6 +1020,7 @@ class Contracts
             ],
 
             //Сервисный центр
+            //не окончательно
             'area_aerostats_stage2' => [
                 'short' => [
                     'contract' => 'inflating_balloons'
@@ -942,6 +1029,7 @@ class Contracts
             ],
 
             //Шоу-площадка "Фантазия"
+            //не окончательно
             'show_fantasy_park_stage2' => [
                 'short' => [
                     'contract' => 'pre_christmas_outing'
@@ -953,6 +1041,7 @@ class Contracts
             ],
 
             //Штаб-квартира секретной организации
+            //не окончательно
             'headquarters_secret_organization_stage3' => [
                 'short' => [
                     'contract' => 'creating_network_agents'
@@ -961,6 +1050,7 @@ class Contracts
             ],
 
             //Тренировочный центр скалолазанья
+            //не окончательно
             'climbing_training_center_stage3' => [
                 'short' => [
                     'contract' => 'set_school_climbers'
@@ -972,6 +1062,7 @@ class Contracts
             ],
 
             //Отель "Снежная вершина"
+            //не окончательно
             'hotel_snowy_peak_buildsite' => [
                 'short' => [
                     'contract' => 'development_insulated_tramcars'
