@@ -136,12 +136,12 @@ class Contracts
 
             //Национальный центр кинематографии
             //не окончательно
-/*            'national_center_cinema' => [
+            'national_center_cinema' => [
                 'short' => [
                     'contract' => 'awarding_of_prizes'
                 ],
                 'actions' => ['pick', 'put']
-            ],*/
+            ],
 
             //Ассоциация тенниса
             //не окончательно
@@ -241,12 +241,12 @@ class Contracts
 
             //Центральная панорама
             //не окончательно
-/*            'statue_burning_man_stage2' => [
+            'statue_burning_man_stage2' => [
                 'short' => [
                     'contract' => 'performance_viewpoint'
                 ],
                 'actions' => ['pick', 'put']
-            ],*/
+            ],
 
             //Карнакский храм
             //окончательно
@@ -354,13 +354,13 @@ class Contracts
             ],
 
             //Научно-информационный центр "Фьюжн"
-            //не окончательно
-/*            'scientific_information_center_fyuzion_stage1' => [
+            //окончательно
+            'scientific_information_center_fyuzion_stage1' => [
                 'short' => [
                     'contract' => 'development_of_new_safety_systems', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
-            ],*/
+            ],
 
             //Университет Мегаполиса
             //не окончательно
@@ -457,12 +457,12 @@ class Contracts
 
             //Центр парусного спорта
             //не окончательно
-/*            'sailing_center_stage3' => [
+            'sailing_center_stage3' => [
                 'short' => [
                     'contract' => 'windsurfing', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
-            ],*/
+            ],
 
             //Круизная компания
             //окончательно
@@ -489,13 +489,13 @@ class Contracts
             ],
 
             //Оттавский комплекс для конференций
-            //не окончательно
-/*            'ottawa_convention_centre_stage1' => [
+            //окончательно
+            'ottawa_convention_centre_stage1' => [
                 'short' => [
                     'contract' => 'onference_of_information_technology', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
-            ],*/
+            ],
 
             //Выставочный зал "Ноев Ковчег"
             //окончательно
@@ -684,25 +684,25 @@ class Contracts
             ],
 
             //Королевский выставочный центр
-            //не окончательно
-/*            'royal_exhibition_building_stage2' => [
+            //окончательно
+            'royal_exhibition_building_stage2' => [
                 'short' => [
                     'contract' => 'guided_tours_through_halls_exhibition_center'
                 ],
                 'actions' => ['pick', 'put']
-            ],*/
+            ],
         ],
 
         //1-я комната
         [
             //НИИ геологии
             //не окончательно
-/*            'geological_institute_stage2' => [
+            'geological_institute_stage2' => [
                 'short' => [
                     'contract' => 'research_of_solid'
                 ],
                 'actions' => ['pick', 'put']
-            ],*/
+            ],
 
             //Транспортный вокзал "Лазурная река"
             /*'busstation_azure_river_up1' => [
@@ -805,13 +805,13 @@ class Contracts
             ],
 
             //Старинный форт
-            //не окончательно
-/*            'ancient_fort_stage2' => [
+            //окончательно
+            'ancient_fort_stage2' => [
                 'short' => [
                     'contract' => 'excursion_to_historic_fort', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
-            ],*/
+            ],
 
             //Роял отель на воде
             //окончательно
