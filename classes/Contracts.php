@@ -916,12 +916,12 @@ class Contracts
 
             //Департамент развития туризма
             //не окончательно
-            'department_tourism_development_stage1' => [
+            'department_tourism_development_stage2' => [
                 'short' => [
                     'contract' => 'release_tools_cutting_stone'
                 ],
                 'long' => [
-                    'contract' => 'show_film_stone_jungle'
+                    'contract' => 'inauguration_of_city_in_rock', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
             ],

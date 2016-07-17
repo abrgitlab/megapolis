@@ -99,7 +99,7 @@ class Bot
             Bot::$game->changeRoom(0);
         Bot::$game->loadFriends();
         Bot::$game->visitFriends();
-        if (date('H') < '22')
+        if (date('H') < 22 || date('H') == 23 && date('i') >= 20)
             Bot::$game->sendGifts();
         else
             Bot::$game->sendGifts(true);
