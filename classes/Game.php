@@ -291,7 +291,7 @@ class Game
                     ];
 
                     unset($friend->letters[$letter_name]);
-                } elseif ($profit['expirience'] < 50 && $profit['coins'] < 500) {
+                } elseif ($profit['expirience'] < 100 && $profit['coins'] < 500) {
                     $items[] = [
                         'command' => 'discard_request',
                         'cmd_id' => $this->popCmdId(),
