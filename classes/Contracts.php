@@ -1031,6 +1031,14 @@ class Contracts
                     'contract' => 'development_insulated_tramcars'
                 ],
                 'actions' => ['pick', 'put']
+            ],
+
+            //Праздничная площадь
+            'christmas_square_stage1' => [
+                'short' => [
+                    'contract' => 'christmas_illumination_area',
+                ],
+                'actions' => ['pick', 'put']
             ]
         ]
     ];
