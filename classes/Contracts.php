@@ -663,6 +663,15 @@ class Contracts
                 ],
                 'actions' => ['pick', 'put']
             ],
+
+            //Ворота востока
+            //не окончательно
+            'gates_of_east_stage1' => [
+                'short' => [
+                    'contract' => 'silk_order'
+                ],
+                'actions' => ['pick', 'put']
+            ],
         ],
 
         //1-я комната
@@ -1034,6 +1043,7 @@ class Contracts
             ],
 
             //Праздничная площадь
+            //не окончательно
             'christmas_square_stage1' => [
                 'short' => [
                     'contract' => 'christmas_illumination_area',
