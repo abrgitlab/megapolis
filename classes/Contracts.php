@@ -1046,7 +1046,7 @@ class Contracts
             //не окончательно
             'christmas_square_stage1' => [
                 'short' => [
-                    'contract' => 'christmas_illumination_area',
+                    'contract' => 'dancing_on_ice', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
             ]
