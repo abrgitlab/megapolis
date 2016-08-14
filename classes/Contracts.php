@@ -1044,7 +1044,7 @@ class Contracts
 
             //Праздничная площадь
             //не окончательно
-            'christmas_square_stage1' => [
+            'christmas_square_stage2' => [
                 'short' => [
                     'contract' => 'dancing_on_ice', 'friends_request' => true
                 ],
