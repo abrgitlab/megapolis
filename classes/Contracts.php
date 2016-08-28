@@ -672,6 +672,14 @@ class Contracts
                 ],
                 'actions' => ['pick', 'put']
             ],
+
+            //Площадь победы
+            'town_square_stage1' => [
+                'short' => [
+                    'contract' => 'the_concert'
+                ],
+                'actions' => ['pick', 'put']
+            ]
         ],
 
         //1-я комната
