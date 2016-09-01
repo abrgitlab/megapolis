@@ -264,7 +264,7 @@ class Contracts
 
             //Администрация зоопарка
             //не окончательно
-            'administration_zoo_up1' => [
+            'administration_zoo_up2' => [
                 'short' => [
                     'contract' => 'exhibition_of_birds', 'friends_request' => true
                 ],
@@ -677,6 +677,14 @@ class Contracts
             'town_square_stage1' => [
                 'short' => [
                     'contract' => 'the_concert'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Институт исследования космических тел
+            'institute_for_cosmic_bodies_stage1' => [
+                'short' => [
+                    'contract' => 'the_study_of_extraterrestrial_bodies'
                 ],
                 'actions' => ['pick', 'put']
             ]
