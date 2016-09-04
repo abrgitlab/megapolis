@@ -950,6 +950,15 @@ class Contracts
                 ],
                 'actions' => ['pick', 'put']
             ],
+
+            //Ассоциация гонщиков Гран-при
+            //не окончательно
+            'gambling_racers_association_grand_prix_stage1' => [
+                'short' => [
+                    'contract' => 'license_racers_association'
+                ],
+                'actions' => ['pick', 'put']
+            ]
         ],
 
         //5-я комната
