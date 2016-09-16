@@ -953,9 +953,12 @@ class Contracts
 
             //Ассоциация гонщиков Гран-при
             //не окончательно
-            'gambling_racers_association_grand_prix_stage1' => [
+            'gambling_racers_association_grand_prix_stage2' => [
                 'short' => [
                     'contract' => 'license_racers_association'
+                ],
+                'long' => [
+                    'contract' => 'auto_racing_las_megas'
                 ],
                 'actions' => ['pick', 'put']
             ]
