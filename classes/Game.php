@@ -582,7 +582,7 @@ class Game
         }
 
         $chest_action_tower1 = null;
-        $chest_action_chest1 = $this->room->getBarn('chest_action_chest1');
+        $chest_action_chest1 = $this->room->getBarnQuantity('chest_action_chest1');
 
         if (time() - $chest_time_last_open > 3600 && $chest_action_chest1 !== null && $chest_action_chest1 > 0) {
             echo "Открываем сундук\n";

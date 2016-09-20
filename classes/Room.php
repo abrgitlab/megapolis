@@ -297,15 +297,17 @@ class Room
         $models = [];
         foreach (Room::$military_conveyors as $military_conveyor) {
             foreach ($military_conveyor as $model) {
-                $models[$model] = 0;
-            }
-
-            foreach($this->barn_data->childNodes->item(0)->childNodes as $barn) {
-                if (isset($models[$barn->localName])) {
-                    $models[$barn->localName] = $barn->attributes->getNamedItem('quantity')->nodeValue;
-                }
+                $model_name = Bot::$game->getCityItemById($model)['item_name'];
+                $quantity = $this->getBarnQuantity($model_name);
+                if ($quantity !== null)
+                    $models[$model] = $quantity;
+                else
+                    $models[$model] = 0;
             }
         }
+
+//        echo "В наличии:";
+//        var_dump($models);
 
         $models_required = [];
         foreach ($military_orders_items as $military_order) {
@@ -318,6 +320,9 @@ class Room
                 }
             }
         }
+
+//        echo "Нужны:";
+//        var_dump($models_required);
 
         $cached = [];
         $models_for_sale = [];
@@ -332,7 +337,11 @@ class Room
                     $queue_length[$field->localName] = count($queue_items);
                     foreach ($queue_items as $queue_item) {
                         $conveyor = explode(':', $queue_item);
-                        if ($conveyor[1] == 3)
+
+                        if ($conveyor[1] == 3) {
+                            $produce_model = Bot::$game->getCityItemById($conveyor[0])['produce_model'];
+                            $produce_model_id = Bot::$game->city_items[$produce_model]['id'];
+
                             $cached[] = [
                                 'command' => 'pick',
                                 'cmd_id' => Bot::$game->popCmdId(),
@@ -342,49 +351,53 @@ class Room
                                 'klass' => Bot::$game->getCityItemById($conveyor[0])['item_name']
                             ];
 
-                        $produce_model = Bot::$game->getCityItemById($conveyor[0])['produce_model'];
-                        $produce_model_id = Bot::$game->city_items[$produce_model]['id'];
-
-                        if (isset($models_required[$produce_model_id]))
-                            --$models_required[$produce_model_id];
-
-                        $model_quantity = $models[$produce_model_id] + 1;
-                        if (!isset($models_for_sale[$produce_model_id])) {
-                            $for_sale = $model_quantity;
                             if (isset($models_required[$produce_model_id]))
-                                $for_sale -= $models_required[$produce_model_id];
+                                --$models_required[$produce_model_id];
 
-                            if ($for_sale > 0) {
-                                $models_for_sale[$produce_model_id] = $for_sale;
-                                $models[$produce_model_id] -= $for_sale;
+                            ++$models[$produce_model_id];
+                            if (!isset($models_for_sale[$produce_model_id])) {
+                                $for_sale = $models[$produce_model_id];
+                                if (isset($models_required[$produce_model_id]))
+                                    $for_sale -= $models_required[$produce_model_id];
+
+                                if ($for_sale > 0) {
+                                    $models_for_sale[$produce_model_id] = $for_sale;
+                                    $models[$produce_model_id] -= $for_sale;
+                                }
+                            } else {
+                                ++$models_for_sale[$produce_model_id];
+                                --$models[$produce_model_id];
                             }
-                        } else {
-                            ++$models_for_sale[$produce_model_id];
-                            --$models[$produce_model_id];
                         }
                     }
                 }
                 foreach ($models_required as $model => $quantity) {
                     if (in_array($model, Room::$military_conveyors[$field->localName])) {
                         $for_buy = min($quantity, 3 - $queue_length[$field->localName]);
-                        for ($i = 0; $i < $for_buy; ++$i) {
+                        /*for ($i = 0; $i < $for_buy; ++$i) {
                             if (isset($models_for_buy[$model]))
                                 ++$models_for_buy[$model];
                             else
                                 $models_for_buy[$model] = 1;
                             --$models_required[$model];
+                        }*/
+                        if ($for_buy > 0) {
+                            $models_for_buy[$model] = $for_buy;
+                            $models_required[$model] -= $for_buy;
+                            $queue_length[$field->localName] += $for_buy;
                         }
-                        $queue_length[$field->localName] += $for_buy;
                     }
                 }
                 if (count(Room::$military_conveyors[$field->localName]) > 0) {
                     $model_left = Room::$military_conveyors[$field->localName][count(Room::$military_conveyors[$field->localName]) - 1];
-                    for ($i = 0; $i < 3 - $queue_length[$field->localName]; ++$i) {
+                    /*for ($i = 0; $i < 3 - $queue_length[$field->localName]; ++$i) {
                         if (isset($models_for_buy[$model_left]))
                             ++$models_for_buy[$model_left];
                         else
                             $models_for_buy[$model_left] = 1;
-                    }
+                    }*/
+                    if (3 - $queue_length[$field->localName] > 0)
+                        $models_for_buy[$model_left] = 3 - $queue_length[$field->localName];
                 }
             }
         }
@@ -398,6 +411,12 @@ class Room
 
             Bot::$game->checkAndPerform($cached);
         }
+
+//        echo "Для продажи:";
+//        var_dump($models_for_sale);
+
+//        echo "Для производства:";
+//        var_dump($models_for_buy);
 
         $cached = [];
         foreach ($models_for_sale as $model_for_sale => $quantity) {
@@ -574,7 +593,7 @@ class Room
         }
     }
 
-    public function getBarn($name) {
+    public function getBarnQuantity($name) {
         foreach($this->barn_data->childNodes->item(0)->childNodes as $barn) {
             if ($barn->localName == $name) {
                 return $barn->attributes->getNamedItem('quantity')->nodeValue;
