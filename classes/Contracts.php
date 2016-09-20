@@ -961,6 +961,15 @@ class Contracts
                     'contract' => 'auto_racing_las_megas'
                 ],
                 'actions' => ['pick', 'put']
+            ],
+
+            //Уловитель молний
+            //не окончательно
+            'catcher_lightning_stage1' => [
+                'short' => [
+                    'contract' => 'trial_run_trap_lightning'
+                ],
+                'actions' => ['pick', 'put']
             ]
         ],
 

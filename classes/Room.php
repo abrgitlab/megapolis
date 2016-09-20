@@ -30,6 +30,61 @@ class Room
     private $field_data;
 
     /**
+     * @var $military_orders DOMDocument|mixed
+     */
+    private $military_orders;
+
+    private static $military_conveyors = [
+        //Наименование цеха => [имя прототипа, доступно прототипов]
+        'conveyor_armored_cars_line' => [1059282, 1059288, 1059294, 1059300, 1059306, 1059312], //Бронеавтомобили
+        'conveyor_infantry_fighting_vehicle' => [1059318, 1059324, 1059330, 1059336, 1059342, 1059348], //БМП
+        'conveyor_armored_troop_carrier' => [1059354, 1059360, 1059366, 1059372, 1059378, 1059384], //БТР
+        'conveyor_light_tanks' => [1059102, 1059108, 1059114, 1059120, 1059126, 1059132], //Лёгкие танки
+        'conveyor_medium_tanks' => [1059138, 1059144, 1059150, 1059156, 1059162, 1059168], //Средние танки
+        'conveyor_self_propelled_artillery' => [1059210, 1059216, 1059222, 1059228, 1059234, 1059240], //САУ
+        'conveyor_heavy_tanks' => [1059174, 1059180, 1059186, 1059192, 1059198], //Тяжёлые танки
+        'conveyor_multiple_rocket_launch_system' => [1059246, 1059252, 1059258, 1059264], //РСЗО
+
+        'conveyor_lifesaving_underwater_vehicle' => [1060002, 1060008, 1060014, 1060057, 1060063], //Батискафы
+        'conveyor_diesel_submarines' => [1060020, 1060026, 1060032, 1060075], //Дизельные подлодки
+        'conveyor_nuclear_submarines' => [], //Атомные подлодки
+
+        'conveyor_transport_helicopters' => [1059692, 1059698, 1059704, 1059800, 1059806], //Транспортные вертолёты
+        'conveyor_attack_planes' => [1059656, 1059662, 1059668, 1059728], //Штурмовики
+        'conveyor_attack_helicopters' => [1059674, 1059680, 1059686], //Ударные вертолёты
+//        'conveyor_fighters' => [], //Истребители
+//        'conveyor_tactical_bombers' => [], //Бомбардировщики TB
+//        'conveyor_strategic_bombers' => [], //Бомбардировщики SB
+//        'conveyor_drones' => [], //Беспилотники
+
+//        'conveyor_cruisers',
+//        'conveyor_ships_of_coastal_zone',
+//        'conveyor_landing_ships',
+//        'conveyor_aircraft_carriers',
+//        'conveyor_helicopter_carriers',
+
+    ];
+
+    private static $items_for_military_factories = [
+        'conveyor_armored_cars_line' => 64879702,
+        'conveyor_infantry_fighting_vehicle' => 64879704,
+        'conveyor_armored_troop_carrier' => 64879703,
+        'conveyor_light_tanks' => 65261252,
+        'conveyor_medium_tanks' => 65261253,
+        'conveyor_self_propelled_artillery' => 65652277,
+        'conveyor_heavy_tanks' => 65652276,
+        'conveyor_multiple_rocket_launch_system' => 67426369,
+
+        'conveyor_lifesaving_underwater_vehicle' => 65197670,
+        'conveyor_diesel_submarines' => 65587300,
+//        'conveyor_nuclear_submarines' => ,
+
+        'conveyor_transport_helicopters' => 66075587,
+        'conveyor_attack_planes' => 66075586,
+        'conveyor_attack_helicopters' => 66546628
+    ];
+
+    /**
      * @inheritdoc
      */
     function __construct($room_id, $location_data = null)
@@ -52,6 +107,9 @@ class Room
 
         $this->loadFieldData();
         $this->loadBarnData();
+
+        if ($this->id == 0)
+            $this->loadMilitaryOrdersData();
     }
 
     /**
@@ -73,6 +131,14 @@ class Room
         if ($barn_data) {
             $this->barn_data = new DOMDocument();
             $this->barn_data->loadXML($this->location_data->saveXML($barn_data->item(0)));
+        }
+    }
+
+    public function loadMilitaryOrdersData() {
+        $military_orders = $this->location_data->getElementsByTagName('military_orders');
+        if ($military_orders) {
+            $this->military_orders = new DOMDocument();
+            $this->military_orders->loadXML($this->location_data->saveXML($military_orders->item(0)));
         }
     }
 
@@ -211,6 +277,170 @@ class Room
         if (count($cached) > 0) {
             for ($i = count($cached); $i > 0; --$i) {
                 echo "Ждём получения монеток $i сек.\n";
+                $cached[count($cached) - $i]['uxtime'] = time();
+                sleep(1);
+            }
+
+            Bot::$game->checkAndPerform($cached);
+        }
+    }
+
+    /**
+     * Производит военную технику, совершает военные операции и продаёт излишки военной техники
+     */
+    public function doMilitaryWork() {
+        if ($this->id != 0)
+            return;
+
+        $military_orders_items = (json_decode($this->military_orders->textContent, true));
+
+        $models = [];
+        foreach (Room::$military_conveyors as $military_conveyor) {
+            foreach ($military_conveyor as $model) {
+                $models[$model] = 0;
+            }
+
+            foreach($this->barn_data->childNodes->item(0)->childNodes as $barn) {
+                if (isset($models[$barn->localName])) {
+                    $models[$barn->localName] = $barn->attributes->getNamedItem('quantity')->nodeValue;
+                }
+            }
+        }
+
+        $models_required = [];
+        foreach ($military_orders_items as $military_order) {
+            if (isset($military_order['models'])) {
+                foreach ($military_order['models'] as $model) {
+                    if (!isset($models_required[$model['item_id']]))
+                        $models_required[$model['item_id']] = $model['quantity'];
+                    else
+                        $models_required[$model['item_id']] += $model['quantity'];
+                }
+            }
+        }
+
+        $cached = [];
+        $models_for_sale = [];
+        $models_for_buy = [];
+        $queue_length = [];
+        foreach($this->field_data->childNodes->item(0)->childNodes as $field) {
+            if (isset(Room::$military_conveyors[$field->localName])) {
+                $queue = $field->attributes->getNamedItem('queue')->nodeValue;
+                $queue_length[$field->localName] = 0;
+                if ($queue != '') {
+                    $queue_items = explode(',', $queue);
+                    $queue_length[$field->localName] = count($queue_items);
+                    foreach ($queue_items as $queue_item) {
+                        $conveyor = explode(':', $queue_item);
+                        if ($conveyor[1] == 3)
+                            $cached[] = [
+                                'command' => 'pick',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => $field->attributes->getNamedItem('id')->nodeValue,
+                                'index' => 0,
+                                'klass' => Bot::$game->getCityItemById($conveyor[0])['item_name']
+                            ];
+
+                        $produce_model = Bot::$game->getCityItemById($conveyor[0])['produce_model'];
+                        $produce_model_id = Bot::$game->city_items[$produce_model]['id'];
+
+                        if (isset($models_required[$produce_model_id]))
+                            --$models_required[$produce_model_id];
+
+                        $model_quantity = $models[$produce_model_id] + 1;
+                        if (!isset($models_for_sale[$produce_model_id])) {
+                            $for_sale = $model_quantity;
+                            if (isset($models_required[$produce_model_id]))
+                                $for_sale -= $models_required[$produce_model_id];
+
+                            if ($for_sale > 0) {
+                                $models_for_sale[$produce_model_id] = $for_sale;
+                                $models[$produce_model_id] -= $for_sale;
+                            }
+                        } else {
+                            ++$models_for_sale[$produce_model_id];
+                            --$models[$produce_model_id];
+                        }
+                    }
+                }
+                foreach ($models_required as $model => $quantity) {
+                    if (in_array($model, Room::$military_conveyors[$field->localName])) {
+                        $for_buy = min($quantity, 3 - $queue_length[$field->localName]);
+                        for ($i = 0; $i < $for_buy; ++$i) {
+                            if (isset($models_for_buy[$model]))
+                                ++$models_for_buy[$model];
+                            else
+                                $models_for_buy[$model] = 1;
+                            --$models_required[$model];
+                        }
+                        $queue_length[$field->localName] += $for_buy;
+                    }
+                }
+                if (count(Room::$military_conveyors[$field->localName]) > 0) {
+                    $model_left = Room::$military_conveyors[$field->localName][count(Room::$military_conveyors[$field->localName]) - 1];
+                    for ($i = 0; $i < 3 - $queue_length[$field->localName]; ++$i) {
+                        if (isset($models_for_buy[$model_left]))
+                            ++$models_for_buy[$model_left];
+                        else
+                            $models_for_buy[$model_left] = 1;
+                    }
+                }
+            }
+        }
+
+        if (count($cached) > 0) {
+            for ($i = count($cached); $i > 0; --$i) {
+                echo "Ждём сбора произведённой военной продукции $i сек.\n";
+                $cached[count($cached) - $i]['uxtime'] = time();
+                sleep(1);
+            }
+
+            Bot::$game->checkAndPerform($cached);
+        }
+
+        $cached = [];
+        foreach ($models_for_sale as $model_for_sale => $quantity) {
+            for ($i = 0; $i < $quantity; ++$i)
+                $cached[] = [
+                    'command' => 'sell_barn',
+                    'cmd_id' => Bot::$game->popCmdId(),
+                    'room_id' => $this->id,
+                    'item_id' => $model_for_sale,
+                    'quantity' => 1
+                ];
+        }
+
+        if (count($cached) > 0) {
+            for ($i = count($cached); $i > 0; --$i) {
+                echo "Ждём продажи произведённой военной продукции $i сек.\n";
+                $cached[count($cached) - $i]['uxtime'] = time();
+                sleep(1);
+            }
+
+            Bot::$game->checkAndPerform($cached);
+        }
+
+        $cached = [];
+        foreach ($models_for_buy as $model => $quantity) {
+            for ($i = 0; $i < $quantity; ++$i)
+                foreach (Room::$military_conveyors as $military_conveyor => $conveyor_models) {
+                    if (in_array($model, $conveyor_models)) {
+                        $cached[] = [
+                            'command' => 'put',
+                            'cmd_id' => Bot::$game->popCmdId(),
+                            'room_id' => $this->id,
+                            'item_id' => Room::$items_for_military_factories[$military_conveyor],
+                            'klass' => 'production_' . Bot::$game->getCityItemById($model)['item_name']
+                        ];
+                        break;
+                    }
+                }
+        }
+
+        if (count($cached) > 0) {
+            for ($i = count($cached); $i > 0; --$i) {
+                echo "Ждём начала производства военной продукции $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
