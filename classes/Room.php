@@ -306,9 +306,6 @@ class Room
             }
         }
 
-//        echo "В наличии:";
-//        var_dump($models);
-
         $models_required = [];
         foreach ($military_orders_items as $military_order) {
             if (isset($military_order['models'])) {
@@ -320,9 +317,6 @@ class Room
                 }
             }
         }
-
-//        echo "Нужны:";
-//        var_dump($models_required);
 
         $cached = [];
         $models_for_sale = [];
@@ -351,9 +345,7 @@ class Room
                                 'klass' => Bot::$game->getCityItemById($conveyor[0])['item_name']
                             ];
 
-                            if (isset($models_required[$produce_model_id]))
-                                --$models_required[$produce_model_id];
-
+                            --$queue_length[$field->localName];
                             ++$models[$produce_model_id];
                             if (!isset($models_for_sale[$produce_model_id])) {
                                 $for_sale = $models[$produce_model_id];
@@ -373,14 +365,8 @@ class Room
                 }
                 foreach ($models_required as $model => $quantity) {
                     if (in_array($model, Room::$military_conveyors[$field->localName])) {
+                        $quantity -= $models[$model];
                         $for_buy = min($quantity, 3 - $queue_length[$field->localName]);
-                        /*for ($i = 0; $i < $for_buy; ++$i) {
-                            if (isset($models_for_buy[$model]))
-                                ++$models_for_buy[$model];
-                            else
-                                $models_for_buy[$model] = 1;
-                            --$models_required[$model];
-                        }*/
                         if ($for_buy > 0) {
                             $models_for_buy[$model] = $for_buy;
                             $models_required[$model] -= $for_buy;
@@ -390,12 +376,6 @@ class Room
                 }
                 if (count(Room::$military_conveyors[$field->localName]) > 0) {
                     $model_left = Room::$military_conveyors[$field->localName][count(Room::$military_conveyors[$field->localName]) - 1];
-                    /*for ($i = 0; $i < 3 - $queue_length[$field->localName]; ++$i) {
-                        if (isset($models_for_buy[$model_left]))
-                            ++$models_for_buy[$model_left];
-                        else
-                            $models_for_buy[$model_left] = 1;
-                    }*/
                     if (3 - $queue_length[$field->localName] > 0)
                         $models_for_buy[$model_left] = 3 - $queue_length[$field->localName];
                 }
@@ -411,12 +391,6 @@ class Room
 
             Bot::$game->checkAndPerform($cached);
         }
-
-//        echo "Для продажи:";
-//        var_dump($models_for_sale);
-
-//        echo "Для производства:";
-//        var_dump($models_for_buy);
 
         $cached = [];
         foreach ($models_for_sale as $model_for_sale => $quantity) {
