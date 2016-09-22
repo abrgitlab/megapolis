@@ -965,9 +965,12 @@ class Contracts
 
             //Уловитель молний
             //не окончательно
-            'catcher_lightning_stage1' => [
+            'catcher_lightning_stage2' => [
                 'short' => [
                     'contract' => 'trial_run_trap_lightning'
+                ],
+                'long' => [
+                    'contract' => 'experiment_create_artificial_lightning'
                 ],
                 'actions' => ['pick', 'put']
             ]
