@@ -81,7 +81,10 @@ class Room
 
         'conveyor_transport_helicopters' => 66075587,
         'conveyor_attack_planes' => 66075586,
-        'conveyor_attack_helicopters' => 66546628
+        'conveyor_attack_helicopters' => 66546628,
+
+        'conveyor_landing_ships' => 67995334,
+        'conveyor_ships_of_coastal_zone' => 67995335
     ];
 
     /**
