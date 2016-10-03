@@ -35,7 +35,7 @@ class Room
     private $military_orders;
 
     private static $military_conveyors = [
-        //Наименование цеха => [имя прототипа, доступно прототипов]
+        //Наименование цеха => [id прототипов]
         'conveyor_armored_cars_line' => [1059282, 1059288, 1059294, 1059300, 1059306, 1059312], //Бронеавтомобили
         'conveyor_infantry_fighting_vehicle' => [1059318, 1059324, 1059330, 1059336, 1059342, 1059348], //БМП
         'conveyor_armored_troop_carrier' => [1059354, 1059360, 1059366, 1059372, 1059378, 1059384], //БТР
@@ -57,9 +57,9 @@ class Room
 //        'conveyor_strategic_bombers' => [], //Бомбардировщики SB
 //        'conveyor_drones' => [], //Беспилотники
 
+        'conveyor_landing_ships' => [1059928, 1059934, 1059940], //Десантные суда
+        'conveyor_ships_of_coastal_zone' => [1059910, 1059916, 1059922], //Корабли
 //        'conveyor_cruisers',
-//        'conveyor_ships_of_coastal_zone',
-//        'conveyor_landing_ships',
 //        'conveyor_aircraft_carriers',
 //        'conveyor_helicopter_carriers',
 
