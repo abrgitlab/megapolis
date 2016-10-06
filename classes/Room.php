@@ -43,7 +43,7 @@ class Room
         'conveyor_medium_tanks' => [1059138, 1059144, 1059150, 1059156, 1059162, 1059168], //Средние танки
         'conveyor_self_propelled_artillery' => [1059210, 1059216, 1059222, 1059228, 1059234, 1059240], //САУ
         'conveyor_heavy_tanks' => [1059174, 1059180, 1059186, 1059192, 1059198, 1059204], //Тяжёлые танки
-        'conveyor_multiple_rocket_launch_system' => [1059246, 1059252, 1059258, 1059264], //РСЗО
+        'conveyor_multiple_rocket_launch_system' => [1059246, 1059252, 1059258, 1059264, 1059270], //РСЗО
 
         'conveyor_lifesaving_underwater_vehicle' => [1060002, 1060008, 1060014, 1060057, 1060063, 1060069], //Батискафы
         'conveyor_diesel_submarines' => [1060020, 1060026, 1060032, 1060075], //Дизельные подлодки

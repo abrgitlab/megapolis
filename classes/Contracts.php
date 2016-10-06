@@ -897,7 +897,7 @@ class Contracts
 
             //Турбореактивный самолёт
             //не окончательно
-            'airport_gamble_plane1_stage2' => [
+            /*'airport_gamble_plane1_stage2' => [
                 'short' => [
                     'contract' => 'organization_of_jumps'
                 ],
@@ -905,7 +905,7 @@ class Contracts
                     'contract' => 'long_distance_flights', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
             //Паромная станция
             //не окончательно
@@ -965,9 +965,12 @@ class Contracts
 
             //Уловитель молний
             //не окончательно
-            'catcher_lightning_stage3' => [
+            'catcher_lightning_stage4' => [
                 'short' => [
                     'contract' => 'trial_run_trap_lightning'
+                ],
+                'long' => [
+                    'contract' => 'study_ball_lightning'
                 ],
                 'actions' => ['pick', 'put']
             ]
