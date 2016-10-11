@@ -15,6 +15,10 @@ class Bot
     public static $client_version = '3.21';
     public static $iauth = '277997eba7f4e51051b0a0a9450afe73';
     public static $user_id = 'UD_5cd98e974c0fec35013c4790';
+    public static $odin_id = '949c34f735162b0bd21f1f63db51cc2bb9e935ac';
+    public static $android_id = 'f337e0e35a1e6dd5';
+    public static $mac = '0800270cc3c5';
+    public static $advertising_id = 'e4959f11-12a8-4cb1-a5d3-0c3649406e3b';
 
     /**
      * @var $options array
