@@ -868,6 +868,13 @@ class Contracts
                 ],
                 'actions' => ['pick', 'put']
             ],
+
+            'imperial_palace_stage1' => [
+                'short' => [
+                    'contract' => 'launching_sky_lanterns', 'friends_request' => true
+                ],
+                'actions' => ['pick', 'put']
+            ]
         ],
 
         //3-я комната
@@ -965,7 +972,7 @@ class Contracts
 
             //Уловитель молний
             //не окончательно
-            'catcher_lightning_stage4' => [
+            'catcher_lightning_stage5' => [
                 'short' => [
                     'contract' => 'trial_run_trap_lightning'
                 ],
