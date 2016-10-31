@@ -904,15 +904,15 @@ class Contracts
 
             //Турбореактивный самолёт
             //не окончательно
-            /*'airport_gamble_plane1_stage2' => [
+            'airport_gamble_plane1_stage2' => [
                 'short' => [
                     'contract' => 'organization_of_jumps'
                 ],
                 'long' => [
-                    'contract' => 'long_distance_flights', 'friends_request' => true
+                    'contract' => 'regional_flights', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
-            ],*/
+            ],
 
             //Паромная станция
             //не окончательно
@@ -1094,6 +1094,15 @@ class Contracts
             'christmas_square_stage2' => [
                 'short' => [
                     'contract' => 'dancing_on_ice', 'friends_request' => true
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Ворота востока
+            //не окончательно
+            'gates_of_east_stage1' => [
+                'short' => [
+                    'contract' => 'silk_order'
                 ],
                 'actions' => ['pick', 'put']
             ]
