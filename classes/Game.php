@@ -567,7 +567,7 @@ class Game
      * Открываем сундук
      */
     public function openChest() {
-        $chest_name = 'chest_event24';
+        $chest_name = 'chest_event26';
 
         $roll_counter = $this->room->location_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('roll_counter')->nodeValue;
 
