@@ -50,7 +50,7 @@ class Contracts
 
             //Региональный центр сотовой связи
             //не окончательно
-            'mobile_phone_system_center_stage4' => [
+            /*'mobile_phone_system_center_stage4' => [
                 'short' => [
                     'contract' => 'ggg_connection',
                     'additional_fields' => [
@@ -58,7 +58,7 @@ class Contracts
                     ]
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
             //Деревообрабатывающий завод
             //не окончательно
@@ -687,6 +687,22 @@ class Contracts
                     'contract' => 'the_study_of_extraterrestrial_bodies'
                 ],
                 'actions' => ['pick', 'put']
+            ],
+
+            //Центр парашютной подготовки
+            'school_of_paratroopers_stage2' => [
+                'short' => [
+                    'contract' => 'demonstrations_paratroopers'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Банк международных расчётов
+            'bank_inter_settlement_stage2' => [
+                'short' => [
+                    'contract' => 'meeting_founders_bank'
+                ],
+                'actions' => ['pick', 'put']
             ]
         ],
 
@@ -1103,6 +1119,14 @@ class Contracts
             'gates_of_east_stage1' => [
                 'short' => [
                     'contract' => 'silk_order'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Банк международных расчётов
+            'bank_inter_settlement_stage2' => [
+                'short' => [
+                    'contract' => 'meeting_founders_bank'
                 ],
                 'actions' => ['pick', 'put']
             ]
