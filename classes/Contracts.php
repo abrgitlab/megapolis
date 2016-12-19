@@ -666,7 +666,7 @@ class Contracts
 
             //Ворота востока
             //не окончательно
-            'gates_of_east_stage1' => [
+            'gates_of_east_stage2' => [
                 'short' => [
                     'contract' => 'silk_order'
                 ],
@@ -703,7 +703,16 @@ class Contracts
                     'contract' => 'meeting_founders_bank'
                 ],
                 'actions' => ['pick', 'put']
-            ]
+            ],
+
+            //Док субмарин
+            //не окончательно
+            /*'sea_naval_station_stage2' => [
+                'short' => [
+                    'contract' => 'submarines'
+                ],
+                'actions' => ['pick', 'put']
+            ],*/
         ],
 
         //1-я комната
@@ -1116,7 +1125,7 @@ class Contracts
 
             //Ворота востока
             //не окончательно
-            'gates_of_east_stage1' => [
+            'gates_of_east_stage2' => [
                 'short' => [
                     'contract' => 'silk_order'
                 ],
