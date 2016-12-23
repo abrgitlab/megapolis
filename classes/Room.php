@@ -501,6 +501,7 @@ class Room
                             'item_id' => 70153339,
                             'klass' => $production_ids['1060441']
                         ];
+                        ++$items_count['1060441'];
                     } else if ($items_count['1060440'] < $items_count['1060442']) {
                         $cached[] = [
                             'command' => 'put',
@@ -509,6 +510,7 @@ class Room
                             'item_id' => 70153339,
                             'klass' => $production_ids['1060440']
                         ];
+                        ++$items_count['1060440'];
                     } else {
                         $cached[] = [
                             'command' => 'put',
@@ -517,6 +519,7 @@ class Room
                             'item_id' => 70153339,
                             'klass' => $production_ids['1060442']
                         ];
+                        ++$items_count['1060442'];
                     }
                 }
             }
