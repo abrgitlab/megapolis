@@ -353,6 +353,27 @@ class Game
 
     }
 
+    public function goToSnowville() {
+        $this->changeRoom(100);
+    }
+
+    public function doSnowvilleProductionWork() {
+        if ($this->room != 100)
+            return;
+
+        $this->room->doSnowvilleFactoryWork();
+    }
+
+    public function goFromSnowville() {
+        if ($this->room != 100)
+            return;
+
+        $location_data = $this->getBackFromSnowvilleStat();
+
+        Bot::$last_room_id = 100;
+        $this->room = new Room(1, $location_data);
+    }
+
     /**
      * Получение помощи от друзей
      */
@@ -584,7 +605,7 @@ class Game
         $chest_action_tower1 = null;
         $chest_action_chest1 = $this->room->getBarnQuantity('chest_action_chest1');
 
-        if (time() - $chest_time_last_open > 3600 && $chest_action_chest1 !== null && $chest_action_chest1 > 0) {
+        if (time() - $chest_time_last_open > 3600 && $chest_action_chest1 > 0) {
             echo "Открываем сундук\n";
 
             $cached = [[
@@ -673,18 +694,28 @@ class Game
 
     /**
      * @param $room_id int
-     * @param $first_request bool
      * @return string
      */
-    public function getRoomStat($room_id/*, $first_request = false*/) {
+    public function getRoomStat($room_id) {
         curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/get_user_stat');
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
-        /*if ($first_request) {
-            $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&daily_gift=2&revision=android-' . Bot::$client_version . '.' . Bot::$build . '&access_token=' . Bot::$iauth . '&lang=ru&client_type=android&room_id=' . $room_id . '&odin_id=949c34f735162b0bd21f1f63db51cc2bb9e935ac&android_id=f337e0e35a1e6dd5&mac=0800270cc3c5&advertising_id=e4959f11-12a8-4cb1-a5d3-0c3649406e3b&device_id=45cca1a3-973a-3f7f-b226-da8d8301cfb6&first_request=true&location=&rn=' . $this->popRN();
-        } else {*/
-            $url = 'daily_gift=2&iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&session_key=' . $this->session_key . '&room_id=' . Bot::$last_room_id . '&change_room=1&view_room_id=' . $room_id . '&serv_ver=1&lang=ru&rand=0.' . rand(0, 9999999) . '&client_type=android&rn=' . $this->popRN() . '&content_rev=' . $this->revision;
-        //}
+        $url = 'daily_gift=2&iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&session_key=' . $this->session_key . '&room_id=' . Bot::$last_room_id . '&change_room=1&view_room_id=' . $room_id . '&serv_ver=1&lang=ru&rand=0.' . rand(0, 9999999) . '&client_type=android&rn=' . $this->popRN() . '&content_rev=' . $this->revision;
+        if (Bot::$options['debug']) echo "\n$url\n\n";
+
+        curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
+
+        return gzdecode(curl_exec(Bot::$curl));
+    }
+
+    /**
+     * @return string
+     */
+    public function getBackFromSnowvilleStat() {
+        curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/get_user_stat');
+        curl_setopt(Bot::$curl, CURLOPT_POST, true);
+
+        $url = 'daily_gift=2&iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&session_key=' . $this->session_key . '&room_id=100&change_room=1&view_room_id=1&lang=ru&client_type=android&rn=' . $this->popRN() . '&content_rev=' . $this->revision;
         if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);

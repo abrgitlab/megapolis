@@ -120,6 +120,10 @@ class Bot
         Bot::$game->room->getCoins();
         Bot::$game->applyHelp();
 
+        Bot::$game->goToSnowville();
+        Bot::$game->doSnowvilleProductionWork();
+        Bot::$game->goFromSnowville();
+
         Bot::$game->changeRoom(5);
         Bot::$game->room->signContracts();
         Bot::$game->room->getCoins();

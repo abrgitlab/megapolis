@@ -707,12 +707,12 @@ class Contracts
 
             //Док субмарин
             //не окончательно
-            /*'sea_naval_station_stage2' => [
+            'sea_naval_station_stage2' => [
                 'short' => [
                     'contract' => 'submarines'
                 ],
                 'actions' => ['pick', 'put']
-            ],*/
+            ],
         ],
 
         //1-я комната
@@ -1149,7 +1149,7 @@ class Contracts
     public static function getContractsList($room) {
         $result = Contracts::$data[$room->id];
         $city_goods = $room->getBarnQuantity('city_goods');
-        if ($room->id == 0 && $city_goods !== null && $city_goods >= 5) {
+        if ($room->id == 0 && $city_goods >= 5) {
             $result['port_warehouse_stage4']['actions'][] = 'put';
         }
 
