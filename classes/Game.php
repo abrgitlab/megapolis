@@ -358,20 +358,29 @@ class Game
     }
 
     public function doSnowvilleProductionWork() {
-        if ($this->room != 100)
+        if ($this->room->id != 100)
             return;
 
         $this->room->doSnowvilleFactoryWork();
     }
 
     public function goFromSnowville() {
-        if ($this->room != 100)
+        if ($this->room->id != 100)
             return;
 
         $location_data = $this->getBackFromSnowvilleStat();
 
+        $location_data = preg_replace('/<marketplace>.*<\/marketplace>/', '', $location_data);
+        $location_data = preg_replace('/<quests_activity>.*<\/quests_activity>/', '', $location_data);
+        $location_data = preg_replace('/<military_orders.*<\/military_orders>/', '', $location_data);
+
+        $location_data = Bot::$tidy->repairString($location_data, Bot::$tidy_config);
+
+        $location_data_xml = new DOMDocument();
+        $location_data_xml->loadXML($location_data);
+
         Bot::$last_room_id = 100;
-        $this->room = new Room(1, $location_data);
+        $this->room = new Room(0, $location_data_xml);
     }
 
     /**
@@ -715,7 +724,7 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/get_user_stat');
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
-        $url = 'daily_gift=2&iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&session_key=' . $this->session_key . '&room_id=100&change_room=1&view_room_id=1&lang=ru&client_type=android&rn=' . $this->popRN() . '&content_rev=' . $this->revision;
+        $url = 'daily_gift=2&iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&session_key=' . $this->session_key . '&room_id=100&change_room=1&view_room_id=0&lang=ru&client_type=android&rn=' . $this->popRN() . '&content_rev=' . $this->revision;
         if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
