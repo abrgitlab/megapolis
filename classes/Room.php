@@ -52,12 +52,12 @@ class Room
         'conveyor_transport_helicopters' => [1059692, 1059698, 1059704, 1059800, 1059806, 1059812], //Транспортные вертолёты
         'conveyor_attack_planes' => [1059656, 1059662, 1059668, 1059728, 1059734, 1059740], //Штурмовики
         'conveyor_attack_helicopters' => [1059674, 1059680, 1059686, 1059746], //Ударные вертолёты
-        'conveyor_fighters' => [1059602, 1059608], //Истребители
+        'conveyor_fighters' => [1059602, 1059608, 1059614], //Истребители
         'conveyor_tactical_bombers' => [1059638, 1059644], //Бомбардировщики TB
 //        'conveyor_strategic_bombers' => [], //Бомбардировщики SB
 //        'conveyor_drones' => [], //Беспилотники
 
-        'conveyor_landing_ships' => [1059928, 1059934, 1059940, 1059983, 1060361], //Десантные суда
+        'conveyor_landing_ships' => [1059928, 1059934, 1059940, 1059983, 1059989], //Десантные суда
         'conveyor_ships_of_coastal_zone' => [1059910, 1059916, 1059922], //Корабли
         'conveyor_cruisers' => [1059892, 1059898, 1059904], //Крейсеры
 //        'conveyor_aircraft_carriers',
@@ -328,6 +328,9 @@ class Room
             }
         }
 
+        echo "Models required:\n";
+        var_dump($models_required);
+
         $cached = [];
         $models_for_sale = [];
         $models_for_buy = [];
@@ -339,13 +342,17 @@ class Room
                 if ($queue != '') {
                     $queue_items = explode(',', $queue);
                     $queue_length[$field->localName] = count($queue_items);
+
                     foreach ($queue_items as $queue_item) {
                         $conveyor = explode(':', $queue_item);
 
-                        if ($conveyor[1] == 3) {
-                            $produce_model = Bot::$game->getCityItemById($conveyor[0])['produce_model'];
-                            $produce_model_id = Bot::$game->city_items[$produce_model]['id'];
+                        $produce_model = Bot::$game->getCityItemById($conveyor[0])['produce_model'];
+                        $produce_model_id = Bot::$game->city_items[$produce_model]['id'];
 
+                        if ($models_required[$produce_model_id] > 0)
+                            --$models_required[$produce_model_id];
+
+                        if ($conveyor[1] == 3) {
                             $cached[] = [
                                 'command' => 'pick',
                                 'cmd_id' => Bot::$game->popCmdId(),
@@ -373,6 +380,7 @@ class Room
                         }
                     }
                 }
+
                 foreach ($models_required as $model => $quantity) {
                     if (in_array($model, Room::$military_conveyors[$field->localName])) {
                         $quantity -= $models[$model];
@@ -423,6 +431,9 @@ class Room
 
             Bot::$game->checkAndPerform($cached);
         }
+
+        echo "Models for buy:\n";
+        var_dump($models_for_buy);
 
         $cached = [];
         foreach ($models_for_buy as $model => $quantity) {

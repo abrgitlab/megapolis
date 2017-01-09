@@ -11,7 +11,7 @@ class Bot
 
     public static $host = 'web155.socialquantum.com';
     public static $host_static = 'mb.static.socialquantum.ru';
-    public static $build = '16971';
+    public static $build = '16974';
     public static $client_version = '3.40';
     public static $iauth = '277997eba7f4e51051b0a0a9450afe73';
     public static $user_id = 'UD_5cd98e974c0fec35013c4790';
