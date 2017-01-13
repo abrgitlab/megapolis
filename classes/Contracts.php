@@ -568,16 +568,16 @@ class Contracts
 
             //Хелипорт
             //не окончательно
-            'heliport_stage2' => [
+            'heliport_stage3' => [
                 'short' => [
                     'contract' => 'passenger_flights'
                 ],
                 'actions' => ['pick', 'put']
             ],
 
-            //Каркас валютного фонда Мегаполиса
+            //Валютного фонд Мегаполиса
             //не окончательно
-            'monetary_fund_megapolis_stage1' => [
+            'monetary_fund_megapolis_stage2' => [
                 'short' => [
                     'contract' => 'manufacturing_gift_set_coins'
                 ],
@@ -843,9 +843,9 @@ class Contracts
 
             //Аквапарк
             //не окончательно
-            'aquapark_stage2' => array(
+            'aquapark_stage3' => array(
                 'short' => array(
-                    'contract' => 'conducting_childrens_holiday'
+                    'contract' => 'artificial_surf_champ'
                 ),
 //                'quest_inc_counter' => [
 //                    'on' => 'put',
@@ -858,12 +858,9 @@ class Contracts
 
             //Морской терминал
             //не окончательно
-            'marine_terminal_stage3' => [
+            'marine_terminal_stage4' => [
                 'short' => [
-                    'contract' => 'delivery_tourists_on_yahte',
-                ],
-                'long' => [
-                    'contract' => 'delivery_tourists_on_seaplane',
+                    'contract' => 'delivery_tourists_on_helicopter',
                 ],
 //                'quest_inc_counter' => [
 //                    'on' => 'pick',
@@ -894,6 +891,8 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
+            //Императорский дворец
+            //не окончательно
             'imperial_palace_stage1' => [
                 'short' => [
                     'contract' => 'launching_sky_lanterns', 'friends_request' => true
@@ -901,9 +900,20 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
+            //Обсерватория
+            //не окончательно
             'observatory_stage2' => [
                 'short' => [
                     'contract' => 'lecture_cosmology', 'friends_request' => true
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Центр исторической реконструкции
+            //не окончательно
+            'hist_reconstruction_center_stage1' => [
+                'short' => [
+                    'contract' => 'sale_of_longtailed_boat'
                 ],
                 'actions' => ['pick', 'put']
             ]
@@ -1132,7 +1142,7 @@ class Contracts
 
             //Ворота востока
             //не окончательно
-            'gates_of_east_stage2' => [
+            'gates_of_east_stage3' => [
                 'short' => [
                     'contract' => 'silk_order'
                 ],
