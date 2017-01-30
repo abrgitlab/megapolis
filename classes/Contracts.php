@@ -391,7 +391,7 @@ class Contracts
             ],
 
             //Истребитель
-            'airbase_stage8' => [
+            /*'airbase_stage8' => [
                 'short' => [
                     'contract' => 'pilots_training'
                 ],
@@ -399,7 +399,7 @@ class Contracts
                     'contract' => 'armor_transport'
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
             //Дрейфующая станция
             //не окончательно
@@ -621,12 +621,12 @@ class Contracts
 
             //Портовый склад
             //не окончательно
-            'port_warehouse_stage4' => [
+            /*'port_warehouse_stage4' => [
                 'short' => [
                     'contract' => 'city_goods_export'
                 ],
                 'actions' => ['pick']
-            ],
+            ],*/
 
             //Администрация проекта
             'project_administration_stage2' => [
@@ -913,7 +913,7 @@ class Contracts
             //не окончательно
             'hist_reconstruction_center_stage1' => [
                 'short' => [
-                    'contract' => 'sale_of_longtailed_boat'
+                    'contract' => 'sale_of_longtailed_boats'
                 ],
                 'actions' => ['pick', 'put']
             ]
