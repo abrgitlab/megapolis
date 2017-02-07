@@ -51,7 +51,7 @@ class Room
 
         'conveyor_transport_helicopters' => [1059692, 1059698, 1059704, 1059800, 1059806, 1059812], //Транспортные вертолёты
         'conveyor_attack_planes' => [1059656, 1059662, 1059668, 1059728, 1059734, 1059740], //Штурмовики
-        'conveyor_attack_helicopters' => [1059674, 1059680, 1059686, 1059746], //Ударные вертолёты
+        'conveyor_attack_helicopters' => [1059674, 1059680, 1059686, 1059746, 1059752], //Ударные вертолёты
         'conveyor_fighters' => [1059602, 1059608, 1059614], //Истребители
         'conveyor_tactical_bombers' => [1059638, 1059644], //Бомбардировщики TB
 //        'conveyor_strategic_bombers' => [], //Бомбардировщики SB

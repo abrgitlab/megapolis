@@ -391,7 +391,7 @@ class Contracts
             ],
 
             //Истребитель
-            /*'airbase_stage8' => [
+            'airbase_stage8' => [
                 'short' => [
                     'contract' => 'pilots_training'
                 ],
@@ -399,7 +399,7 @@ class Contracts
                     'contract' => 'armor_transport'
                 ],
                 'actions' => ['pick', 'put']
-            ],*/
+            ],
 
             //Дрейфующая станция
             //не окончательно
@@ -713,6 +713,25 @@ class Contracts
                 ],
                 'actions' => ['pick', 'put']
             ],
+
+            //Телебашня "Небесное дерево"
+            'tokyo_skytree_stage2' => [
+                'short' => [
+                    'contract' => 'the_native_megapolis'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Генеральный штаб ВМФ
+            'navy_headquarters_stage2' => [
+                'short' => [
+                    'contract' => 'education_senior_officers'
+                ],
+                'long' => [
+                    'contract' => 'carrying_naval_exercises'
+                ],
+                'actions' => ['pick', 'put']
+            ]
         ],
 
         //1-я комната
