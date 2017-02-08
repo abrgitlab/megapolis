@@ -112,6 +112,12 @@ class Room
 
             //Из-за UTF-8 в CDATA в разделе marketplace php не парсит xml
             $location_data = preg_replace('/<marketplace>.*<\/marketplace>/', '', $location_data);
+            $location_data = preg_replace('/<neighborhoods.*<\/neighborhoods>/smi', '', $location_data);
+            $location_data = preg_replace('/<items_activity .*<\/items_activity>/', '', $location_data);
+            $location_data = preg_replace('/<quests_activity>.*<\/quests_activity>/', '', $location_data);
+            $location_data = preg_replace('/<military_orders .*<\/military_orders>/', '', $location_data);
+            $location_data = preg_replace('/<game_requests .*<\/game_requests>/', '', $location_data);
+            $location_data = preg_replace('/<support>.*<\/support>/', '', $location_data);
 
             $location_data = Bot::$tidy->repairString($location_data, Bot::$tidy_config);
 

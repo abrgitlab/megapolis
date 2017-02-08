@@ -72,6 +72,11 @@ class Friend
     public $city_name;
 
     /**
+     * @var $neighborhoods array
+     */
+    public $neighborhoods = [];
+
+    /**
      * @param $xml_node DOMNode
      */
     public function loadFromXmlNode($xml_node) {
@@ -119,6 +124,10 @@ class Friend
             }
         }
 
+        $neighborhoods = $xml_node->attributes->getNamedItem('neighborhoods');
+        if ($neighborhoods)
+            $this->neighborhoods = json_decode($neighborhoods->nodeValue);
+
         if ($this->requests) {
             foreach ($this->requests as $request_name => $request) {
                 if (!in_array($request_name, Friend::$requests_not_letters) && isset($request->count) && isset($request->user) && $request->count > 0 && !in_array(Bot::$user_id, $request->user) && $request->time > time() && $this->active) {
@@ -136,6 +145,13 @@ class Friend
             if ($this->help_points > 0) {
                 echo 'Заходим к другу с ID ' . $this->id . ' в комнату '. $room_id . "\n";
                 $room_data = Bot::$game->visitFriend($this->id, $last_room_id, $room_id);
+                $room_data = preg_replace('/<neighborhoods.*<\/neighborhoods>/smi', '', $room_data);
+                $room_data = preg_replace('/<friend_neighborhoods.*<\/friend_neighborhoods>/', '', $room_data);
+                $room_data = preg_replace('/<items_activity .*<\/items_activity>/', '', $room_data);
+                $room_data = preg_replace('/<quests_activity>.*<\/quests_activity>/', '', $room_data);
+                $room_data = preg_replace('/<military_orders .*<\/military_orders>/', '', $room_data);
+                $room_data = preg_replace('/<game_requests .*<\/game_requests>/', '', $room_data);
+                $room_data = preg_replace('/<support>.*<\/support>/', '', $room_data);
 
                 $last_room_id = $room_id;
 

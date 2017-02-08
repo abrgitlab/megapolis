@@ -80,6 +80,12 @@ class Game
 
         //Из-за UTF-8 в CDATA в разделе marketplace php не парсит xml
         $user_data = preg_replace('/<marketplace>.*<\/marketplace>/', '', $user_data);
+        $user_data = preg_replace('/<neighborhoods.*<\/neighborhoods>/smi', '', $user_data);
+        $user_data = preg_replace('/<items_activity .*<\/items_activity>/', '', $user_data);
+        $user_data = preg_replace('/<quests_activity>.*<\/quests_activity>/', '', $user_data);
+        $user_data = preg_replace('/<military_orders .*<\/military_orders>/', '', $user_data);
+        $user_data = preg_replace('/<game_requests .*<\/game_requests>/', '', $user_data);
+        $user_data = preg_replace('/<support>.*<\/support>/', '', $user_data);
 
         $user_data = Bot::$tidy->repairString($user_data, Bot::$tidy_config);
 
@@ -168,7 +174,11 @@ class Game
                     $friend = new Friend();
 
                     $friend->loadFromXmlNode($friend_item);
-                    if (!$friend->pending || $friend->id < 0)
+                    $friend_is_neighborhood = false;
+                    foreach ($friend->neighborhoods as $n_id)
+                        if ($n_id == Bot::$neighborhood_id)
+                            $friend_is_neighborhood = true;
+                    if (!$friend->pending || $friend->id < 0 || $friend_is_neighborhood)
                         $this->friends[] = $friend;
                 }
             }
