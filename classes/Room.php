@@ -52,19 +52,19 @@ class Room
         'conveyor_transport_helicopters' => [1059692, 1059698, 1059704, 1059800, 1059806, 1059812], //Транспортные вертолёты
         'conveyor_attack_planes' => [1059656, 1059662, 1059668, 1059728, 1059734, 1059740], //Штурмовики
         'conveyor_attack_helicopters' => [1059674, 1059680, 1059686, 1059746, 1059752], //Ударные вертолёты
-        'conveyor_fighters' => [1059602, 1059608, 1059614], //Истребители
-        'conveyor_tactical_bombers' => [1059638, 1059644], //Бомбардировщики TB
+        'conveyor_fighters' => [1059602, 1059608, 1059614, 1059710], //Истребители
+        'conveyor_tactical_bombers' => [1059638, 1059644, 1059650], //Бомбардировщики TB
 //        'conveyor_strategic_bombers' => [], //Бомбардировщики SB
 //        'conveyor_drones' => [], //Беспилотники
 
-        'conveyor_landing_ships' => [1059928, 1059934, 1059940, 1059983, 1059989], //Десантные суда
-        'conveyor_ships_of_coastal_zone' => [1059910, 1059916, 1059922], //Корабли
+        'conveyor_landing_ships' => [1059928, 1059934, 1059940, 1059983, 1059989, 1059995], //Десантные суда
+        'conveyor_ships_of_coastal_zone' => [1059910, 1059916, 1059922, 1060158], //Корабли
         'conveyor_cruisers' => [1059892, 1059898, 1059904], //Крейсеры
-        'conveyor_helicopter_carriers' => [1059965],
+        'conveyor_helicopter_carriers' => [1059965], //Вертолётоносцы
 //        'conveyor_aircraft_carriers',
 
-        'conveyor_air_defense_missiles' => [1059428, 1059434, 1059440], //ЗРК
-//        'conveyor_coastal_missiles' => [], //БРК
+        'conveyor_air_defense_missiles' => [1059428, 1059434, 1059440, 1059446], //ЗРК
+        'conveyor_coastal_missiles' => [1059464, 1059470], //БРК
 //        'conveyor_mobile_missiles' => [], //ПРК
 //        'conveyor_intercontinental_missiles' => [], //МБР
 
@@ -95,7 +95,8 @@ class Room
         'conveyor_cruisers' => 69581444,
         'conveyor_helicopter_carriers' => 70699896,
 
-        'conveyor_air_defense_missiles' => 68326106
+        'conveyor_air_defense_missiles' => 68326106,
+        'conveyor_coastal_missiles' => 70492362
     ];
 
     /**
@@ -115,7 +116,6 @@ class Room
             $location_data = preg_replace('/<neighborhoods.*<\/neighborhoods>/smi', '', $location_data);
             $location_data = preg_replace('/<items_activity .*<\/items_activity>/', '', $location_data);
             $location_data = preg_replace('/<quests_activity>.*<\/quests_activity>/', '', $location_data);
-            $location_data = preg_replace('/<military_orders .*<\/military_orders>/', '', $location_data);
             $location_data = preg_replace('/<game_requests .*<\/game_requests>/', '', $location_data);
             $location_data = preg_replace('/<support>.*<\/support>/', '', $location_data);
 

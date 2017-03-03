@@ -715,6 +715,7 @@ class Contracts
             ],
 
             //Телебашня "Небесное дерево"
+            //не окончательно
             'tokyo_skytree_stage2' => [
                 'short' => [
                     'contract' => 'the_native_megapolis'
@@ -723,12 +724,31 @@ class Contracts
             ],
 
             //Генеральный штаб ВМФ
+            //не окончательно
             'navy_headquarters_stage2' => [
                 'short' => [
                     'contract' => 'education_senior_officers'
                 ],
                 'long' => [
                     'contract' => 'carrying_naval_exercises'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Судовая ремонтная служба
+            //не окончательно
+            'ship_repair_service_stage1' => [
+                'short' => [
+                    'contract' => 'tasting_seafood'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Аеровокзал
+            //не окончательно
+            'airport_stage2_level1' => [
+                'short' => [
+                    'contract' => 'airsport_competition'
                 ],
                 'actions' => ['pick', 'put']
             ]
@@ -1172,6 +1192,14 @@ class Contracts
             'bank_inter_settlement_stage2' => [
                 'short' => [
                     'contract' => 'meeting_founders_bank'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Королевский выставочный центр
+            'royal_exhibition_building_stage2' => [
+                'short' => [
+                    'contract' => 'guided_tours_through_halls_exhibition_center'
                 ],
                 'actions' => ['pick', 'put']
             ]

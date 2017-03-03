@@ -21,7 +21,7 @@ class Bot
     public static $mac = '0800270cc3c5';
     public static $advertising_id = 'e4959f11-12a8-4cb1-a5d3-0c3649406e3b';
 
-    public static $neighborhood_id = '1193';
+    public static $neighborhood_id = '18972';
 
     /**
      * @var $options array
@@ -116,7 +116,7 @@ class Bot
         Bot::$game->discardAskMaterial();
 //        Bot::$game->sendFuelToFriends();
         Bot::$game->handleLetters();
-//        Bot::$game->openChest();
+        Bot::$game->openChest();
         Bot::$game->room->doMilitaryWork();
         Bot::$game->room->signContracts();
         Bot::$game->room->getCoins();
