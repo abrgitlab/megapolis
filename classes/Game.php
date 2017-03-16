@@ -83,7 +83,6 @@ class Game
         $user_data = preg_replace('/<neighborhoods.*<\/neighborhoods>/smi', '', $user_data);
         $user_data = preg_replace('/<items_activity .*<\/items_activity>/', '', $user_data);
         $user_data = preg_replace('/<quests_activity>.*<\/quests_activity>/', '', $user_data);
-        $user_data = preg_replace('/<military_orders .*<\/military_orders>/', '', $user_data);
         $user_data = preg_replace('/<game_requests .*<\/game_requests>/', '', $user_data);
         $user_data = preg_replace('/<support>.*<\/support>/', '', $user_data);
 

@@ -575,7 +575,7 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
-            //Валютного фонд Мегаполиса
+            //Валютный фонд Мегаполиса
             //не окончательно
             'monetary_fund_megapolis_stage2' => [
                 'short' => [
@@ -746,9 +746,61 @@ class Contracts
 
             //Аеровокзал
             //не окончательно
-            'airport_stage2_level1' => [
+            'airport_stage2_level2' => [
                 'short' => [
                     'contract' => 'airsport_competition'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Администрация водных гонок
+            //не окончательно
+            'water_races_administration_stage1' => [
+                'short' => [
+                    'contract' => 'check_condition_cars'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //М-Сити
+            //не окончательно
+            'm_city_stage2' => [
+                'short' => [
+                    'contract' => 'job_fair_for_young_proff'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Институт природных явлений
+            //не окончательно
+            'institute_natural_phenomena_stage1' => [
+                'short' => [
+                    'contract' => 'sampling_from_bottom_crater'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Гидротехнический комплекс
+            'base_hydrotechnicians_stage3' => [
+                'short' => [
+                    'contract' => 'installing_geomembranes'
+                ],
+                'long' => [
+                    'contract' => 'extreme_canyon_tour', 'friends_request' => true
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            'business_jet1_buildsite' => [
+                'short' => [
+                    'contract' => 'custom_route_flight1'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            'cargo_airplane7_stage1' => [
+                'short' => [
+                    'contract' => 'drugs_dispatch1'
                 ],
                 'actions' => ['pick', 'put']
             ]
@@ -1200,6 +1252,15 @@ class Contracts
             'royal_exhibition_building_stage2' => [
                 'short' => [
                     'contract' => 'guided_tours_through_halls_exhibition_center'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //М-Сити
+            //не окончательно
+            'm_city_stage2' => [
+                'short' => [
+                    'contract' => 'job_fair_for_young_proff'
                 ],
                 'actions' => ['pick', 'put']
             ]

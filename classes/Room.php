@@ -46,20 +46,20 @@ class Room
         'conveyor_multiple_rocket_launch_system' => [1059246, 1059252, 1059258, 1059264, 1059270, 1059276], //РСЗО
 
         'conveyor_lifesaving_underwater_vehicle' => [1060002, 1060008, 1060014, 1060057, 1060063, 1060069], //Батискафы
-        'conveyor_diesel_submarines' => [1060020, 1060026, 1060032, 1060075, 1060081], //Дизельные подлодки
-        'conveyor_nuclear_submarines' => [1060039, 1060045], //Атомные подлодки
+        'conveyor_diesel_submarines' => [1060020, 1060026, 1060032, 1060075, 1060081, 1060087], //Дизельные подлодки
+        'conveyor_nuclear_submarines' => [1060039, 1060045, 1060051, 1060093], //Атомные подлодки
 
         'conveyor_transport_helicopters' => [1059692, 1059698, 1059704, 1059800, 1059806, 1059812], //Транспортные вертолёты
         'conveyor_attack_planes' => [1059656, 1059662, 1059668, 1059728, 1059734, 1059740], //Штурмовики
         'conveyor_attack_helicopters' => [1059674, 1059680, 1059686, 1059746, 1059752], //Ударные вертолёты
         'conveyor_fighters' => [1059602, 1059608, 1059614, 1059710], //Истребители
         'conveyor_tactical_bombers' => [1059638, 1059644, 1059650], //Бомбардировщики TB
-//        'conveyor_strategic_bombers' => [], //Бомбардировщики SB
+        'conveyor_strategic_bombers' => [1059620, 1059626], //Бомбардировщики SB
 //        'conveyor_drones' => [], //Беспилотники
 
         'conveyor_landing_ships' => [1059928, 1059934, 1059940, 1059983, 1059989, 1059995], //Десантные суда
-        'conveyor_ships_of_coastal_zone' => [1059910, 1059916, 1059922, 1060158], //Корабли
-        'conveyor_cruisers' => [1059892, 1059898, 1059904], //Крейсеры
+        'conveyor_ships_of_coastal_zone' => [1059910, 1059916, 1059922, 1060152, 1060158, 1060164], //Корабли
+        'conveyor_cruisers' => [1059892, 1059898, 1059904, 1060170], //Крейсеры
         'conveyor_helicopter_carriers' => [1059965], //Вертолётоносцы
 //        'conveyor_aircraft_carriers',
 
@@ -89,6 +89,7 @@ class Room
         'conveyor_attack_helicopters' => 66546628,
         'conveyor_fighters' => 69323266,
         'conveyor_tactical_bombers' => 69323267,
+        'conveyor_strategic_bombers' => 72676527,
 
         'conveyor_landing_ships' => 67995334,
         'conveyor_ships_of_coastal_zone' => 67995335,
@@ -111,7 +112,7 @@ class Room
         } else {
             $location_data = Bot::$game->getRoomStat($this->id);
 
-            //Из-за UTF-8 в CDATA в разделе marketplace php не парсит xml
+            //Из-за UTF-8 в CDATA php не парсит xml
             $location_data = preg_replace('/<marketplace>.*<\/marketplace>/', '', $location_data);
             $location_data = preg_replace('/<neighborhoods.*<\/neighborhoods>/smi', '', $location_data);
             $location_data = preg_replace('/<items_activity .*<\/items_activity>/', '', $location_data);
