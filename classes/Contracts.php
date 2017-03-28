@@ -803,6 +803,20 @@ class Contracts
                     'contract' => 'drugs_dispatch1'
                 ],
                 'actions' => ['pick', 'put']
+            ],
+
+            'institute_geocryology_stage1' => [
+                'short' => [
+                    'contract' => 'find_new_way_water_extraction'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            55124671 => [
+                'short' => [
+                    'contract' => 'organization_charity_reception'
+                ],
+                'actions' => ['pick', 'put']
             ]
         ],
 
@@ -1005,6 +1019,13 @@ class Contracts
             'hist_reconstruction_center_stage1' => [
                 'short' => [
                     'contract' => 'sale_of_longtailed_boats'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            'restoration_work_service_stage1' => [
+                'short' => [
+                    'contract' => 'seascape_admiration'
                 ],
                 'actions' => ['pick', 'put']
             ]
