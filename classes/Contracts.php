@@ -791,6 +791,8 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
+            //Бизнес-джет
+            //не окончательно
             'business_jet1_buildsite' => [
                 'short' => [
                     'contract' => 'custom_route_flight1'
@@ -798,6 +800,8 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
+            //Грузовой терминал
+            //не окончательно
             'cargo_airplane7_stage1' => [
                 'short' => [
                     'contract' => 'drugs_dispatch1'
@@ -805,6 +809,8 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
+            //Институт геокриологии
+            //не окончательно
             'institute_geocryology_stage1' => [
                 'short' => [
                     'contract' => 'find_new_way_water_extraction'
@@ -812,7 +818,9 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
-            55124671 => [
+            //Отельный комплекс "Конрад"
+            //не окончательно
+            'hotel_konrad_stage2' => [
                 'short' => [
                     'contract' => 'organization_charity_reception'
                 ],
@@ -1134,7 +1142,16 @@ class Contracts
                     'contract' => 'study_ball_lightning'
                 ],
                 'actions' => ['pick', 'put']
-            ]
+            ],
+
+            //Лаборатория биолюминесценции
+            //не окончательно
+            'lab_bioluminescence_stage2' => [
+                'short' => [
+                    'contract' => 'luminescence_in_nature'
+                ],
+                'actions' => ['pick', 'put']
+            ],
         ],
 
         //5-я комната
@@ -1282,6 +1299,15 @@ class Contracts
             'm_city_stage2' => [
                 'short' => [
                     'contract' => 'job_fair_for_young_proff'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Отельный комплекс "Конрад"
+            //не окончательно
+            'hotel_konrad_stage2' => [
+                'short' => [
+                    'contract' => 'organization_charity_reception'
                 ],
                 'actions' => ['pick', 'put']
             ]
