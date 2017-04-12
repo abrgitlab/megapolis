@@ -172,7 +172,7 @@ class Contracts
             //не окончательно
             'polo_club_stage1' => [
                 'short' => [
-                    'contract' => 'participants_championship', 'friends_request' => true
+                    'contract' => 'champ_horse_polo'
                 ],
                 'actions' => ['pick', 'put']
             ],
@@ -1152,6 +1152,18 @@ class Contracts
                 ],
                 'actions' => ['pick', 'put']
             ],
+
+            //Департамент природных катаклизмов
+            //не окончательно
+            'department_natural_disasters_stage1' => [
+                'short' => [
+                    'contract' => 'sale_products_igneous_rocks'
+                ],
+                'long' => [
+                    'contract' => 'article_about_blue_lights'
+                ],
+                'actions' => ['pick', 'put']
+            ]
         ],
 
         //5-я комната
