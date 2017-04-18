@@ -55,7 +55,7 @@ class Room
         'conveyor_fighters' => [1059602, 1059608, 1059614, 1059710, 1059716], //Истребители
         'conveyor_tactical_bombers' => [1059638, 1059644, 1059650, 1059764], //Бомбардировщики TB
         'conveyor_strategic_bombers' => [1059620, 1059626, 1059632], //Бомбардировщики SB
-//        'conveyor_drones' => [], //Беспилотники
+        'conveyor_drones' => [1059818], //Беспилотники
 
         'conveyor_landing_ships' => [1059928, 1059934, 1059940, 1059983, 1059989, 1059995], //Десантные суда
         'conveyor_ships_of_coastal_zone' => [1059910, 1059916, 1059922, 1060152, 1060158, 1060164], //Корабли
@@ -90,6 +90,7 @@ class Room
         'conveyor_fighters' => 69323266,
         'conveyor_tactical_bombers' => 69323267,
         'conveyor_strategic_bombers' => 72676527,
+        'conveyor_drones' => 73402837, //Беспилотники
 
         'conveyor_landing_ships' => 67995334,
         'conveyor_ships_of_coastal_zone' => 67995335,
@@ -318,14 +319,11 @@ class Room
 
         $priority = [];
         $military_orders_items = (json_decode($this->military_orders->textContent, true));
-        //echo "military_orders_items (необходимые для заданий юниты)\n";
         foreach ($military_orders_items as $index => $military_orders_item) {
             $priority[$military_orders_item['military_points']] = [];
             foreach ($military_orders_item['models'] as $order_model) {
                 $priority[$military_orders_item['military_points']][] = $order_model['item_id'];
             }
-            /*echo "$index\n";
-            var_dump($military_orders_item['models']);*/
         }
         krsort($priority);
 
@@ -342,8 +340,6 @@ class Room
                 $models[$model] = $quantity;
             }
         }
-        /*echo "models (юнитов в наличии)\n";
-        var_dump($models);*/
 
         $models_required = []; //Юнитов требуется
         foreach ($military_orders_items as $military_order) {
@@ -356,8 +352,6 @@ class Room
                 }
             }
         }
-        /*echo "models_required (юнитов требуется 1)\n";
-        var_dump($models_required);*/
 
         $cached = [];
         $models_for_sale = []; //Юнитов для продажи
@@ -370,9 +364,6 @@ class Room
                     $queue_items = explode(',', $queue);
 
                     $queue_length = count($queue_items);
-
-                    /*echo "queue_items $field->localName\n";
-                    var_dump($queue_items);*/
 
                     foreach ($queue_items as $queue_item) { //Рассмотрим каждый юнит на конвейере
                         $conveyor = explode(':', $queue_item);
@@ -411,8 +402,6 @@ class Room
                     }
                 }
 
-                /*foreach ($models_required as $model => $quantity) { //Пробежимся по требуемым юнитам в пределах конвейера
-                    if (in_array($model, Room::$military_conveyors[$field->localName])) { //Если текущий юнит доступен*/
                 foreach (Room::$military_conveyors[$field->localName] as $model) {
                     if (isset($models_required[$model])) {
                         $quantity = $models_required[$model] - $models[$model]; //Вычтем число готовой продукции из числа требуемой
@@ -436,9 +425,6 @@ class Room
             }
         }
 
-        /*echo "models_required (юнитов требуется 2)\n";
-        var_dump($models_required);*/
-
         if (count($cached) > 0) {
             for ($i = count($cached); $i > 0; --$i) {
                 echo "Ждём сбора произведённой военной продукции $i сек.\n";
@@ -448,10 +434,6 @@ class Room
 
             Bot::$game->checkAndPerform($cached);
         }
-        /*echo "models_for_sale (юниты для продажи)\n";
-        var_dump($models_for_sale);
-        echo "models_for_buy (юниты для покупки)\n";
-        var_dump($models_for_buy);*/
 
         $cached = [];
         foreach ($models_for_sale as $model_for_sale => $quantity) {

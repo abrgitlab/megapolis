@@ -1265,7 +1265,7 @@ class Contracts
 
             //Отель "Снежная вершина"
             //не окончательно
-            'hotel_snowy_peak_buildsite' => [
+            'hotel_snowy_peak_stage1' => [
                 'short' => [
                     'contract' => 'development_insulated_tramcars'
                 ],

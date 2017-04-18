@@ -606,19 +606,29 @@ class Game
      * Открываем сундук
      */
     public function openChest() {
-        $chest_name = 'chest_event27';
-
-        $roll_counter = $this->room->location_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('roll_counter')->nodeValue;
+        $chest_name = 'chest_event29';
 
         /*$chest = $this->room->location_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('chest');
         if ($chest)
             $chest = json_decode($chest->nodeValue);*/
         $chest_actions = $this->room->location_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('chest_actions');
-        $chest_time_last_open = time();
-        if ($chest_actions) {
-            $chest_actions = json_decode($chest_actions->nodeValue);
-            $chest_time_last_open = $chest_actions->$chest_name->last_open;
+
+        if (!$chest_actions)
+            return;
+
+        $chest_actions = json_decode($chest_actions->nodeValue);
+        $chest_actions_keys = get_object_vars($chest_actions);
+        if (count($chest_actions_keys) === 0)
+            return;
+
+        foreach ($chest_actions_keys as $key => $item) {
+            $chest_name = $key;
+            break;
         }
+
+        $chest_time_last_open = $chest_actions->$chest_name->last_open;
+
+        $roll_counter = $this->room->location_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('roll_counter')->nodeValue;
 
         $chest_action_tower1 = null;
         $chest_action_chest1 = $this->room->getBarnQuantity('chest_action_chest1');
