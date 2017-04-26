@@ -811,12 +811,12 @@ class Contracts
 
             //Институт геокриологии
             //не окончательно
-            'institute_geocryology_stage1' => [
+            /*'institute_geocryology_stage1' => [
                 'short' => [
                     'contract' => 'find_new_way_water_extraction'
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
             //Отельный комплекс "Конрад"
             //не окончательно
@@ -1161,6 +1161,15 @@ class Contracts
                 ],
                 'long' => [
                     'contract' => 'article_about_blue_lights'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Институт полярного сияния
+            //не окончательно
+            'institute_aurora_stage1' => [
+                'short' => [
+                    'contract' => 'experiment_accelerate_particle'
                 ],
                 'actions' => ['pick', 'put']
             ]
