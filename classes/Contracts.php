@@ -970,7 +970,6 @@ class Contracts
             ),
 
             //Морской терминал
-            //не окончательно
             'marine_terminal_stage4' => [
                 'short' => [
                     'contract' => 'delivery_tourists_on_helicopter',
