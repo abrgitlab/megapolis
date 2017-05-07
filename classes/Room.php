@@ -53,7 +53,7 @@ class Room
         'conveyor_attack_planes' => [1059656, 1059662, 1059668, 1059728, 1059734, 1059740], //Штурмовики
         'conveyor_attack_helicopters' => [1059674, 1059680, 1059686, 1059746, 1059752, 1059758], //Ударные вертолёты
         'conveyor_fighters' => [1059602, 1059608, 1059614, 1059710, 1059716, 1059722], //Истребители
-        'conveyor_tactical_bombers' => [1059638, 1059644, 1059650, 1059764], //Бомбардировщики TB
+        'conveyor_tactical_bombers' => [1059638, 1059644, 1059650, 1059764, 1059770], //Бомбардировщики TB
         'conveyor_strategic_bombers' => [1059620, 1059626, 1059632, 1059782], //Бомбардировщики SB
         'conveyor_drones' => [1059818, 1059824], //Беспилотники
 
@@ -65,7 +65,7 @@ class Room
 
         'conveyor_air_defense_missiles' => [1059428, 1059434, 1059440, 1059446, 1059452], //ЗРК
         'conveyor_coastal_missiles' => [1059464, 1059470, 1059476, 1059482], //БРК
-//        'conveyor_mobile_missiles' => [1059392], //ПРК
+//        'conveyor_mobile_missiles' => [1059392, 1059398], //ПРК
 //        'conveyor_intercontinental_missiles' => [], //МБР
 
     ];

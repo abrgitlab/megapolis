@@ -263,13 +263,12 @@ class Contracts
             ],
 
             //Администрация зоопарка
-            //не окончательно
-            'administration_zoo_up2' => [
+            /*'administration_zoo_up3' => [
                 'short' => [
                     'contract' => 'exhibition_of_birds', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
             //Ассоциация рок-н-ролла
             //не окончательно
@@ -811,12 +810,12 @@ class Contracts
 
             //Институт геокриологии
             //не окончательно
-            /*'institute_geocryology_stage1' => [
+            'institute_geocryology_stage1' => [
                 'short' => [
-                    'contract' => 'find_new_way_water_extraction'
+                    'contract' => 'measuring_size_glacier'
                 ],
                 'actions' => ['pick', 'put']
-            ],*/
+            ],
 
             //Отельный комплекс "Конрад"
             //не окончательно
@@ -955,8 +954,7 @@ class Contracts
             ],
 
             //Аквапарк
-            //не окончательно
-            'aquapark_stage3' => array(
+            'aquapark_stage4' => array(
                 'short' => array(
                     'contract' => 'artificial_surf_champ'
                 ),
@@ -970,9 +968,9 @@ class Contracts
             ),
 
             //Морской терминал
-            'marine_terminal_stage4' => [
+            'marine_terminal_stage5' => [
                 'short' => [
-                    'contract' => 'delivery_tourists_on_helicopter',
+                    'contract' => 'delivery_tourists_on_liner',
                 ],
 //                'quest_inc_counter' => [
 //                    'on' => 'pick',
@@ -1229,7 +1227,7 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
-            //Сервисный центр
+            //Площадка аеростатов
             //не окончательно
             'area_aerostats_stage2' => [
                 'short' => [
@@ -1273,7 +1271,7 @@ class Contracts
 
             //Отель "Снежная вершина"
             //не окончательно
-            'hotel_snowy_peak_stage1' => [
+            'hotel_snowy_peak_stage2' => [
                 'short' => [
                     'contract' => 'development_insulated_tramcars'
                 ],
