@@ -263,12 +263,12 @@ class Contracts
             ],
 
             //Администрация зоопарка
-            /*'administration_zoo_up3' => [
+            'administration_zoo_up3' => [
                 'short' => [
                     'contract' => 'exhibition_of_birds', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
-            ],*/
+            ],
 
             //Ассоциация рок-н-ролла
             //не окончательно
