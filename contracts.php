@@ -164,7 +164,6 @@ foreach($location_data_xml->getElementsByTagName('friends')->item(0)->childNodes
                     $friends_for_invite_in_gambling_zone[] = $friend_id;
                 }
             }
-            //TODO: анализ списка желаний друзей и раздаривание материалов
         }
 
         if ($friend_id != '-41' && $friend_id != '-43') {
@@ -243,9 +242,8 @@ foreach($location_data_xml->getElementsByTagName('friends')->item(0)->childNodes
                 }
             }
 
-            if (isset($friend_requests->ask_material_common)) {
-                //TODO: понять, как отказывать друзьям
-            }
+            /*if (isset($friend_requests->ask_material_common)) {
+            }*/
 
             if (isset($friend_requests->gambling_zone_staff_back->user) && count($friend_requests->gambling_zone_staff_back->user) == 0) {
                 $cached_string = "&cached[0][command]=commit_request&cached[0][cmd_id]=$cmd_id&cached[0][room_id]=0&cached[0][name]=gambling_zone_staff_back&cached[0][friend_id]=$friend_id&cached[0][item_id]=0&cached[0][uxtime]=" . time();

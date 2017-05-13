@@ -54,7 +54,7 @@ class Room
         'conveyor_attack_helicopters' => [1059674, 1059680, 1059686, 1059746, 1059752, 1059758], //Ударные вертолёты
         'conveyor_fighters' => [1059602, 1059608, 1059614, 1059710, 1059716, 1059722], //Истребители
         'conveyor_tactical_bombers' => [1059638, 1059644, 1059650, 1059764, 1059770], //Бомбардировщики TB
-        'conveyor_strategic_bombers' => [1059620, 1059626, 1059632, 1059782], //Бомбардировщики SB
+        'conveyor_strategic_bombers' => [1059620, 1059626, 1059632, 1059782, 1059788], //Бомбардировщики SB
         'conveyor_drones' => [1059818, 1059824], //Беспилотники
 
         'conveyor_landing_ships' => [1059928, 1059934, 1059940, 1059983, 1059989, 1059995], //Десантные суда
@@ -63,9 +63,9 @@ class Room
         'conveyor_helicopter_carriers' => [1059965, 1059971], //Вертолётоносцы
         'conveyor_aircraft_carriers' => [1059947], //Авианосцы
 
-        'conveyor_air_defense_missiles' => [1059428, 1059434, 1059440, 1059446, 1059452], //ЗРК
+        'conveyor_air_defense_missiles' => [1059428, 1059434, 1059440, 1059446, 1059452, 1059458], //ЗРК
         'conveyor_coastal_missiles' => [1059464, 1059470, 1059476, 1059482], //БРК
-//        'conveyor_mobile_missiles' => [1059392, 1059398], //ПРК
+        'conveyor_mobile_missiles' => [1059392, 1059398], //ПРК
 //        'conveyor_intercontinental_missiles' => [], //МБР
 
     ];
@@ -100,7 +100,7 @@ class Room
 
         'conveyor_air_defense_missiles' => 68326106,
         'conveyor_coastal_missiles' => 70492362,
-        //'conveyor_mobile_missiles' =>
+        'conveyor_mobile_missiles' => 67536286
     ];
 
     /**
@@ -565,6 +565,126 @@ class Room
         if (count($cached) > 0) {
             for ($i = count($cached); $i > 0; --$i) {
                 echo "Ждём обработки конвейера пиротехники $i сек.\n";
+                $cached[count($cached) - $i]['uxtime'] = time();
+                sleep(1);
+            }
+
+            Bot::$game->checkAndPerform($cached);
+        }
+    }
+
+    /**
+     * Работа с китайской фабрикой
+     */
+    public function doChineseFactoryWork() {
+        $items_count = [
+            '1016932' => $this->getBarnQuantity('casket'),
+            '1016933' => $this->getBarnQuantity('bronze_statuette'),
+            '1016934' => $this->getBarnQuantity('antique_teapot'),
+            '1016935' => $this->getBarnQuantity('ceramic_vase'),
+            '1016936' => $this->getBarnQuantity('jade_medallion'),
+            '1016937' => $this->getBarnQuantity('hair_comb')
+        ];
+
+        $production_ids = [
+            '20080406' => 'casket_production',
+            '20080407' => 'bronze_statuette_production',
+            '20080408' => 'antique_teapot_production',
+            '20080409' => 'ceramic_vase_production',
+            '20080410' => 'jade_medallion_production',
+            '20080411' => 'hair_comb_production'
+        ];
+
+        $cached = [];
+        foreach($this->field_data->childNodes->item(0)->childNodes as $field) {
+            if ($field->localName == 'museum_chinese_civilization_stage3') {
+                $queue = $field->attributes->getNamedItem('queue')->nodeValue;
+                $queue_length = 0;
+                if ($queue != '') {
+                    $queue_items = explode(',', $queue);
+                    $queue_length = count($queue_items);
+                    foreach ($queue_items as $queue_item) {
+                        $conveyor = explode(':', $queue_item);
+
+                        if ($conveyor[1] == 3) {
+                            $cached[] = [
+                                'command' => 'pick',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => 74533735,
+                                'index' => 0,
+                                'klass' => $production_ids[$conveyor[0]]
+                            ];
+
+                            ++$items_count[$conveyor[0]];
+                            --$queue_length;
+                        }
+                    }
+                }
+
+                for ($i = $queue_length; $i < 3; ++$i) {
+                    if ($items_count['1016932'] < 6) { //Шкатулок должно быть 6
+                        $cached[] = [
+                            'command' => 'put',
+                            'cmd_id' => Bot::$game->popCmdId(),
+                            'room_id' => $this->id,
+                            'item_id' => 74533735,
+                            'klass' => $production_ids['20080406']
+                        ];
+                        ++$items_count['1016932'];
+                    } elseif ($items_count['1016933'] < 5) { //Бронзовых статуй должно быть 5
+                        $cached[] = [
+                            'command' => 'put',
+                            'cmd_id' => Bot::$game->popCmdId(),
+                            'room_id' => $this->id,
+                            'item_id' => 74533735,
+                            'klass' => $production_ids['20080407']
+                        ];
+                        ++$items_count['1016933'];
+                    } elseif ($items_count['1016934'] < 3) { //Античных чайников должно быть 3
+                        $cached[] = [
+                            'command' => 'put',
+                            'cmd_id' => Bot::$game->popCmdId(),
+                            'room_id' => $this->id,
+                            'item_id' => 74533735,
+                            'klass' => $production_ids['20080408']
+                        ];
+                        ++$items_count['1016934'];
+                    } elseif ($items_count['1016935'] < 4) { //Керамических ваз должно быть 4
+                        $cached[] = [
+                            'command' => 'put',
+                            'cmd_id' => Bot::$game->popCmdId(),
+                            'room_id' => $this->id,
+                            'item_id' => 74533735,
+                            'klass' => $production_ids['20080409']
+                        ];
+                        ++$items_count['1016935'];
+                    } elseif ($items_count['1016936'] < 2) { //Нефритовых медальонов должно быть 3
+                        $cached[] = [
+                            'command' => 'put',
+                            'cmd_id' => Bot::$game->popCmdId(),
+                            'room_id' => $this->id,
+                            'item_id' => 74533735,
+                            'klass' => $production_ids['20080410']
+                        ];
+                        ++$items_count['1016936'];
+                    } else/*if ($items_count['1016937'] < 2)*/ { //Гребней должно быть 2
+                        $cached[] = [
+                            'command' => 'put',
+                            'cmd_id' => Bot::$game->popCmdId(),
+                            'room_id' => $this->id,
+                            'item_id' => 74533735,
+                            'klass' => $production_ids['20080411']
+                        ];
+                        ++$items_count['1016937'];
+                    }
+                }
+            }
+        }
+
+        if (count($cached) > 0) {
+            for ($i = count($cached); $i > 0; --$i) {
+                echo "Ждём обработки конвейера китайской фабрики $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }

@@ -117,6 +117,7 @@ class Bot
 //        Bot::$game->sendFuelToFriends();
         Bot::$game->handleLetters();
         Bot::$game->openChest();
+        Bot::$game->room->doChineseFactoryWork();
         Bot::$game->room->doMilitaryWork();
         Bot::$game->room->signContracts();
         Bot::$game->room->getCoins();

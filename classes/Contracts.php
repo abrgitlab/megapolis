@@ -1229,9 +1229,12 @@ class Contracts
 
             //Площадка аеростатов
             //не окончательно
-            'area_aerostats_stage2' => [
+            'area_aerostats_stage3' => [
                 'short' => [
-                    'contract' => 'inflating_balloons'
+                    'contract' => 'parachute_training'
+                ],
+                'long' => [
+                    'contract' => 'festival_kites', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
             ],
