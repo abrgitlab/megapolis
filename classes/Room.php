@@ -554,14 +554,14 @@ class Room
             '1016937' => $this->getBarnQuantity('hair_comb')
         ];
 
-        $production_ids = [
+        /*$production_ids = [
             '20080406' => 'casket_production',
             '20080407' => 'bronze_statuette_production',
             '20080408' => 'antique_teapot_production',
             '20080409' => 'ceramic_vase_production',
             '20080410' => 'jade_medallion_production',
             '20080411' => 'hair_comb_production'
-        ];
+        ];*/
 
         $cached = [];
         foreach($this->field_data->childNodes->item(0)->childNodes as $field) {
@@ -581,7 +581,7 @@ class Room
                                 'room_id' => $this->id,
                                 'item_id' => 74533735,
                                 'index' => 0,
-                                'klass' => $production_ids[$conveyor[0]]
+                                'klass' => Bot::$game->getCityItemById($conveyor[0])['item_name']//$production_ids[$conveyor[0]]
                             ];
 
                             ++$items_count[$conveyor[0]];
@@ -598,7 +598,7 @@ class Room
                                 'cmd_id' => Bot::$game->popCmdId(),
                                 'room_id' => $this->id,
                                 'item_id' => 74533735,
-                                'klass' => $production_ids['20080406']
+                                'klass' => Bot::$game->getCityItemById('20080406')
                             ];
                             ++$items_count['1016932'];
                             break;
@@ -608,7 +608,7 @@ class Room
                                 'cmd_id' => Bot::$game->popCmdId(),
                                 'room_id' => $this->id,
                                 'item_id' => 74533735,
-                                'klass' => $production_ids['20080407']
+                                'klass' => Bot::$game->getCityItemById('20080407')
                             ];
                             ++$items_count['1016933'];
                             break;
@@ -618,7 +618,7 @@ class Room
                                 'cmd_id' => Bot::$game->popCmdId(),
                                 'room_id' => $this->id,
                                 'item_id' => 74533735,
-                                'klass' => $production_ids['20080408']
+                                'klass' => Bot::$game->getCityItemById('20080408')
                             ];
                             ++$items_count['1016934'];
                             break;
@@ -628,7 +628,7 @@ class Room
                                 'cmd_id' => Bot::$game->popCmdId(),
                                 'room_id' => $this->id,
                                 'item_id' => 74533735,
-                                'klass' => $production_ids['20080409']
+                                'klass' => Bot::$game->getCityItemById('20080409')
                             ];
                             ++$items_count['1016935'];
                             break;
@@ -638,7 +638,7 @@ class Room
                                 'cmd_id' => Bot::$game->popCmdId(),
                                 'room_id' => $this->id,
                                 'item_id' => 74533735,
-                                'klass' => $production_ids['20080410']
+                                'klass' => Bot::$game->getCityItemById('20080410')
                             ];
                             ++$items_count['1016936'];
                             break;
@@ -648,7 +648,7 @@ class Room
                                 'cmd_id' => Bot::$game->popCmdId(),
                                 'room_id' => $this->id,
                                 'item_id' => 74533735,
-                                'klass' => $production_ids['20080411']
+                                'klass' => Bot::$game->getCityItemById('20080411')
                             ];
                             ++$items_count['1016937'];
                             break;

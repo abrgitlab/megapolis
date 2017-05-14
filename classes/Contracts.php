@@ -1331,6 +1331,15 @@ class Contracts
                     'contract' => 'organization_charity_reception'
                 ],
                 'actions' => ['pick', 'put']
+            ],
+
+            //
+            //не окончательно
+            'china_association_arch_stage1' => [
+                'short' => [
+                    'contract' => '64565891'
+                ],
+                'actions' => ['pick', 'put']
             ]
         ]
     ];
