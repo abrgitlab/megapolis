@@ -546,26 +546,19 @@ class Room
      */
     public function doChineseFactoryWork() {
         $items_count = [
-            '1016932' => $this->getBarnQuantity('casket'),
-            '1016933' => $this->getBarnQuantity('bronze_statuette'),
-            '1016934' => $this->getBarnQuantity('antique_teapot'),
-            '1016935' => $this->getBarnQuantity('ceramic_vase'),
-            '1016936' => $this->getBarnQuantity('jade_medallion'),
-            '1016937' => $this->getBarnQuantity('hair_comb')
+            '20080406' => $this->getBarnQuantity('casket'),
+            '20080407' => $this->getBarnQuantity('bronze_statuette'),
+            '20080408' => $this->getBarnQuantity('antique_teapot'),
+            '20080409' => $this->getBarnQuantity('ceramic_vase'),
+            '20080410' => $this->getBarnQuantity('jade_medallion'),
+            '20080411' => $this->getBarnQuantity('hair_comb')
         ];
-
-        /*$production_ids = [
-            '20080406' => 'casket_production',
-            '20080407' => 'bronze_statuette_production',
-            '20080408' => 'antique_teapot_production',
-            '20080409' => 'ceramic_vase_production',
-            '20080410' => 'jade_medallion_production',
-            '20080411' => 'hair_comb_production'
-        ];*/
 
         $cached = [];
         foreach($this->field_data->childNodes->item(0)->childNodes as $field) {
-            if ($field->localName == 'museum_chinese_civilization_stage3') {
+            $fieldName = $field->localName;
+            if ($fieldName == 'museum_chinese_civilization_stage3' || $fieldName == 'museum_chinese_civilization_stage2') {
+                $fieldId = $field->attributes->getNamedItem('id')->nodeValue;
                 $queue = $field->attributes->getNamedItem('queue')->nodeValue;
                 $queue_length = 0;
                 if ($queue != '') {
@@ -579,9 +572,9 @@ class Room
                                 'command' => 'pick',
                                 'cmd_id' => Bot::$game->popCmdId(),
                                 'room_id' => $this->id,
-                                'item_id' => 74533735,
+                                'item_id' => $fieldId,
                                 'index' => 0,
-                                'klass' => Bot::$game->getCityItemById($conveyor[0])['item_name']//$production_ids[$conveyor[0]]
+                                'klass' => Bot::$game->getCityItemById($conveyor[0])['item_name']
                             ];
 
                             ++$items_count[$conveyor[0]];
@@ -592,65 +585,65 @@ class Room
 
                 for ($i = $queue_length; $i < 3; ++$i) {
                     for ($coeff = 1; true; ++$coeff) {
-                        if ($items_count['1016932'] < 6 * $coeff) { //Шкатулок должно быть 6
+                        if ($items_count['20080406'] < (6 * $coeff) && $fieldName == 'museum_chinese_civilization_stage2') { //Шкатулок должно быть 6
                             $cached[] = [
                                 'command' => 'put',
                                 'cmd_id' => Bot::$game->popCmdId(),
                                 'room_id' => $this->id,
-                                'item_id' => 74533735,
-                                'klass' => Bot::$game->getCityItemById('20080406')
+                                'item_id' => $fieldId,
+                                'klass' => Bot::$game->getCityItemById('20080406')['item_name']
                             ];
-                            ++$items_count['1016932'];
+                            ++$items_count['20080406'];
                             break;
-                        } elseif ($items_count['1016933'] < 5 * $coeff) { //Бронзовых статуй должно быть 5
+                        } elseif ($items_count['20080407'] < (5 * $coeff) && $fieldName == 'museum_chinese_civilization_stage2') { //Бронзовых статуй должно быть 5
                             $cached[] = [
                                 'command' => 'put',
                                 'cmd_id' => Bot::$game->popCmdId(),
                                 'room_id' => $this->id,
-                                'item_id' => 74533735,
-                                'klass' => Bot::$game->getCityItemById('20080407')
+                                'item_id' => $fieldId,
+                                'klass' => Bot::$game->getCityItemById('20080407')['item_name']
                             ];
-                            ++$items_count['1016933'];
+                            ++$items_count['20080407'];
                             break;
-                        } elseif ($items_count['1016934'] < 3 * $coeff) { //Античных чайников должно быть 3
+                        } elseif ($items_count['20080408'] < (3 * $coeff) && $fieldName == 'museum_chinese_civilization_stage2') { //Античных чайников должно быть 3
                             $cached[] = [
                                 'command' => 'put',
                                 'cmd_id' => Bot::$game->popCmdId(),
                                 'room_id' => $this->id,
-                                'item_id' => 74533735,
-                                'klass' => Bot::$game->getCityItemById('20080408')
+                                'item_id' => $fieldId,
+                                'klass' => Bot::$game->getCityItemById('20080408')['item_name']
                             ];
-                            ++$items_count['1016934'];
+                            ++$items_count['20080408'];
                             break;
-                        } elseif ($items_count['1016935'] < 4 * $coeff) { //Керамических ваз должно быть 4
+                        } elseif ($items_count['20080409'] < (4 * $coeff) && $fieldName == 'museum_chinese_civilization_stage2') { //Керамических ваз должно быть 4
                             $cached[] = [
                                 'command' => 'put',
                                 'cmd_id' => Bot::$game->popCmdId(),
                                 'room_id' => $this->id,
-                                'item_id' => 74533735,
-                                'klass' => Bot::$game->getCityItemById('20080409')
+                                'item_id' => $fieldId,
+                                'klass' => Bot::$game->getCityItemById('20080409')['item_name']
                             ];
-                            ++$items_count['1016935'];
+                            ++$items_count['20080409'];
                             break;
-                        } elseif ($items_count['1016936'] < 2 * $coeff) { //Нефритовых медальонов должно быть 3
+                        } elseif (($items_count['20080410'] < (2 * $coeff)) && $fieldName == 'museum_chinese_civilization_stage3') { //Нефритовых медальонов должно быть 3
                             $cached[] = [
                                 'command' => 'put',
                                 'cmd_id' => Bot::$game->popCmdId(),
                                 'room_id' => $this->id,
-                                'item_id' => 74533735,
-                                'klass' => Bot::$game->getCityItemById('20080410')
+                                'item_id' => $fieldId,
+                                'klass' => Bot::$game->getCityItemById('20080410')['item_name']
                             ];
-                            ++$items_count['1016936'];
+                            ++$items_count['20080410'];
                             break;
-                        } elseif ($items_count['1016937'] < 2 * $coeff) { //Гребней должно быть 2
+                        } elseif ($items_count['20080411'] < (2 * $coeff) && $fieldName == 'museum_chinese_civilization_stage3') { //Гребней должно быть 2
                             $cached[] = [
                                 'command' => 'put',
                                 'cmd_id' => Bot::$game->popCmdId(),
                                 'room_id' => $this->id,
-                                'item_id' => 74533735,
-                                'klass' => Bot::$game->getCityItemById('20080411')
+                                'item_id' => $fieldId,
+                                'klass' => Bot::$game->getCityItemById('20080411')['item_name']
                             ];
-                            ++$items_count['1016937'];
+                            ++$items_count['20080411'];
                             break;
                         }
                     }
