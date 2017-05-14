@@ -70,39 +70,6 @@ class Room
 
     ];
 
-    private static $items_for_military_factories = [
-        'conveyor_armored_cars_line' => 64879702,
-        'conveyor_infantry_fighting_vehicle' => 64879704,
-        'conveyor_armored_troop_carrier' => 64879703,
-        'conveyor_light_tanks' => 65261252,
-        'conveyor_medium_tanks' => 65261253,
-        'conveyor_self_propelled_artillery' => 65652277,
-        'conveyor_heavy_tanks' => 65652276,
-        'conveyor_multiple_rocket_launch_system' => 67426369,
-
-        'conveyor_lifesaving_underwater_vehicle' => 65197670,
-        'conveyor_diesel_submarines' => 65587300,
-        'conveyor_nuclear_submarines' => 67506042,
-
-        'conveyor_transport_helicopters' => 66075587,
-        'conveyor_attack_planes' => 66075586,
-        'conveyor_attack_helicopters' => 66546628,
-        'conveyor_fighters' => 69323266,
-        'conveyor_tactical_bombers' => 69323267,
-        'conveyor_strategic_bombers' => 72676527,
-        'conveyor_drones' => 73402837, //Беспилотники
-
-        'conveyor_landing_ships' => 67995334,
-        'conveyor_ships_of_coastal_zone' => 67995335,
-        'conveyor_cruisers' => 69581444,
-        'conveyor_helicopter_carriers' => 70699896,
-        'conveyor_aircraft_carriers' => 72809936,
-
-        'conveyor_air_defense_missiles' => 68326106,
-        'conveyor_coastal_missiles' => 70492362,
-        'conveyor_mobile_missiles' => 67536286
-    ];
-
     /**
      * @inheritdoc
      */
@@ -357,8 +324,10 @@ class Room
         $cached = [];
         $models_for_sale = []; //Юнитов для продажи
         $models_for_buy = []; //Юнитов для покупки
+        $conveyor_ids = [];
         foreach($this->field_data->childNodes->item(0)->childNodes as $field) { //Пробежимся по всем конвейерам
             if (isset(Room::$military_conveyors[$field->localName])) {
+                $conveyor_ids[$field->localName] = $field->attributes->getNamedItem('id')->nodeValue;
                 $queue = $field->attributes->getNamedItem('queue')->nodeValue;
                 $queue_length = 0; //Длина очереди
                 if ($queue != '') { //Рассмотрим очередь в текущем конвейере
@@ -406,7 +375,6 @@ class Room
                 foreach (Room::$military_conveyors[$field->localName] as $model) {
                     if (isset($models_required[$model])) {
                         $quantity = $models_required[$model] - $models[$model]; //Вычтем число готовой продукции из числа требуемой
-                        //$quantity -= $models[$model]; //Вычтем число готовой продукции из числа требуемой
                         //Если количество требуемой продукции будет больше свободных слотов в конвейере, то заполним продукцией остаток конвейера.
                         //В ином случае, на конвейере останется свободное место
                         $for_buy = min($quantity, 3 - $queue_length);
@@ -438,7 +406,7 @@ class Room
 
         $cached = [];
         foreach ($models_for_sale as $model_for_sale => $quantity) {
-            for ($i = 0; $i < $quantity; ++$i) //Оставляем в резерве 3 юнита
+            for ($i = 0; $i < $quantity; ++$i)
                 $cached[] = [
                     'command' => 'sell_barn',
                     'cmd_id' => Bot::$game->popCmdId(),
@@ -467,7 +435,7 @@ class Room
                             'command' => 'put',
                             'cmd_id' => Bot::$game->popCmdId(),
                             'room_id' => $this->id,
-                            'item_id' => Room::$items_for_military_factories[$military_conveyor],
+                            'item_id' => $conveyor_ids[$military_conveyor],
                             'klass' => 'production_' . Bot::$game->getCityItemById($model)['item_name']
                         ];
                         break;
@@ -623,60 +591,68 @@ class Room
                 }
 
                 for ($i = $queue_length; $i < 3; ++$i) {
-                    if ($items_count['1016932'] < 6) { //Шкатулок должно быть 6
-                        $cached[] = [
-                            'command' => 'put',
-                            'cmd_id' => Bot::$game->popCmdId(),
-                            'room_id' => $this->id,
-                            'item_id' => 74533735,
-                            'klass' => $production_ids['20080406']
-                        ];
-                        ++$items_count['1016932'];
-                    } elseif ($items_count['1016933'] < 5) { //Бронзовых статуй должно быть 5
-                        $cached[] = [
-                            'command' => 'put',
-                            'cmd_id' => Bot::$game->popCmdId(),
-                            'room_id' => $this->id,
-                            'item_id' => 74533735,
-                            'klass' => $production_ids['20080407']
-                        ];
-                        ++$items_count['1016933'];
-                    } elseif ($items_count['1016934'] < 3) { //Античных чайников должно быть 3
-                        $cached[] = [
-                            'command' => 'put',
-                            'cmd_id' => Bot::$game->popCmdId(),
-                            'room_id' => $this->id,
-                            'item_id' => 74533735,
-                            'klass' => $production_ids['20080408']
-                        ];
-                        ++$items_count['1016934'];
-                    } elseif ($items_count['1016935'] < 4) { //Керамических ваз должно быть 4
-                        $cached[] = [
-                            'command' => 'put',
-                            'cmd_id' => Bot::$game->popCmdId(),
-                            'room_id' => $this->id,
-                            'item_id' => 74533735,
-                            'klass' => $production_ids['20080409']
-                        ];
-                        ++$items_count['1016935'];
-                    } elseif ($items_count['1016936'] < 2) { //Нефритовых медальонов должно быть 3
-                        $cached[] = [
-                            'command' => 'put',
-                            'cmd_id' => Bot::$game->popCmdId(),
-                            'room_id' => $this->id,
-                            'item_id' => 74533735,
-                            'klass' => $production_ids['20080410']
-                        ];
-                        ++$items_count['1016936'];
-                    } else/*if ($items_count['1016937'] < 2)*/ { //Гребней должно быть 2
-                        $cached[] = [
-                            'command' => 'put',
-                            'cmd_id' => Bot::$game->popCmdId(),
-                            'room_id' => $this->id,
-                            'item_id' => 74533735,
-                            'klass' => $production_ids['20080411']
-                        ];
-                        ++$items_count['1016937'];
+                    for ($coeff = 1; true; ++$coeff) {
+                        if ($items_count['1016932'] < 6 * $coeff) { //Шкатулок должно быть 6
+                            $cached[] = [
+                                'command' => 'put',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => 74533735,
+                                'klass' => $production_ids['20080406']
+                            ];
+                            ++$items_count['1016932'];
+                            break;
+                        } elseif ($items_count['1016933'] < 5 * $coeff) { //Бронзовых статуй должно быть 5
+                            $cached[] = [
+                                'command' => 'put',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => 74533735,
+                                'klass' => $production_ids['20080407']
+                            ];
+                            ++$items_count['1016933'];
+                            break;
+                        } elseif ($items_count['1016934'] < 3 * $coeff) { //Античных чайников должно быть 3
+                            $cached[] = [
+                                'command' => 'put',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => 74533735,
+                                'klass' => $production_ids['20080408']
+                            ];
+                            ++$items_count['1016934'];
+                            break;
+                        } elseif ($items_count['1016935'] < 4 * $coeff) { //Керамических ваз должно быть 4
+                            $cached[] = [
+                                'command' => 'put',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => 74533735,
+                                'klass' => $production_ids['20080409']
+                            ];
+                            ++$items_count['1016935'];
+                            break;
+                        } elseif ($items_count['1016936'] < 2 * $coeff) { //Нефритовых медальонов должно быть 3
+                            $cached[] = [
+                                'command' => 'put',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => 74533735,
+                                'klass' => $production_ids['20080410']
+                            ];
+                            ++$items_count['1016936'];
+                            break;
+                        } elseif ($items_count['1016937'] < 2 * $coeff) { //Гребней должно быть 2
+                            $cached[] = [
+                                'command' => 'put',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => 74533735,
+                                'klass' => $production_ids['20080411']
+                            ];
+                            ++$items_count['1016937'];
+                            break;
+                        }
                     }
                 }
             }
