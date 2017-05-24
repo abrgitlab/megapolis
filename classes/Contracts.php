@@ -706,7 +706,7 @@ class Contracts
 
             //Док субмарин
             //не окончательно
-            'sea_naval_station_stage2' => [
+            'sea_naval_station_stage3' => [
                 'short' => [
                     'contract' => 'submarines'
                 ],
@@ -822,6 +822,18 @@ class Contracts
             'hotel_konrad_stage2' => [
                 'short' => [
                     'contract' => 'organization_charity_reception'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Департамент мелиорации
+            //не окончательно
+            'department_land_reclamation_stage1' => [
+                'short' => [
+                    'contract' => 'data_collecting_submarine'
+                ],
+                'long' => [
+                    'contract' => 'submarine_repair'
                 ],
                 'actions' => ['pick', 'put']
             ]
@@ -1333,11 +1345,11 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
-            //
+            //Китайская ассоциация архитектуры
             //не окончательно
-            'china_association_arch_stage1' => [
+            'china_association_arch_stage2' => [
                 'short' => [
-                    'contract' => '64565891'
+                    'contract' => 'viewing_film_wall'
                 ],
                 'actions' => ['pick', 'put']
             ]

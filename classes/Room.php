@@ -47,7 +47,7 @@ class Room
 
         'conveyor_lifesaving_underwater_vehicle' => [1060002, 1060008, 1060014, 1060057, 1060063, 1060069], //Батискафы
         'conveyor_diesel_submarines' => [1060020, 1060026, 1060032, 1060075, 1060081, 1060087], //Дизельные подлодки
-        'conveyor_nuclear_submarines' => [1060039, 1060045, 1060051, 1060093, 1060099], //Атомные подлодки
+        'conveyor_nuclear_submarines' => [1060039, 1060045, 1060051, 1060093, 1060099, 1060105], //Атомные подлодки
 
         'conveyor_transport_helicopters' => [1059692, 1059698, 1059704, 1059800, 1059806, 1059812], //Транспортные вертолёты
         'conveyor_attack_planes' => [1059656, 1059662, 1059668, 1059728, 1059734, 1059740], //Штурмовики
@@ -55,11 +55,11 @@ class Room
         'conveyor_fighters' => [1059602, 1059608, 1059614, 1059710, 1059716, 1059722], //Истребители
         'conveyor_tactical_bombers' => [1059638, 1059644, 1059650, 1059764, 1059770], //Бомбардировщики TB
         'conveyor_strategic_bombers' => [1059620, 1059626, 1059632, 1059782, 1059788], //Бомбардировщики SB
-        'conveyor_drones' => [1059818, 1059824], //Беспилотники
+        'conveyor_drones' => [1059818, 1059824, 1059830], //Беспилотники
 
         'conveyor_landing_ships' => [1059928, 1059934, 1059940, 1059983, 1059989, 1059995], //Десантные суда
         'conveyor_ships_of_coastal_zone' => [1059910, 1059916, 1059922, 1060152, 1060158, 1060164], //Корабли
-        'conveyor_cruisers' => [1059892, 1059898, 1059904, 1060170, 1060176], //Крейсеры
+        'conveyor_cruisers' => [1059892, 1059898, 1059904, 1060170, 1060176, 1060182], //Крейсеры
         'conveyor_helicopter_carriers' => [1059965, 1059971], //Вертолётоносцы
         'conveyor_aircraft_carriers' => [1059947], //Авианосцы
 
@@ -585,37 +585,7 @@ class Room
 
                 for ($i = $queue_length; $i < 3; ++$i) {
                     for ($coeff = 1; true; ++$coeff) {
-                        if ($items_count['20080406'] < (6 * $coeff) && $fieldName == 'museum_chinese_civilization_stage2') { //Шкатулок должно быть 6
-                            $cached[] = [
-                                'command' => 'put',
-                                'cmd_id' => Bot::$game->popCmdId(),
-                                'room_id' => $this->id,
-                                'item_id' => $fieldId,
-                                'klass' => Bot::$game->getCityItemById('20080406')['item_name']
-                            ];
-                            ++$items_count['20080406'];
-                            break;
-                        } elseif ($items_count['20080407'] < (5 * $coeff) && $fieldName == 'museum_chinese_civilization_stage2') { //Бронзовых статуй должно быть 5
-                            $cached[] = [
-                                'command' => 'put',
-                                'cmd_id' => Bot::$game->popCmdId(),
-                                'room_id' => $this->id,
-                                'item_id' => $fieldId,
-                                'klass' => Bot::$game->getCityItemById('20080407')['item_name']
-                            ];
-                            ++$items_count['20080407'];
-                            break;
-                        } elseif ($items_count['20080408'] < (3 * $coeff) && $fieldName == 'museum_chinese_civilization_stage2') { //Античных чайников должно быть 3
-                            $cached[] = [
-                                'command' => 'put',
-                                'cmd_id' => Bot::$game->popCmdId(),
-                                'room_id' => $this->id,
-                                'item_id' => $fieldId,
-                                'klass' => Bot::$game->getCityItemById('20080408')['item_name']
-                            ];
-                            ++$items_count['20080408'];
-                            break;
-                        } elseif ($items_count['20080409'] < (4 * $coeff) && $fieldName == 'museum_chinese_civilization_stage2') { //Керамических ваз должно быть 4
+                        if ($fieldName == 'museum_chinese_civilization_stage2') {
                             $cached[] = [
                                 'command' => 'put',
                                 'cmd_id' => Bot::$game->popCmdId(),
@@ -625,17 +595,7 @@ class Room
                             ];
                             ++$items_count['20080409'];
                             break;
-                        } elseif (($items_count['20080410'] < (2 * $coeff)) && $fieldName == 'museum_chinese_civilization_stage3') { //Нефритовых медальонов должно быть 3
-                            $cached[] = [
-                                'command' => 'put',
-                                'cmd_id' => Bot::$game->popCmdId(),
-                                'room_id' => $this->id,
-                                'item_id' => $fieldId,
-                                'klass' => Bot::$game->getCityItemById('20080410')['item_name']
-                            ];
-                            ++$items_count['20080410'];
-                            break;
-                        } elseif ($items_count['20080411'] < (2 * $coeff) && $fieldName == 'museum_chinese_civilization_stage3') { //Гребней должно быть 2
+                        } elseif ($fieldName == 'museum_chinese_civilization_stage3') {
                             $cached[] = [
                                 'command' => 'put',
                                 'cmd_id' => Bot::$game->popCmdId(),
@@ -650,6 +610,8 @@ class Room
                 }
             }
         }
+
+        //TODO: добавить продажу китайских вещей
 
         if (count($cached) > 0) {
             for ($i = count($cached); $i > 0; --$i) {
