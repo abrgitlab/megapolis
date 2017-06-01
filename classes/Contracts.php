@@ -442,9 +442,9 @@ class Contracts
 
             //Центр парусного спорта
             //не окончательно
-            'sailing_center_stage3' => [
+            'sailing_center_stage4' => [
                 'short' => [
-                    'contract' => 'windsurfing', 'friends_request' => true
+                    'contract' => 'freestyle_on_the_water', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
             ],
