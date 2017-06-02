@@ -706,9 +706,9 @@ class Contracts
 
             //Док субмарин
             //не окончательно
-            'sea_naval_station_stage3' => [
+            'sea_naval_station_stage4' => [
                 'short' => [
-                    'contract' => 'submarines'
+                    'contract' => 'patrol_maritime_air_space'
                 ],
                 'actions' => ['pick', 'put']
             ],
@@ -1024,7 +1024,7 @@ class Contracts
 
             //Обсерватория
             //не окончательно
-            'observatory_stage2' => [
+            'observatory_stage3' => [
                 'short' => [
                     'contract' => 'lecture_cosmology', 'friends_request' => true
                 ],
