@@ -61,7 +61,7 @@ class Room
         'conveyor_ships_of_coastal_zone' => [1059910, 1059916, 1059922, 1060152, 1060158, 1060164], //Корабли
         'conveyor_cruisers' => [1059892, 1059898, 1059904, 1060170, 1060176, 1060182], //Крейсеры
         'conveyor_helicopter_carriers' => [1059965, 1059971], //Вертолётоносцы
-        'conveyor_aircraft_carriers' => [1059947], //Авианосцы
+        'conveyor_aircraft_carriers' => [1059947, 1059953], //Авианосцы
 
         'conveyor_air_defense_missiles' => [1059428, 1059434, 1059440, 1059446, 1059452, 1059458], //ЗРК
         'conveyor_coastal_missiles' => [1059464, 1059470, 1059476, 1059482], //БРК
@@ -545,14 +545,12 @@ class Room
      * Работа с китайской фабрикой
      */
     public function doChineseFactoryWork() {
-        $items_count = [
-            '20080406' => $this->getBarnQuantity('casket'),
-            '20080407' => $this->getBarnQuantity('bronze_statuette'),
-            '20080408' => $this->getBarnQuantity('antique_teapot'),
-            '20080409' => $this->getBarnQuantity('ceramic_vase'),
-            '20080410' => $this->getBarnQuantity('jade_medallion'),
-            '20080411' => $this->getBarnQuantity('hair_comb')
-        ];
+        $items = ['casket', 'bronze_statuette', 'antique_teapot', 'ceramic_vase', 'jade_medallion', 'hair_comb'];
+
+        $items_count = [];
+        foreach ($items as $item) {
+            $items_count[Bot::$game->city_items[$item . '_production']['id']] = $this->getBarnQuantity($item);
+        }
 
         $cached = [];
         foreach($this->field_data->childNodes->item(0)->childNodes as $field) {
@@ -611,11 +609,32 @@ class Room
             }
         }
 
-        //TODO: добавить продажу китайских вещей
-
         if (count($cached) > 0) {
             for ($i = count($cached); $i > 0; --$i) {
                 echo "Ждём обработки конвейера китайской фабрики $i сек.\n";
+                $cached[count($cached) - $i]['uxtime'] = time();
+                sleep(1);
+            }
+
+            Bot::$game->checkAndPerform($cached);
+        }
+
+        $cached = [];
+        foreach ($items as $item) {
+            for ($i = 0; $i < $this->getBarnQuantity($item); ++$i) {
+                $cached[] = [
+                    'command' => 'sell_barn',
+                    'cmd_id' => Bot::$game->popCmdId(),
+                    'room_id' => $this->id,
+                    'item_id' => Bot::$game->city_items[$item]['id'],
+                    'quantity' => 1
+                ];
+            }
+        }
+
+        if (count($cached) > 0) {
+            for ($i = count($cached); $i > 0; --$i) {
+                echo "Ждём продажи китайских вещей $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
