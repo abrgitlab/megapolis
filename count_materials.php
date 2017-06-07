@@ -89,4 +89,41 @@ foreach ($materials_needed as $material => $quantity) {
     }
 }
 
-echo "Итого: материалов $materials_amount, общее количество $full_amount\n";
+Bot::$game->changeRoom(1);
+
+echo "Материалов для раздаривания:\n";
+
+$materials_for_giving = [];
+foreach(Bot::$game->room->barn_data->childNodes->item(0)->childNodes as $barn) {
+    if ($barn->localName !== null) {
+        $city_item = Bot::$game->city_items[$barn->localName];
+        if ($city_item !== null && isset($city_item['shop_department']) && $city_item['shop_department'] !== 'materials')
+            continue;
+        if ($barn->hasAttribute('quantity')) {
+            $barn_quantity = $barn->getAttribute('quantity');
+            if (isset($materials_needed[$barn->localName])) {
+                $quantity_left = $barn_quantity - $materials_needed[$barn->localName];
+                if ($quantity_left > 0) {
+                    $materials_for_giving[$barn->localName] = $quantity_left;
+                }
+            } else {
+                $materials_for_giving[$barn->localName] = $barn_quantity;
+            }
+        }
+    }
+}
+
+echo "Итого необходимо: материалов $materials_amount, общее количество $full_amount\n";
+
+arsort($materials_for_giving);
+
+$materials_amount = 0;
+$full_amount = 0;
+foreach ($materials_for_giving as $material => $quantity) {
+    if ($quantity > 0) {
+        echo "$material: $quantity\n";
+        ++$materials_amount;
+        $full_amount += $quantity;
+    }
+}
+echo "Итого можно раздарить: материалов $materials_amount, общее количество $full_amount\n";
