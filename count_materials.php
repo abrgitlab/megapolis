@@ -93,11 +93,13 @@ Bot::$game->changeRoom(1);
 
 echo "Материалов для раздаривания:\n";
 
+$excludes = ['mining_industry_materials_object_base', 'military_enginery_base'];
+
 $materials_for_giving = [];
 foreach(Bot::$game->room->barn_data->childNodes->item(0)->childNodes as $barn) {
     if ($barn->localName !== null) {
         $city_item = Bot::$game->city_items[$barn->localName];
-        if ($city_item !== null && isset($city_item['shop_department']) && $city_item['shop_department'] !== 'materials')
+        if ($city_item !== null && isset($city_item['shop_department']) && isset($city_item['super_class']) && ($city_item['shop_department'] !== 'materials' || in_array($city_item['super_class'], $excludes)))
             continue;
         if ($barn->hasAttribute('quantity')) {
             $barn_quantity = $barn->getAttribute('quantity');
