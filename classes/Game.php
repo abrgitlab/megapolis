@@ -66,36 +66,51 @@ class Game
     private $session_key;
 
     /**
+     * @var $online boolean
+     */
+    public $online;
+
+    /**
      * @inheritdoc
      */
-    function __construct()
+    function __construct($online = true)
     {
+        $this->online = $online;
+
         Game::$files_directory = BASE_PATH . "/files";
 
-        $this->checkUpdates();
+        if ($online) {
+            $this->checkUpdates();
+
+            $this->associate();
+            $user_data = $this->getUserStat();
+        } else {
+            $old_revisions = $this->getCachedRevisions();
+            $this->revision = $old_revisions[count($old_revisions) - 1];
+        }
+
         $this->loadCityItems();
 
-        $this->associate();
-        $user_data = $this->getUserStat();
+        if ($online) {
+            //Из-за UTF-8 в CDATA в разделе marketplace php не парсит xml
+            $user_data = preg_replace('/<marketplace>.*<\/marketplace>/', '', $user_data);
+            $user_data = preg_replace('/<neighborhoods.*<\/neighborhoods>/smi', '', $user_data);
+            $user_data = preg_replace('/<items_activity .*<\/items_activity>/', '', $user_data);
+            $user_data = preg_replace('/<quests_activity>.*<\/quests_activity>/', '', $user_data);
+            $user_data = preg_replace('/<game_requests .*<\/game_requests>/', '', $user_data);
+            $user_data = preg_replace('/<support>.*<\/support>/', '', $user_data);
 
-        //Из-за UTF-8 в CDATA в разделе marketplace php не парсит xml
-        $user_data = preg_replace('/<marketplace>.*<\/marketplace>/', '', $user_data);
-        $user_data = preg_replace('/<neighborhoods.*<\/neighborhoods>/smi', '', $user_data);
-        $user_data = preg_replace('/<items_activity .*<\/items_activity>/', '', $user_data);
-        $user_data = preg_replace('/<quests_activity>.*<\/quests_activity>/', '', $user_data);
-        $user_data = preg_replace('/<game_requests .*<\/game_requests>/', '', $user_data);
-        $user_data = preg_replace('/<support>.*<\/support>/', '', $user_data);
+            $user_data = Bot::$tidy->repairString($user_data, Bot::$tidy_config);
 
-        $user_data = Bot::$tidy->repairString($user_data, Bot::$tidy_config);
+            $this->user_data = new DOMDocument();
+            $this->user_data->loadXML($user_data);
 
-        $this->user_data = new DOMDocument();
-        $this->user_data->loadXML($user_data);
-
-        $this->cmd_id = $this->user_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('server_cmd_id')->nodeValue;
-        $this->session_key = $this->user_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('session_key')->nodeValue;
-        $room_id = $this->user_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('room_id')->nodeValue;
-        $this->room = new Room($room_id, $this->user_data);
-        $this->loadGiftsData();
+            $this->cmd_id = $this->user_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('server_cmd_id')->nodeValue;
+            $this->session_key = $this->user_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('session_key')->nodeValue;
+            $room_id = $this->user_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('room_id')->nodeValue;
+            $this->room = new Room($room_id, $this->user_data);
+            $this->loadGiftsData();
+        }
     }
 
     /**
@@ -115,34 +130,63 @@ class Game
             mkdir(Game::$files_directory);
 
         $files_for_loading = [];
-        if (!file_exists(Game::$files_directory . "/city_items.yml.$this->revision"))
+        $old_cache = $this->getCachedRevisions();
+
+        if (!is_dir(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision))
+            mkdir(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision);
+
+        if (!file_exists(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision . DIRECTORY_SEPARATOR . "city_items.yml"))
             $files_for_loading[] = 'city_items';
-        if (!file_exists(Game::$files_directory . "/city_requests.yml.$this->revision"))
+        if (!file_exists(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision . DIRECTORY_SEPARATOR . "city_requests.yml"))
             $files_for_loading[] = 'city_requests';
 
         if (count($files_for_loading) > 0) {
             echo "Получение обновлений\n";
-            $files = scandir(Game::$files_directory);
-            $old_files = [];
-            foreach ($files as $index => $file) {
-                if (!in_array($file, ['.', '..']))
-                    $old_files[] = $file;
-            }
 
             foreach ($files_for_loading as $file) {
                 $yaml = file_get_contents("http://mb.static.socialquantum.ru/mobile_assets/$file.yml?rev=$this->revision");
-                file_put_contents(Game::$files_directory . "/$file.yml.$this->revision", $yaml);
+                file_put_contents(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision . DIRECTORY_SEPARATOR . "/$file.yml", $yaml);
+            }
 
-                foreach ($old_files as &$old_file) {
-                    if (substr($old_file, 0, strlen($file)) == $file) {
-                        if (Bot::$options['debug'])
-                            echo 'Удаляем ' . Game::$files_directory . '/' . $old_file . "\n";
-                        unlink(Game::$files_directory . '/' . $old_file);
-                        unset($old_file);
-                    }
-                }
+            foreach ($old_cache as $old_catalog) {
+                if (Bot::$options['debug'])
+                    echo 'Удаляем ' . Game::$files_directory . DIRECTORY_SEPARATOR . $old_catalog . "\n";
+                $this->deleteDir(Game::$files_directory . DIRECTORY_SEPARATOR . $old_catalog);
             }
         }
+    }
+
+    private function deleteDir($dirPath) {
+        if (! is_dir($dirPath)) {
+            throw new InvalidArgumentException("$dirPath must be a directory");
+        }
+        if (substr($dirPath, strlen($dirPath) - 1, 1) != '/') {
+            $dirPath .= '/';
+        }
+        $files = glob($dirPath . '*', GLOB_MARK);
+        foreach ($files as $file) {
+            if (is_dir($file)) {
+                self::deleteDir($file);
+            } else {
+                unlink($file);
+            }
+        }
+        rmdir($dirPath);
+    }
+
+    /**
+     * Возвращает имена каталогов со старыми версиями кешированных файлов
+     * @return array
+     */
+    private function getCachedRevisions() {
+        $files = scandir(Game::$files_directory);
+        $old_directories = [];
+        foreach ($files as $index => $file) {
+            if (!in_array($file, ['.', '..', $this->revision]))
+                $old_directories[] = $file;
+        }
+
+        return $old_directories;
     }
 
     /**
@@ -150,7 +194,9 @@ class Game
      * @param $id int
      */
     public function changeRoom($id) {
-        Bot::$last_room_id = $this->room->id;
+        if ($this->room !== null)
+            Bot::$last_room_id = $this->room->id;
+
         $this->room = new Room($id, false);
     }
 
@@ -158,8 +204,8 @@ class Game
      * Загружает данные объектов игры из yml-файла
      */
     public function loadCityItems() {
-        $this->city_items = yaml_parse(file_get_contents(Game::$files_directory . "/city_items.yml.$this->revision"));
-        $this->requests_items = yaml_parse(file_get_contents(Game::$files_directory . "/city_requests.yml.$this->revision"));
+        $this->city_items = yaml_parse(file_get_contents(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision . DIRECTORY_SEPARATOR . "city_items.yml"));
+        $this->requests_items = yaml_parse(file_get_contents(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision . DIRECTORY_SEPARATOR . "city_requests.yml"));
     }
 
     /**

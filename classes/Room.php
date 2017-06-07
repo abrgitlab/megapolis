@@ -27,7 +27,7 @@ class Room
     /**
      * @var $field_data DOMDocument|mixed
      */
-    private $field_data;
+    public $field_data;
 
     /**
      * @var $military_orders DOMDocument|mixed
@@ -53,8 +53,8 @@ class Room
         'conveyor_attack_planes' => [1059656, 1059662, 1059668, 1059728, 1059734, 1059740], //Штурмовики
         'conveyor_attack_helicopters' => [1059674, 1059680, 1059686, 1059746, 1059752, 1059758], //Ударные вертолёты
         'conveyor_fighters' => [1059602, 1059608, 1059614, 1059710, 1059716, 1059722], //Истребители
-        'conveyor_tactical_bombers' => [1059638, 1059644, 1059650, 1059764, 1059770], //Бомбардировщики TB
-        'conveyor_strategic_bombers' => [1059620, 1059626, 1059632, 1059782, 1059788], //Бомбардировщики SB
+        'conveyor_tactical_bombers' => [1059638, 1059644, 1059650, 1059764, 1059770, 1059776], //Бомбардировщики TB
+        'conveyor_strategic_bombers' => [1059620, 1059626, 1059632, 1059782, 1059788, 1059794], //Бомбардировщики SB
         'conveyor_drones' => [1059818, 1059824, 1059830], //Беспилотники
 
         'conveyor_landing_ships' => [1059928, 1059934, 1059940, 1059983, 1059989, 1059995], //Десантные суда
@@ -65,8 +65,8 @@ class Room
 
         'conveyor_air_defense_missiles' => [1059428, 1059434, 1059440, 1059446, 1059452, 1059458], //ЗРК
         'conveyor_coastal_missiles' => [1059464, 1059470, 1059476, 1059482], //БРК
-        'conveyor_mobile_missiles' => [1059392, 1059398], //ПРК
-//        'conveyor_intercontinental_missiles' => [], //МБР
+        'conveyor_mobile_missiles' => [1059392, 1059398, 1059404], //ПРК
+//        'conveyor_intercontinental_missiles' => [1059500], //МБР
 
     ];
 
@@ -80,7 +80,10 @@ class Room
         if ($location_data) {
             $this->location_data = $location_data;
         } else {
-            $location_data = Bot::$game->getRoomStat($this->id);
+            if (Bot::$game->online)
+                $location_data = Bot::$game->getRoomStat($this->id);
+            else
+                $location_data = file_get_contents(BASE_PATH . DIRECTORY_SEPARATOR . 'room_' . $this->id);
 
             //Из-за UTF-8 в CDATA php не парсит xml
             $location_data = preg_replace('/<marketplace>.*<\/marketplace>/', '', $location_data);
@@ -385,12 +388,12 @@ class Room
                         }
                     }
                 }
-                if (count(Room::$military_conveyors[$field->localName]) > 0) { //Заполним пустые слоты конвейера продукцией из самого дорогого типа для данного конвейера
+                /*if (count(Room::$military_conveyors[$field->localName]) > 0) { //Заполним пустые слоты конвейера продукцией из самого дорогого типа для данного конвейера
                     $model_left = Room::$military_conveyors[$field->localName][count(Room::$military_conveyors[$field->localName]) - 1];
                     $left_slots = 3 - $queue_length;
                     if ($left_slots > 0)
                         $models_for_buy[$model_left] = $left_slots;
-                }
+                }*/ //TODO: убрано на время военной гонки. Восстановить после.
             }
         }
 
