@@ -75,6 +75,16 @@ foreach ($items_for_construct as $consumes) {
     }
 }
 
+foreach ($materials_needed as $material => $quantity) {
+    foreach(Bot::$game->room->barn_data->childNodes->item(0)->childNodes as $barn) {
+        if ($barn->localName === $material) {
+            $quantity_having = $barn->getAttribute('quantity');
+            $materials_needed[$material] -= $quantity_having;
+            break;
+        }
+    }
+}
+
 arsort($materials_needed);
 
 $excludes = ['competition_asian_dragon_point'];
@@ -90,8 +100,6 @@ foreach ($materials_needed as $material => $quantity) {
 }
 
 Bot::$game->changeRoom(1);
-
-echo "Материалов для раздаривания:\n";
 
 $excludes = ['mining_industry_materials_object_base', 'military_enginery_base'];
 
@@ -115,7 +123,7 @@ foreach(Bot::$game->room->barn_data->childNodes->item(0)->childNodes as $barn) {
     }
 }
 
-echo "Итого необходимо: материалов $materials_amount, общее количество $full_amount\n";
+echo "Итого необходимо: материалов $materials_amount, общее количество $full_amount\n\n";
 
 arsort($materials_for_giving);
 
