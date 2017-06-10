@@ -64,7 +64,7 @@ class Room
         'conveyor_aircraft_carriers' => [1059947, 1059953], //Авианосцы
 
         'conveyor_air_defense_missiles' => [1059428, 1059434, 1059440, 1059446, 1059452, 1059458], //ЗРК
-        'conveyor_coastal_missiles' => [1059464, 1059470, 1059476, 1059482], //БРК
+        'conveyor_coastal_missiles' => [1059464, 1059470, 1059476, 1059482, 1059488], //БРК
         'conveyor_mobile_missiles' => [1059392, 1059398, 1059404], //ПРК
 //        'conveyor_intercontinental_missiles' => [1059500], //МБР
 
@@ -80,10 +80,12 @@ class Room
         if ($location_data) {
             $this->location_data = $location_data;
         } else {
-            if (Bot::$game->online)
+            $room_file_name = BASE_PATH . DIRECTORY_SEPARATOR . 'rooms' . DIRECTORY_SEPARATOR . $this->id;
+            if (Bot::$game->online) {
                 $location_data = Bot::$game->getRoomStat($this->id);
-            else
-                $location_data = file_get_contents(BASE_PATH . DIRECTORY_SEPARATOR . 'room_' . $this->id);
+                file_put_contents($room_file_name, $location_data);
+            } else
+                $location_data = file_get_contents($room_file_name);
 
             //Из-за UTF-8 в CDATA php не парсит xml
             $location_data = preg_replace('/<marketplace>.*<\/marketplace>/', '', $location_data);
