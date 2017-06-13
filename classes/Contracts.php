@@ -706,7 +706,7 @@ class Contracts
 
             //Док субмарин
             //не окончательно
-            'sea_naval_station_stage4' => [
+            'sea_naval_station_stage5' => [
                 'short' => [
                     'contract' => 'patrol_maritime_air_space'
                 ],

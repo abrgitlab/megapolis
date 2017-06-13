@@ -12,6 +12,8 @@ require_once 'classes/Room.php';
 
 define('BASE_PATH', __DIR__);
 
+define('HIERARCHICALLY', true);
+
 $bot = new Bot();
 Bot::$game = new Game(false);
 
@@ -50,7 +52,7 @@ for ($i = 0; $i <= 5; ++$i) {
                             }
                         }
                     }
-                    if (isset($item['produce']) && gettype($item['produce']) === 'string' && $item['produce'] !== $item_name) {
+                    if (HIERARCHICALLY && isset($item['produce']) && gettype($item['produce']) === 'string' && $item['produce'] !== $item_name) {
                         $item_name = $item['produce'];
                         $item = Bot::$game->city_items[$item['produce']];
                     } else {
@@ -92,7 +94,8 @@ $excludes = ['competition_asian_dragon_point'];
 $materials_amount = 0;
 $full_amount = 0;
 foreach ($materials_needed as $material => $quantity) {
-    if ($quantity > 0 && !in_array($material, $excludes)) {
+    $city_item = Bot::$game->city_items[$material];
+    if ($quantity > 0 && !in_array($material, $excludes) && (!isset($city_item['pseudo_item']) || $city_item['pseudo_item'] == false)) {
         echo "$material: $quantity\n";
         ++$materials_amount;
         $full_amount += $quantity;

@@ -60,13 +60,13 @@ class Room
         'conveyor_landing_ships' => [1059928, 1059934, 1059940, 1059983, 1059989, 1059995], //Десантные суда
         'conveyor_ships_of_coastal_zone' => [1059910, 1059916, 1059922, 1060152, 1060158, 1060164], //Корабли
         'conveyor_cruisers' => [1059892, 1059898, 1059904, 1060170, 1060176, 1060182], //Крейсеры
-        'conveyor_helicopter_carriers' => [1059965, 1059971], //Вертолётоносцы
+        'conveyor_helicopter_carriers' => [1059965, 1059971, 1059977], //Вертолётоносцы
         'conveyor_aircraft_carriers' => [1059947, 1059953], //Авианосцы
 
         'conveyor_air_defense_missiles' => [1059428, 1059434, 1059440, 1059446, 1059452, 1059458], //ЗРК
         'conveyor_coastal_missiles' => [1059464, 1059470, 1059476, 1059482, 1059488], //БРК
         'conveyor_mobile_missiles' => [1059392, 1059398, 1059404], //ПРК
-//        'conveyor_intercontinental_missiles' => [1059500], //МБР
+        'conveyor_int1059500ercontinental_missiles' => [1059500], //МБР
 
     ];
 
