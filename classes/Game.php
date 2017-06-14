@@ -9,8 +9,6 @@
 class Game
 {
 
-    //TODO: при любых отмене/принятии письма, удалять ето письмо из списка
-
     public static $files_directory;
 
 //    public static $casino_materials = ['poker_trophy', 'golden_dice', 'bracelet_winner', 'gold_medal', 'gambler_cup', 'bar_of_gold'];
@@ -233,7 +231,6 @@ class Game
 
     /**
      * Показывает количество и содержимое писем
-     * TODO: временная функция
      */
     public function showLetters() {
         $letters_amount = 0;

@@ -828,7 +828,7 @@ class Contracts
 
             //Департамент мелиорации
             //не окончательно
-            'department_land_reclamation_stage1' => [
+            'department_land_reclamation_stage2' => [
                 'short' => [
                     'contract' => 'data_collecting_submarine'
                 ],

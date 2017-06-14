@@ -96,7 +96,7 @@ $full_amount = 0;
 foreach ($materials_needed as $material => $quantity) {
     $city_item = Bot::$game->city_items[$material];
     if ($quantity > 0 && !in_array($material, $excludes) && (!isset($city_item['pseudo_item']) || $city_item['pseudo_item'] == false)) {
-        echo "$material: $quantity\n";
+        echo $city_item['description'] . ": $quantity\n";
         ++$materials_amount;
         $full_amount += $quantity;
     }
@@ -134,7 +134,8 @@ $materials_amount = 0;
 $full_amount = 0;
 foreach ($materials_for_giving as $material => $quantity) {
     if ($quantity > 0) {
-        echo "$material: $quantity\n";
+        $city_item = Bot::$game->city_items[$material];
+        echo $city_item['description'] . ": $quantity\n";
         ++$materials_amount;
         $full_amount += $quantity;
     }

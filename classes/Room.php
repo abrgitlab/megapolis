@@ -390,12 +390,12 @@ class Room
                         }
                     }
                 }
-                /*if (count(Room::$military_conveyors[$field->localName]) > 0) { //Заполним пустые слоты конвейера продукцией из самого дорогого типа для данного конвейера
+                if (count(Room::$military_conveyors[$field->localName]) > 0) { //Заполним пустые слоты конвейера продукцией из самого дорогого типа для данного конвейера
                     $model_left = Room::$military_conveyors[$field->localName][count(Room::$military_conveyors[$field->localName]) - 1];
                     $left_slots = 3 - $queue_length;
                     if ($left_slots > 0)
                         $models_for_buy[$model_left] = $left_slots;
-                }*/ //TODO: убрано на время военной гонки. Восстановить после.
+                }
             }
         }
 
