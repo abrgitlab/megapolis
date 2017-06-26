@@ -745,7 +745,7 @@ class Contracts
 
             //Аеровокзал
             //не окончательно
-            'airport_stage2_level2' => [
+            'airport_stage2_level3' => [
                 'short' => [
                     'contract' => 'airsport_competition'
                 ],
@@ -1350,6 +1350,16 @@ class Contracts
             'china_association_arch_stage2' => [
                 'short' => [
                     'contract' => 'viewing_film_wall'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            'institute_of_applied_astronomy_stage2' => [
+                'short' => [
+                    'contract' => 'interferometer_lines'
+                ],
+                'long' => [
+                    'contract' => 'stars_of_milkyway', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
             ]

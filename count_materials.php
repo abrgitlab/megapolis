@@ -14,10 +14,47 @@ define('BASE_PATH', __DIR__);
 
 define('HIERARCHICALLY', true);
 
+function checkMaterial($material) {
+    $material_name_excludes = ['competition_asian_dragon_point'];
+    $super_class_excludes = ['mining_industry_materials_object_base', 'military_enginery_base'];
+
+    $city_item = Bot::$game->city_items[$material];
+    if (
+        $city_item !== null &&
+        (
+            !isset($city_item['pseudo_item']) ||
+            $city_item['pseudo_item'] == false
+        ) &&
+        (
+            !isset($city_item['room_staff_materials']) ||
+            $city_item['room_staff_materials'] == false
+        ) &&
+        (
+            !isset($city_item['shoppable']) ||
+            $city_item['shoppable'] == true
+        ) &&
+        (
+            !isset($city_item['shop_department']) ||
+            $city_item['shop_department'] === 'materials'
+        ) &&
+        (
+            !isset($city_item['exclude_from_need_materials']) ||
+            $city_item['exclude_from_need_materials'] === false
+        ) &&
+        isset($city_item['super_class']) &&
+        !in_array($city_item['super_class'], $super_class_excludes) &&
+        !in_array($material, $material_name_excludes)
+    )
+        return true;
+
+    return false;
+}
+
 $bot = new Bot();
 Bot::$game = new Game(false);
 
-$items_for_construct = [];
+$item_types_for_construct = [];
+$items_for_construct_amount = 0;
 for ($i = 0; $i <= 5; ++$i) {
     if ($i === 3)
         continue;
@@ -29,16 +66,19 @@ for ($i = 0; $i <= 5; ++$i) {
         if ($field->localName !== null) {
             if (isset(Bot::$game->city_items[$field->localName])) {
                 $item = Bot::$game->city_items[$field->localName];
+                $item_is_constructing = true;
                 $item_id = $field->attributes->getNamedItem('id')->nodeValue;
                 $item_name = $field->localName;
                 do {
                     if (isset($item['materials_quantity']) && count($item['materials_quantity']) > 0) {
-                        if (isset($items_for_construct[$item_name])) {
-                            foreach ($items_for_construct[$item_name] as $material => $quantity) {
-                                $items_for_construct[$item_name][$material] += $item['materials_quantity'][$material];
+                        if (isset($item_types_for_construct[$item_name])) {
+                            foreach ($item_types_for_construct[$item_name]['materials'] as $material => $quantity) {
+                                $item_types_for_construct[$item_name]['materials'][$material] += $item['materials_quantity'][$material];
                             }
                         } else {
-                            $items_for_construct[$item_name] = $item['materials_quantity'];
+                            $item_types_for_construct[$item_name] = ['materials' => $item['materials_quantity'], 'constructing' => $item_is_constructing];
+                            if ($item_is_constructing)
+                                ++$items_for_construct_amount;
                         }
 
                         if ($item_id !== null) {
@@ -47,7 +87,7 @@ for ($i = 0; $i <= 5; ++$i) {
                                 $input_fill = explode(',', $input_fill);
                                 foreach ($input_fill as $input_fill_item) {
                                     $item_count = explode(':', $input_fill_item);
-                                    $items_for_construct[$item_name][Bot::$game->getCityItemById($item_count[0])['item_name']] -= $item_count[1];
+                                    $item_types_for_construct[$item_name]['materials'][Bot::$game->getCityItemById($item_count[0])['item_name']] -= $item_count[1];
                                 }
                             }
                         }
@@ -55,6 +95,7 @@ for ($i = 0; $i <= 5; ++$i) {
                     if (HIERARCHICALLY && isset($item['produce']) && gettype($item['produce']) === 'string' && $item['produce'] !== $item_name) {
                         $item_name = $item['produce'];
                         $item = Bot::$game->city_items[$item['produce']];
+                        $item_is_constructing = false;
                     } else {
                         $item = null;
                     }
@@ -66,78 +107,75 @@ for ($i = 0; $i <= 5; ++$i) {
     }
 }
 
+Bot::$game->changeRoom(0);
+
+ksort($item_types_for_construct);
 
 $materials_needed = [];
-foreach ($items_for_construct as $consumes) {
-    foreach ($consumes as $material => $quantity) {
-        if (isset($materials_needed[$material]))
-            $materials_needed[$material] += $quantity;
-        else
-            $materials_needed[$material] = $quantity;
+foreach ($item_types_for_construct as $item_name => $item) {
+    echo "$item_name\n";
+    foreach ($item['materials'] as $material => $quantity) {
+        $barn_quantity = 0;
+        $city_item = Bot::$game->city_items[$material];
+        if (checkMaterial($material)) {
+            foreach(Bot::$game->room->barn_data->childNodes->item(0)->childNodes as $barn) {
+                if ($barn->localName !== null && $material == $barn->localName) {
+                    if ($barn->hasAttribute('quantity')) {
+                        $barn_quantity = $barn->getAttribute('quantity');
+                        break;
+                    }
+                }
+            }
+
+            if (isset($materials_needed[$material])) {
+                $materials_needed[$material]['quantity'] += $quantity;
+                if ($item['constructing'] && $quantity > 0)
+                    $materials_needed[$material]['need_now'] = $item['constructing'];
+            } else {
+                $materials_needed[$material] = ['quantity' => $quantity - $barn_quantity];
+                $materials_needed[$material]['need_now'] = $item['constructing'];
+            }
+        }
     }
 }
 
-foreach ($materials_needed as $material => $quantity) {
-    foreach(Bot::$game->room->barn_data->childNodes->item(0)->childNodes as $barn) {
-        if ($barn->localName === $material) {
-            $quantity_having = $barn->getAttribute('quantity');
-            $materials_needed[$material] -= $quantity_having;
-            break;
+echo 'Итого необходимо построить объектов: ' . $items_for_construct_amount . ', шагов постройки: ' . count($item_types_for_construct) . "\n\n";
+
+foreach(Bot::$game->room->barn_data->childNodes->item(0)->childNodes as $barn) {
+    if ($barn->localName !== null) {
+        if (!isset($materials_needed[$barn->localName]) && checkMaterial($barn->localName) && $barn->hasAttribute('quantity')) {
+            $barn_quantity = $barn->getAttribute('quantity');
+            $materials_needed[$barn->localName] = ['quantity' => -$barn_quantity, 'need_now' => false];
         }
     }
 }
 
 arsort($materials_needed);
 
-$excludes = ['competition_asian_dragon_point'];
-
 $materials_amount = 0;
 $full_amount = 0;
-foreach ($materials_needed as $material => $quantity) {
-    $city_item = Bot::$game->city_items[$material];
-    if ($quantity > 0 && !in_array($material, $excludes) && (!isset($city_item['pseudo_item']) || $city_item['pseudo_item'] == false) && (!isset($city_item['room_staff_materials']) || $city_item['room_staff_materials'] == false)) {
-        echo $city_item['description'] . ": $quantity\n";
+foreach ($materials_needed as $material => $parameters) {
+    if ($parameters['quantity'] > 0) {
+        $city_item = Bot::$game->city_items[$material];
+        echo (($parameters['need_now']) ? '+' : '-') . $city_item['description'] . ": {$parameters['quantity']}\n";
         ++$materials_amount;
-        $full_amount += $quantity;
-    }
-}
-
-Bot::$game->changeRoom(1);
-
-$excludes = ['mining_industry_materials_object_base', 'military_enginery_base'];
-
-$materials_for_giving = [];
-foreach(Bot::$game->room->barn_data->childNodes->item(0)->childNodes as $barn) {
-    if ($barn->localName !== null) {
-        $city_item = Bot::$game->city_items[$barn->localName];
-        if ($city_item !== null && isset($city_item['shop_department']) && isset($city_item['super_class']) && ($city_item['shop_department'] !== 'materials' || in_array($city_item['super_class'], $excludes)))
-            continue;
-        if ($barn->hasAttribute('quantity')) {
-            $barn_quantity = $barn->getAttribute('quantity');
-            if (isset($materials_needed[$barn->localName])) {
-                $quantity_left = $barn_quantity - $materials_needed[$barn->localName];
-                if ($quantity_left > 0) {
-                    $materials_for_giving[$barn->localName] = $quantity_left;
-                }
-            } else {
-                $materials_for_giving[$barn->localName] = $barn_quantity;
-            }
-        }
+        $full_amount += $parameters['quantity'];
     }
 }
 
 echo "Итого необходимо: материалов $materials_amount, общее количество $full_amount\n\n";
 
-arsort($materials_for_giving);
+asort($materials_needed);
 
 $materials_amount = 0;
 $full_amount = 0;
-foreach ($materials_for_giving as $material => $quantity) {
-    if ($quantity > 0) {
+foreach ($materials_needed as $material => $parameters) {
+    if ($parameters['quantity'] < 0) {
         $city_item = Bot::$game->city_items[$material];
-        echo $city_item['description'] . ": $quantity\n";
+        echo $city_item['description'] . ': ' . -$parameters['quantity'] . "\n";
         ++$materials_amount;
-        $full_amount += $quantity;
+        $full_amount -= $parameters['quantity'];
     }
 }
+
 echo "Итого можно раздарить: материалов $materials_amount, общее количество $full_amount\n";

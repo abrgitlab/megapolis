@@ -64,10 +64,9 @@ class Room
         'conveyor_aircraft_carriers' => [1059947, 1059953, 1059959], //Авианосцы
 
         'conveyor_air_defense_missiles' => [1059428, 1059434, 1059440, 1059446, 1059452, 1059458], //ЗРК
-        'conveyor_coastal_missiles' => [1059464, 1059470, 1059476, 1059482, 1059488], //БРК
+        'conveyor_coastal_missiles' => [1059464, 1059470, 1059476, 1059482, 1059488, 1059494], //БРК
         'conveyor_mobile_missiles' => [1059392, 1059398, 1059404, 1059410], //ПРК
-        'conveyor_int1059500ercontinental_missiles' => [1059500], //МБР
-
+        'conveyor_intercontinental_missiles' => [1059500, 1059512], //МБР
     ];
 
     /**
@@ -347,17 +346,18 @@ class Room
                         $produce_model_id = Bot::$game->city_items[$produce_model]['id'];
 
                         if ($conveyor[1] == 3) { //Если юнит достроен
-                            $cached[] = [ //Отправим запрос на то, чтобы убрать юнит с конвейера
-                                'command' => 'pick',
-                                'cmd_id' => Bot::$game->popCmdId(),
-                                'room_id' => $this->id,
-                                'item_id' => $field->attributes->getNamedItem('id')->nodeValue,
-                                'index' => 0,
-                                'klass' => Bot::$game->getCityItemById($conveyor[0])['item_name']
-                            ];
+//TODO: раскомментировать после выполнения задания
+//                            $cached[] = [ //Отправим запрос на то, чтобы убрать юнит с конвейера
+//                                'command' => 'pick',
+//                                'cmd_id' => Bot::$game->popCmdId(),
+//                                'room_id' => $this->id,
+//                                'item_id' => $field->attributes->getNamedItem('id')->nodeValue,
+//                                'index' => 0,
+//                                'klass' => Bot::$game->getCityItemById($conveyor[0])['item_name']
+//                            ];
 
-                            --$queue_length; //Уменьшим значение очереди
-                            ++$models[$produce_model_id]; //Увеличим значение готовой продукции
+//                            --$queue_length; //Уменьшим значение очереди
+//                            ++$models[$produce_model_id]; //Увеличим значение готовой продукции
                             if (!isset($models_for_sale[$produce_model_id])) { //Если ни одного подобного юнита нет в продаже
                                 $for_sale = $models[$produce_model_id]; //Изначально юнитов с данным id для продажи = количество готовых юнитов с данным id
                                 if (isset($models_required[$produce_model_id])) //Если какое-то число юнитов нужно
