@@ -791,19 +791,23 @@ class Contracts
             ],
 
             //Бизнес-джет
-            //не окончательно
-            'business_jet1_buildsite' => [
+            'business_jet1_stage1' => [
                 'short' => [
-                    'contract' => 'custom_route_flight1'
+                    'contract' => 'custom_route_flight2'
+                ],
+                'long' => [
+                    'contract' => 'business_flight1'
                 ],
                 'actions' => ['pick', 'put']
             ],
 
-            //Грузовой терминал
-            //не окончательно
-            'cargo_airplane7_stage1' => [
+            //Грузовой самолёт
+            'cargo_airplane7_stage2' => [
                 'short' => [
-                    'contract' => 'drugs_dispatch1'
+                    'contract' => 'urgent_cargo_delivery3'
+                ],
+                'long' => [
+                    'contract' => 'drugs_dispatch2'
                 ],
                 'actions' => ['pick', 'put']
             ],

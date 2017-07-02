@@ -12,7 +12,8 @@ require_once 'classes/Room.php';
 
 define('BASE_PATH', __DIR__);
 
-define('HIERARCHICALLY', true);
+define('PARSE_HIERARCHICALLY', true);
+define('SHOW_OBJECTS_FOR_MATERIALS', false);
 
 function checkMaterial($material) {
     $material_name_excludes = ['competition_asian_dragon_point'];
@@ -92,7 +93,7 @@ for ($i = 0; $i <= 5; ++$i) {
                             }
                         }
                     }
-                    if (HIERARCHICALLY && isset($item['produce']) && gettype($item['produce']) === 'string' && $item['produce'] !== $item_name) {
+                    if (PARSE_HIERARCHICALLY && isset($item['produce']) && gettype($item['produce']) === 'string' && $item['produce'] !== $item_name) {
                         $item_name = $item['produce'];
                         $item = Bot::$game->city_items[$item['produce']];
                         $item_is_constructing = false;
@@ -131,9 +132,12 @@ foreach ($item_types_for_construct as $item_name => $item) {
                 $materials_needed[$material]['quantity'] += $quantity;
                 if ($item['constructing'] && $quantity > 0)
                     $materials_needed[$material]['need_now'] = $item['constructing'];
+                if (!in_array($item_name, $materials_needed[$material]['objects']))
+                    $materials_needed[$material]['objects'][] = ['object_name' => $item_name, 'quantity' => $quantity];
             } else {
                 $materials_needed[$material] = ['quantity' => $quantity - $barn_quantity];
-                $materials_needed[$material]['need_now'] = $item['constructing'];
+                $materials_needed[$material]['need_now'] = $item['constructing'] && $quantity > 0;
+                $materials_needed[$material]['objects'] = [['object_name' => $item_name, 'quantity' => $quantity]];
             }
         }
     }
@@ -157,7 +161,16 @@ $full_amount = 0;
 foreach ($materials_needed as $material => $parameters) {
     if ($parameters['quantity'] > 0) {
         $city_item = Bot::$game->city_items[$material];
-        echo (($parameters['need_now']) ? '+' : '-') . $city_item['description'] . ": {$parameters['quantity']}\n";
+        echo (($parameters['need_now']) ? '+' : '-') . $city_item['description'] . ': ' . $parameters['quantity'];
+        if (SHOW_OBJECTS_FOR_MATERIALS) {
+            $objects = [];
+            foreach ($parameters['objects'] as $object) {
+                if ($object['quantity'] > 0)
+                    $objects[] = $object['object_name'] . ' => ' . $object['quantity'];
+            }
+            echo ' (' . implode(', ', $objects) . ')';
+        }
+        echo "\n";
         ++$materials_amount;
         $full_amount += $parameters['quantity'];
     }
