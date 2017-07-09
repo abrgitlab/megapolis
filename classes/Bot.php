@@ -120,7 +120,8 @@ class Bot
         Bot::$game->room->doChineseFactoryWork();
         Bot::$game->room->doMilitaryWork();
         Bot::$game->room->signContracts();
-        Bot::$game->room->getCoins();
+        if (!Bot::$options['manual'])
+            Bot::$game->room->getCoins();
         Bot::$game->applyHelp();
 
         Bot::$game->changeRoom(5);

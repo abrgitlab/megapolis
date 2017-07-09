@@ -55,7 +55,7 @@ class Room
         'conveyor_fighters' => [1059602, 1059608, 1059614, 1059710, 1059716, 1059722], //Истребители
         'conveyor_tactical_bombers' => [1059638, 1059644, 1059650, 1059764, 1059770, 1059776], //Бомбардировщики TB
         'conveyor_strategic_bombers' => [1059620, 1059626, 1059632, 1059782, 1059788, 1059794], //Бомбардировщики SB
-        'conveyor_drones' => [1059818, 1059824, 1059830, 1059836], //Беспилотники
+        'conveyor_drones' => [1059818, 1059824, 1059830, 1059836/*, */, 1059848], //Беспилотники
 
         'conveyor_landing_ships' => [1059928, 1059934, 1059940, 1059983, 1059989, 1059995], //Десантные суда
         'conveyor_ships_of_coastal_zone' => [1059910, 1059916, 1059922, 1060152, 1060158, 1060164], //Корабли
@@ -67,6 +67,8 @@ class Room
         'conveyor_coastal_missiles' => [1059464, 1059470, 1059476, 1059482, 1059488, 1059494], //БРК
         'conveyor_mobile_missiles' => [1059392, 1059398, 1059404, 1059410], //ПРК
         'conveyor_intercontinental_missiles' => [1059500, 1059506, 1059512], //МБР
+
+        'conveyor_communications_satellites' => [1060113], //Спутники связи
     ];
 
     /**
@@ -747,7 +749,7 @@ class Room
             Bot::$game->checkAndPerform($cached);
         }
 
-        $cached = [];
+        /*$cached = [];
 
         foreach($barn_amount as $barn_id => $barn_count) {
             if ($barn_count > 50) {
@@ -771,7 +773,7 @@ class Room
             }
 
             Bot::$game->checkAndPerform($cached);
-        }
+        }*/
     }
 
     public function getBarnQuantity($name) {
