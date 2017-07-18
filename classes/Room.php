@@ -65,10 +65,12 @@ class Room
 
         'conveyor_air_defense_missiles' => [1059428, 1059434, 1059440, 1059446, 1059452, 1059458], //ЗРК
         'conveyor_coastal_missiles' => [1059464, 1059470, 1059476, 1059482, 1059488, 1059494], //БРК
-        'conveyor_mobile_missiles' => [1059392, 1059398, 1059404, 1059410], //ПРК
-        'conveyor_intercontinental_missiles' => [1059500, 1059506, 1059512], //МБР
+        'conveyor_mobile_missiles' => [1059392, 1059398, 1059404, 1059410, 1059416, 1059425], //ПРК
+        'conveyor_intercontinental_missiles' => [1059500, 1059506, 1059512, 1059518], //МБР
 
         'conveyor_communications_satellites' => [1060113], //Спутники связи
+        'conveyor_navigation_satellites' => [1060148, 1060190], //Спутники навигации
+        //'conveyor_observation_satellites' => [] //Спутники разведки
     ];
 
     /**

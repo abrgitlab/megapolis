@@ -1057,15 +1057,6 @@ class Contracts
 
         //4-я комната
         [
-            //Турбовинтовой самолёт
-            //не окончательно
-            'airport_gamble_plane2_buildsite' => [
-                'short' => [
-                    'contract' => 'organization_of_jumps'
-                ],
-                'actions' => ['pick', 'put']
-            ],
-
             //Реактивный самолёт
 //            'airport_gamble_plane1_stage1' => [
 //                 'short' => [
@@ -1085,6 +1076,33 @@ class Contracts
                 ],
                 'long' => [
                     'contract' => 'regional_flights', 'friends_request' => true
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Турбовинтовой самолёт
+            //не окончательно
+            'airport_gamble_plane2_buildsite' => [
+                'short' => [
+                    'contract' => 'organization_of_jumps'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Турбовинтовой самолёт
+            //не окончательно
+            'airport_gamble_plane3_buildsite' => [
+                'short' => [
+                    'contract' => 'organization_of_jumps'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Турбовинтовой самолёт
+            //не окончательно
+            'airport_gamble_plane4_buildsite' => [
+                'short' => [
+                    'contract' => 'organization_of_jumps'
                 ],
                 'actions' => ['pick', 'put']
             ],
