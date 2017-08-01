@@ -108,6 +108,12 @@ for ($i = 0; $i <= 5; ++$i) {
     }
 }
 
+/*foreach (Bot::$game->city_items as $city_item_name => $city_item) {
+    if (isset($city_item['super_class']) && $city_item['super_class'] == 'prototype_buildsite_base' && $city_item['id'] > 0 && isset($city_item['materials_quantity']) && count($city_item['materials_quantity']) > 0) {
+        echo $city_item_name . "\n";
+    }
+}*/
+
 Bot::$game->changeRoom(0);
 
 ksort($item_types_for_construct);
