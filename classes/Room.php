@@ -68,9 +68,9 @@ class Room
         'conveyor_mobile_missiles' => [1059392, 1059398, 1059404, 1059410, 1059416, 1059422], //ПРК
         'conveyor_intercontinental_missiles' => [1059500, 1059506, 1059512, 1059518, 1059524/*, 1059530*/], //МБР
 
-        'conveyor_communications_satellites' => [1060113/*, 1060118, 10601204*/, 1060130/*, 1060136, 1060142*/], //Спутники связи
-        'conveyor_navigation_satellites' => [1060148, 1060190/*, 1060196, 1060202, 1060208, 1060214*/], //Спутники навигации
-        'conveyor_observation_satellites' => [1060220, 1060226/*, 1060232, 1060238, 1060244, 1060378*/] //Спутники разведки
+        'conveyor_communications_satellites' => [1060113/*, 1060118, 10601204*/, 1060130, 1060136, /*1060142*/], //Спутники связи
+        'conveyor_navigation_satellites' => [1060148, 1060190/*, 1060196*/, 1060202/*, 1060208, 1060214*/], //Спутники навигации
+        'conveyor_observation_satellites' => [1060220, 1060226, 1060232, 1060238/*, 1060244, 1060378*/] //Спутники разведки
     ];
 
     /**
@@ -145,7 +145,8 @@ class Room
      * Забирает выручку с выполненных контрактов, заключает новые
      */
     public function signContracts() {
-        echo "Работа с контрактами в комнате $this->id\n";
+        Bot::log("Работа с контрактами в комнате $this->id", [Bot::$STDOUT, Bot::$TELEGRAM]);
+//        echo "Работа с контрактами в комнате $this->id\n";
 
         $contracts_list = Contracts::getContractsList($this);
 
@@ -242,8 +243,10 @@ class Room
         }
 
         if (count($cached) > 0) {
+            Bot::log('Ждём получения прибыли и подписания новых контрактов ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
-                echo "Ждём получения прибыли и подписания новых контрактов $i сек.\n";
+                Bot::log("Ждём получения прибыли и подписания новых контрактов $i сек.");
+                //echo "Ждём получения прибыли и подписания новых контрактов $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
@@ -274,8 +277,10 @@ class Room
         }
 
         if (count($cached) > 0) {
+            Bot::log('Ждём получения монеток ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
-                echo "Ждём получения монеток $i сек.\n";
+                Bot::log("Ждём получения монеток $i сек.");
+                //echo "Ждём получения монеток $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
@@ -405,8 +410,10 @@ class Room
         }
 
         if (count($cached) > 0) {
+            Bot::log('Ждём сбора произведённой военной продукции ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
-                echo "Ждём сбора произведённой военной продукции $i сек.\n";
+                Bot::log("Ждём сбора произведённой военной продукции $i сек.");
+                //echo "Ждём сбора произведённой военной продукции $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
@@ -427,8 +434,10 @@ class Room
         }
 
         if (count($cached) > 0) {
+            Bot::log('Ждём продажи произведённой военной продукции ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
-                echo "Ждём продажи произведённой военной продукции $i сек.\n";
+                Bot::log("Ждём продажи произведённой военной продукции $i сек.");
+                //echo "Ждём продажи произведённой военной продукции $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
@@ -454,8 +463,10 @@ class Room
         }
 
         if (count($cached) > 0) {
+            Bot::log('Ждём начала производства военной продукции ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
-                echo "Ждём начала производства военной продукции $i сек.\n";
+                Bot::log("Ждём начала производства военной продукции $i сек.");
+                //echo "Ждём начала производства военной продукции $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
@@ -541,8 +552,10 @@ class Room
         }
 
         if (count($cached) > 0) {
+            Bot::log('Ждём обработки конвейера пиротехники ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
-                echo "Ждём обработки конвейера пиротехники $i сек.\n";
+                Bot::log("Ждём обработки конвейера пиротехники $i сек.");
+                //echo "Ждём обработки конвейера пиротехники $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
@@ -620,8 +633,10 @@ class Room
         }
 
         if (count($cached) > 0) {
+            Bot::log('Ждём обработки конвейера китайской фабрики ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
-                echo "Ждём обработки конвейера китайской фабрики $i сек.\n";
+                Bot::log("Ждём обработки конвейера китайской фабрики $i сек.");
+                //echo "Ждём обработки конвейера китайской фабрики $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
@@ -643,8 +658,10 @@ class Room
         }
 
         if (count($cached) > 0) {
+            Bot::log('Ждём продажи китайских вещей ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
-                echo "Ждём продажи китайских вещей $i сек.\n";
+                Bot::log("Ждём продажи китайских вещей $i сек.");
+                //echo "Ждём продажи китайских вещей $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
@@ -742,8 +759,10 @@ class Room
         }
 
         if (count($cached) > 0) {
+            Bot::log('Работа с друзьями в казино ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
-                echo "Работа с друзьями в казино $i сек.\n";
+                Bot::log("Работа с друзьями в казино $i сек.");
+                //echo "Работа с друзьями в казино $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
@@ -768,8 +787,10 @@ class Room
         }
 
         if (count($cached) > 0) {
+            Bot::log('Ждём продажи материалов ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
-                echo "Ждём продажи материалов $i сек.\n";
+                Bot::log("Ждём продажи материалов $i сек.");
+                //echo "Ждём продажи материалов $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }

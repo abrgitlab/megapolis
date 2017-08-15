@@ -27,24 +27,28 @@ class Config
         if (file_exists(BASE_PATH . '/config.json')) {
             $config = json_decode(file_get_contents(BASE_PATH . '/config.json'), true);
             if ($config == null) {
-                if (Bot::$options['debug']) echo "Конфиг невозможно распарсить\n";
+                Bot::log('Конфиг невозможно распарсить', [Bot::$DEBUG]);
+                //if (Bot::$options['debug']) echo "Конфиг невозможно распарсить\n";
             } else {
                 if (!Bot::$options['force']) {
                     if (isset($config['lock']) && $config['lock'] == true) {
-                        if (Bot::$options['debug']) echo "Выполнение скрипта заблокировано параметром lock в конфиге\n";
+                        Bot::log('Выполнение скрипта заблокировано параметром lock в конфиге', [Bot::$DEBUG]);
+                        //if (Bot::$options['debug']) echo "Выполнение скрипта заблокировано параметром lock в конфиге\n";
                         exit;
                     }
                     if (isset($config['next_time'])) {
                         $this->next_time = $config['next_time'];
                         if (time() < $this->next_time && !Bot::$options['manual']) {
-                            if (Bot::$options['debug']) echo 'Время следующего выполнения щё не наступило. Скрипт запустится не раньше ' . date('H:i:s', $this->next_time) . " \n";
+                            Bot::log('Время следующего выполнения щё не наступило. Скрипт запустится не раньше ' . date('H:i:s', $this->next_time), [Bot::$DEBUG]);
+                            //if (Bot::$options['debug']) echo 'Время следующего выполнения щё не наступило. Скрипт запустится не раньше ' . date('H:i:s', $this->next_time) . " \n";
                             exit;
                         }
                     }
                 }
             }
         } else {
-            if (Bot::$options['debug']) echo "Конфиг не найден\n";
+            Bot::log('Конфиг не найден', [Bot::$DEBUG]);
+            //if (Bot::$options['debug']) echo "Конфиг не найден\n";
         }
 
         $dateParams = $this->getDateParams(time());
@@ -66,12 +70,14 @@ class Config
                 Bot::$options['long'] = true;
         }
 
-        if (Bot::$options['debug']) {
+        //if (Bot::$options['debug']) {
             if (Bot::$options['long'])
-                echo "Будут подписаны длинные контракты\n";
+                Bot::log('Будут подписаны длинные контракты', [Bot::$DEBUG]);
+                //echo "Будут подписаны длинные контракты\n";
             else
-                echo "Будут подписаны короткие контракты\n";
-        }
+                Bot::log('Будут подписаны короткие контракты', [Bot::$DEBUG]);
+                //echo "Будут подписаны короткие контракты\n";
+        //}
     }
 
     /**

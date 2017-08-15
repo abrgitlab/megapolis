@@ -141,9 +141,11 @@ class Friend
         $friend_rooms = [0, 5, 2, 4, 1];
         $last_room_id = $friend_rooms[0];
 
+        Bot::log('Заходим к друзьям...', [Bot::$TELEGRAM]);
         foreach ($friend_rooms as $room_id) {
             if ($this->help_points > 0) {
-                echo 'Заходим к другу с ID ' . $this->id . ' в комнату '. $room_id . "\n";
+                Bot::log('Заходим к другу с ID ' . $this->id . ' в комнату '. $room_id);
+                //echo 'Заходим к другу с ID ' . $this->id . ' в комнату '. $room_id . "\n";
                 $room_data = Bot::$game->visitFriend($this->id, $last_room_id, $room_id);
                 $room_data = preg_replace('/<neighborhoods.*<\/neighborhoods>/smi', '', $room_data);
                 $room_data = preg_replace('/<friend_neighborhoods.*<\/friend_neighborhoods>/', '', $room_data);

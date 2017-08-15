@@ -23,6 +23,10 @@ class Bot
 
     public static $neighborhood_id = '18972';
 
+    public static $STDOUT = 'stdout';
+    public static $TELEGRAM = 'telegram';
+    public static $DEBUG = 'debug';
+
     /**
      * @var $options array
      */
@@ -68,6 +72,7 @@ class Bot
         Bot::$options['manual'] = isset(Bot::$options['manual']);
         Bot::$options['force'] = isset(Bot::$options['force']);
         Bot::$options['debug'] = isset(Bot::$options['D']) || isset(Bot::$options['debug']);
+        Bot::$options['telegram'] = false; //TODO
 
         Bot::$tidy = new Tidy();
         Bot::$tidy_config = [
@@ -152,8 +157,19 @@ class Bot
         $this->config->lock = false;
         $this->config->commit();
 
-        echo 'Выполнено в ' . date('H:i:s') . "\n";
-        echo 'Следующее выполнение - не раньше ' . date('H:i:s', $this->config->next_time) . "\n";
+        Bot::log('Выполнено в ' . date('H:i:s'), [Bot::$STDOUT, Bot::$TELEGRAM]);
+        //echo 'Выполнено в ' . date('H:i:s') . "\n";
+        Bot::log('Следующее выполнение - не раньше ' . date('H:i:s', $this->config->next_time), [Bot::$STDOUT, Bot::$TELEGRAM]);
+        //echo 'Следующее выполнение - не раньше ' . date('H:i:s', $this->config->next_time) . "\n";
+    }
+
+    public static function log($text, $options = ['stdout']) {
+        if (Bot::$options[Bot::$TELEGRAM] && in_array(Bot::$TELEGRAM, $options)) {
+            //TODO: отправить в телеграм
+        }
+        if (in_array(Bot::$STDOUT, $options) || in_array(Bot::$DEBUG, $options) && Bot::$options[Bot::$DEBUG]) {
+            echo "$text\n";
+        }
     }
 
 }

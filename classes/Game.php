@@ -116,7 +116,8 @@ class Game
      * и скачивает их, если обновления имеются
      */
     public function checkUpdates() {
-        echo "Проверка наличия обновлений\n";
+        Bot::log('Проверка наличия обновлений', [Bot::$STDOUT, Bot::$TELEGRAM]);
+        //echo "Проверка наличия обновлений\n";
         $revision_data = $this->getRevision();
         $revision_data = Bot::$tidy->repairString($revision_data, Bot::$tidy_config);
 
@@ -139,7 +140,8 @@ class Game
             $files_for_loading[] = 'city_requests';
 
         if (count($files_for_loading) > 0) {
-            echo "Получение обновлений\n";
+            Bot::log('Получение обновлений', [Bot::$STDOUT, Bot::$TELEGRAM]);
+            //echo "Получение обновлений\n";
 
             foreach ($files_for_loading as $file) {
                 $yaml = file_get_contents("http://mb.static.socialquantum.ru/mobile_assets/$file.yml?rev=$this->revision");
@@ -147,8 +149,9 @@ class Game
             }
 
             foreach ($old_cache as $old_catalog) {
-                if (Bot::$options['debug'])
-                    echo 'Удаляем ' . Game::$files_directory . DIRECTORY_SEPARATOR . $old_catalog . "\n";
+                Bot::log('Удаляем ' . Game::$files_directory . DIRECTORY_SEPARATOR . $old_catalog, [Bot::$DEBUG]);
+                //if (Bot::$options['debug'])
+                //    echo 'Удаляем ' . Game::$files_directory . DIRECTORY_SEPARATOR . $old_catalog . "\n";
                 $this->deleteDir(Game::$files_directory . DIRECTORY_SEPARATOR . $old_catalog);
             }
         }
@@ -226,7 +229,8 @@ class Game
                 }
             }
         }
-        if (Bot::$options['debug']) echo 'Друзей: ' . count($this->friends) . "\n";
+        Bot::log('Друзей: ' . count($this->friends), [Bot::$DEBUG]);
+        //if (Bot::$options['debug']) echo 'Друзей: ' . count($this->friends) . "\n";
     }
 
     /**
@@ -236,12 +240,14 @@ class Game
         $letters_amount = 0;
         foreach ($this->friends as $friend) {
             if (count($friend->letters) > 0) {
-                echo $friend->id . "\n";
+                Bot::log($friend->id, [Bot::$DEBUG]);
+                //echo $friend->id . "\n";
                 var_dump($friend->letters);
                 $letters_amount += count($friend->letters);
             }
         }
-        echo "Писем: $letters_amount\n";
+        Bot::log("Писем: $letters_amount", [Bot::$DEBUG]);
+        //echo "Писем: $letters_amount\n";
     }
 
     /**
@@ -265,8 +271,10 @@ class Game
             }
         }
 
+        Bot::log('Отказываем друзьям в материалах: ' . count($items) . 'сек.', [Bot::$TELEGRAM]);
         for ($i = count($items); $i > 0; --$i) {
-            echo "Отказываем друзьям в материалах $i сек.\n";
+            Bot::log("Отказываем друзьям в материалах $i сек.");
+            //echo "Отказываем друзьям в материалах $i сек.\n";
             $current = [$items[count($items) - $i]];
             $current[0]['uxtime'] = time();
             $this->checkAndPerform($current);
@@ -357,8 +365,10 @@ class Game
             }
         }
 
+        Bot::log('Обработка писем ' . count($items) . ' сек.', [Bot::$TELEGRAM]);
         for ($i = count($items); $i > 0; --$i) {
-            echo "Обработка писем $i сек.\n";
+            Bot::log("Обработка писем $i сек.");
+            //echo "Обработка писем $i сек.\n";
             $current = [$items[count($items) - $i]];
             $current[0]['uxtime'] = time();
             $this->checkAndPerform($current);
@@ -378,7 +388,8 @@ class Game
                 }
             }*/
             if (isset($friend->letters['invite_suggested_neighbors'])) {
-                echo 'Принимаем в друзья город ' . $friend->id . "\n";
+                Bot::log('Принимаем в друзья город ' . $friend->id, [Bot::$STDOUT, Bot::$TELEGRAM]);
+                //echo 'Принимаем в друзья город ' . $friend->id . "\n";
                 $this->processAcceptFriend($friend->id, $friend->letters['invite_suggested_neighbors']->pushed);
 
                 unset($friend->letters['invite_suggested_neighbors']);
@@ -455,8 +466,10 @@ class Game
         }
 
         if (count($cached) > 0) {
+            Bot::log('Получение помощи от друзей ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
-                echo "Получение помощи от друзей $i сек.\n";
+                Bot::log("Получение помощи от друзей $i сек.");
+                //echo "Получение помощи от друзей $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
@@ -518,7 +531,8 @@ class Game
                     if ($city_item_name)
                         $received_gifts[] = array('name' => 'send_gift_new', 'friend_id' => $friend->id, 'st_item' => $gift_id, 'gift_name' => $city_item_name);
                     else
-                        echo "Неизвестный материал, id $gift_id\n";
+                        Bot::log("Неизвестный материал, id $gift_id", [Bot::$STDOUT, Bot::$TELEGRAM]);
+                        //echo "Неизвестный материал, id $gift_id\n";
                 }
             }
         }
@@ -534,7 +548,8 @@ class Game
 
             $this->checkAndPerform($cached);
 
-            echo 'Принято подарков: ' . count($received_gifts) . "\n";
+            Bot::log('Принято подарков: ' . count($received_gifts), [Bot::$STDOUT, Bot::$TELEGRAM]);
+            //echo 'Принято подарков: ' . count($received_gifts) . "\n";
         }
     }
 
@@ -604,8 +619,10 @@ class Game
         }
 
         if (count($cached) > 0) {
+            Bot::log('Ждём раздаривания подарков ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
-                echo "Ждём раздаривания подарков $i сек.\n";
+                Bot::log("Ждём раздаривания подарков $i сек.");
+                //echo "Ждём раздаривания подарков $i сек.\n";
                 $current = [$cached[count($cached) - $i]];
                 $current[0]['uxtime'] = time();
                 $this->checkAndPerform($current);
@@ -635,8 +652,10 @@ class Game
         }
 
         if (count($cached) > 0) {
+            Bot::log('Отправляем друзей в игровую зону ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
-                echo "Отправляем друзей в игровую зону $i сек.\n";
+                Bot::log("Отправляем друзей в игровую зону $i сек.");
+//                echo "Отправляем друзей в игровую зону $i сек.\n";
                 $current = [$cached[count($cached) - $i]];
                 $current[0]['uxtime'] = time();
                 $this->checkAndPerform($current);
@@ -677,7 +696,8 @@ class Game
         $chest_action_chest1 = $this->room->getBarnQuantity('chest_action_chest1');
 
         if (time() - $chest_time_last_open > 3600 && $chest_action_chest1 > 0) {
-            echo "Открываем сундук\n";
+            Bot::log('Открываем сундук', [Bot::$STDOUT, Bot::$TELEGRAM]);
+            //echo "Открываем сундук\n";
 
             $cached = [[
                 'command' => 'chest_action_open_chest',
@@ -734,7 +754,8 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
         $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&no_field=true&social_id[SQ]=abr_mail%40mail.ru&social_id[GS]=105865456413157542698&social_id[GPG]=105865456413157542698&device_id=' . Bot::$device_id . '&platform=android&build=' . Bot::$build . '&app=city&device_model=Genymotion%20vbox86p&os=4.1.1&gloc=ru&dloc=ru&net=wf&social=sqsocial%3Aprod&odin_id=' . Bot::$odin_id . '&android_id=' . Bot::$android_id . '&mac=' . Bot::$mac . '&advertising_id=' . Bot::$advertising_id;
-        if (Bot::$options['debug']) echo "\n$url\n\n";
+        Bot::log("\n$url\n", [Bot::$DEBUG]);
+        //if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
     }
@@ -747,7 +768,8 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
         $url = 'daily_gift=2&iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&revision=android-' . Bot::$client_version . '.' . Bot::$build . '&allow_personal_information=1&user_first_name=%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%B8%D0%B9&user_last_name=%D0%9C%D0%B0%D0%BB%D0%B0%D1%85%D0%BE%D0%B2&user_sex=0&access_token=' . Bot::$iauth . '&lang=ru&client_type=android&room_id=0&odin_id=' . Bot::$odin_id . '&android_id=' . Bot::$android_id . '&mac=' . Bot::$mac . '&advertising_id=' . Bot::$advertising_id . '&device_id=' . Bot::$device_id . '&first_request=true&location=&rn=' . $this->popRN() . '&content_rev=' . $this->revision . '&app_store_name=com.android.vending';
-        if (Bot::$options['debug']) echo "\n$url\n\n";
+        Bot::log("\n$url\n", [Bot::$DEBUG]);
+        //if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
 
@@ -772,7 +794,8 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
         $url = 'daily_gift=2&iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&session_key=' . $this->session_key . '&room_id=' . Bot::$last_room_id . '&change_room=1&view_room_id=' . $room_id . '&serv_ver=1&lang=ru&rand=0.' . rand(0, 9999999) . '&client_type=android&rn=' . $this->popRN() . '&content_rev=' . $this->revision;
-        if (Bot::$options['debug']) echo "\n$url\n\n";
+        Bot::log("\n$url\n", [Bot::$DEBUG]);
+        //if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
 
@@ -787,7 +810,8 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
         $url = 'daily_gift=2&iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&session_key=' . $this->session_key . '&room_id=100&change_room=1&view_room_id=0&lang=ru&client_type=android&rn=' . $this->popRN() . '&content_rev=' . $this->revision;
-        if (Bot::$options['debug']) echo "\n$url\n\n";
+        Bot::log("\n$url\n", [Bot::$DEBUG]);
+        //if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
 
@@ -805,7 +829,8 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
         $url = 'daily_gift=2&iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&session_key=' . $this->session_key . '&view_friend_id=' . $friend_id . '&room_id=' . $last_room_id . '&change_room=1&view_room_id=' . $room_id . '&lang=ru&client_type=android&rn=' . $this->popRN() . '&content_rev=' . $this->revision;
-        if (Bot::$options['debug']) echo "\n$url\n\n";
+        Bot::log("\n$url\n", [Bot::$DEBUG]);
+        //if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
 
@@ -820,7 +845,8 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
         $url = 'daily_gift=2&iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&session_key=' . $this->session_key . '&owner_id=' . $from_friend . '&room_id=' . $this->room->id . '&change_room=1&view_room_id=' . $this->room->id . '&lang=ru&client_type=android&rn=' . $this->popRN() . '&content_rev=' . $this->revision;
-        if (Bot::$options['debug']) echo "\n$url\n\n";
+        Bot::log("\n$url\n", [Bot::$DEBUG]);
+        //if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
     }
@@ -844,7 +870,8 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
         $url = 'daily_gift=2&iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&session_key=' . $this->session_key . '&room_id=' . $this->room->id . '&owner_id=' . $friend_id . '&serv_ver=1' . $cached_string . '&lang=ru&rand=0.' . rand(0, 9999999) . '&live_update=true&rn=' . $this->popRN() . '&content_rev=' . $this->revision;
-        if (Bot::$options['debug']) echo "\n$url\n\n";
+        Bot::log("\n$url\n", [Bot::$DEBUG]);
+        //if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
 
@@ -861,7 +888,8 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
         $url = 'daily_gift=2&iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&session_key=' . $this->session_key . '&command=commit_request&cmd_id=' . $this->popCmdId() . '&room_id=' . $this->room->id . '&name=invite_suggested_neighbors&friend_id=' . $friend_id . '&count=1&pushed=' . $pushed . '&room_id=' . $this->room->id . '&only_head=1&serv_ver=1&lang=ru&rand=0.' . rand(0, 9999999) . '&live_update=true&rn=' . $this->popRN() . '&content_rev=' . $this->revision;
-        if (Bot::$options['debug']) echo "\n$url\n\n";
+        Bot::log("\n$url\n", [Bot::$DEBUG]);
+        //if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
 
@@ -886,7 +914,8 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
         $url = 'daily_gift=2&iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&session_key=' . $this->session_key . '&room_id=' . $this->room->id . '&serv_ver=1' . $cached_string . '&lang=ru&rand=0.' . rand(0, 9999999) . '&live_update=true&rn=' . $this->popRN() . '&content_rev=' . $this->revision;
-        if (Bot::$options['debug']) echo "\n$url\n\n";
+        Bot::log("\n$url\n", [Bot::$DEBUG]);
+        //if (Bot::$options['debug']) echo "\n$url\n\n";
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
 

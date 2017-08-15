@@ -840,7 +840,16 @@ class Contracts
                     'contract' => 'submarine_repair'
                 ],
                 'actions' => ['pick', 'put']
-            ]
+            ],
+
+            //Инженерно-конструкторское бюро флота
+            //не окончательно
+            'navy_design_bureau_stage2' => [
+                'short' => [
+                    'contract' => 'designing_docking_ship'
+                ],
+                'actions' => ['pick', 'put']
+            ],
         ],
 
         //1-я комната
@@ -1057,34 +1066,20 @@ class Contracts
 
         //4-я комната
         [
-            //Реактивный самолёт
-//            'airport_gamble_plane1_stage1' => [
-//                 'short' => [
-//                     'contract' => 'organization_of_jumps'
-//                 ],
-////                'long' => [
-////                    'contract' => '', 'friends_request' => true
-////                ],
-//                'actions' => ['pick', 'put']
-//            ],
-
             //Турбореактивный самолёт
             //не окончательно
-            'airport_gamble_plane1_stage2' => [
+            'airport_gamble_plane1_stage3' => [
                 'short' => [
-                    'contract' => 'organization_of_jumps'
-                ],
-                'long' => [
-                    'contract' => 'regional_flights', 'friends_request' => true
+                    'contract' => 'air_excursions'
                 ],
                 'actions' => ['pick', 'put']
             ],
 
             //Турбовинтовой самолёт
             //не окончательно
-            'airport_gamble_plane2_buildsite' => [
+            'airport_gamble_plane2_stage3' => [
                 'short' => [
-                    'contract' => 'organization_of_jumps'
+                    'contract' => 'air_excursions'
                 ],
                 'actions' => ['pick', 'put']
             ],
