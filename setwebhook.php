@@ -6,29 +6,11 @@
  * Time: 13:30
  */
 
- function regHandler($cert, $token, $murl)
- {
-     $url = "https://api.telegram.org/bot" . $token . "/setWebhook";
-     $ch = curl_init();
-     $optArray = array(
-         CURLOPT_URL => $url,
-         CURLOPT_POST => true,
-         CURLOPT_SAFE_UPLOAD => false,
-         CURLOPT_RETURNTRANSFER => true,
-         CURLOPT_POSTFIELDS => array('url' => $murl, 'certificate' => '@' . realpath($cert))
-     );
-     curl_setopt_array($ch, $optArray);
+require_once 'vendor/autoload.php';
 
-     $result = curl_exec($ch);
-     echo "<pre>";
-     print_r($result);
-     echo "</pre>";
-     curl_close($ch);
- }
+define('MEGAPOLIS_PATH', __DIR__);
 
- $token = '411382774:AAHjTH-9dxBfecr8RTd4anfIFWzcSmy4xMU';
- $path = 'ssl/wildcard.abr-daemon.ru.pem';
- $handlerurl = 'https://mega.abr-daemon.ru/'; // ИЗМЕНИТЕ ССЫЛКУ
+$bot = new Longman\TelegramBot\Telegram('411382774:AAHjTH-9dxBfecr8RTd4anfIFWzcSmy4xMU', 'abr_mega_bot');
+$bot->setWebhook('https://mega.abr-daemon.ru/', ['certificate' => MEGAPOLIS_PATH . DIRECTORY_SEPARATOR . 'ssl' . DIRECTORY_SEPARATOR . 'wildcard.abr-daemon.ru.pem']);
 
- regHandler($path, $token, $handlerurl);
 ?>
