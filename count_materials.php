@@ -10,7 +10,7 @@ require_once 'classes/Bot.php';
 require_once 'classes/Game.php';
 require_once 'classes/Room.php';
 
-define('BASE_PATH', __DIR__);
+//define('MEGAPOLIS_PATH', __DIR__);
 
 define('PARSE_HIERARCHICALLY', true);
 define('SHOW_OBJECTS_FOR_MATERIALS', false);

@@ -83,7 +83,7 @@ class Room
         if ($location_data) {
             $this->location_data = $location_data;
         } else {
-            $room_file_name = BASE_PATH . DIRECTORY_SEPARATOR . 'rooms' . DIRECTORY_SEPARATOR . $this->id;
+            $room_file_name = MEGAPOLIS_PATH . DIRECTORY_SEPARATOR . 'rooms' . DIRECTORY_SEPARATOR . $this->id;
             if (Bot::$game->online) {
                 $location_data = Bot::$game->getRoomStat($this->id);
                 file_put_contents($room_file_name, $location_data);

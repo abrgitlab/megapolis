@@ -20,70 +20,47 @@ class Config
     public $next_time;
 
     /**
+     * @var $long bool
+     */
+    public $long;
+
+    /**
+     * @var $telegram bool
+     */
+    public $telegram = false;
+
+    /**
+     * @var $telegram_recipient int
+     */
+    public $telegram_recipient;
+
+    /**
      * @inheritdoc
      */
     function __construct()
     {
-        if (file_exists(BASE_PATH . '/config.json')) {
-            $config = json_decode(file_get_contents(BASE_PATH . '/config.json'), true);
+        if (file_exists(MEGAPOLIS_PATH . '/config.json')) {
+            $config = json_decode(file_get_contents(MEGAPOLIS_PATH . '/config.json'), true);
             if ($config == null) {
                 Bot::log('Конфиг невозможно распарсить', [Bot::$DEBUG]);
                 //if (Bot::$options['debug']) echo "Конфиг невозможно распарсить\n";
             } else {
-                if (!Bot::$options['force']) {
-                    if (isset($config['lock']) && $config['lock'] == true) {
-                        Bot::log('Выполнение скрипта заблокировано параметром lock в конфиге', [Bot::$DEBUG]);
-                        //if (Bot::$options['debug']) echo "Выполнение скрипта заблокировано параметром lock в конфиге\n";
-                        exit;
-                    }
-                    if (isset($config['next_time'])) {
-                        $this->next_time = $config['next_time'];
-                        if (time() < $this->next_time && !Bot::$options['manual']) {
-                            Bot::log('Время следующего выполнения щё не наступило. Скрипт запустится не раньше ' . date('H:i:s', $this->next_time), [Bot::$DEBUG]);
-                            //if (Bot::$options['debug']) echo 'Время следующего выполнения щё не наступило. Скрипт запустится не раньше ' . date('H:i:s', $this->next_time) . " \n";
-                            exit;
-                        }
-                    }
-                }
+                $this->lock = (isset($config['lock'])) ? $config['lock'] : false;
+                $this->next_time = (isset($config['next_time'])) ? $config['next_time'] : null;
+                $this->long = (isset($config['long'])) ? $config['long'] : false;
+                $this->telegram = (isset($config['telegram'])) ? $config['telegram'] : false;
+                $this->telegram_recipient = (isset($config['telegram_recipient'])) ? $config['telegram_recipient'] : null;
             }
         } else {
             Bot::log('Конфиг не найден', [Bot::$DEBUG]);
             //if (Bot::$options['debug']) echo "Конфиг не найден\n";
         }
-
-        $dateParams = $this->getDateParams(time());
-        if (!Bot::$options['manual']) {
-            //Пн-Пт > 21:30
-            if ($dateParams['dow'] >= 1 && $dateParams['dow'] <= 5 && ($dateParams['hour'] == 21 && $dateParams['min'] >= 30 || $dateParams['hour'] > 21))
-                Bot::$options['long'] = true;
-
-            //Все дни > 23:30
-            if ($dateParams['hour'] == 23 && $dateParams['min'] >= 30)
-                Bot::$options['long'] = true;
-
-            //Все дни < 08:00
-            if ($dateParams['hour'] < 8)
-                Bot::$options['long'] = true;
-
-            //Сб, Вс < 12:00
-            if (($dateParams['dow'] == 7 || $dateParams['dow'] == 6) && $dateParams['hour'] < 12)
-                Bot::$options['long'] = true;
-        }
-
-        //if (Bot::$options['debug']) {
-            if (Bot::$options['long'])
-                Bot::log('Будут подписаны длинные контракты', [Bot::$DEBUG]);
-                //echo "Будут подписаны длинные контракты\n";
-            else
-                Bot::log('Будут подписаны короткие контракты', [Bot::$DEBUG]);
-                //echo "Будут подписаны короткие контракты\n";
-        //}
     }
 
     /**
      *
      */
-    private function getDateParams($time) {
+    public function getDateParams($time) {
         return [
             'min' => date('i', $time),
             'hour' => date('H', $time),
@@ -98,8 +75,14 @@ class Config
         $config = ['lock' => $this->lock];
         if ($this->next_time)
             $config['next_time'] = $this->next_time;
+        if ($this->long)
+            $config['long'] = $this->long;
+        if ($this->telegram)
+            $config['telegram'] = $this->telegram;
+        if ($this->telegram_recipient != null)
+            $config['telegram_recipient'] = $this->telegram_recipient;
 
-        file_put_contents(BASE_PATH . '/config.json', json_encode($config));
+        file_put_contents(MEGAPOLIS_PATH . '/config.json', json_encode($config));
     }
 
     /**

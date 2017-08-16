@@ -75,7 +75,7 @@ class Game
     {
         $this->online = $online;
 
-        Game::$files_directory = BASE_PATH . "/files";
+        Game::$files_directory = MEGAPOLIS_PATH . "/files";
 
         if ($online) {
             $this->checkUpdates();
@@ -271,7 +271,8 @@ class Game
             }
         }
 
-        Bot::log('Отказываем друзьям в материалах: ' . count($items) . 'сек.', [Bot::$TELEGRAM]);
+        if (count($items) > 0)
+            Bot::log('Отказываем друзьям в материалах ' . count($items) . ' сек.', [Bot::$TELEGRAM]);
         for ($i = count($items); $i > 0; --$i) {
             Bot::log("Отказываем друзьям в материалах $i сек.");
             //echo "Отказываем друзьям в материалах $i сек.\n";
@@ -365,7 +366,8 @@ class Game
             }
         }
 
-        Bot::log('Обработка писем ' . count($items) . ' сек.', [Bot::$TELEGRAM]);
+        if (count($items) > 0)
+            Bot::log('Обработка писем ' . count($items) . ' сек.', [Bot::$TELEGRAM]);
         for ($i = count($items); $i > 0; --$i) {
             Bot::log("Обработка писем $i сек.");
             //echo "Обработка писем $i сек.\n";
@@ -401,6 +403,7 @@ class Game
      * Посещение друзей
      */
     public function visitFriends() {
+        Bot::log('Заходим к друзьям...', [Bot::$TELEGRAM]);
         foreach ($this->friends as $friend) {
             if ($friend->id != '-41' && $friend->id != '-43') {
                 $friend->visit();

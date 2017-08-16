@@ -13,7 +13,9 @@ require_once 'classes/Room.php';
 require_once 'classes/Friend.php';
 require_once 'classes/Contracts.php';
 
-define('BASE_PATH', __DIR__);
+require_once 'vendor/autoload.php';
+
+define('MEGAPOLIS_PATH', __DIR__);
 
 $bot = new Bot();
 $bot->start();
