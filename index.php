@@ -23,10 +23,10 @@ try {
 
 if ($message != null && isset($message->message->text) && isset($message->message->from->id)) {
     if (in_array($message->message->from->id, Bot::$telegram_permitted_senders)) {
-        if ($message->message->text == '/runlong' || $message->message->text == '/run') {
-            Bot::$options['telegram'] = true;
-            Bot::$options['telegram_recipient'] = $message->message->from->id;
+        Bot::$options['telegram'] = true;
+        Bot::$options['telegram_recipient'] = $message->message->from->id;
 
+        if ($message->message->text == '/runlong' || $message->message->text == '/run') {
             $config = new Config();
 
             if ($config->lock) {
@@ -43,6 +43,8 @@ if ($message != null && isset($message->message->text) && isset($message->messag
             if ($seconds_left > 59)
                 $seconds_left = 60 - $seconds_left;
             Bot::log("Запуск через $seconds_left сек.", [Bot::$TELEGRAM]);
+        } elseif ($message->message->text == '/ping') {
+            Bot::log('pong', [Bot::$TELEGRAM]);
         }
     }
 } elseif ($message == null) {

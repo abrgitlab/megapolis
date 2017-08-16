@@ -27,7 +27,7 @@
  }
 
  $token = '411382774:AAHjTH-9dxBfecr8RTd4anfIFWzcSmy4xMU';
- $path = 'ssl/public.pem';
+ $path = 'ssl/wildcard.abr-daemon.ru.pem';
  $handlerurl = 'https://mega.abr-daemon.ru/'; // ИЗМЕНИТЕ ССЫЛКУ
 
  regHandler($path, $token, $handlerurl);
