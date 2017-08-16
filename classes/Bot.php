@@ -21,7 +21,7 @@ class Bot
     public static $mac = '0800270cc3c5';
     public static $advertising_id = 'e4959f11-12a8-4cb1-a5d3-0c3649406e3b';
     public static $telegram_bot_token = '411382774:AAHjTH-9dxBfecr8RTd4anfIFWzcSmy4xMU';
-    public static $telegram_permitted_senders = [221931497, 419035810];
+    public static $telegram_permitted_senders = [221931497/*, 419035810*/];
 
     public static $neighborhood_id = '18972';
 

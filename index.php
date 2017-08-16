@@ -25,7 +25,9 @@ if ($message != null && isset($message->message->text) && isset($message->messag
     Bot::$options['telegram'] = true;
     Bot::$options['telegram_recipient'] = $message->message->from->id;
 
-    if (in_array($message->message->from->id, Bot::$telegram_permitted_senders)) {
+    if ($message->message->text == '/ping') {
+        Bot::log('pong', [Bot::$TELEGRAM]);
+    } elseif (in_array($message->message->from->id, Bot::$telegram_permitted_senders)) {
         if ($message->message->text == '/runlong' || $message->message->text == '/run') {
             $config = new Config();
 
@@ -43,16 +45,11 @@ if ($message != null && isset($message->message->text) && isset($message->messag
             if ($seconds_left > 59)
                 $seconds_left = 60 - $seconds_left;
             Bot::log("Запуск через $seconds_left сек.", [Bot::$TELEGRAM]);
-        } elseif ($message->message->text == '/ping') {
-            Bot::log('pong', [Bot::$TELEGRAM]);
-        }
-    }
-    if ($message->message->text == '/start') {
-        if (in_array($message->message->from->id, Bot::$telegram_permitted_senders)) {
+        } elseif ($message->message->text == '/start') {
             Bot::log('Привет! Стартуй с запуском коротких контрактов /run или с запуском длинных контрактов /runlong', [Bot::$TELEGRAM]);
-        } else {
-            Bot::log('Hello! Sorry, but you have no permissions for using this bot.', [Bot::$TELEGRAM]);
         }
+    } else {
+        Bot::log('Hello! Sorry, but you have no permissions for using this bot.', [Bot::$TELEGRAM]);
     }
 } elseif ($message == null) {
     header('HTTP/1.1 404 Not Found');
