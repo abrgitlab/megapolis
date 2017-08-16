@@ -21,22 +21,29 @@ try {
     $message = \GuzzleHttp\json_decode($telegram->getCustomInput());
 } catch (Longman\TelegramBot\Exception\TelegramException $e) {}
 
-if ($message != null && isset($message->message->text) && isset($message->message->from->id) && in_array($message->message->from->id, Bot::$telegram_permitted_senders)) {
-    if ($message->message->text == '/runlong' || $message->message->text == '/run') {
-        Bot::$options['telegram'] = true;
-        Bot::$options['telegram_recipient'] = $message->message->from->id;
+if ($message != null && isset($message->message->text) && isset($message->message->from->id)) {
+    if (in_array($message->message->from->id, Bot::$telegram_permitted_senders)) {
+        if ($message->message->text == '/runlong' || $message->message->text == '/run') {
+            Bot::$options['telegram'] = true;
+            Bot::$options['telegram_recipient'] = $message->message->from->id;
 
-        $config = new Config();
+            $config = new Config();
 
-        if ($config->lock) {
-            Bot::log('Выполнение скрипта заблокировано параметром lock в конфиге', [Bot::$TELEGRAM]);
-            return;
+            if ($config->lock) {
+                Bot::log('Выполнение скрипта заблокировано параметром lock в конфиге', [Bot::$TELEGRAM]);
+                return;
+            }
+
+            $config->long = ($message->message->text == '/runlong');
+            $config->telegram = true;
+            $config->telegram_recipient = $message->message->from->id;
+            $config->commit();
+
+            $seconds_left = 61 - date('s');
+            if ($seconds_left > 59)
+                $seconds_left = 60 - $seconds_left;
+            Bot::log("Запуск через $seconds_left сек.", [Bot::$TELEGRAM]);
         }
-
-        $config->long = ($message->message->text == '/runlong');
-        $config->telegram = true;
-        $config->telegram_recipient = $message->message->from->id;
-        $config->commit();
     }
 } elseif ($message == null) {
     header('HTTP/1.1 404 Not Found');
