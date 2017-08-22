@@ -70,7 +70,7 @@ class Room
 
         'conveyor_communications_satellites' => [1060113/*, 1060118, 10601204*/, 1060130, 1060136, /*1060142*/], //Спутники связи
         'conveyor_navigation_satellites' => [1060148, 1060190/*, 1060196*/, 1060202/*, 1060208, 1060214*/], //Спутники навигации
-        'conveyor_observation_satellites' => [1060220, 1060226, 1060232, 1060238/*, 1060244, 1060378*/] //Спутники разведки
+        'conveyor_observation_satellites' => [1060220, 1060226, 1060232, 1060238, 1060244/*, 1060378*/] //Спутники разведки
     ];
 
     /**
@@ -259,6 +259,8 @@ class Room
      * Собирает монеты
      */
     public function getCoins() {
+        $roll_counter = $this->location_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('roll_counter')->nodeValue;
+
         $cached = [];
         foreach ($this->field_data->childNodes->item(0)->childNodes as $field) {
             if ($field->attributes !== NULL) {
@@ -272,6 +274,10 @@ class Room
                         'room_id' => $this->id,
                         'item_id' => $field_id
                     ];
+                }
+
+                if ($field->localName == 'sakakini_palace') { //TODO: убрать после египетского квеста
+                    $cached[count($cached) - 1]['roll_counter'] = $roll_counter++;
                 }
             }
         }
@@ -668,6 +674,152 @@ class Room
 
             Bot::$game->checkAndPerform($cached);
         }
+    }
+
+    /**
+     * Работа с египетской фабрикой
+     */
+    public function doEgyptianFactoryWork() { //TODO: объединить функцию с функцией китайской фабрики
+        $items = ['ankh', 'scarab', 'uskh', 'eye_of_horus', 'ancient_vase', 'statuette_bastet'];
+
+        $items_count = [];
+        foreach ($items as $item) {
+            $items_count[Bot::$game->city_items[$item . '_production']['id']] = $this->getBarnQuantity($item);
+        }
+
+        $cached = [];
+        foreach($this->field_data->childNodes->item(0)->childNodes as $field) {
+            $fieldName = $field->localName;
+            if ($fieldName == 'museum_egyptian_civilization_stage3' || $fieldName == 'museum_egyptian_civilization_stage2' || $fieldName == 'museum_egyptian_civilization_stage1') {
+                $fieldId = $field->attributes->getNamedItem('id')->nodeValue;
+                $queue = $field->attributes->getNamedItem('queue')->nodeValue;
+                $queue_length = 0;
+                if ($queue != '') {
+                    $queue_items = explode(',', $queue);
+                    $queue_length = count($queue_items);
+                    foreach ($queue_items as $queue_item) {
+                        $conveyor = explode(':', $queue_item);
+
+                        if ($conveyor[1] == 3) {
+                            $cached[] = [
+                                'command' => 'pick',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => $fieldId,
+                                'index' => 0,
+                                'klass' => Bot::$game->getCityItemById($conveyor[0])['item_name']
+                            ];
+
+                            ++$items_count[$conveyor[0]];
+                            --$queue_length;
+                        }
+                    }
+                }
+
+                for ($i = $queue_length; $i < 3; ++$i) {
+                    for ($coeff = 1; true; ++$coeff) {
+                        if ($items_count['20080556'] < (6 * $coeff)) { //Анхов должно быть 6
+                            $cached[] = [
+                                'command' => 'put',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => $fieldId,
+                                'klass' => Bot::$game->getCityItemById('20080556')['item_name']
+                            ];
+                            ++$items_count['20080556'];
+                            break;
+                        } elseif ($items_count['20080557'] < (5 * $coeff)) { //Скарабеев должно быть 5
+                            $cached[] = [
+                                'command' => 'put',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => $fieldId,
+                                'klass' => Bot::$game->getCityItemById('20080557')['item_name']
+                            ];
+                            ++$items_count['20080557'];
+                            break;
+                        } elseif ($items_count['20080558'] < (3 * $coeff) && ($fieldName == 'museum_egyptian_civilization_stage2')) { //Ускхов должно быть 3
+                            $cached[] = [
+                                'command' => 'put',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => $fieldId,
+                                'klass' => Bot::$game->getCityItemById('20080558')['item_name']
+                            ];
+                            ++$items_count['20080558'];
+                            break;
+                        } elseif ($items_count['20080559'] < (4 * $coeff) && ($fieldName == 'museum_egyptian_civilization_stage2')) { //Амулетов "Глаз Гора" должно быть 4
+                            $cached[] = [
+                                'command' => 'put',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => $fieldId,
+                                'klass' => Bot::$game->getCityItemById('20080559')['item_name']
+                            ];
+                            ++$items_count['20080559'];
+                            break;
+                        } elseif (($items_count['20080560'] < (3 * $coeff)) && ($fieldName == 'museum_egyptian_civilization_stage3')) { //Древних ваз должно быть 3
+                            $cached[] = [
+                                'command' => 'put',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => $fieldId,
+                                'klass' => Bot::$game->getCityItemById('20080560')['item_name']
+                            ];
+                            ++$items_count['20080560'];
+                            break;
+                        } elseif ($items_count['20080561'] < (2 * $coeff) && ($fieldName == 'museum_egyptian_civilization_stage3')) { //Статуэток Бастет должно быть 2
+                            $cached[] = [
+                                'command' => 'put',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => $fieldId,
+                                'klass' => Bot::$game->getCityItemById('20080561')['item_name']
+                            ];
+                            ++$items_count['20080561'];
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (count($cached) > 0) {
+            Bot::log('Ждём обработки конвейера египетской фабрики ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
+            for ($i = count($cached); $i > 0; --$i) {
+                Bot::log("Ждём обработки конвейера египетской фабрики $i сек.");
+                //echo "Ждём обработки конвейера египетской фабрики $i сек.\n";
+                $cached[count($cached) - $i]['uxtime'] = time();
+                sleep(1);
+            }
+
+            Bot::$game->checkAndPerform($cached);
+        }
+
+        /*$cached = [];
+        foreach ($items as $item) {
+            for ($i = 0; $i < $this->getBarnQuantity($item); ++$i) {
+                $cached[] = [
+                    'command' => 'sell_barn',
+                    'cmd_id' => Bot::$game->popCmdId(),
+                    'room_id' => $this->id,
+                    'item_id' => Bot::$game->city_items[$item]['id'],
+                    'quantity' => 1
+                ];
+            }
+        }
+
+        if (count($cached) > 0) {
+            Bot::log('Ждём продажи египетских вещей ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
+            for ($i = count($cached); $i > 0; --$i) {
+                Bot::log("Ждём продажи египетских вещей $i сек.");
+                //echo "Ждём продажи египетских вещей $i сек.\n";
+                $cached[count($cached) - $i]['uxtime'] = time();
+                sleep(1);
+            }
+
+            Bot::$game->checkAndPerform($cached);
+        }*/
     }
 
     /**

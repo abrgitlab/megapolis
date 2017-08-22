@@ -706,9 +706,12 @@ class Contracts
 
             //Док субмарин
             //не окончательно
-            'sea_naval_station_stage5' => [
+            'sea_naval_station_stage6' => [
                 'short' => [
                     'contract' => 'patrol_maritime_air_space'
+                ],
+                'long' => [
+                    'contract' => 'submarines'
                 ],
                 'actions' => ['pick', 'put']
             ],
@@ -745,9 +748,12 @@ class Contracts
 
             //Аеровокзал
             //не окончательно
-            'airport_stage2_level3' => [
+            'airport_stage3_level2' => [
                 'short' => [
-                    'contract' => 'airsport_competition'
+                    'contract' => 'aeroshow'
+                ],
+                'lnog' => [
+                    'contract' => 'airmail_transport'
                 ],
                 'actions' => ['pick', 'put']
             ],
@@ -1066,7 +1072,7 @@ class Contracts
 
         //4-я комната
         [
-            //Турбореактивный самолёт
+            //Сверхзвуковой авиалайнер
             //не окончательно
             'airport_gamble_plane1_stage3' => [
                 'short' => [
@@ -1075,7 +1081,7 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
-            //Турбовинтовой самолёт
+            //Сверхзвуковой авиалайнер
             //не окончательно
             'airport_gamble_plane2_stage3' => [
                 'short' => [
@@ -1084,20 +1090,20 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
-            //Турбовинтовой самолёт
+            //Сверхзвуковой авиалайнер
             //не окончательно
-            'airport_gamble_plane3_buildsite' => [
+            'airport_gamble_plane3_stage3' => [
                 'short' => [
-                    'contract' => 'organization_of_jumps'
+                    'contract' => 'air_excursions'
                 ],
                 'actions' => ['pick', 'put']
             ],
 
-            //Турбовинтовой самолёт
+            //Сверхзвуковой авиалайнер
             //не окончательно
-            'airport_gamble_plane4_buildsite' => [
+            'airport_gamble_plane4_stage3' => [
                 'short' => [
-                    'contract' => 'organization_of_jumps'
+                    'contract' => 'air_excursions'
                 ],
                 'actions' => ['pick', 'put']
             ],

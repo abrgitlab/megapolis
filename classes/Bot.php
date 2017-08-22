@@ -194,13 +194,13 @@ class Bot
         Bot::$game->acceptFriends();
         Bot::$game->sendFriendsToGamblingZone();
         Bot::$game->discardAskMaterial();
-//        Bot::$game->sendFuelToFriends();
         Bot::$game->handleLetters();
         Bot::$game->openChest();
         Bot::$game->room->doChineseFactoryWork();
+        Bot::$game->room->doEgyptianFactoryWork();
         Bot::$game->room->doMilitaryWork();
         Bot::$game->room->signContracts();
-        if (!Bot::$options['manual'])
+//        if (!Bot::$options['manual'])
             Bot::$game->room->getCoins();
         Bot::$game->applyHelp();
 
