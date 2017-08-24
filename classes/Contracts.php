@@ -856,6 +856,18 @@ class Contracts
                 ],
                 'actions' => ['pick', 'put']
             ],
+
+            //Ботанический парк "Едем"
+            //не окончательно
+            'botanic_garden_eden_stage1' => [
+                'short' => [
+                    'contract' => 'wellness'
+                ],
+                'long' => [
+                    'contract' => 'bathing_in_thermal_waters'
+                ],
+                'actions' => ['pick', 'put']
+            ],
         ],
 
         //1-я комната

@@ -68,7 +68,7 @@ class Room
         'conveyor_mobile_missiles' => [1059392, 1059398, 1059404, 1059410, 1059416, 1059422], //ПРК
         'conveyor_intercontinental_missiles' => [1059500, 1059506, 1059512, 1059518, 1059524/*, 1059530*/], //МБР
 
-        'conveyor_communications_satellites' => [1060113/*, 1060118, 10601204*/, 1060130, 1060136, /*1060142*/], //Спутники связи
+        'conveyor_communications_satellites' => [1060113, 1060118/*, 10601204*/, 1060130, 1060136, /*1060142*/], //Спутники связи
         'conveyor_navigation_satellites' => [1060148, 1060190/*, 1060196*/, 1060202/*, 1060208, 1060214*/], //Спутники навигации
         'conveyor_observation_satellites' => [1060220, 1060226, 1060232, 1060238, 1060244/*, 1060378*/] //Спутники разведки
     ];
@@ -207,7 +207,7 @@ class Room
 
                             if (isset($contract['additional_fields']))
                                 foreach ($contract['additional_fields'] as $key => $value) {
-                                    $cached_part[$key] = $value;
+                                    $cached[count($cached) - 1][$key] = $value;
                                 }
 
                             $friends = [];
@@ -846,8 +846,9 @@ class Room
         $cached = [];
 
         $contracts = [
+            '15305' => 0,
             '15306' => 0,
-            '15305' => 0
+            '15362' => 0
         ];
 
         $friends_for_invite_in_gambling_zone = [];
@@ -888,27 +889,38 @@ class Room
                     'item_id' => '39052472',
                     'room_id' => $this->id
                 ];
-                if ($contracts['15306'] < 6)
-                    $cached_part['contract_id'] = '15306';
-                else {
-                    if ($contracts['15305'] < 6)
-                        $cached_part['contract_id'] = '15305';
-                    else
-                        break;
-                }
+                if ($contracts['15306'] < 10)
+                    $cached[count($cached) - 1]['contract_id'] = '15306';
+                elseif ($contracts['15362'] < 4)
+                    $cached[count($cached) - 1]['contract_id'] = '15362';
+                elseif ($contracts['15305'] < 10)
+                    $cached[count($cached) - 1]['contract_id'] = '15305';
+                else
+                    break;
+
                 ++$roll_counter;
             }
         }
 
-        if (count($friends_for_invite_in_gambling_zone) > 0) {
-            $cached[] = [
-                'command' => 'send_mass_request',
-                'cmd_id' => Bot::$game->popCmdId(),
-                'room_id' => $this->id,
-                'name' => 'gambling_zone_staff',
-                'friend_ids' => implode('%2C', $friends_for_invite_in_gambling_zone)
-            ];
-        }
+        /*if (count($friends_for_invite_in_gambling_zone) > 0) {
+            foreach ($friends_for_invite_in_gambling_zone as $friend_id) {
+                $cached[] = [
+                    'command' => 'send_request',
+                    'cmd_id' => Bot::$game->popCmdId(),
+                    'room_id' => $this->id,
+                    'name' => 'gambling_zone_staff',
+                    'friend_id' => $friend_id,
+                    'item_id' => '39052472'
+                ];
+            }
+//            $cached[] = [
+//                'command' => 'send_mass_request',
+//                'cmd_id' => Bot::$game->popCmdId(),
+//                'room_id' => $this->id,
+//                'name' => 'gambling_zone_staff',
+//                'friend_ids' => implode('%2C', $friends_for_invite_in_gambling_zone)
+//            ];
+        }*/
 
         if (count($cached) > 0) {
             Bot::log('Работа с друзьями в казино ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);

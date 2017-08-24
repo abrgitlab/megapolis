@@ -82,6 +82,7 @@ class Game
 
             $this->associate();
             $user_data = $this->getUserStat();
+            file_put_contents(MEGAPOLIS_PATH . DIRECTORY_SEPARATOR . 'rooms' . DIRECTORY_SEPARATOR . 'user_stat', $user_data);
         } else {
             $old_revisions = $this->getCachedRevisions();
             $this->revision = $old_revisions[count($old_revisions) - 1];
