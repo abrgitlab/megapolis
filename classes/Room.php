@@ -15,22 +15,22 @@ class Room
     public $id;
 
     /**
-     * @var $location_data mixed
+     * @var $location_data SimpleXMLElement
      */
     public $location_data;
 
     /**
-     * @var $barn_data DOMDocument|mixed
+     * @var $barn_data []
      */
-    public $barn_data;
+    public $barn;
 
     /**
-     * @var $field_data DOMDocument|mixed
+     * @var $field_data []
      */
-    public $field_data;
+    public $field;
 
     /**
-     * @var $military_orders DOMDocument|mixed
+     * @var $military_orders stdClass
      */
     private $military_orders;
 
@@ -68,7 +68,7 @@ class Room
         'conveyor_mobile_missiles' => [1059392, 1059398, 1059404, 1059410, 1059416, 1059422], //ПРК
         'conveyor_intercontinental_missiles' => [1059500, 1059506, 1059512, 1059518, 1059524/*, 1059530*/], //МБР
 
-        'conveyor_communications_satellites' => [1060113, 1060118/*, 10601204*/, 1060130, 1060136, /*1060142*/], //Спутники связи
+        'conveyor_communications_satellites' => [1060113, 1060118/*, 10601204*/, 1060130, 1060136, 1060142], //Спутники связи
         'conveyor_navigation_satellites' => [1060148, 1060190/*, 1060196*/, 1060202/*, 1060208, 1060214*/], //Спутники навигации
         'conveyor_observation_satellites' => [1060220, 1060226, 1060232, 1060238, 1060244/*, 1060378*/] //Спутники разведки
     ];
@@ -90,18 +90,7 @@ class Room
             } else
                 $location_data = file_get_contents($room_file_name);
 
-            //Из-за UTF-8 в CDATA php не парсит xml
-            $location_data = preg_replace('/<marketplace>.*<\/marketplace>/', '', $location_data);
-            $location_data = preg_replace('/<neighborhoods.*<\/neighborhoods>/smi', '', $location_data);
-            $location_data = preg_replace('/<items_activity .*<\/items_activity>/', '', $location_data);
-            $location_data = preg_replace('/<quests_activity>.*<\/quests_activity>/', '', $location_data);
-            $location_data = preg_replace('/<game_requests .*<\/game_requests>/', '', $location_data);
-            $location_data = preg_replace('/<support>.*<\/support>/', '', $location_data);
-
-            $location_data = Bot::$tidy->repairString($location_data, Bot::$tidy_config);
-
-            $this->location_data = new DOMDocument();
-            $this->location_data->loadXML($location_data);
+            $this->location_data = simplexml_load_string($location_data);
         }
 
         $this->loadFieldData();
@@ -111,33 +100,36 @@ class Room
             $this->loadMilitaryOrdersData();
     }
 
-    /**
-     * Загружает данные о различных зданиях
-     */
     public function loadFieldData() {
-        $field_data = $this->location_data->getElementsByTagName('field');
-        if ($field_data) {
-            $this->field_data = new DOMDocument();
-            $this->field_data->loadXML($this->location_data->saveXML($field_data->item(0)));
+        if (isset($this->location_data->field[0])) {
+            $this->field = [];
+            foreach ($this->location_data->field[0] as $item) {
+                $current = [];
+                foreach ($item->attributes() as $attribute_name => $attribute_value) {
+                    $current[$attribute_name] = $attribute_value->__toString();
+                }
+                if (!isset($this->field[$item->getName()]))
+                    $this->field[$item->getName()] = [];
+                array_push($this->field[$item->getName()], $current);
+            }
         }
     }
 
-    /**
-     * Загружает данные о различных нестроевых объектах
-     */
     public function loadBarnData() {
-        $barn_data = $this->location_data->getElementsByTagName('barn');
-        if ($barn_data) {
-            $this->barn_data = new DOMDocument();
-            $this->barn_data->loadXML($this->location_data->saveXML($barn_data->item(0)));
+        if (isset($this->location_data->barn[0])) {
+            $this->barn = [];
+            foreach ($this->location_data->barn[0] as $item) {
+                $this->barn[$item->getName()] = [];
+                foreach ($item->attributes() as $attribute_name => $attribute_value) {
+                    $this->barn[$item->getName()][$attribute_name] = $attribute_value->__toString();
+                }
+            }
         }
     }
 
     public function loadMilitaryOrdersData() {
-        $military_orders = $this->location_data->getElementsByTagName('military_orders');
-        if ($military_orders) {
-            $this->military_orders = new DOMDocument();
-            $this->military_orders->loadXML($this->location_data->saveXML($military_orders->item(0)));
+        if (isset($this->location_data->military_orders[0])) {
+            $this->military_orders = json_decode($this->location_data->military_orders->__toString());
         }
     }
 
@@ -146,87 +138,26 @@ class Room
      */
     public function signContracts() {
         Bot::log("Работа с контрактами в комнате $this->id", [Bot::$STDOUT, Bot::$TELEGRAM]);
-//        echo "Работа с контрактами в комнате $this->id\n";
 
         $contracts_list = Contracts::getContractsList($this);
 
         $cached = [];
-        foreach($this->field_data->childNodes->item(0)->childNodes as $field) {
-            if (isset($contracts_list[$field->localName])) {
-                $contract_data = $contracts_list[$field->localName];
-                if (in_array('pick', $contract_data['actions'])) {
-                    $field_id = $field->attributes->getNamedItem('id')->nodeValue;
-                    $field_state = $field->attributes->getNamedItem('state')->nodeValue;
+        foreach($this->field as $field_name => $field_items) {
+            foreach ($field_items as $field) {
+                if (isset($contracts_list[$field_name])) {
+                    $contract_data = $contracts_list[$field_name];
+                    if (in_array('pick', $contract_data['actions'])) {
+                        $field_state = $field['state'];
 
-                    if ($field_state == 4) {
-                        $cached[] = [
-                            'command' => 'pick',
-                            'cmd_id' => Bot::$game->popCmdId(),
-                            'room_id' => $this->id,
-                            'item_id' => $field_id
-                        ];
-
-                        if (isset($contract_data['quest_inc_counter']) && $contract_data['quest_inc_counter']['on'] == 'pick') {
+                        if ($field_state == 4) {
                             $cached[] = [
-                                'command' => 'quest_inc_counter',
+                                'command' => 'pick',
                                 'cmd_id' => Bot::$game->popCmdId(),
                                 'room_id' => $this->id,
-                                'quest_id' => $contract_data['quest_inc_counter']['quest_id'],
-                                'counter' => $contract_data['quest_inc_counter']['counter'],
-                                'count' => $contract_data['quest_inc_counter']['count']
-                            ];
-                        }
-                    }
-                }
-            }
-        }
-
-        foreach($this->field_data->childNodes->item(0)->childNodes as $field) {
-            if (isset($contracts_list[$field->localName])) {
-                $contract_data = $contracts_list[$field->localName];
-                if (in_array('put', $contract_data['actions'])) {
-                    $field_id = $field->attributes->getNamedItem('id')->nodeValue;
-                    $field_state = $field->attributes->getNamedItem('state')->nodeValue;
-
-                    if ($field_state == 2 || $field_state == 4) {
-                        if (Bot::$options['long'] && isset($contract_data['long']))
-                            $contract = $contract_data['long'];
-                        elseif (isset($contract_data['short']))
-                            $contract = $contract_data['short'];
-                        else
-                            $contract = null;
-
-                        if ($contract) {
-                            $cached[] = [
-                                'command' => 'put',
-                                'cmd_id' => Bot::$game->popCmdId(),
-                                'room_id' => $this->id,
-                                'item_id' => $field_id,
-                                'klass' => $contract['contract']
+                                'item_id' => $field['id']
                             ];
 
-                            if (isset($contract['additional_fields']))
-                                foreach ($contract['additional_fields'] as $key => $value) {
-                                    $cached[count($cached) - 1][$key] = $value;
-                                }
-
-                            $friends = [];
-                            foreach (Bot::$game->friends as $friend) {
-                                $friends[] = $friend->id;
-                            }
-
-                            if (isset($contract['friends_request']) && $contract['friends_request']) {
-                                $cached[] = [
-                                    'command' => 'send_request',
-                                    'cmd_id' => Bot::$game->popCmdId(),
-                                    'room_id' => $this->id,
-                                    'name' => 'visit_' . $contract['contract'],
-                                    'friend_ids' => implode('%2C', $friends),
-                                    'item_id' => $field_id
-                                ];
-                            }
-
-                            if (isset($contract_data['quest_inc_counter']) && $contract_data['quest_inc_counter']['on'] == 'put') {
+                            if (isset($contract_data['quest_inc_counter']) && $contract_data['quest_inc_counter']['on'] == 'pick') {
                                 $cached[] = [
                                     'command' => 'quest_inc_counter',
                                     'cmd_id' => Bot::$game->popCmdId(),
@@ -242,11 +173,72 @@ class Room
             }
         }
 
+        foreach($this->field as $field_name => $field_items) {
+            foreach ($field_items as $field) {
+                if (isset($contracts_list[$field_name])) {
+                    $contract_data = $contracts_list[$field_name];
+                    if (in_array('put', $contract_data['actions'])) {
+                        $field_state = $field['state'];
+
+                        if ($field_state == 2 || $field_state == 4) {
+                            if (Bot::$options['long'] && isset($contract_data['long']))
+                                $contract = $contract_data['long'];
+                            elseif (isset($contract_data['short']))
+                                $contract = $contract_data['short'];
+                            else
+                                $contract = null;
+
+                            if ($contract) {
+                                $cached[] = [
+                                    'command' => 'put',
+                                    'cmd_id' => Bot::$game->popCmdId(),
+                                    'room_id' => $this->id,
+                                    'item_id' => $field['id'],
+                                    'klass' => $contract['contract']
+                                ];
+
+                                if (isset($contract['additional_fields']))
+                                    foreach ($contract['additional_fields'] as $key => $value) {
+                                        $cached[count($cached) - 1][$key] = $value;
+                                    }
+
+                                $friends = [];
+                                foreach (Bot::$game->friends as $friend) {
+                                    $friends[] = $friend->id;
+                                }
+
+                                if (isset($contract['friends_request']) && $contract['friends_request']) {
+                                    $cached[] = [
+                                        'command' => 'send_request',
+                                        'cmd_id' => Bot::$game->popCmdId(),
+                                        'room_id' => $this->id,
+                                        'name' => 'visit_' . $contract['contract'],
+                                        'friend_ids' => implode('%2C', $friends),
+                                        'item_id' => $field['id']
+                                    ];
+                                }
+
+                                if (isset($contract_data['quest_inc_counter']) && $contract_data['quest_inc_counter']['on'] == 'put') {
+                                    $cached[] = [
+                                        'command' => 'quest_inc_counter',
+                                        'cmd_id' => Bot::$game->popCmdId(),
+                                        'room_id' => $this->id,
+                                        'quest_id' => $contract_data['quest_inc_counter']['quest_id'],
+                                        'counter' => $contract_data['quest_inc_counter']['counter'],
+                                        'count' => $contract_data['quest_inc_counter']['count']
+                                    ];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         if (count($cached) > 0) {
             Bot::log('Ждём получения прибыли и подписания новых контрактов ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
                 Bot::log("Ждём получения прибыли и подписания новых контрактов $i сек.");
-                //echo "Ждём получения прибыли и подписания новых контрактов $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
@@ -259,25 +251,18 @@ class Room
      * Собирает монеты
      */
     public function getCoins() {
-        $roll_counter = $this->location_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('roll_counter')->nodeValue;
-
         $cached = [];
-        foreach ($this->field_data->childNodes->item(0)->childNodes as $field) {
-            if ($field->attributes !== NULL) {
-                $field_id = $field->attributes->getNamedItem('id')->nodeValue;
-                $field_state = $field->attributes->getNamedItem('state')->nodeValue;
+        foreach($this->field as $field_name => $field_items) {
+            foreach ($field_items as $field) {
+                $field_state = $field['state'];
 
                 if ($field_state == 5) {
                     $cached[] = [
                         'command' => 'clean',
                         'cmd_id' => Bot::$game->popCmdId(),
                         'room_id' => $this->id,
-                        'item_id' => $field_id
+                        'item_id' => $field['id']
                     ];
-                }
-
-                if ($field->localName == 'sakakini_palace') { //TODO: убрать после египетского квеста
-                    $cached[count($cached) - 1]['roll_counter'] = $roll_counter++;
                 }
             }
         }
@@ -286,7 +271,6 @@ class Room
             Bot::log('Ждём получения монеток ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
                 Bot::log("Ждём получения монеток $i сек.");
-                //echo "Ждём получения монеток $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
@@ -305,11 +289,10 @@ class Room
         $models = []; //Юнитов в наличии
 
         $priority = [];
-        $military_orders_items = (json_decode($this->military_orders->textContent, true));
-        foreach ($military_orders_items as $index => $military_orders_item) {
-            $priority[$military_orders_item['military_points']] = [];
-            foreach ($military_orders_item['models'] as $order_model) {
-                $priority[$military_orders_item['military_points']][] = $order_model['item_id'];
+        foreach ($this->military_orders as $index => $military_orders_item) {
+            $priority[$military_orders_item->military_points] = [];
+            foreach ($military_orders_item->models as $order_model) {
+                $priority[$military_orders_item->military_points][] = $order_model->item_id;
             }
         }
         krsort($priority);
@@ -329,13 +312,13 @@ class Room
         }
 
         $models_required = []; //Юнитов требуется
-        foreach ($military_orders_items as $military_order) {
-            if (isset($military_order['models'])) {
-                foreach ($military_order['models'] as $model) {
-                    if (!isset($models_required[$model['item_id']]))
-                        $models_required[$model['item_id']] = $model['quantity'];
+        foreach ($this->military_orders as $military_order) {
+            if (isset($military_order->models)) {
+                foreach ($military_order->models as $model) {
+                    if (!isset($models_required[$model->item_id]))
+                        $models_required[$model->item_id] = $model->quantity;
                     else
-                        $models_required[$model['item_id']] += $model['quantity'];
+                        $models_required[$model->item_id] += $model->quantity;
                 }
             }
         }
@@ -343,11 +326,10 @@ class Room
         $cached = [];
         $models_for_sale = []; //Юнитов для продажи
         $models_for_buy = []; //Юнитов для покупки
-        $conveyor_ids = [];
-        foreach($this->field_data->childNodes->item(0)->childNodes as $field) { //Пробежимся по всем конвейерам
-            if (isset(Room::$military_conveyors[$field->localName])) {
-                $conveyor_ids[$field->localName] = $field->attributes->getNamedItem('id')->nodeValue;
-                $queue = $field->attributes->getNamedItem('queue')->nodeValue;
+        //$conveyor_ids = [];
+        foreach (Room::$military_conveyors as $military_conveyor_name => $military_conveyor) {
+            if (isset($this->field[$military_conveyor_name])) {
+                $queue = $this->field[$military_conveyor_name][0]['queue'];
                 $queue_length = 0; //Длина очереди
                 if ($queue != '') { //Рассмотрим очередь в текущем конвейере
                     $queue_items = explode(',', $queue);
@@ -366,7 +348,7 @@ class Room
 //                                'command' => 'pick',
 //                                'cmd_id' => Bot::$game->popCmdId(),
 //                                'room_id' => $this->id,
-//                                'item_id' => $field->attributes->getNamedItem('id')->nodeValue,
+//                                'item_id' => $military_conveyor['id'],
 //                                'index' => 0,
 //                                'klass' => Bot::$game->getCityItemById($conveyor[0])['item_name']
 //                            ];
@@ -392,7 +374,7 @@ class Room
                     }
                 }
 
-                foreach (Room::$military_conveyors[$field->localName] as $model) {
+                foreach (Room::$military_conveyors[$military_conveyor_name] as $model) {
                     if (isset($models_required[$model])) {
                         $quantity = $models_required[$model] - $models[$model]; //Вычтем число готовой продукции из числа требуемой
                         //Если количество требуемой продукции будет больше свободных слотов в конвейере, то заполним продукцией остаток конвейера.
@@ -405,8 +387,8 @@ class Room
                         }
                     }
                 }
-                if (count(Room::$military_conveyors[$field->localName]) > 0) { //Заполним пустые слоты конвейера продукцией из самого дорогого типа для данного конвейера
-                    $model_left = Room::$military_conveyors[$field->localName][count(Room::$military_conveyors[$field->localName]) - 1];
+                if (count(Room::$military_conveyors[$military_conveyor_name]) > 0) { //Заполним пустые слоты конвейера продукцией из самого дорогого типа для данного конвейера
+                    $model_left = Room::$military_conveyors[$military_conveyor_name][count(Room::$military_conveyors[$military_conveyor_name]) - 1];
 //                    $model_left = Room::$military_conveyors[$field->localName][0]; //На время задания ставим самую быстропроизводимую продукцию
                     $left_slots = 3 - $queue_length;
                     if ($left_slots > 0)
@@ -419,7 +401,6 @@ class Room
             Bot::log('Ждём сбора произведённой военной продукции ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
                 Bot::log("Ждём сбора произведённой военной продукции $i сек.");
-                //echo "Ждём сбора произведённой военной продукции $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
@@ -443,7 +424,6 @@ class Room
             Bot::log('Ждём продажи произведённой военной продукции ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
                 Bot::log("Ждём продажи произведённой военной продукции $i сек.");
-                //echo "Ждём продажи произведённой военной продукции $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
@@ -460,7 +440,7 @@ class Room
                             'command' => 'put',
                             'cmd_id' => Bot::$game->popCmdId(),
                             'room_id' => $this->id,
-                            'item_id' => $conveyor_ids[$military_conveyor],
+                            'item_id' => $this->field[$military_conveyor][0]['id'],
                             'klass' => 'production_' . Bot::$game->getCityItemById($model)['item_name']
                         ];
                         break;
@@ -472,7 +452,6 @@ class Room
             Bot::log('Ждём начала производства военной продукции ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
                 Bot::log("Ждём начала производства военной продукции $i сек.");
-                //echo "Ждём начала производства военной продукции $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
@@ -561,7 +540,6 @@ class Room
             Bot::log('Ждём обработки конвейера пиротехники ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
                 Bot::log("Ждём обработки конвейера пиротехники $i сек.");
-                //echo "Ждём обработки конвейера пиротехники $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
@@ -570,26 +548,34 @@ class Room
         }
     }
 
-    /**
-     * Работа с китайской фабрикой
-     */
-    public function doChineseFactoryWork() {
-        $items = ['casket', 'bronze_statuette', 'antique_teapot', 'ceramic_vase', 'jade_medallion', 'hair_comb'];
+    public function doFactoryWork($name) {
+        $items = [
+            'chinese' => ['casket', 'bronze_statuette', 'antique_teapot', 'ceramic_vase', 'jade_medallion', 'hair_comb'],
+            'egyptian' => ['ankh', 'scarab', 'uskh', 'eye_of_horus', 'ancient_vase', 'statuette_bastet']
+        ];
+
+        $museums = [
+            'chinese' => ['museum_chinese_civilization_stage3'],
+            'egyptian' => ['museum_egyptian_civilization_stage3', 'museum_egyptian_civilization_stage2', 'museum_egyptian_civilization_stage1']
+        ];
 
         $items_count = [];
-        foreach ($items as $item) {
+        foreach ($items[$name] as $item) {
             $items_count[Bot::$game->city_items[$item . '_production']['id']] = $this->getBarnQuantity($item);
         }
 
         $cached = [];
-        foreach($this->field_data->childNodes->item(0)->childNodes as $field) {
-            $fieldName = $field->localName;
-            if ($fieldName == 'museum_chinese_civilization_stage3' || $fieldName == 'museum_chinese_civilization_stage2') {
-                $fieldId = $field->attributes->getNamedItem('id')->nodeValue;
-                $queue = $field->attributes->getNamedItem('queue')->nodeValue;
+        $fields = [];
+        foreach ($museums[$name] as $museum) {
+            if (isset($this->field[$museum]))
+                $fields[$museum] = $this->field[$museum];
+        }
+
+        foreach($fields as $fieldName => $fieldItems) {
+            foreach ($fieldItems as $field) {
                 $queue_length = 0;
-                if ($queue != '') {
-                    $queue_items = explode(',', $queue);
+                if (isset($field['queue']) && $field['queue'] != '') {
+                    $queue_items = explode(',', $field['queue']);
                     $queue_length = count($queue_items);
                     foreach ($queue_items as $queue_item) {
                         $conveyor = explode(':', $queue_item);
@@ -599,7 +585,7 @@ class Room
                                 'command' => 'pick',
                                 'cmd_id' => Bot::$game->popCmdId(),
                                 'room_id' => $this->id,
-                                'item_id' => $fieldId,
+                                'item_id' => $field['id'],
                                 'index' => 0,
                                 'klass' => Bot::$game->getCityItemById($conveyor[0])['item_name']
                             ];
@@ -611,169 +597,45 @@ class Room
                 }
 
                 for ($i = $queue_length; $i < 3; ++$i) {
-                    for ($coeff = 1; true; ++$coeff) {
-                        if ($fieldName == 'museum_chinese_civilization_stage2') {
+                    if ($name == 'chinese') {
+                        if ($fieldName == 'museum_chinese_civilization_stage3') {
                             $cached[] = [
                                 'command' => 'put',
                                 'cmd_id' => Bot::$game->popCmdId(),
                                 'room_id' => $this->id,
-                                'item_id' => $fieldId,
-                                'klass' => Bot::$game->getCityItemById('20080409')['item_name']
-                            ];
-                            ++$items_count['20080409'];
-                            break;
-                        } elseif ($fieldName == 'museum_chinese_civilization_stage3') {
-                            $cached[] = [
-                                'command' => 'put',
-                                'cmd_id' => Bot::$game->popCmdId(),
-                                'room_id' => $this->id,
-                                'item_id' => $fieldId,
+                                'item_id' => $field['id'],
                                 'klass' => Bot::$game->getCityItemById('20080411')['item_name']
                             ];
                             ++$items_count['20080411'];
                             break;
                         }
-                    }
-                }
-            }
-        }
-
-        if (count($cached) > 0) {
-            Bot::log('Ждём обработки конвейера китайской фабрики ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
-            for ($i = count($cached); $i > 0; --$i) {
-                Bot::log("Ждём обработки конвейера китайской фабрики $i сек.");
-                //echo "Ждём обработки конвейера китайской фабрики $i сек.\n";
-                $cached[count($cached) - $i]['uxtime'] = time();
-                sleep(1);
-            }
-
-            Bot::$game->checkAndPerform($cached);
-        }
-
-        $cached = [];
-        foreach ($items as $item) {
-            for ($i = 0; $i < $this->getBarnQuantity($item); ++$i) {
-                $cached[] = [
-                    'command' => 'sell_barn',
-                    'cmd_id' => Bot::$game->popCmdId(),
-                    'room_id' => $this->id,
-                    'item_id' => Bot::$game->city_items[$item]['id'],
-                    'quantity' => 1
-                ];
-            }
-        }
-
-        if (count($cached) > 0) {
-            Bot::log('Ждём продажи китайских вещей ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
-            for ($i = count($cached); $i > 0; --$i) {
-                Bot::log("Ждём продажи китайских вещей $i сек.");
-                //echo "Ждём продажи китайских вещей $i сек.\n";
-                $cached[count($cached) - $i]['uxtime'] = time();
-                sleep(1);
-            }
-
-            Bot::$game->checkAndPerform($cached);
-        }
-    }
-
-    /**
-     * Работа с египетской фабрикой
-     */
-    public function doEgyptianFactoryWork() { //TODO: объединить функцию с функцией китайской фабрики
-        $items = ['ankh', 'scarab', 'uskh', 'eye_of_horus', 'ancient_vase', 'statuette_bastet'];
-
-        $items_count = [];
-        foreach ($items as $item) {
-            $items_count[Bot::$game->city_items[$item . '_production']['id']] = $this->getBarnQuantity($item);
-        }
-
-        $cached = [];
-        foreach($this->field_data->childNodes->item(0)->childNodes as $field) {
-            $fieldName = $field->localName;
-            if ($fieldName == 'museum_egyptian_civilization_stage3' || $fieldName == 'museum_egyptian_civilization_stage2' || $fieldName == 'museum_egyptian_civilization_stage1') {
-                $fieldId = $field->attributes->getNamedItem('id')->nodeValue;
-                $queue = $field->attributes->getNamedItem('queue')->nodeValue;
-                $queue_length = 0;
-                if ($queue != '') {
-                    $queue_items = explode(',', $queue);
-                    $queue_length = count($queue_items);
-                    foreach ($queue_items as $queue_item) {
-                        $conveyor = explode(':', $queue_item);
-
-                        if ($conveyor[1] == 3) {
-                            $cached[] = [
-                                'command' => 'pick',
-                                'cmd_id' => Bot::$game->popCmdId(),
-                                'room_id' => $this->id,
-                                'item_id' => $fieldId,
-                                'index' => 0,
-                                'klass' => Bot::$game->getCityItemById($conveyor[0])['item_name']
-                            ];
-
-                            ++$items_count[$conveyor[0]];
-                            --$queue_length;
-                        }
-                    }
-                }
-
-                for ($i = $queue_length; $i < 3; ++$i) {
-                    for ($coeff = 1; true; ++$coeff) {
-                        if ($items_count['20080556'] < (6 * $coeff)) { //Анхов должно быть 6
+                    } else if ($name == 'egyptian') {
+                        if ($fieldName == 'museum_egyptian_civilization_stage1') {
                             $cached[] = [
                                 'command' => 'put',
                                 'cmd_id' => Bot::$game->popCmdId(),
                                 'room_id' => $this->id,
-                                'item_id' => $fieldId,
-                                'klass' => Bot::$game->getCityItemById('20080556')['item_name']
-                            ];
-                            ++$items_count['20080556'];
-                            break;
-                        } elseif ($items_count['20080557'] < (5 * $coeff)) { //Скарабеев должно быть 5
-                            $cached[] = [
-                                'command' => 'put',
-                                'cmd_id' => Bot::$game->popCmdId(),
-                                'room_id' => $this->id,
-                                'item_id' => $fieldId,
+                                'item_id' => $field['id'],
                                 'klass' => Bot::$game->getCityItemById('20080557')['item_name']
                             ];
                             ++$items_count['20080557'];
                             break;
-                        } elseif ($items_count['20080558'] < (3 * $coeff) && ($fieldName == 'museum_egyptian_civilization_stage2')) { //Ускхов должно быть 3
+                        } elseif ($fieldName == 'museum_egyptian_civilization_stage2') {
                             $cached[] = [
                                 'command' => 'put',
                                 'cmd_id' => Bot::$game->popCmdId(),
                                 'room_id' => $this->id,
-                                'item_id' => $fieldId,
-                                'klass' => Bot::$game->getCityItemById('20080558')['item_name']
-                            ];
-                            ++$items_count['20080558'];
-                            break;
-                        } elseif ($items_count['20080559'] < (4 * $coeff) && ($fieldName == 'museum_egyptian_civilization_stage2')) { //Амулетов "Глаз Гора" должно быть 4
-                            $cached[] = [
-                                'command' => 'put',
-                                'cmd_id' => Bot::$game->popCmdId(),
-                                'room_id' => $this->id,
-                                'item_id' => $fieldId,
+                                'item_id' => $field['id'],
                                 'klass' => Bot::$game->getCityItemById('20080559')['item_name']
                             ];
                             ++$items_count['20080559'];
                             break;
-                        } elseif (($items_count['20080560'] < (3 * $coeff)) && ($fieldName == 'museum_egyptian_civilization_stage3')) { //Древних ваз должно быть 3
+                        } elseif ($fieldName == 'museum_egyptian_civilization_stage3') {
                             $cached[] = [
                                 'command' => 'put',
                                 'cmd_id' => Bot::$game->popCmdId(),
                                 'room_id' => $this->id,
-                                'item_id' => $fieldId,
-                                'klass' => Bot::$game->getCityItemById('20080560')['item_name']
-                            ];
-                            ++$items_count['20080560'];
-                            break;
-                        } elseif ($items_count['20080561'] < (2 * $coeff) && ($fieldName == 'museum_egyptian_civilization_stage3')) { //Статуэток Бастет должно быть 2
-                            $cached[] = [
-                                'command' => 'put',
-                                'cmd_id' => Bot::$game->popCmdId(),
-                                'room_id' => $this->id,
-                                'item_id' => $fieldId,
+                                'item_id' => $field['id'],
                                 'klass' => Bot::$game->getCityItemById('20080561')['item_name']
                             ];
                             ++$items_count['20080561'];
@@ -785,10 +647,17 @@ class Room
         }
 
         if (count($cached) > 0) {
-            Bot::log('Ждём обработки конвейера египетской фабрики ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
+            if ($name == 'chinese')
+                Bot::log('Ждём обработки конвейера китайской фабрики ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
+            elseif ($name == 'egyptian')
+                Bot::log('Ждём обработки конвейера египетской фабрики ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
+
             for ($i = count($cached); $i > 0; --$i) {
-                Bot::log("Ждём обработки конвейера египетской фабрики $i сек.");
-                //echo "Ждём обработки конвейера египетской фабрики $i сек.\n";
+                if ($name == 'chinese')
+                    Bot::log("Ждём обработки конвейера китайской фабрики $i сек.");
+                elseif ($name == 'egyptian')
+                    Bot::log("Ждём обработки конвейера египетской фабрики $i сек.");
+
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
@@ -796,8 +665,8 @@ class Room
             Bot::$game->checkAndPerform($cached);
         }
 
-        /*$cached = [];
-        foreach ($items as $item) {
+        $cached = [];
+        foreach ($items[$name] as $item) {
             for ($i = 0; $i < $this->getBarnQuantity($item); ++$i) {
                 $cached[] = [
                     'command' => 'sell_barn',
@@ -810,16 +679,23 @@ class Room
         }
 
         if (count($cached) > 0) {
-            Bot::log('Ждём продажи египетских вещей ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
+            if ($name == 'chinese')
+                Bot::log('Ждём продажи китайских вещей ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
+            elseif ($name == 'egyptian')
+                Bot::log('Ждём продажи египетских вещей ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
+
             for ($i = count($cached); $i > 0; --$i) {
-                Bot::log("Ждём продажи египетских вещей $i сек.");
-                //echo "Ждём продажи египетских вещей $i сек.\n";
+                if ($name == 'chinese')
+                    Bot::log("Ждём продажи китайских вещей $i сек.");
+                elseif ($name == 'egyptian')
+                    Bot::log("Ждём продажи египетских вещей $i сек.");
+
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
 
             Bot::$game->checkAndPerform($cached);
-        }*/
+        }
     }
 
     /**
@@ -829,18 +705,21 @@ class Room
         if ($this->id != 4)
             return;
 
-        $material_list = array('poker_trophy', 'golden_dice', 'bracelet_winner', 'gold_medal', 'gambler_cup', 'bar_of_gold', 'silk_robe', 'gold_signet');
+        $material_list = array('poker_trophy', 'golden_dice', 'bracelet_winner', 'gold_medal', 'gambler_cup', 'bar_of_gold', 'silk_robe', 'gold_signet', 'gold_chain');
 
-        $room_staff = json_decode($this->location_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('room_staff')->nodeValue);
-        $roll_counter = $this->location_data->getElementsByTagName('country')->item(0)->attributes->getNamedItem('roll_counter')->nodeValue;
+        $room_staff = json_decode($this->location_data->attributes()->room_staff->__toString());
+        $roll_counter = $this->location_data->attributes()->roll_counter->__toString();
 
         $barn_amount = [];
 
-        foreach($this->barn_data->childNodes->item(0)->childNodes as $barn) {
+        /*foreach($this->barn_data->childNodes->item(0)->childNodes as $barn) {
             if (in_array($barn->localName, $material_list)) {
                 $field_quantity = $barn->attributes->getNamedItem('quantity')->nodeValue;
                 $barn_amount[$barn->attributes->getNamedItem('id')->nodeValue] = $field_quantity;
             }
+        }*/
+        foreach ($material_list as $item) {
+            $barn_amount[$item] = $this->getBarnQuantity($item);
         }
 
         $cached = [];
@@ -898,8 +777,17 @@ class Room
                 else
                     break;
 
+                $index = array_search($friend_id, $friends_for_invite_in_gambling_zone);
+                if ($index !== false)
+                    unset($friends_for_invite_in_gambling_zone[$index]);
+
                 ++$roll_counter;
             }
+        }
+
+        Bot::log('Друзья для приглашения в казино:');
+        foreach ($friends_for_invite_in_gambling_zone as $friend) {
+            Bot::log($friend);
         }
 
         /*if (count($friends_for_invite_in_gambling_zone) > 0) {
@@ -926,7 +814,6 @@ class Room
             Bot::log('Работа с друзьями в казино ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
                 Bot::log("Работа с друзьями в казино $i сек.");
-                //echo "Работа с друзьями в казино $i сек.\n";
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
             }
@@ -964,11 +851,13 @@ class Room
     }
 
     public function getBarnQuantity($name) {
-        foreach($this->barn_data->childNodes->item(0)->childNodes as $barn) {
+        if (isset($this->barn[$name]['quantity']))
+            return $this->barn[$name]['quantity'];
+        /*foreach($this->barn_data->childNodes->item(0)->childNodes as $barn) {
             if ($barn->localName == $name) {
                 return $barn->attributes->getNamedItem('quantity')->nodeValue;
             }
-        }
+        }*/
 
         return 0;
     }

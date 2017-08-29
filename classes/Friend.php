@@ -17,7 +17,7 @@ class Friend
     public $id;
 
     /**
-     * @var $wish_list array
+     * @var $wish_list []
      */
     public $wish_list = [];
 
@@ -27,7 +27,7 @@ class Friend
     public $next_gift_time;
 
     /**
-     * @var $send_requests mixed
+     * @var $send_requests stdClass
      */
     public $send_requests;
 
@@ -77,46 +77,37 @@ class Friend
     public $neighborhoods = [];
 
     /**
-     * @param $xml_node DOMNode
+     * @param $xml_element SimpleXMLElement
      */
-    public function loadFromXmlNode($xml_node) {
-        $this->id = $xml_node->attributes->getNamedItem('id')->nodeValue;
-        $wish_list = $xml_node->attributes->getNamedItem('wish_list');
-        if ($wish_list)
-            $this->wish_list = explode(',', $wish_list->nodeValue);
+    public function loadFromXmlNode($xml_element) {
+        $this->id = $xml_element->attributes()->id->__toString();
+        if (isset($xml_element->attributes()->wish_list))
+            $this->wish_list = explode(',', $xml_element->attributes()->wish_list->__toString());
 
-        $next_gift_time = $xml_node->attributes->getNamedItem('next_gift_time');
-        if ($next_gift_time)
-            $this->next_gift_time = $next_gift_time->nodeValue;
+        if (isset($xml_element->attributes()->next_gift_time))
+            $this->next_gift_time = $xml_element->attributes()->next_gift_time->__toString();
 
-        $send_requests = $xml_node->attributes->getNamedItem('send_requests');
-        if ($send_requests)
-            $this->send_requests = json_decode($send_requests->nodeValue);
+        if (isset($xml_element->attributes()->send_requests))
+            $this->send_requests = json_decode($xml_element->attributes()->send_requests->__toString());
 
-        $help_points = $xml_node->attributes->getNamedItem('help_points');
-        if ($help_points)
-            $this->help_points = $help_points->nodeValue;
+        if (isset($xml_element->attributes()->help_points))
+            $this->help_points = $xml_element->attributes()->help_points->__toString();
 
-        $requests = $xml_node->attributes->getNamedItem('requests');
-        if ($requests)
-            $this->requests = json_decode($requests->nodeValue);
+        if (isset($xml_element->attributes()->requests))
+            $this->requests = json_decode($xml_element->attributes()->requests->__toString());
 
-        $pending = $xml_node->attributes->getNamedItem('pending');
-        if ($pending)
-            $this->pending = $pending->nodeValue == 'true';
+        if (isset($xml_element->attributes()->pending))
+            $this->pending = $xml_element->attributes()->pending->__toString() == 'true';
 
-        $active = $xml_node->attributes->getNamedItem('active');
-        if ($active)
-            $this->active = $active->nodeValue == 'true';
+        if (isset($xml_element->attributes()->active))
+            $this->active = $xml_element->attributes()->active->__toString() == 'true';
 
-        $city_name = $xml_node->attributes->getNamedItem('city_name');
-        if ($city_name)
-            $this->city_name = utf8_decode($city_name->nodeValue);
+        if (isset($xml_element->attributes()->city_name))
+            $this->city_name = $xml_element->attributes()->city_name->__toString();
 
-        $help_items = $xml_node->attributes->getNamedItem('help_items');
-        if ($help_items) {
-            if ($help_items->nodeValue != '') {
-                $help_items = explode(',', $help_items->nodeValue);
+        if (isset($xml_element->attributes()->help_items)) {
+            if ($xml_element->attributes()->help_items->__toString() != '') {
+                $help_items = explode(',', $xml_element->attributes()->help_items->__toString());
                 foreach ($help_items as $help_item) {
                     $item = explode(':', $help_item);
                     $this->help_items[$item[0]] = $item[1];
@@ -124,9 +115,8 @@ class Friend
             }
         }
 
-        $neighborhoods = $xml_node->attributes->getNamedItem('neighborhoods');
-        if ($neighborhoods)
-            $this->neighborhoods = json_decode($neighborhoods->nodeValue);
+        if (isset($xml_element->attributes()->neighborhoods))
+            $this->neighborhoods = json_decode($xml_element->attributes()->neighborhoods->__toString());
 
         if ($this->requests) {
             foreach ($this->requests as $request_name => $request) {
@@ -138,60 +128,56 @@ class Friend
     }
 
     public function visit() {
+        $result = false;
+
         $friend_rooms = [0, 5, 2, 4, 1];
         $last_room_id = $friend_rooms[0];
 
         foreach ($friend_rooms as $room_id) {
             if ($this->help_points > 0) {
                 Bot::log('Заходим к другу ' . $this->city_name . ' в комнату '. $room_id);
-                //echo 'Заходим к другу с ID ' . $this->id . ' в комнату '. $room_id . "\n";
                 $room_data = Bot::$game->visitFriend($this->id, $last_room_id, $room_id);
-                $room_data = preg_replace('/<neighborhoods.*<\/neighborhoods>/smi', '', $room_data);
-                $room_data = preg_replace('/<friend_neighborhoods.*<\/friend_neighborhoods>/', '', $room_data);
-                $room_data = preg_replace('/<items_activity .*<\/items_activity>/', '', $room_data);
-                $room_data = preg_replace('/<quests_activity>.*<\/quests_activity>/', '', $room_data);
-                $room_data = preg_replace('/<military_orders .*<\/military_orders>/', '', $room_data);
-                $room_data = preg_replace('/<game_requests .*<\/game_requests>/', '', $room_data);
-                $room_data = preg_replace('/<support>.*<\/support>/', '', $room_data);
+                $result = true;
 
                 $last_room_id = $room_id;
 
-                $room_data = Bot::$tidy->repairString($room_data, Bot::$tidy_config);
+                if ($room_data) {
+                    $this->room_data = simplexml_load_string($room_data);
 
-                $this->room_data = new DOMDocument();
-                $this->room_data->loadXML($room_data);
+                    $ids = [];
+                    foreach ($this->room_data->field[0] as $building) {
+                        if (count($ids) >= $this->help_points)
+                            break;
 
-                $ids = [];
-                foreach ($this->room_data->getElementsByTagName('field')->item(0)->childNodes as $building) {
-                    if (count($ids) >= $this->help_points)
-                        break;
-
-                    if ($building->localName != NULL) {
-                        if (substr($building->localName, strlen($building->localName) - 4, 4) == '_new') {
-                            $ids[] = ['name' => $building->localName, 'id' => $building->attributes->getNamedItem('id')->nodeValue];
+                        if ($building->getName() != null) {
+                            if (preg_match('/_new$/', $building->getName())) {
+                                $ids[] = ['name' => $building->getName(), 'id' => $building->attributes()->id->__toString()];
+                            }
                         }
                     }
+
+                    $cached = [];
+                    foreach ($ids as $id) {
+                        $cached[] = [
+                            'command' => 'help',
+                            'cmd_id' => Bot::$game->popCmdId(),
+                            'room_id' => $room_id,
+                            'owner_id' => $this->id,
+                            'item_id' => $id['id'],
+                            'friend_id' => $this->id,
+                            'klass' => $id['name'],
+                            'uxtime' => time()
+                        ];
+                    }
+
+                    Bot::$game->checkAndPerformFriend($this->id, $cached);
+
+                    $this->help_points -= count($ids);
                 }
-
-                $cached = [];
-                foreach ($ids as $id) {
-                    $cached[] = [
-                        'command' => 'help',
-                        'cmd_id' => Bot::$game->popCmdId(),
-                        'room_id' => $room_id,
-                        'owner_id' => $this->id,
-                        'item_id' => $id['id'],
-                        'friend_id' => $this->id,
-                        'klass' => $id['name'],
-                        'uxtime' => time()
-                    ];
-                }
-
-                Bot::$game->checkAndPerformFriend($this->id, $cached);
-
-                $this->help_points -= count($ids);
             }
         }
+
+        return $result;
     }
 
 }

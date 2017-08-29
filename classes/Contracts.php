@@ -859,9 +859,9 @@ class Contracts
 
             //Ботанический парк "Едем"
             //не окончательно
-            'botanic_garden_eden_stage1' => [
+            'botanic_garden_eden_stage2' => [
                 'short' => [
-                    'contract' => 'wellness'
+                    'contract' => 'observing_eruption', 'friends_request' => true
                 ],
                 'long' => [
                     'contract' => 'bathing_in_thermal_waters'

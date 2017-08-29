@@ -35,11 +35,6 @@ class Bot
     public static $options;
 
     /**
-     * @var $tidy Tidy
-     */
-    public static $tidy;
-
-    /**
      * @var $tidy_config array
      */
     public static $tidy_config;
@@ -53,11 +48,6 @@ class Bot
      * @var $last_room_id int
      */
     public static $last_room_id;
-
-    /**
-     * @var $config Config
-     */
-    //private $config;
 
     /**
      * @var $game Game
@@ -81,16 +71,6 @@ class Bot
         Bot::$options['debug'] = isset(Bot::$options['D']) || isset(Bot::$options['debug']);
         Bot::$options['telegram'] = false;
         Bot::$options['telegram_recipient'] = null;
-
-        Bot::$tidy = new Tidy();
-        Bot::$tidy_config = [
-            'indent' => true,
-            'clean' => true,
-            'input-xml' => true,
-            'output-xml' => true,
-            'wrap' => false,
-//            'output-encoding' => 'utf8',
-        ];
 
         Bot::$curl = curl_init();
         curl_setopt(Bot::$curl, CURLOPT_HTTPHEADER, array('User-Agent: city-android-' . Bot::$client_version . '.' . Bot::$build, 'Accept: */*', 'Accept-Encoding: gzip'));
@@ -134,13 +114,11 @@ class Bot
         if (!Bot::$options['force']) {
             if ($config->lock == true) {
                 Bot::log('Выполнение скрипта заблокировано параметром lock в конфиге', (Bot::$options['telegram']) ? [Bot::$DEBUG, Bot::$TELEGRAM] : [Bot::$DEBUG]);
-                //if (Bot::$options['debug']) echo "Выполнение скрипта заблокировано параметром lock в конфиге\n";
                 return;
             }
             if ($config->next_time != null) {
                 if (time() < $config->next_time && !Bot::$options['manual']) {
                     Bot::log('Время следующего выполнения щё не наступило. Скрипт запустится не раньше ' . date('H:i:s', $config->next_time), [Bot::$DEBUG]);
-                    //if (Bot::$options['debug']) echo 'Время следующего выполнения щё не наступило. Скрипт запустится не раньше ' . date('H:i:s', $this->next_time) . " \n";
                     return;
                 }
             }
@@ -165,14 +143,10 @@ class Bot
                 Bot::$options['long'] = true;
         }
 
-        //if (Bot::$options['debug']) {
-            if (Bot::$options['long'])
-                Bot::log('Будут подписаны длинные контракты', [Bot::$DEBUG]);
-            //echo "Будут подписаны длинные контракты\n";
-            else
-                Bot::log('Будут подписаны короткие контракты', [Bot::$DEBUG]);
-            //echo "Будут подписаны короткие контракты\n";
-        //}
+        if (Bot::$options['long'])
+            Bot::log('Будут подписаны длинные контракты', [Bot::$DEBUG]);
+        else
+            Bot::log('Будут подписаны короткие контракты', [Bot::$DEBUG]);
 
         $config->lock = true;
         $config->next_time = null;
@@ -184,7 +158,6 @@ class Bot
         Bot::$game = new Game();
         if (Bot::$game->room->id != 0)
             Bot::$game->changeRoom(0);
-        Bot::$game->loadFriends();
         Bot::$game->visitFriends();
         if (date('H') < 22 || date('H') == 23 && date('i') >= 20)
             Bot::$game->sendGifts();
@@ -193,14 +166,15 @@ class Bot
         Bot::$game->receiveGifts();
         Bot::$game->acceptFriends();
         Bot::$game->sendFriendsToGamblingZone();
+        Bot::$game->sendFuelToFriends();
         Bot::$game->discardAskMaterial();
         Bot::$game->handleLetters();
         Bot::$game->openChest();
-        Bot::$game->room->doChineseFactoryWork();
-        Bot::$game->room->doEgyptianFactoryWork();
+        Bot::$game->room->doFactoryWork('chinese');
+        Bot::$game->room->doFactoryWork('egyptian');
         Bot::$game->room->doMilitaryWork();
         Bot::$game->room->signContracts();
-//        if (!Bot::$options['manual'])
+        if (!Bot::$options['manual'])
             Bot::$game->room->getCoins();
         Bot::$game->applyHelp();
 
@@ -233,9 +207,7 @@ class Bot
         $config->commit();
 
         Bot::log('Выполнено в ' . date('H:i:s'), [Bot::$STDOUT, Bot::$TELEGRAM]);
-        //echo 'Выполнено в ' . date('H:i:s') . "\n";
         Bot::log('Следующее выполнение - не раньше ' . date('H:i:s', $config->next_time), [Bot::$STDOUT, Bot::$TELEGRAM]);
-        //echo 'Следующее выполнение - не раньше ' . date('H:i:s', $config->next_time) . "\n";
     }
 
     public static function log($text, $options = ['stdout']) {
