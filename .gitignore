@@ -3,6 +3,7 @@
 /count_materials.log
 /files
 /rooms
-
 /.idea/
 /vendor/
+composer.json
+composer.lock
