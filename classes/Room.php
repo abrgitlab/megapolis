@@ -6,6 +6,11 @@
  * Date: 20.04.16
  * Time: 10:55
  */
+
+require_once 'Bot.php';
+require_once 'Contracts.php';
+require_once 'Game.php';
+
 class Room
 {
 
@@ -460,95 +465,12 @@ class Room
         }
     }
 
-    /*
-     * Работа в сноувилле
+    /**
+     * Работа с китайскими и египетскими фабриками
+     *
+     * @param $name string
      */
-    public function doSnowvilleFactoryWork() {
-        $items_count = [
-            '1060440' => $this->getBarnQuantity('mine_petard'),
-            '1060441' => $this->getBarnQuantity('mine_rocket'),
-            '1060442' => $this->getBarnQuantity('mine_pyro_box')
-        ];
-
-        $production_ids = [
-            '1060440' => 'production_first_factory_mine_petard',
-            '1060441' => 'production_first_factory_mine_rocket',
-            '1060442' => 'production_first_factory_mine_pyro_box'
-        ];
-
-        $cached = [];
-        foreach($this->field_data->childNodes->item(0)->childNodes as $field) {
-            if ($field->localName == 'first_santa_factory_stage3') {
-                $queue = $field->attributes->getNamedItem('queue')->nodeValue;
-                $queue_length = 0;
-                if ($queue != '') {
-                    $queue_items = explode(',', $queue);
-                    $queue_length = count($queue_items);
-                    foreach ($queue_items as $queue_item) {
-                        $conveyor = explode(':', $queue_item);
-
-                        if ($conveyor[1] == 3) {
-                            $cached[] = [
-                                'command' => 'pick',
-                                'cmd_id' => Bot::$game->popCmdId(),
-                                'room_id' => $this->id,
-                                'item_id' => 70153339,
-                                'index' => 0,
-                                'klass' => $production_ids[$conveyor[0]]
-                            ];
-
-                            ++$items_count[$conveyor[0]];
-                            --$queue_length;
-                        }
-                    }
-                }
-
-                for ($i = $queue_length; $i < 3; ++$i) {
-                    if ($items_count['1060441'] < min($items_count['1060440'], $items_count['1060442']) / 4 + 1) {
-                        $cached[] = [
-                            'command' => 'put',
-                            'cmd_id' => Bot::$game->popCmdId(),
-                            'room_id' => $this->id,
-                            'item_id' => 70153339,
-                            'klass' => $production_ids['1060441']
-                        ];
-                        ++$items_count['1060441'];
-                    } else if ($items_count['1060440'] < $items_count['1060442']) {
-                        $cached[] = [
-                            'command' => 'put',
-                            'cmd_id' => Bot::$game->popCmdId(),
-                            'room_id' => $this->id,
-                            'item_id' => 70153339,
-                            'klass' => $production_ids['1060440']
-                        ];
-                        ++$items_count['1060440'];
-                    } else {
-                        $cached[] = [
-                            'command' => 'put',
-                            'cmd_id' => Bot::$game->popCmdId(),
-                            'room_id' => $this->id,
-                            'item_id' => 70153339,
-                            'klass' => $production_ids['1060442']
-                        ];
-                        ++$items_count['1060442'];
-                    }
-                }
-            }
-        }
-
-        if (count($cached) > 0) {
-            Bot::log('Ждём обработки конвейера пиротехники ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
-            for ($i = count($cached); $i > 0; --$i) {
-                Bot::log("Ждём обработки конвейера пиротехники $i сек.");
-                $cached[count($cached) - $i]['uxtime'] = time();
-                sleep(1);
-            }
-
-            Bot::$game->checkAndPerform($cached);
-        }
-    }
-
-    public function doFactoryWork($name) {
+     public function doFactoryWork($name) {
         $items = [
             'chinese' => ['casket', 'bronze_statuette', 'antique_teapot', 'ceramic_vase', 'jade_medallion', 'hair_comb'],
             'egyptian' => ['ankh', 'scarab', 'uskh', 'eye_of_horus', 'ancient_vase', 'statuette_bastet']
@@ -606,7 +528,7 @@ class Room
                                 'item_id' => $field['id'],
                                 'klass' => Bot::$game->getCityItemById('20080411')['item_name']
                             ];
-                            ++$items_count['20080411'];
+                            //++$items_count['20080411'];
                             break;
                         }
                     } else if ($name == 'egyptian') {
@@ -618,7 +540,7 @@ class Room
                                 'item_id' => $field['id'],
                                 'klass' => Bot::$game->getCityItemById('20080557')['item_name']
                             ];
-                            ++$items_count['20080557'];
+                            //++$items_count['20080557'];
                             break;
                         } elseif ($fieldName == 'museum_egyptian_civilization_stage2') {
                             $cached[] = [
@@ -628,7 +550,7 @@ class Room
                                 'item_id' => $field['id'],
                                 'klass' => Bot::$game->getCityItemById('20080559')['item_name']
                             ];
-                            ++$items_count['20080559'];
+                            //++$items_count['20080559'];
                             break;
                         } elseif ($fieldName == 'museum_egyptian_civilization_stage3') {
                             $cached[] = [
@@ -638,7 +560,7 @@ class Room
                                 'item_id' => $field['id'],
                                 'klass' => Bot::$game->getCityItemById('20080561')['item_name']
                             ];
-                            ++$items_count['20080561'];
+                            //++$items_count['20080561'];
                             break;
                         }
                     }
@@ -667,7 +589,7 @@ class Room
 
         $cached = [];
         foreach ($items[$name] as $item) {
-            for ($i = 0; $i < $this->getBarnQuantity($item); ++$i) {
+            for ($i = 0; $i < $items_count[Bot::$game->city_items[$item . '_production']['id']]; ++$i) {
                 $cached[] = [
                     'command' => 'sell_barn',
                     'cmd_id' => Bot::$game->popCmdId(),
@@ -853,11 +775,6 @@ class Room
     public function getBarnQuantity($name) {
         if (isset($this->barn[$name]['quantity']))
             return $this->barn[$name]['quantity'];
-        /*foreach($this->barn_data->childNodes->item(0)->childNodes as $barn) {
-            if ($barn->localName == $name) {
-                return $barn->attributes->getNamedItem('quantity')->nodeValue;
-            }
-        }*/
 
         return 0;
     }

@@ -8,7 +8,6 @@
 
 require_once 'classes/Bot.php';
 require_once 'classes/Game.php';
-require_once 'classes/Room.php';
 
 define('MEGAPOLIS_PATH', __DIR__);
 
@@ -63,13 +62,13 @@ for ($i = 0; $i <= 5; ++$i) {
     Bot::$game->changeRoom($i);
 
     $room = Bot::$game->room;
-    foreach(Bot::$game->room->field_data->childNodes->item(0)->childNodes as $field) {
-        if ($field->localName !== null) {
-            if (isset(Bot::$game->city_items[$field->localName])) {
-                $item = Bot::$game->city_items[$field->localName];
+    foreach(Bot::$game->room->field as $field_name => $field_items) {
+        foreach ($field_items as $field) {
+            if (isset(Bot::$game->city_items[$field_name])) {
+                $item = Bot::$game->city_items[$field_name];
                 $item_is_constructing = true;
-                $item_id = $field->attributes->getNamedItem('id')->nodeValue;
-                $item_name = $field->localName;
+                $item_id = $field['id'];
+                $item_name = $field_name;
                 do {
                     if (isset($item['materials_quantity']) && count($item['materials_quantity']) > 0) {
                         if (isset($item_types_for_construct[$item_name])) {
@@ -83,8 +82,8 @@ for ($i = 0; $i <= 5; ++$i) {
                         }
 
                         if ($item_id !== null) {
-                            if ($field->hasAttribute('input_fill')) {
-                                $input_fill = $field->getAttribute('input_fill');
+                            if (isset($field['input_fill'])) {
+                                $input_fill = $field['input_fill'];
                                 $input_fill = explode(',', $input_fill);
                                 foreach ($input_fill as $input_fill_item) {
                                     $item_count = explode(':', $input_fill_item);
@@ -125,14 +124,15 @@ foreach ($item_types_for_construct as $item_name => $item) {
         $barn_quantity = 0;
         $city_item = Bot::$game->city_items[$material];
         if (checkMaterial($material)) {
-            foreach(Bot::$game->room->barn_data->childNodes->item(0)->childNodes as $barn) {
+            $barn_quantity = Bot::$game->room->getBarnQuantity($material);
+            /*foreach(Bot::$game->room->barn as $barn) {
                 if ($barn->localName !== null && $material == $barn->localName) {
                     if ($barn->hasAttribute('quantity')) {
                         $barn_quantity = $barn->getAttribute('quantity');
                         break;
                     }
                 }
-            }
+            }*/
 
             if (isset($materials_needed[$material])) {
                 $materials_needed[$material]['quantity'] += $quantity;
@@ -151,12 +151,10 @@ foreach ($item_types_for_construct as $item_name => $item) {
 
 echo 'Итого необходимо построить объектов: ' . $items_for_construct_amount . ', шагов постройки: ' . count($item_types_for_construct) . "\n\n";
 
-foreach(Bot::$game->room->barn_data->childNodes->item(0)->childNodes as $barn) {
-    if ($barn->localName !== null) {
-        if (!isset($materials_needed[$barn->localName]) && checkMaterial($barn->localName) && $barn->hasAttribute('quantity')) {
-            $barn_quantity = $barn->getAttribute('quantity');
-            $materials_needed[$barn->localName] = ['quantity' => -$barn_quantity, 'need_now' => false];
-        }
+foreach(Bot::$game->room->barn as $barn_name => $barn) {
+    if (!isset($materials_needed[$barn_name]) && checkMaterial($barn_name) && isset($barn['quantity'])) {
+        $barn_quantity = $barn['quantity'];
+        $materials_needed[$barn_name] = ['quantity' => -$barn_quantity, 'need_now' => false];
     }
 }
 

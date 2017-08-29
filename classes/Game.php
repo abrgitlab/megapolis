@@ -6,6 +6,11 @@
  * Date: 20.04.16
  * Time: 10:55
  */
+
+require_once 'Bot.php';
+require_once 'Room.php';
+require_once 'Friend.php';
+
 class Game
 {
 

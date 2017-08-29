@@ -6,6 +6,9 @@
  * Date: 20.04.16
  * Time: 15:08
  */
+
+require_once 'Bot.php';
+
 class Friend
 {
 

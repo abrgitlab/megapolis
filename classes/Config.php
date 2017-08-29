@@ -6,6 +6,9 @@
  * Date: 20.04.16
  * Time: 10:58
  */
+
+require_once 'Bot.php';
+
 class Config
 {
 

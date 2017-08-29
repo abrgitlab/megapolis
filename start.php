@@ -7,12 +7,6 @@
  */
 
 require_once 'classes/Bot.php';
-require_once 'classes/Config.php';
-require_once 'classes/Game.php';
-require_once 'classes/Room.php';
-require_once 'classes/Friend.php';
-require_once 'classes/Contracts.php';
-
 require_once 'vendor/autoload.php';
 
 define('MEGAPOLIS_PATH', __DIR__);
