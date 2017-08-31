@@ -75,9 +75,19 @@ class Friend
     public $city_name;
 
     /**
+     * @var $first_name string
+     */
+    public $first_name;
+
+    /**
      * @var $neighborhoods array
      */
     public $neighborhoods = [];
+
+    /**
+     * @var $new_friend bool
+     */
+    public $new_friend = false;
 
     /**
      * @param $xml_element SimpleXMLElement
@@ -108,6 +118,9 @@ class Friend
         if (isset($xml_element->attributes()->city_name))
             $this->city_name = $xml_element->attributes()->city_name->__toString();
 
+        if (isset($xml_element->attributes()->first_name))
+            $this->first_name = $xml_element->attributes()->first_name->__toString();
+
         if (isset($xml_element->attributes()->help_items)) {
             if ($xml_element->attributes()->help_items->__toString() != '') {
                 $help_items = explode(',', $xml_element->attributes()->help_items->__toString());
@@ -124,7 +137,11 @@ class Friend
         if ($this->requests) {
             foreach ($this->requests as $request_name => $request) {
                 if (!in_array($request_name, Friend::$requests_not_letters) && isset($request->count) && isset($request->user) && ($request->count > 0) && !in_array(Bot::$user_id, $request->user) && ($request->time > time()) && ($this->active)) {
-                    $this->letters[$request_name] = $request;
+                    if ($request_name == 'invite_suggested_neighbors') {
+                        $this->new_friend = true;
+                    } else {
+                        $this->letters[$request_name] = $request;
+                    }
                 }
             }
         }

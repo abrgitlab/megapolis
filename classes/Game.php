@@ -222,11 +222,12 @@ class Game
                     $friend = new Friend();
 
                     $friend->loadFromXmlNode($friend_item);
+
                     $friend_is_neighborhood = false;
                     foreach ($friend->neighborhoods as $n_id)
                         if ($n_id == Bot::$neighborhood_id)
                             $friend_is_neighborhood = true;
-                    if (!$friend->pending || $friend->id < 0 || $friend_is_neighborhood)
+                    if (!$friend->pending || $friend->id < 0 || $friend_is_neighborhood || $friend->new_friend)
                         $this->friends[] = $friend;
                 }
             }
@@ -240,7 +241,7 @@ class Game
     public function showLetters() {
         $letters_amount = 0;
         foreach ($this->friends as $friend) {
-            if (count($friend->letters) > 0) {
+            if (count($friend->letters) > 0 && !$friend->new_friend) {
                 Bot::log($friend->id, [Bot::$DEBUG]);
                 var_dump($friend->letters);
                 $letters_amount += count($friend->letters);
@@ -255,17 +256,19 @@ class Game
     public function discardAskMaterial() {
         $items = [];
         foreach ($this->friends as $friend) {
-            foreach ($friend->letters as $letter_name => $letter_params) {
-                if ($letter_name == 'ask_material_common') {
-                    $items[] = [
-                        'command' => 'discard_request',
-                        'cmd_id' => $this->popCmdId(),
-                        'room_id' => $this->room->id,
-                        'name' => $letter_name,
-                        'friend_id' => $friend->id
-                    ];
+            if (!$friend->new_friend) {
+                foreach ($friend->letters as $letter_name => $letter_params) {
+                    if ($letter_name == 'ask_material_common') {
+                        $items[] = [
+                            'command' => 'discard_request',
+                            'cmd_id' => $this->popCmdId(),
+                            'room_id' => $this->room->id,
+                            'name' => $letter_name,
+                            'friend_id' => $friend->id
+                        ];
 
-                    unset($friend->letters['ask_material_common']);
+                        unset($friend->letters['ask_material_common']);
+                    }
                 }
             }
         }
@@ -288,17 +291,19 @@ class Game
     public function sendFuelToFriends() {
         $items = [];
         foreach ($this->friends as $friend) {
-            foreach ($friend->letters as $letter_name => $letter_params) {
-                if ($letter_name == 'request_fuel') {
-                    $items[] = [
-                        'command' => 'commit_request',
-                        'cmd_id' => $this->popCmdId(),
-                        'room_id' => $this->room->id,
-                        'name' => $letter_name,
-                        'friend_id' => $friend->id
-                    ];
+            if (!$friend->new_friend) {
+                foreach ($friend->letters as $letter_name => $letter_params) {
+                    if ($letter_name == 'request_fuel') {
+                        $items[] = [
+                            'command' => 'commit_request',
+                            'cmd_id' => $this->popCmdId(),
+                            'room_id' => $this->room->id,
+                            'name' => $letter_name,
+                            'friend_id' => $friend->id
+                        ];
 
-                    unset($friend->letters['request_fuel']);
+                        unset($friend->letters['request_fuel']);
+                    }
                 }
             }
         }
@@ -321,49 +326,51 @@ class Game
     public function handleLetters() { //TODO: определять, когда достигнут дневной лимит отвеченных писем
         $items = [];
         foreach ($this->friends as $friend) {
-            foreach ($friend->letters as $letter_name => $letter_params) {
+            if (!$friend->new_friend) {
+                foreach ($friend->letters as $letter_name => $letter_params) {
 
-                $profit = [
-                    'expirience' => 0,
-                    'coins' => 0
-                ];
-                $request_template = $this->requests_items['requests'][$letter_name];
-                if (isset($request_template['reward'])) {
-                    foreach ($request_template['reward'] as $reward) {
-                        if (isset($reward['items'])) {
-                            foreach ($reward['items'] as $item) {
-                                if (isset($item['exp']['min_quantity'])) {
-                                    $profit['expirience'] = $item['exp']['min_quantity'];
+                    $profit = [
+                        'expirience' => 0,
+                        'coins' => 0
+                    ];
+                    $request_template = $this->requests_items['requests'][$letter_name];
+                    if (isset($request_template['reward'])) {
+                        foreach ($request_template['reward'] as $reward) {
+                            if (isset($reward['items'])) {
+                                foreach ($reward['items'] as $item) {
+                                    if (isset($item['exp']['min_quantity'])) {
+                                        $profit['expirience'] = $item['exp']['min_quantity'];
+                                    }
+                                    if (isset($item['coins']['min_quantity'])) {
+                                        $profit['coins'] = $item['coins']['min_quantity'];
+                                    }
                                 }
-                                if (isset($item['coins']['min_quantity'])) {
-                                    $profit['coins'] = $item['coins']['min_quantity'];
-                                }
+                                break;
                             }
-                            break;
                         }
                     }
-                }
 
-                if ($profit['expirience'] >= 200) {
-                    $items[] = [
-                        'command' => 'commit_request',
-                        'cmd_id' => $this->popCmdId(),
-                        'room_id' => $this->room->id,
-                        'name' => $letter_name,
-                        'friend_id' => $friend->id
-                    ];
+                    if ($profit['expirience'] >= 200) {
+                        $items[] = [
+                            'command' => 'commit_request',
+                            'cmd_id' => $this->popCmdId(),
+                            'room_id' => $this->room->id,
+                            'name' => $letter_name,
+                            'friend_id' => $friend->id
+                        ];
 
-                    unset($friend->letters[$letter_name]);
-                } elseif ($profit['expirience'] < 100 && $profit['coins'] < 1500) {
-                    $items[] = [
-                        'command' => 'discard_request',
-                        'cmd_id' => $this->popCmdId(),
-                        'room_id' => $this->room->id,
-                        'name' => $letter_name,
-                        'friend_id' => $friend->id
-                    ];
+                        unset($friend->letters[$letter_name]);
+                    } elseif ($profit['expirience'] < 100 && $profit['coins'] < 1500) {
+                        $items[] = [
+                            'command' => 'discard_request',
+                            'cmd_id' => $this->popCmdId(),
+                            'room_id' => $this->room->id,
+                            'name' => $letter_name,
+                            'friend_id' => $friend->id
+                        ];
 
-                    unset($friend->letters[$letter_name]);
+                        unset($friend->letters[$letter_name]);
+                    }
                 }
             }
         }
@@ -385,11 +392,13 @@ class Game
      */
     public function acceptFriends() {
         foreach ($this->friends as $friend) {
-            if (isset($friend->letters['invite_suggested_neighbors'])) {
-                Bot::log('Принимаем в друзья город ' . $friend->id, [Bot::$STDOUT, Bot::$TELEGRAM]);
+            if ($friend->new_friend) {
+            //if (isset($friend->letters['invite_suggested_neighbors'])) {
+                Bot::log('Принимаем в друзья город ' . $friend->city_name, [Bot::$STDOUT, Bot::$TELEGRAM]);
                 $this->processAcceptFriend($friend->id, $friend->letters['invite_suggested_neighbors']->pushed);
 
-                unset($friend->letters['invite_suggested_neighbors']);
+                //$friend->new_friend = false; //TODO: получать результат добавления. Если друг добавлен, то $friend->new_friend = false, если добавить не получилось, удаляем из списка друзей
+                //unset($friend->letters['invite_suggested_neighbors']);
             }
         }
     }
@@ -400,7 +409,7 @@ class Game
     public function visitFriends() {
         Bot::log('Заходим к друзьям...', [Bot::$TELEGRAM]);
         foreach ($this->friends as $friend) {
-            if ($friend->id != '-41' && $friend->id != '-43') {
+            if ($friend->id != '-41' && $friend->id != '-43' && !$friend->new_friend) {
                 if ($friend->visit())
                     $this->goHome();
             }
@@ -420,15 +429,17 @@ class Game
     public function applyHelp() {
         $cached = [];
         foreach ($this->friends as $friend) {
-            foreach ($friend->help_items as $helpItem => $value) {
-                if ($value == $this->room->id) {
-                    $cached[] = [
-                        'command' => 'apply_help',
-                        'cmd_id' => $this->popCmdId(),
-                        'room_id' => $this->room->id,
-                        'item_id' => $helpItem,
-                        'friend_id' => $friend->id
-                    ];
+            if (!$friend->new_friend) {
+                foreach ($friend->help_items as $helpItem => $value) {
+                    if ($value == $this->room->id) {
+                        $cached[] = [
+                            'command' => 'apply_help',
+                            'cmd_id' => $this->popCmdId(),
+                            'room_id' => $this->room->id,
+                            'item_id' => $helpItem,
+                            'friend_id' => $friend->id
+                        ];
+                    }
                 }
             }
         }
@@ -448,22 +459,17 @@ class Game
     /**
      * @return Friend[]
      */
-    public function getFriendsForInviteInGamblingZone() {
+    /*public function getFriendsForInviteInGamblingZone() {
         $result = [];
         foreach ($this->friends as $friend) {
-            if ($friend->send_requests) {
+            if ($friend->send_requests && !$friend->new_friend) {
                 if (
-                    (
-                        isset($friend->send_requests->gambling_zone_staff->user) &&
-                        count($friend->send_requests->gambling_zone_staff->user) > 0 &&
-                        in_array($friend->id, $friend->send_requests->gambling_zone_staff->user) ||
-                        !isset($friend->send_requests->gambling_zone_staff)
-                    ) &&
+                    !isset($friend->send_requests->gambling_zone_staff) &&
                     !(
-                        isset($friend->requests->gambling_zone_staff->user) &&
-                        count($friend->requests->gambling_zone_staff->user) > 0 &&
-                        in_array(Bot::$user_id, $friend->requests->gambling_zone_staff->user)
-                    ) //TODO: есть небольшая погрешность
+                        isset($friend->requests->gambling_zone_staff_back->user) &&
+                        count($friend->requests->gambling_zone_staff_back->user) == 0 &&
+                        $this->server_time - $friend->requests->gambling_zone_staff_back->pushed > 86400
+                    )
                 ) {
                     $result[] = $friend;
                 }
@@ -471,7 +477,7 @@ class Game
         }
 
         return $result;
-    }
+    }*/
 
     /**
      * Загружает данные о подарках
@@ -495,7 +501,7 @@ class Game
     public function receiveGifts() {
         $received_gifts = [];
         foreach ($this->friends as $friend) {
-            if (isset($friend->requests->send_gift_new)) {
+            if (isset($friend->requests->send_gift_new) && !$friend->new_friend) {
                 foreach ($friend->requests->send_gift_new->st_items as $gift_id) {
                     $city_item_name = $this->getCityItemById($gift_id)['item_name'];
                     if ($city_item_name)
@@ -527,7 +533,7 @@ class Game
     public function sendGifts($send_the_rest_gifts = false) {
         $sending_gifts = [];
         foreach ($this->friends as $friend) {
-            if ($friend->next_gift_time < 0) {
+            if ($friend->next_gift_time < 0 && !$friend->new_friend) {
                 foreach ($friend->wish_list as $item) {
                     if (in_array($item, $this->available_gifts)) {
                         $sending_gifts[$item][] = $friend->id;
@@ -604,7 +610,7 @@ class Game
     public function sendFriendsToGamblingZone() {
         $cached = [];
         foreach ($this->friends as $friend) {
-            if (isset($friend->requests->gambling_zone_staff_back->user) && count($friend->requests->gambling_zone_staff_back->user) == 0) {
+            if (isset($friend->requests->gambling_zone_staff_back->user) && count($friend->requests->gambling_zone_staff_back->user) == 0 && !$friend->new_friend) {
                 $cached[] = [
                     'command' => 'commit_request',
                     'cmd_id' => $this->popCmdId(),
@@ -704,7 +710,7 @@ class Game
     }
 
     /**
-     *
+     * @return string
      */
     public function associate() {
         if (!$this->online)
@@ -771,24 +777,6 @@ class Game
     }
 
     /**
-     * @return string
-     */
-    public function getBackFromSnowvilleStat() {
-        if (!$this->online)
-            return null;
-
-        curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/get_user_stat');
-        curl_setopt(Bot::$curl, CURLOPT_POST, true);
-
-        $url = 'daily_gift=2&iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&session_key=' . $this->session_key . '&room_id=100&change_room=1&view_room_id=0&lang=ru&client_type=android&rn=' . $this->popRN() . '&content_rev=' . $this->revision;
-        Bot::log("\n$url\n", [Bot::$DEBUG]);
-
-        curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
-
-        return gzdecode(curl_exec(Bot::$curl));
-    }
-
-    /**
      * @param $friend_id string
      * @param $last_room_id int
      * @param $room_id int
@@ -811,6 +799,7 @@ class Game
 
     /**
      * @param $from_friend string
+     * @return string
      */
     public function goHomeRequest($from_friend) {
         if (!$this->online)
@@ -833,7 +822,7 @@ class Game
      * @return string
      */
     public function checkAndPerformFriend($friend_id, $cached) {
-        if (!$this->online)
+        if (!$this->online && count($cached) == 0)
             return null;
 
         $cached_string = '';
@@ -881,7 +870,7 @@ class Game
      * @return string
      */
     public function checkAndPerform($cached) {
-        if (!$this->online)
+        if (!$this->online || count($cached) == 0)
             return null;
 
         $cached_string = '';

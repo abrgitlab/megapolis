@@ -620,10 +620,116 @@ class Room
         }
     }
 
+    public function casinoPickFriends() {
+        if ($this->id != 4)
+            return;
+
+        $material_list = array('poker_trophy', 'golden_dice', 'bracelet_winner', 'gold_medal', 'gambler_cup', 'bar_of_gold', 'silk_robe', 'gold_signet', 'gold_chain');
+
+        $room_staff = json_decode($this->location_data->attributes()->room_staff->__toString());
+
+        $roll_counter = $this->location_data->attributes()->roll_counter->__toString();
+
+        $barn_amount = [];
+
+        foreach ($material_list as $item) {
+            $barn_amount[$this->barn[$item]['id']] = $this->getBarnQuantity($item);
+        }
+
+        $cached_pick = [];
+        $cached_put = [];
+
+        $contracts = [
+            '15305' => 0,
+            '15306' => 0,
+            '15362' => 0
+        ];
+
+        $friends_for_invite_in_gambling_zone = [];
+        foreach (Bot::$game->friends as $friend) {
+            if ($friend->send_requests && !$friend->new_friend) {
+                if (
+                    (
+                        !isset($friend->send_requests->gambling_zone_staff->user)/* ||
+                        !in_array($friend->id, $friend->send_requests->gambling_zone_staff->user)*/
+                    ) &&
+                    /*!(isset($friend->requests->gambling_zone_staff_back->user) && count($friend->requests->gambling_zone_staff_back->user) == 0 && !$friend->new_friend) &&*/
+                    !isset($room_staff->{$friend->id}) &&
+                    !$friend->new_friend
+                ) {
+                    $friends_for_invite_in_gambling_zone[] = $friend->id;
+                }
+            }
+        }
+
+        foreach ($room_staff as $friend_id => $friend) {
+            if (!isset($friend->time_end)) {
+                $cached_put[] = [
+                    'command' => 'put_room_staff',
+                    'cmd_id' => Bot::$game->popCmdId(),
+                    'roll_counter' => $roll_counter++,
+                    'friend_id' => $friend_id,
+                    'item_id' => '39052472',
+                    'room_id' => $this->id
+                ];
+                if ($contracts['15306'] < 10)
+                    $cached_put[count($cached_put) - 1]['contract_id'] = '15306';
+                elseif ($contracts['15362'] < 4)
+                    $cached_put[count($cached_put) - 1]['contract_id'] = '15362';
+                elseif ($contracts['15305'] < 10)
+                    $cached_put[count($cached_put) - 1]['contract_id'] = '15305';
+                else
+                    break;
+
+                $index = array_search($friend_id, $friends_for_invite_in_gambling_zone);
+                if ($index !== false)
+                    unset($friends_for_invite_in_gambling_zone[$index]);
+            } elseif ($friend->time_end == 0) {
+                $cached_pick[] = [
+                    'command' => 'pick_room_staff',
+                    'cmd_id' => Bot::$game->popCmdId(),
+                    'room_id' => $this->id,
+                    'friend_id' => $friend_id,
+                    'item_id' => '39052472'
+                ];
+
+                ++$barn_amount[$friend->material_id];
+
+                $friends_for_invite_in_gambling_zone[] = $friend_id;
+            } elseif ($friend->time_end > 0) {
+                if (isset($contracts[$friend->contract_id]))
+                    ++$contracts[$friend->contract_id];
+                else
+                    $contracts[$friend->contract_id] = 0;
+            }
+        }
+
+        Bot::log('Друзья для приглашения в казино:');
+        foreach (Bot::$game->friends as $friend) {
+            $index = array_search($friend->id, $friends_for_invite_in_gambling_zone);
+            if ($index)
+                Bot::log($friend->id . ': ' . $friend->city_name . ', ' . $friend->first_name);
+        }
+
+        $cached = array_merge($cached_put, $cached_pick);
+
+        if (count($cached) > 0) {
+            Bot::log('Работа с друзьями в казино ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
+            for ($i = count($cached); $i > 0; --$i) {
+                Bot::log("Работа с друзьями в казино $i сек.");
+                $cached[count($cached) - $i]['uxtime'] = time();
+                sleep(1);
+            }
+
+            Bot::$game->checkAndPerform($cached);
+        }
+
+    }
+
     /**
      *
      */
-    public function casinoPickFriends() {
+    public function casinoPickFriendsOld() { //TODO: полностью пересмотреть алгоритм работы
         if ($this->id != 4)
             return;
 
@@ -634,14 +740,8 @@ class Room
 
         $barn_amount = [];
 
-        /*foreach($this->barn_data->childNodes->item(0)->childNodes as $barn) {
-            if (in_array($barn->localName, $material_list)) {
-                $field_quantity = $barn->attributes->getNamedItem('quantity')->nodeValue;
-                $barn_amount[$barn->attributes->getNamedItem('id')->nodeValue] = $field_quantity;
-            }
-        }*/
         foreach ($material_list as $item) {
-            $barn_amount[$item] = $this->getBarnQuantity($item);
+            $barn_amount[$this->barn[$item]['id']] = $this->getBarnQuantity($item);
         }
 
         $cached = [];
@@ -732,6 +832,15 @@ class Room
 //            ];
         }*/
 
+        /*$cached[] = [
+            'command' => 'send_request',
+            'cmd_id' => Bot::$game->popCmdId(),
+            'room_id' => $this->id,
+            'name' => 'gambling_zone_staff',
+            'friend_id' => 'UD_e1b9e702db9dcf393641114c',
+            'item_id' => '39052472'
+        ];*/
+
         if (count($cached) > 0) {
             Bot::log('Работа с друзьями в казино ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             for ($i = count($cached); $i > 0; --$i) {
@@ -740,7 +849,8 @@ class Room
                 sleep(1);
             }
 
-            Bot::$game->checkAndPerform($cached);
+            /*$result = Bot::$game->checkAndPerform($cached);
+            var_dump($result);*/
         }
 
         /*$cached = [];
