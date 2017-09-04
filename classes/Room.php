@@ -41,41 +41,131 @@ class Room
 
     private static $military_conveyors = [
         //Наименование цеха => [id прототипов]
-        'conveyor_armored_cars_line' => [1059282, 1059288, 1059294, 1059300, 1059306, 1059312], //Бронеавтомобили
-        'conveyor_infantry_fighting_vehicle' => [1059318, 1059324, 1059330, 1059336, 1059342, 1059348], //БМП
-        'conveyor_armored_troop_carrier' => [1059354, 1059360, 1059366, 1059372, 1059378, 1059384], //БТР
-        'conveyor_light_tanks' => [1059102, 1059108, 1059114, 1059120, 1059126, 1059132], //Лёгкие танки
-        'conveyor_medium_tanks' => [1059138, 1059144, 1059150, 1059156, 1059162, 1059168], //Средние танки
-        'conveyor_self_propelled_artillery' => [1059210, 1059216, 1059222, 1059228, 1059234, 1059240], //САУ
-        'conveyor_heavy_tanks' => [1059174, 1059180, 1059186, 1059192, 1059198, 1059204], //Тяжёлые танки
-        'conveyor_multiple_rocket_launch_system' => [1059246, 1059252, 1059258, 1059264, 1059270, 1059276], //РСЗО
+        'conveyor_armored_cars_line' => [ //Бронеавтомобили
+            'items' => [1059282, 1059288, 1059294, 1059300, 1059306, 1059312],
+            'quest' => '10076691'
+        ],
+        'conveyor_infantry_fighting_vehicle' => [ //БМП
+            'items' => [1059318, 1059324, 1059330, 1059336, 1059342, 1059348],
+            'quest' => '10076692'
+        ],
+        'conveyor_armored_troop_carrier' => [ //БТР
+            'items' => [1059354, 1059360, 1059366, 1059372, 1059378, 1059384],
+            'quest' => '10076693'
+        ],
+        'conveyor_light_tanks' => [ //Лёгкие танки
+            'items' => [1059102, 1059108, 1059114, 1059120, 1059126, 1059132],
+            'quest' => '10076694'
+        ],
+        'conveyor_medium_tanks' => [ //Средние танки
+            'items' => [1059138, 1059144, 1059150, 1059156, 1059162, 1059168],
+            'quest' => '10076695'
+        ],
+        'conveyor_self_propelled_artillery' => [ //САУ
+            'items' => [1059210, 1059216, 1059222, 1059228, 1059234, 1059240],
+            'quest' => '10076696'
+        ],
+        'conveyor_heavy_tanks' => [ //Тяжёлые танки
+            'items' => [1059174, 1059180, 1059186, 1059192, 1059198, 1059204],
+            'quest' => '10076697'
+        ],
+        'conveyor_multiple_rocket_launch_system' => [ //РСЗО
+            'items' => [1059246, 1059252, 1059258, 1059264, 1059270, 1059276],
+            'quest' => '10076698'
+        ],
 
-        'conveyor_lifesaving_underwater_vehicle' => [1060002, 1060008, 1060014, 1060057, 1060063, 1060069], //Батискафы
-        'conveyor_diesel_submarines' => [1060020, 1060026, 1060032, 1060075, 1060081, 1060087], //Дизельные подлодки
-        'conveyor_nuclear_submarines' => [1060039, 1060045, 1060051, 1060093, 1060099, 1060105], //Атомные подлодки
+        'conveyor_lifesaving_underwater_vehicle' => [ //Батискафы
+            'items' => [1060002, 1060008, 1060014, 1060057, 1060063, 1060069],
+            'quest' => '10076711'
+        ],
+        'conveyor_diesel_submarines' => [ //Дизельные подлодки
+            'items' => [1060020, 1060026, 1060032, 1060075, 1060081, 1060087],
+            'quest' => '10076712'
+        ],
+        'conveyor_nuclear_submarines' => [ //Атомные подлодки
+            'items' => [1060039, 1060045, 1060051, 1060093, 1060099, 1060105],
+            'quest' => '10076713'
+        ],
 
-        'conveyor_transport_helicopters' => [1059692, 1059698, 1059704, 1059800, 1059806, 1059812], //Транспортные вертолёты
-        'conveyor_attack_planes' => [1059656, 1059662, 1059668, 1059728, 1059734, 1059740], //Штурмовики
-        'conveyor_attack_helicopters' => [1059674, 1059680, 1059686, 1059746, 1059752, 1059758], //Ударные вертолёты
-        'conveyor_fighters' => [1059602, 1059608, 1059614, 1059710, 1059716, 1059722], //Истребители
-        'conveyor_tactical_bombers' => [1059638, 1059644, 1059650, 1059764, 1059770, 1059776], //Бомбардировщики TB
-        'conveyor_strategic_bombers' => [1059620, 1059626, 1059632, 1059782, 1059788, 1059794], //Бомбардировщики SB
-        'conveyor_drones' => [1059818, 1059824, 1059830, 1059836, 1059842, 1059848], //Беспилотники
+        'conveyor_transport_helicopters' => [ //Транспортные вертолёты
+            'items' => [1059692, 1059698, 1059704, 1059800, 1059806, 1059812],
+            'quest' => '10076699'
+        ],
+        'conveyor_attack_planes' => [ //Штурмовики
+            'items' => [1059656, 1059662, 1059668, 1059728, 1059734, 1059740],
+            'quest' => '10076700'
+        ],
+        'conveyor_attack_helicopters' => [ //Ударные вертолёты
+            'items' => [1059674, 1059680, 1059686, 1059746, 1059752, 1059758],
+            'quest' => '10076701'
+        ],
+        'conveyor_fighters' => [ //Истребители
+            'items' => [1059602, 1059608, 1059614, 1059710, 1059716, 1059722],
+            'quest' => '10076702'
+        ],
+        'conveyor_tactical_bombers' => [ //Бомбардировщики TB
+            'items' => [1059638, 1059644, 1059650, 1059764, 1059770, 1059776],
+            'quest' => '10076703'
+        ],
+        'conveyor_strategic_bombers' => [ //Бомбардировщики SB
+            'items' => [1059620, 1059626, 1059632, 1059782, 1059788, 1059794],
+            'quest' => '10076704'
+        ],
+        'conveyor_drones' => [ //Беспилотники
+            'items' => [1059818, 1059824, 1059830, 1059836, 1059842, 1059848],
+            'quest' => '10076705'
+        ],
 
-        'conveyor_landing_ships' => [1059928, 1059934, 1059940, 1059983, 1059989, 1059995], //Десантные суда
-        'conveyor_ships_of_coastal_zone' => [1059910, 1059916, 1059922, 1060152, 1060158, 1060164], //Корабли
-        'conveyor_cruisers' => [1059892, 1059898, 1059904, 1060170, 1060176, 1060182], //Крейсеры
-        'conveyor_helicopter_carriers' => [1059965, 1059971, 1059977], //Вертолётоносцы
-        'conveyor_aircraft_carriers' => [1059947, 1059953, 1059959], //Авианосцы
+        'conveyor_landing_ships' => [ //Десантные суда
+            'items' => [1059928, 1059934, 1059940, 1059983, 1059989, 1059995],
+            'quest' => '10076706'
+        ],
+        'conveyor_ships_of_coastal_zone' => [ //Корабли
+            'items' => [1059910, 1059916, 1059922, 1060152, 1060158, 1060164],
+            'quest' => '10076707'
+        ],
+        'conveyor_cruisers' => [ //Крейсеры
+            'items' => [1059892, 1059898, 1059904, 1060170, 1060176, 1060182],
+            'quest' => '10076708'
+        ],
+        'conveyor_helicopter_carriers' => [ //Вертолётоносцы
+            'items' => [1059965, 1059971, 1059977],
+            'quest' => '10076709'
+        ],
+        'conveyor_aircraft_carriers' => [ //Авианосцы
+            'items' => [1059947, 1059953, 1059959],
+            'quest' => '10076710'
+        ],
 
-        'conveyor_air_defense_missiles' => [1059428, 1059434, 1059440, 1059446, 1059452, 1059458], //ЗРК
-        'conveyor_coastal_missiles' => [1059464, 1059470, 1059476, 1059482, 1059488, 1059494], //БРК
-        'conveyor_mobile_missiles' => [1059392, 1059398, 1059404, 1059410, 1059416, 1059422], //ПРК
-        'conveyor_intercontinental_missiles' => [1059500, 1059506, 1059512, 1059518, 1059524/*, 1059530*/], //МБР
+        'conveyor_air_defense_missiles' => [ //ЗРК
+            'items' => [1059428, 1059434, 1059440, 1059446, 1059452, 1059458],
+            'quest' => '10076717'
+        ],
+        'conveyor_coastal_missiles' => [ //БРК
+            'items' => [1059464, 1059470, 1059476, 1059482, 1059488, 1059494],
+            'quest' => '10076718'
+        ],
+        'conveyor_mobile_missiles' => [ //ПРК
+            'items' => [1059392, 1059398, 1059404, 1059410, 1059416, 1059422],
+            'quest' => '10076719'
+        ],
+        'conveyor_intercontinental_missiles' => [ //МБР
+            'items' => [1059500, 1059506, 1059512, 1059518, 1059524/*, 1059530*/],
+            'quest' => '10076720'
+        ],
 
-        'conveyor_communications_satellites' => [1060113, 1060118/*, 10601204*/, 1060130, 1060136, 1060142], //Спутники связи
-        'conveyor_navigation_satellites' => [1060148, 1060190/*, 1060196*/, 1060202/*, 1060208, 1060214*/], //Спутники навигации
-        'conveyor_observation_satellites' => [1060220, 1060226, 1060232, 1060238, 1060244/*, 1060378*/] //Спутники разведки
+        'conveyor_communications_satellites' => [ //Спутники связи
+            'items' => [1060113, 1060118, 10601204, 1060130, 1060136, 1060142],
+            'quest' => '10076714'
+        ],
+        'conveyor_navigation_satellites' => [ //Спутники навигации
+            'items' => [1060148, 1060190/*, 1060196*/, 1060202/*, 1060208*/, 1060214],
+            'quest' => '10076715'
+        ],
+        'conveyor_observation_satellites' => [ //Спутники разведки
+            'items' => [1060220, 1060226, 1060232, 1060238, 1060244, 1060378],
+            'quest' => '10076716'
+        ]
     ];
 
     /**
@@ -309,7 +399,7 @@ class Room
         }
 
         foreach (Room::$military_conveyors as $military_conveyor) {
-            foreach ($military_conveyor as $model) {
+            foreach ($military_conveyor['items'] as $model) {
                 $model_name = Bot::$game->getCityItemById($model)['item_name'];
                 $quantity = $this->getBarnQuantity($model_name);
                 $models[$model] = $quantity;
@@ -328,10 +418,13 @@ class Room
             }
         }
 
+        $roll_counter = $this->location_data->attributes()->roll_counter->__toString();
+
         $cached = [];
         $models_for_sale = []; //Юнитов для продажи
         $models_for_buy = []; //Юнитов для покупки
-        //$conveyor_ids = [];
+        $attributes = [];
+
         foreach (Room::$military_conveyors as $military_conveyor_name => $military_conveyor) {
             if (isset($this->field[$military_conveyor_name])) {
                 $queue = $this->field[$military_conveyor_name][0]['queue'];
@@ -348,18 +441,56 @@ class Room
                         $produce_model_id = Bot::$game->city_items[$produce_model]['id'];
 
                         if ($conveyor[1] == 3) { //Если юнит достроен
-//TODO: раскомментировать после выполнения задания
-//                            $cached[] = [ //Отправим запрос на то, чтобы убрать юнит с конвейера
-//                                'command' => 'pick',
-//                                'cmd_id' => Bot::$game->popCmdId(),
-//                                'room_id' => $this->id,
-//                                'item_id' => $military_conveyor['id'],
-//                                'index' => 0,
-//                                'klass' => Bot::$game->getCityItemById($conveyor[0])['item_name']
-//                            ];
+                            $cached[] = [ //Отправим запрос на то, чтобы убрать юнит с конвейера
+                                'command' => 'pick',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => $this->field[$military_conveyor_name][0]['id'],
+                                'index' => 0,
+                                'klass' => Bot::$game->getCityItemById($conveyor[0])['item_name'],
+                                'mb_up_ids' => '76921587%2C77138679%2C75789997',
+                            ];
 
-//                            --$queue_length; //Уменьшим значение очереди
-//                            ++$models[$produce_model_id]; //Увеличим значение готовой продукции
+                            --$queue_length; //Уменьшим значение очереди
+                            ++$models[$produce_model_id]; //Увеличим значение готовой продукции
+
+                            if (isset(Bot::$game->city_quests['quest' . $military_conveyor['quest']]['goal'])) {
+                                $quest_goal = Bot::$game->city_quests['quest' . $military_conveyor['quest']]['goal'];
+                                foreach ($quest_goal as $goal) {
+                                    $attribute_value = (isset($attributes[$goal['klass']])) ? $attributes[$goal['klass']] : Bot::$game->getCityAttribute($goal['klass']);
+                                    if (isset(Bot::$game->city_items['production_' . $produce_model]['cost_buy_game'])) {
+                                        if (preg_match('/_coins_resource$/', $goal['klass']))
+                                            $attribute_value += Bot::$game->city_items['production_' . $produce_model]['cost_buy_game'];
+                                        elseif (preg_match('/_items_resource$/', $goal['klass']))
+                                            ++$attribute_value;
+                                    }
+                                    if ($attribute_value && $attribute_value >= $goal['count']) {
+                                        $cached[] = [ //Отправим запрос на то, чтобы убрать юнит с конвейера
+                                            'command' => 'quest_complete',
+                                            'cmd_id' => Bot::$game->popCmdId(),
+                                            'roll_counter' => $roll_counter++,
+                                            'room_id' => $this->id,
+                                            'quest_id' => $military_conveyor['quest'],
+                                            'expired' => 0,
+                                        ];
+                                        $cached[] = [ //Отправим запрос на то, чтобы убрать юнит с конвейера
+                                            'command' => 'quest_accept',
+                                            'cmd_id' => Bot::$game->popCmdId(),
+                                            'room_id' => $this->id,
+                                            'quest_id' => $military_conveyor['quest'],
+                                        ];
+
+                                        foreach ($quest_goal as $goal_item) {
+                                            $attributes[$goal_item['klass']] = 0;
+                                        }
+
+                                        break;
+                                    } else {
+                                        $attributes[$goal['klass']] = $attribute_value;
+                                    }
+                                }
+                            }
+
                             if (!isset($models_for_sale[$produce_model_id])) { //Если ни одного подобного юнита нет в продаже
                                 $for_sale = $models[$produce_model_id]; //Изначально юнитов с данным id для продажи = количество готовых юнитов с данным id
                                 if (isset($models_required[$produce_model_id])) //Если какое-то число юнитов нужно
@@ -379,7 +510,7 @@ class Room
                     }
                 }
 
-                foreach (Room::$military_conveyors[$military_conveyor_name] as $model) {
+                foreach (Room::$military_conveyors[$military_conveyor_name]['items'] as $model) {
                     if (isset($models_required[$model])) {
                         $quantity = $models_required[$model] - $models[$model]; //Вычтем число готовой продукции из числа требуемой
                         //Если количество требуемой продукции будет больше свободных слотов в конвейере, то заполним продукцией остаток конвейера.
@@ -392,9 +523,9 @@ class Room
                         }
                     }
                 }
-                if (count(Room::$military_conveyors[$military_conveyor_name]) > 0) { //Заполним пустые слоты конвейера продукцией из самого дорогого типа для данного конвейера
-                    $model_left = Room::$military_conveyors[$military_conveyor_name][count(Room::$military_conveyors[$military_conveyor_name]) - 1];
-//                    $model_left = Room::$military_conveyors[$field->localName][0]; //На время задания ставим самую быстропроизводимую продукцию
+                if (count(Room::$military_conveyors[$military_conveyor_name]['items']) > 0) { //Заполним пустые слоты конвейера продукцией из самого дорогого типа для данного конвейера
+                    $model_left = Room::$military_conveyors[$military_conveyor_name]['items'][count(Room::$military_conveyors[$military_conveyor_name]['items']) - 1];
+//                    $model_left = Room::$military_conveyors[$field->localName]['items'][0]; //На время задания ставим самую быстропроизводимую продукцию
                     $left_slots = 3 - $queue_length;
                     if ($left_slots > 0)
                         $models_for_buy[$model_left] = $left_slots;
@@ -440,7 +571,7 @@ class Room
         foreach ($models_for_buy as $model => $quantity) {
             for ($i = 0; $i < $quantity; ++$i)
                 foreach (Room::$military_conveyors as $military_conveyor => $conveyor_models) {
-                    if (in_array($model, $conveyor_models)) {
+                    if (in_array($model, $conveyor_models['items'])) {
                         $cached[] = [
                             'command' => 'put',
                             'cmd_id' => Bot::$game->popCmdId(),
@@ -620,6 +751,9 @@ class Room
         }
     }
 
+    /**
+     *
+     */
     public function casinoPickFriends() {
         if ($this->id != 4)
             return;
@@ -704,14 +838,19 @@ class Room
             }
         }
 
-        Bot::log('Друзья для приглашения в казино:');
-        foreach (Bot::$game->friends as $friend) {
-            $index = array_search($friend->id, $friends_for_invite_in_gambling_zone);
-            if ($index)
-                Bot::log($friend->id . ': ' . $friend->city_name . ', ' . $friend->first_name);
-        }
-
         $cached = array_merge($cached_put, $cached_pick);
+
+        foreach ($friends_for_invite_in_gambling_zone as $friend_id) {
+            $cached[] = [
+                'command' => 'send_request',
+                'cmd_id' => Bot::$game->popCmdId(),
+                'room_id' => $this->id,
+                'name' => 'gambling_zone_staff',
+                'friend_id' => $friend_id,
+                'item_id' => '39052472'
+            ];
+
+        }
 
         if (count($cached) > 0) {
             Bot::log('Работа с друзьями в казино ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
@@ -722,135 +861,6 @@ class Room
             }
 
             Bot::$game->checkAndPerform($cached);
-        }
-
-    }
-
-    /**
-     *
-     */
-    public function casinoPickFriendsOld() { //TODO: полностью пересмотреть алгоритм работы
-        if ($this->id != 4)
-            return;
-
-        $material_list = array('poker_trophy', 'golden_dice', 'bracelet_winner', 'gold_medal', 'gambler_cup', 'bar_of_gold', 'silk_robe', 'gold_signet', 'gold_chain');
-
-        $room_staff = json_decode($this->location_data->attributes()->room_staff->__toString());
-        $roll_counter = $this->location_data->attributes()->roll_counter->__toString();
-
-        $barn_amount = [];
-
-        foreach ($material_list as $item) {
-            $barn_amount[$this->barn[$item]['id']] = $this->getBarnQuantity($item);
-        }
-
-        $cached = [];
-
-        $contracts = [
-            '15305' => 0,
-            '15306' => 0,
-            '15362' => 0
-        ];
-
-        $friends_for_invite_in_gambling_zone = [];
-        foreach (Bot::$game->getFriendsForInviteInGamblingZone() as $friend) {
-            $friends_for_invite_in_gambling_zone[] = $friend->id;
-        }
-
-        foreach ($room_staff as $friend_id => $friend) {
-            if (isset($friend->time_end)) {
-                if ($friend->time_end == 0) {
-                    ++$barn_amount[$friend->material_id];
-
-                    $cached[] = [
-                        'command' => 'pick_room_staff',
-                        'cmd_id' => Bot::$game->popCmdId(),
-                        'room_id' => $this->id,
-                        'friend_id' => $friend_id,
-                        'item_id' => '39052472'
-                    ];
-
-                    $friends_for_invite_in_gambling_zone[] = $friend_id;
-                } elseif ($friend->time_end > 0) {
-                    if (isset($contracts[$friend->contract_id]))
-                        ++$contracts[$friend->contract_id];
-                    else
-                        $contracts[$friend->contract_id] = 0;
-                }
-            }
-        }
-
-        foreach ($room_staff as $friend_id => $friend) {
-            if (!isset($friend->time_end)) {
-                $cached[] = [
-                    'command' => 'put_room_staff',
-                    'cmd_id' => Bot::$game->popCmdId(),
-                    'roll_counter' => $roll_counter,
-                    'friend_id' => $friend_id,
-                    'item_id' => '39052472',
-                    'room_id' => $this->id
-                ];
-                if ($contracts['15306'] < 10)
-                    $cached[count($cached) - 1]['contract_id'] = '15306';
-                elseif ($contracts['15362'] < 4)
-                    $cached[count($cached) - 1]['contract_id'] = '15362';
-                elseif ($contracts['15305'] < 10)
-                    $cached[count($cached) - 1]['contract_id'] = '15305';
-                else
-                    break;
-
-                $index = array_search($friend_id, $friends_for_invite_in_gambling_zone);
-                if ($index !== false)
-                    unset($friends_for_invite_in_gambling_zone[$index]);
-
-                ++$roll_counter;
-            }
-        }
-
-        Bot::log('Друзья для приглашения в казино:');
-        foreach ($friends_for_invite_in_gambling_zone as $friend) {
-            Bot::log($friend);
-        }
-
-        /*if (count($friends_for_invite_in_gambling_zone) > 0) {
-            foreach ($friends_for_invite_in_gambling_zone as $friend_id) {
-                $cached[] = [
-                    'command' => 'send_request',
-                    'cmd_id' => Bot::$game->popCmdId(),
-                    'room_id' => $this->id,
-                    'name' => 'gambling_zone_staff',
-                    'friend_id' => $friend_id,
-                    'item_id' => '39052472'
-                ];
-            }
-//            $cached[] = [
-//                'command' => 'send_mass_request',
-//                'cmd_id' => Bot::$game->popCmdId(),
-//                'room_id' => $this->id,
-//                'name' => 'gambling_zone_staff',
-//                'friend_ids' => implode('%2C', $friends_for_invite_in_gambling_zone)
-//            ];
-        }*/
-
-        /*$cached[] = [
-            'command' => 'send_request',
-            'cmd_id' => Bot::$game->popCmdId(),
-            'room_id' => $this->id,
-            'name' => 'gambling_zone_staff',
-            'friend_id' => 'UD_e1b9e702db9dcf393641114c',
-            'item_id' => '39052472'
-        ];*/
-
-        if (count($cached) > 0) {
-            Bot::log('Работа с друзьями в казино ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
-            for ($i = count($cached); $i > 0; --$i) {
-                Bot::log("Работа с друзьями в казино $i сек.");
-                $cached[count($cached) - $i]['uxtime'] = time();
-                sleep(1);
-            }
-
-            /*$result = Bot::$game->checkAndPerform($cached);
-            var_dump($result);*/
         }
 
         /*$cached = [];

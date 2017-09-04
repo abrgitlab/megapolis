@@ -869,6 +869,18 @@ class Contracts
                 ],
                 'actions' => ['pick', 'put']
             ],
+
+            //Музей передовой науки и технологии
+            //не окончательно
+            'museum_emerging_science_innovation_stage1' => [
+                'short' => [
+                    'contract' => 'festival_fiction_cinema_and_science'
+                ],
+                'long' => [
+                    'contract' => 'contract_light_show', 'friends_request' => true
+                ],
+                'actions' => ['pick', 'put']
+            ],
         ],
 
         //1-я комната

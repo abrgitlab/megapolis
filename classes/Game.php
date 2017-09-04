@@ -42,9 +42,14 @@ class Game
     public $city_item_ids;
 
     /**
-     * @var $requests_items []
+     * @var $city_requests []
      */
-    private $requests_items;
+    private $city_requests;
+
+    /**
+     * @var $city_quests []
+     */
+    public $city_quests;
 
     /**
      * @var $room_id Room
@@ -94,7 +99,7 @@ class Game
         if ($online) {
             $this->checkUpdates();
 
-            $this->associate();
+           $this->associate();
             $user_data = $this->getUserStat();
             file_put_contents($user_data_file_name, $user_data);
         } else {
@@ -103,7 +108,7 @@ class Game
             $user_data = file_get_contents($user_data_file_name);
         }
 
-        $this->loadCityItems();
+        $this->loadYaml();
 
         $this->user_data = simplexml_load_string($user_data);
 
@@ -113,7 +118,14 @@ class Game
         $room_id = $this->user_data->attributes()->room_id->__toString();
         $this->room = new Room($room_id, $this->user_data);
         $this->loadGiftsData();
-        $this->loadFriends();
+    }
+
+    public function getCityAttribute($attribute) {
+        if (isset($this->user_data->attributes()->{$attribute})) {
+            return $this->user_data->attributes()->{$attribute}->__toString();
+        }
+
+        return null;
     }
 
     /**
@@ -138,6 +150,8 @@ class Game
             $files_for_loading[] = 'city_items';
         if (!file_exists(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision . DIRECTORY_SEPARATOR . "city_requests.yml"))
             $files_for_loading[] = 'city_requests';
+        if (!file_exists(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision . DIRECTORY_SEPARATOR . "city_quests.yml"))
+            $files_for_loading[] = 'city_quests';
 
         if (count($files_for_loading) > 0) {
             Bot::log('Получение обновлений', [Bot::$STDOUT, Bot::$TELEGRAM]);
@@ -201,9 +215,10 @@ class Game
     /**
      * Загружает данные объектов игры из yml-файла
      */
-    public function loadCityItems() {
+    public function loadYaml() {
         $this->city_items = yaml_parse(file_get_contents(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision . DIRECTORY_SEPARATOR . "city_items.yml"));
-        $this->requests_items = yaml_parse(file_get_contents(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision . DIRECTORY_SEPARATOR . "city_requests.yml"));
+        $this->city_requests = yaml_parse(file_get_contents(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision . DIRECTORY_SEPARATOR . "city_requests.yml"));
+        $this->city_quests = yaml_parse(file_get_contents(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision . DIRECTORY_SEPARATOR . "city_quests.yml"));
 
         $this->city_item_ids = [];
         foreach ($this->city_items as $item_name => $item) {
@@ -227,7 +242,7 @@ class Game
                     foreach ($friend->neighborhoods as $n_id)
                         if ($n_id == Bot::$neighborhood_id)
                             $friend_is_neighborhood = true;
-                    if (!$friend->pending || $friend->id < 0 || $friend_is_neighborhood || $friend->new_friend)
+                    if (!$friend->pending || $friend->is_bot || $friend_is_neighborhood || $friend->new_friend)
                         $this->friends[] = $friend;
                 }
             }
@@ -240,14 +255,33 @@ class Game
      */
     public function showLetters() {
         $letters_amount = 0;
+//        foreach ($this->friends as $friend) {
+//            if (count($friend->letters) > 0 && !$friend->new_friend) {
+//                Bot::log($friend->id/*, [Bot::$DEBUG]*/);
+//                //var_dump($friend->letters);
+//                $letters_amount += count($friend->letters);
+//            }
+//        }
+//        Bot::log("Писем: $letters_amount"/*, [Bot::$DEBUG]*/);
+
         foreach ($this->friends as $friend) {
-            if (count($friend->letters) > 0 && !$friend->new_friend) {
-                Bot::log($friend->id, [Bot::$DEBUG]);
-                var_dump($friend->letters);
-                $letters_amount += count($friend->letters);
+            foreach ($friend->requests as $request_name => $request) {
+                if (
+                    !in_array($request_name, Friend::$requests_not_letters) &&
+                    isset($request->count) &&
+                    isset($request->user) &&
+                    $request->count == 0 &&
+                    in_array(Bot::$user_id, $request->user) &&
+                    $request->time > $this->server_time &&
+                    $friend->active &&
+                    !$friend->new_friend
+                ) {
+                    ++$letters_amount;
+                }
             }
         }
-        Bot::log("Писем: $letters_amount", [Bot::$DEBUG]);
+
+        Bot::log("Писем обработано: $letters_amount"/*, [Bot::$DEBUG]*/);
     }
 
     /**
@@ -333,7 +367,7 @@ class Game
                         'expirience' => 0,
                         'coins' => 0
                     ];
-                    $request_template = $this->requests_items['requests'][$letter_name];
+                    $request_template = $this->city_requests['requests'][$letter_name];
                     if (isset($request_template['reward'])) {
                         foreach ($request_template['reward'] as $reward) {
                             if (isset($reward['items'])) {
@@ -360,7 +394,7 @@ class Game
                         ];
 
                         unset($friend->letters[$letter_name]);
-                    } elseif ($profit['expirience'] < 100 && $profit['coins'] < 1500) {
+                    } elseif ($profit['expirience'] < 100 && $profit['coins'] < 2000) {
                         $items[] = [
                             'command' => 'discard_request',
                             'cmd_id' => $this->popCmdId(),
@@ -663,7 +697,7 @@ class Game
         $chest_action_tower1 = null;
         $chest_action_chest1 = $this->room->getBarnQuantity('chest_action_chest1');
 
-        if (time() - $chest_time_last_open > 3600 && $chest_action_chest1 > 0) {
+        if ($this->server_time - $chest_time_last_open > 3600 && $chest_action_chest1 > 0) {
             Bot::log('Открываем сундук', [Bot::$STDOUT, Bot::$TELEGRAM]);
 
             $cached = [[

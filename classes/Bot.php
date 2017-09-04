@@ -161,6 +161,7 @@ class Bot
         $config->commit();
 
         Bot::$game = new Game();
+        Bot::$game->loadFriends();
         if (Bot::$game->room->id != 0)
             Bot::$game->changeRoom(0);
         Bot::$game->visitFriends();
@@ -205,7 +206,7 @@ class Bot
         Bot::$game->applyHelp();
 
         Bot::$game->changeRoom(0);
-        if (Bot::$options['debug']) Bot::$game->showLetters();
+        Bot::$game->showLetters();
 
         $config->generateNextStartTime();
         $config->lock = false;

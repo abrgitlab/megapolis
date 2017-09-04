@@ -12,7 +12,7 @@ require_once 'Bot.php';
 class Friend
 {
 
-    private static $requests_not_letters = ['send_gift_new'];
+    public static $requests_not_letters = ['send_gift_new'];
 
     /**
      * @var $id string
@@ -90,10 +90,17 @@ class Friend
     public $new_friend = false;
 
     /**
+     * @var $is_bot bool
+     */
+    public $is_bot = false;
+
+    /**
      * @param $xml_element SimpleXMLElement
      */
     public function loadFromXmlNode($xml_element) {
         $this->id = $xml_element->attributes()->id->__toString();
+        $this->is_bot = $this->id < 0;
+
         if (isset($xml_element->attributes()->wish_list))
             $this->wish_list = explode(',', $xml_element->attributes()->wish_list->__toString());
 
@@ -136,7 +143,7 @@ class Friend
 
         if ($this->requests) {
             foreach ($this->requests as $request_name => $request) {
-                if (!in_array($request_name, Friend::$requests_not_letters) && isset($request->count) && isset($request->user) && ($request->count > 0) && !in_array(Bot::$user_id, $request->user) && ($request->time > time()) && ($this->active)) {
+                if (!in_array($request_name, Friend::$requests_not_letters) && isset($request->count) && isset($request->user) && $request->count > 0 && !in_array(Bot::$user_id, $request->user) && $request->time > Bot::$game->server_time && $this->active) {
                     if ($request_name == 'invite_suggested_neighbors') {
                         $this->new_friend = true;
                     } else {
@@ -186,11 +193,19 @@ class Friend
                             'item_id' => $id['id'],
                             'friend_id' => $this->id,
                             'klass' => $id['name'],
-                            'uxtime' => time()
                         ];
                     }
 
-                    Bot::$game->checkAndPerformFriend($this->id, $cached);
+                    if (count($cached) > 0) {
+                        Bot::log('Помогаем другу ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
+                        for ($i = count($cached); $i > 0; --$i) {
+                            Bot::log("Помогаем другу $i сек.");
+                            $cached[count($cached) - $i]['uxtime'] = time();
+                            sleep(1);
+                        }
+
+                        Bot::$game->checkAndPerformFriend($this->id, $cached);
+                    }
 
                     $this->help_points -= count($ids);
                 }
