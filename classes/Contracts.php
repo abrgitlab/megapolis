@@ -881,6 +881,28 @@ class Contracts
                 ],
                 'actions' => ['pick', 'put']
             ],
+
+            //Бизнес-центр "Монреаль"
+            'business_centre_montreal_stage3' => [
+                'short' => [
+                    'contract' => 'analysis_of_securities_market'
+                ],
+                'long' => [
+                    'contract' => 'preparation_financial_ratings4'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Офисный центр "Ванкевер"
+            'office_center_vancouver_buildsite' => [
+                'short' => [
+                    'contract' => 'short_term_crediting1'
+                ],
+                'long' => [
+                    'contract' => 'middle_term_crediting1'
+                ],
+                'actions' => ['pick', 'put']
+            ]
         ],
 
         //1-я комната
@@ -1010,7 +1032,7 @@ class Contracts
             ],
 
             //Аквапарк
-            'aquapark_stage4' => array(
+            'aquapark_stage5' => array(
                 'short' => array(
                     'contract' => 'artificial_surf_champ'
                 ),
@@ -1087,6 +1109,13 @@ class Contracts
             'restoration_work_service_stage1' => [
                 'short' => [
                     'contract' => 'seascape_admiration'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            'large_telescope_stage2' => [
+                'short' => [
+                    'contract' => 'study_of_celestial_bodies', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
             ]
@@ -1402,12 +1431,23 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
+            //Институт прикладной астрономии
+            //не окончательно
             'institute_of_applied_astronomy_stage2' => [
                 'short' => [
                     'contract' => 'interferometer_lines'
                 ],
                 'long' => [
                     'contract' => 'stars_of_milkyway', 'friends_request' => true
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //SQ-Сити
+            //не окончательно
+            'sq_city_stage1' => [
+                'short' => [
+                    'contract' => 'government_proceedings'
                 ],
                 'actions' => ['pick', 'put']
             ]
