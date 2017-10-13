@@ -779,7 +779,7 @@ class Contracts
 
             //Институт природных явлений
             //не окончательно
-            'institute_natural_phenomena_stage1' => [
+            'institute_natural_phenomena_stage2' => [
                 'short' => [
                     'contract' => 'sampling_from_bottom_crater'
                 ],

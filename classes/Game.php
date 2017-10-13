@@ -86,6 +86,8 @@ class Game
      */
     public $server_time;
 
+    public $neighborhood_id;
+
     /**
      * @inheritdoc
      */
@@ -118,6 +120,10 @@ class Game
         $room_id = $this->user_data->attributes()->room_id->__toString();
         $this->room = new Room($room_id, $this->user_data);
         $this->loadGiftsData();
+
+        if (isset($this->user_data->neighborhoods) && isset($this->user_data->neighborhoods[0]->attributes()->neighborhoods)) {
+            $this->neighborhood_id = json_decode($this->user_data->neighborhoods[0]->attributes()->neighborhoods->__toString())[0];
+        }
     }
 
     public function getCityAttribute($attribute) {
@@ -239,9 +245,11 @@ class Game
                     $friend->loadFromXmlNode($friend_item);
 
                     $friend_is_neighborhood = false;
-                    foreach ($friend->neighborhoods as $n_id)
-                        if ($n_id == Bot::$neighborhood_id)
-                            $friend_is_neighborhood = true;
+                    if ($this->neighborhood_id != null) {
+                        foreach ($friend->neighborhoods as $n_id)
+                            if ($n_id == $this->neighborhood_id)
+                                $friend_is_neighborhood = true;
+                    }
                     if (!$friend->pending || $friend->is_bot || $friend_is_neighborhood || $friend->new_friend)
                         $this->friends[] = $friend;
                 }

@@ -7,11 +7,15 @@
  */
 
 require_once 'classes/Bot.php';
-require_once 'classes/Config.php';
 
 require_once 'vendor/autoload.php';
 
 define('MEGAPOLIS_PATH', __DIR__);
+
+if (!isset($_GET['password']) || $_GET['password'] != '96Z%G2~U2C') {
+    header('HTTP/1.1 404 Not Found');
+    die;
+}
 
 $telegram = new Longman\TelegramBot\Telegram(Bot::$telegram_bot_token, 'abr_mega_bot');
 

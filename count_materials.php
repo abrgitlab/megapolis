@@ -69,44 +69,27 @@ for ($i = 0; $i <= 5; ++$i) {
                 $item_is_constructing = true;
                 $item_id = $field['id'];
                 $item_name = $field_name;
-
                 do {
-                    if ($item_id === null || isset($field['input_fill'])) {
-                        $input_materials = [];
-                        if ($item_id !== null && isset($field['input_fill'])) {
-                            $input_fill = $field['input_fill'];
-                            $input_fill = explode(',', $input_fill);
-                            foreach ($input_fill as $input_fill_item) {
-                                $item_count = explode(':', $input_fill_item);
-                                if (count($item_count) == 2)
-                                    $input_materials[Bot::$game->getCityItemById($item_count[0])['item_name']] = $item_count[1];
-                            }
-                        }
-                        if (isset($item['materials_quantity']) && count($item['materials_quantity']) > 0) {
-                            if (isset($item_types_for_construct[$item_name])) {
-                                foreach ($item_types_for_construct[$item_name]['materials'] as $material => $quantity) {
-                                    $item_types_for_construct[$item_name]['materials'][$material] += $item['materials_quantity'][$material]/* - (isset($input_materials[$material]) ? $input_materials[$material] : 0)*/;
-                                }
-                            } else {
-                                $item_types_for_construct[$item_name] = ['materials' => $item['materials_quantity'], 'constructing' => $item_is_constructing];
-                                if ($item_is_constructing)
-                                    ++$items_for_construct_amount;
-                            }
-
+                    if (isset($item['materials_quantity']) && count($item['materials_quantity']) > 0) {
+                        if (isset($item_types_for_construct[$item_name])) {
                             foreach ($item_types_for_construct[$item_name]['materials'] as $material => $quantity) {
-                                $item_types_for_construct[$item_name]['materials'][$material] -= isset($input_materials[$material]) ? $input_materials[$material] : 0;
+                                $item_types_for_construct[$item_name]['materials'][$material] += $item['materials_quantity'][$material];
                             }
+                        } else {
+                            $item_types_for_construct[$item_name] = ['materials' => $item['materials_quantity'], 'constructing' => $item_is_constructing];
+                            if ($item_is_constructing)
+                                ++$items_for_construct_amount;
+                        }
 
-                            /*if ($item_id !== null) {
-                                if (isset($field['input_fill'])) {
-                                    $input_fill = $field['input_fill'];
-                                    $input_fill = explode(',', $input_fill);
-                                    foreach ($input_fill as $input_fill_item) {
-                                        $item_count = explode(':', $input_fill_item);
-                                        $item_types_for_construct[$item_name]['materials'][Bot::$game->getCityItemById($item_count[0])['item_name']] -= $item_count[1];
-                                    }
+                        if ($item_id !== null) {
+                            if (isset($field['input_fill'])) {
+                                $input_fill = $field['input_fill'];
+                                $input_fill = explode(',', $input_fill);
+                                foreach ($input_fill as $input_fill_item) {
+                                    $item_count = explode(':', $input_fill_item);
+                                    $item_types_for_construct[$item_name]['materials'][Bot::$game->getCityItemById($item_count[0])['item_name']] -= $item_count[1];
                                 }
-                            }*/
+                            }
                         }
                     }
                     if (PARSE_HIERARCHICALLY && isset($item['produce']) && gettype($item['produce']) === 'string' && $item['produce'] !== $item_name) {

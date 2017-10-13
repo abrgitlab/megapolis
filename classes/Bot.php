@@ -28,8 +28,6 @@ class Bot
     public static $telegram_bot_token = '411382774:AAHjTH-9dxBfecr8RTd4anfIFWzcSmy4xMU';
     public static $telegram_permitted_senders = [221931497/*, 419035810*/];
 
-    public static $neighborhood_id = '18972';
-
     public static $STDOUT = 'stdout';
     public static $TELEGRAM = 'telegram';
     public static $DEBUG = 'debug';
@@ -178,9 +176,10 @@ class Bot
         Bot::$game->openChest();
         Bot::$game->room->doFactoryWork('chinese');
         Bot::$game->room->doFactoryWork('egyptian');
+        Bot::$game->room->doFactoryWork('middle_ages');
         Bot::$game->room->doMilitaryWork();
         Bot::$game->room->signContracts();
-        if (!Bot::$options['manual'])
+        //if (!Bot::$options['manual']) //TODO: раскомментировать после средневекового квеста
             Bot::$game->room->getCoins();
         Bot::$game->applyHelp();
 

@@ -297,7 +297,7 @@ class Room
                                         $cached[count($cached) - 1][$key] = $value;
                                     }
 
-                                $friends = [];
+                                /*$friends = [];
                                 foreach (Bot::$game->friends as $friend) {
                                     $friends[] = $friend->id;
                                 }
@@ -311,7 +311,7 @@ class Room
                                         'friend_ids' => implode('%2C', $friends),
                                         'item_id' => $field['id']
                                     ];
-                                }
+                                }*/
 
                                 if (isset($contract_data['quest_inc_counter']) && $contract_data['quest_inc_counter']['on'] == 'put') {
                                     $cached[] = [
@@ -347,7 +347,7 @@ class Room
      */
     public function getCoins() {
         $cached = [];
-        foreach($this->field as $field_name => $field_items) {
+        foreach ($this->field as $field_name => $field_items) {
             foreach ($field_items as $field) {
                 $field_state = $field['state'];
 
@@ -601,15 +601,17 @@ class Room
      *
      * @param $name string
      */
-     public function doFactoryWork($name) {
+    public function doFactoryWork($name) {
         $items = [
             'chinese' => ['casket', 'bronze_statuette', 'antique_teapot', 'ceramic_vase', 'jade_medallion', 'hair_comb'],
-            'egyptian' => ['ankh', 'scarab', 'uskh', 'eye_of_horus', 'ancient_vase', 'statuette_bastet']
+            'egyptian' => ['ankh', 'scarab', 'uskh', 'eye_of_horus', 'ancient_vase', 'statuette_bastet'],
+            'middle_ages' => ['knight_helmet', 'fan', 'locket', 'perfume', 'cup', 'scepter_competition']
         ];
 
         $museums = [
             'chinese' => ['museum_chinese_civilization_stage3'],
-            'egyptian' => ['museum_egyptian_civilization_stage3', 'museum_egyptian_civilization_stage2', 'museum_egyptian_civilization_stage1']
+            'egyptian' => ['museum_egyptian_civilization_stage3', 'museum_egyptian_civilization_stage2', 'museum_egyptian_civilization_stage1'],
+            'middle_ages' => ['medieval_gallery_stage3', 'medieval_gallery_stage2', 'medieval_gallery_stage1']
         ];
 
         $items_count = [];
@@ -659,10 +661,9 @@ class Room
                                 'item_id' => $field['id'],
                                 'klass' => Bot::$game->getCityItemById('20080411')['item_name']
                             ];
-                            //++$items_count['20080411'];
                             break;
                         }
-                    } else if ($name == 'egyptian') {
+                    } elseif ($name == 'egyptian') {
                         if ($fieldName == 'museum_egyptian_civilization_stage1') {
                             $cached[] = [
                                 'command' => 'put',
@@ -671,7 +672,6 @@ class Room
                                 'item_id' => $field['id'],
                                 'klass' => Bot::$game->getCityItemById('20080557')['item_name']
                             ];
-                            //++$items_count['20080557'];
                             break;
                         } elseif ($fieldName == 'museum_egyptian_civilization_stage2') {
                             $cached[] = [
@@ -681,7 +681,6 @@ class Room
                                 'item_id' => $field['id'],
                                 'klass' => Bot::$game->getCityItemById('20080559')['item_name']
                             ];
-                            //++$items_count['20080559'];
                             break;
                         } elseif ($fieldName == 'museum_egyptian_civilization_stage3') {
                             $cached[] = [
@@ -691,7 +690,38 @@ class Room
                                 'item_id' => $field['id'],
                                 'klass' => Bot::$game->getCityItemById('20080561')['item_name']
                             ];
-                            //++$items_count['20080561'];
+                            break;
+                        }
+                    } elseif ($name == 'middle_ages') {
+                        if ($fieldName == 'medieval_gallery_stage1') {
+                            $cached[] = [
+                                'command' => 'put',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => $field['id'],
+                                'klass' => Bot::$game->getCityItemById('20080654')['item_name']
+                            ];
+//                            ++$items_count['20080654'];
+                            break;
+                        } elseif ($fieldName == 'medieval_gallery_stage2') {
+                            $cached[] = [
+                                'command' => 'put',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => $field['id'],
+                                'klass' => Bot::$game->getCityItemById('20080656')['item_name']
+                            ];
+//                            ++$items_count['20080656'];
+                            break;
+                        } elseif ($fieldName == 'medieval_gallery_stage3') {
+                            $cached[] = [
+                                'command' => 'put',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => $field['id'],
+                                'klass' => Bot::$game->getCityItemById('20080658')['item_name']
+                            ];
+//                            ++$items_count['20080658'];
                             break;
                         }
                     }
@@ -704,12 +734,16 @@ class Room
                 Bot::log('Ждём обработки конвейера китайской фабрики ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             elseif ($name == 'egyptian')
                 Bot::log('Ждём обработки конвейера египетской фабрики ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
+            elseif ($name == 'middle_ages')
+                Bot::log('Ждём обработки конвейера средневековой фабрики ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
 
             for ($i = count($cached); $i > 0; --$i) {
                 if ($name == 'chinese')
                     Bot::log("Ждём обработки конвейера китайской фабрики $i сек.");
                 elseif ($name == 'egyptian')
                     Bot::log("Ждём обработки конвейера египетской фабрики $i сек.");
+                elseif ($name == 'middle_ages')
+                    Bot::log("Ждём обработки конвейера средневековой фабрики $i сек.");
 
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
@@ -719,6 +753,7 @@ class Room
         }
 
         $cached = [];
+
         foreach ($items[$name] as $item) {
             for ($i = 0; $i < $items_count[Bot::$game->city_items[$item . '_production']['id']]; ++$i) {
                 $cached[] = [
@@ -736,12 +771,16 @@ class Room
                 Bot::log('Ждём продажи китайских вещей ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             elseif ($name == 'egyptian')
                 Bot::log('Ждём продажи египетских вещей ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
+            elseif ($name == 'middle_ages')
+                Bot::log('Ждём продажи средневековых вещей ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
 
             for ($i = count($cached); $i > 0; --$i) {
                 if ($name == 'chinese')
                     Bot::log("Ждём продажи китайских вещей $i сек.");
                 elseif ($name == 'egyptian')
                     Bot::log("Ждём продажи египетских вещей $i сек.");
+                elseif ($name == 'middle_ages')
+                    Bot::log("Ждём продажи средневековых вещей $i сек.");
 
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
