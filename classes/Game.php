@@ -682,46 +682,64 @@ class Game
      * Открываем сундук
      */
     public function openChest() {
-        $chest_name = 'chest_event29';
-
-        if (!isset($this->room->location_data->attributes()->chest_actions))
+        if (!isset($this->room->location_data->attributes()->chest_with_surprise))
             return;
 
-        $chest_actions = json_decode($this->room->location_data->attributes()->chest_actions->__toString());
-
-        $chest_actions_keys = get_object_vars($chest_actions);
-        if (count($chest_actions_keys) === 0)
-            return;
-
-        foreach ($chest_actions_keys as $key => $item) {
-            $chest_name = $key;
-            break;
-        }
-
-        $chest_time_last_open = $chest_actions->$chest_name->last_open;
-
+        $chests = json_decode($this->room->location_data->attributes()->chest_with_surprise->__toString());
         $roll_counter = $this->room->location_data->attributes()->roll_counter->__toString();
 
-        $chest_action_tower1 = null;
-        $chest_action_chest1 = $this->room->getBarnQuantity('chest_action_chest1');
+        $is_opening = false;
+        $chests_for_taking = [];
+        $chest_for_open = null;
+        for ($i = 0; $i < count($chests->chests); ++$i) {
+            $chest = $chests->chests[$i];
+            if (isset($chest->pe) && $chest->pe > 0) {
+                $is_opening = true;
+            } elseif (isset($chest->pe) && $chest->pe < 0) {
+                $chests_for_taking[] = ['chest' => $chest, 'index' => $i];
+            } else {
+                if ($chest_for_open === null) {
+                    $chest_for_open = ['name' => $chest->n, 'index' => $i];
+                } elseif (
+                    preg_match('/^silver_*/', $chest->n) && preg_match('/^bronze_*/', $chest_for_open['name']) ||
+                    preg_match('/^gold_*/', $chest->n) && (preg_match('/^bronze_*/', $chest_for_open['name']) || preg_match('/^silver_*/', $chest_for_open['name']))
+                ) {
+                    $chest_for_open = ['name' => $chest->n, 'index' => $i];
+                }
+            }
+        }
 
-        if ($this->server_time - $chest_time_last_open > 3600 && $chest_action_chest1 > 0) {
-            Bot::log('Открываем сундук', [Bot::$STDOUT, Bot::$TELEGRAM]);
-
-            $cached = [[
-                'command' => 'chest_action_open_chest',
+        $cached = [];
+        if (!$is_opening && $chest_for_open !== null) {
+            $cached[] = [
+                'command' => 'chest_with_surprise_open',
                 'cmd_id' => $this->popCmdId(),
-                'roll_counter' => $roll_counter,
                 'room_id' => $this->room->id,
-                'name' => $chest_name,
-                'v' => 2,
-                'type' => 'coins',
-                'uxtime' => time()
-            ]];
+                'index' => $chest_for_open['index'],
+                'chest_name' => $chest_for_open['name']
+            ];
+        }
 
-            $this->checkAndPerform($cached);
+        foreach ($chests_for_taking as $chest) {
+            $cached[] = [
+                'command' => 'chest_with_surprise_give_reward',
+                'cmd_id' => $this->popCmdId(),
+                'roll_counter' => $roll_counter++,
+                'room_id' => $this->room->id,
+                'index' => $chest['index'],
+                'chest_name' => $chest['chest']->n
+            ];
+        }
 
-            sleep(1);
+        if (count($cached) > 0) {
+            Bot::log('Работа с сундуками ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
+            for ($i = count($cached); $i > 0; --$i) {
+                Bot::log("Работа с сундуками $i сек.");
+                $current = [$cached[count($cached) - $i]];
+                $current[0]['uxtime'] = time();
+                $this->checkAndPerform($current);
+                sleep(1);
+            }
         }
     }
 

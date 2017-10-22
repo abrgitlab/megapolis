@@ -664,16 +664,7 @@ class Room
                             break;
                         }
                     } elseif ($name == 'egyptian') {
-                        if ($fieldName == 'museum_egyptian_civilization_stage1') {
-                            $cached[] = [
-                                'command' => 'put',
-                                'cmd_id' => Bot::$game->popCmdId(),
-                                'room_id' => $this->id,
-                                'item_id' => $field['id'],
-                                'klass' => Bot::$game->getCityItemById('20080557')['item_name']
-                            ];
-                            break;
-                        } elseif ($fieldName == 'museum_egyptian_civilization_stage2') {
+                        if ($fieldName == 'museum_egyptian_civilization_stage2') {
                             $cached[] = [
                                 'command' => 'put',
                                 'cmd_id' => Bot::$game->popCmdId(),
@@ -701,7 +692,6 @@ class Room
                                 'item_id' => $field['id'],
                                 'klass' => Bot::$game->getCityItemById('20080654')['item_name']
                             ];
-//                            ++$items_count['20080654'];
                             break;
                         } elseif ($fieldName == 'medieval_gallery_stage2') {
                             $cached[] = [
@@ -711,7 +701,6 @@ class Room
                                 'item_id' => $field['id'],
                                 'klass' => Bot::$game->getCityItemById('20080656')['item_name']
                             ];
-//                            ++$items_count['20080656'];
                             break;
                         } elseif ($fieldName == 'medieval_gallery_stage3') {
                             $cached[] = [
@@ -721,7 +710,6 @@ class Room
                                 'item_id' => $field['id'],
                                 'klass' => Bot::$game->getCityItemById('20080658')['item_name']
                             ];
-//                            ++$items_count['20080658'];
                             break;
                         }
                     }

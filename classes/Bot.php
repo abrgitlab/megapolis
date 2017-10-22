@@ -179,7 +179,7 @@ class Bot
         Bot::$game->room->doFactoryWork('middle_ages');
         Bot::$game->room->doMilitaryWork();
         Bot::$game->room->signContracts();
-        //if (!Bot::$options['manual']) //TODO: раскомментировать после средневекового квеста
+        if (!Bot::$options['manual'])
             Bot::$game->room->getCoins();
         Bot::$game->applyHelp();
 
