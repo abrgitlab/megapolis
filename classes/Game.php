@@ -686,6 +686,10 @@ class Game
             return;
 
         $chests = json_decode($this->room->location_data->attributes()->chest_with_surprise->__toString());
+
+        if (!isset($chests->etl))
+            return;
+
         $roll_counter = $this->room->location_data->attributes()->roll_counter->__toString();
 
         $is_opening = false;
@@ -709,15 +713,17 @@ class Game
             }
         }
 
-        $cached = [];
-        if (!$is_opening && $chest_for_open !== null) {
-            $cached[] = [
-                'command' => 'chest_with_surprise_open',
-                'cmd_id' => $this->popCmdId(),
-                'room_id' => $this->room->id,
-                'index' => $chest_for_open['index'],
-                'chest_name' => $chest_for_open['name']
-            ];
+        if ($chests->etl > 0) { //TODO: проверить
+            $cached = [];
+            if (!$is_opening && $chest_for_open !== null) {
+                $cached[] = [
+                    'command' => 'chest_with_surprise_open',
+                    'cmd_id' => $this->popCmdId(),
+                    'room_id' => $this->room->id,
+                    'index' => $chest_for_open['index'],
+                    'chest_name' => $chest_for_open['name']
+                ];
+            }
         }
 
         foreach ($chests_for_taking as $chest) {

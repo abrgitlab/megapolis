@@ -16,8 +16,8 @@ class Bot
 
     public static $host = 'web155.socialquantum.com';
     public static $host_static = 'mb.static.socialquantum.ru';
-    public static $build = '21751';
-    public static $client_version = '3.91';
+    public static $build = '22428';
+    public static $client_version = '4.00';
     public static $iauth = '277997eba7f4e51051b0a0a9450afe73';
     public static $user_id = 'UD_5cd98e974c0fec35013c4790';
     public static $odin_id = '949c34f735162b0bd21f1f63db51cc2bb9e935ac';
@@ -67,11 +67,12 @@ class Bot
      */
     function __construct()
     {
-        Bot::$options = getopt('D', ['long', 'manual', 'force', 'debug']);
-        Bot::$options['long'] = isset(Bot::$options['long']);
-        Bot::$options['manual'] = isset(Bot::$options['manual']);
-        Bot::$options['force'] = isset(Bot::$options['force']);
-        Bot::$options['debug'] = isset(Bot::$options['D']) || isset(Bot::$options['debug']);
+        Bot::$options = getopt('dflm', ['long', 'manual', 'force', 'debug', 'pick-contracts']);
+        Bot::$options['long'] = isset(Bot::$options['l']) || isset(Bot::$options['long']);
+        Bot::$options['manual'] = isset(Bot::$options['m']) || isset(Bot::$options['manual']);
+        Bot::$options['force'] = isset(Bot::$options['f']) || isset(Bot::$options['force']);
+        Bot::$options['debug'] = isset(Bot::$options['d']) || isset(Bot::$options['debug']);
+        Bot::$options['pick-contracts'] = isset(Bot::$options['pick-contracts']) || !Bot::$options['manual'];
         Bot::$options['telegram'] = false;
         Bot::$options['telegram_recipient'] = null;
 
@@ -177,9 +178,10 @@ class Bot
         Bot::$game->room->doFactoryWork('chinese');
         Bot::$game->room->doFactoryWork('egyptian');
         Bot::$game->room->doFactoryWork('middle_ages');
+        Bot::$game->room->doFactoryWork('russian');
         Bot::$game->room->doMilitaryWork();
         Bot::$game->room->signContracts();
-        if (!Bot::$options['manual'])
+//        if (!Bot::$options['manual'])
             Bot::$game->room->getCoins();
         Bot::$game->applyHelp();
 
@@ -205,7 +207,7 @@ class Bot
         Bot::$game->applyHelp();
 
         Bot::$game->changeRoom(0);
-        Bot::$game->showLetters();
+        //Bot::$game->showLetters();
 
         $config->generateNextStartTime();
         $config->lock = false;

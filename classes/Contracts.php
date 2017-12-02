@@ -561,7 +561,10 @@ class Contracts
             //не окончательно
             'financial_center_prime' => [
                 'short' => [
-                    'contract' => 'exchange_trading'
+                    'contract' => 'short_term_investments'
+                ],
+                'long' => [
+                    'contract' => 'medium_term_investments4'
                 ],
                 'actions' => ['pick', 'put']
             ],
@@ -641,9 +644,12 @@ class Contracts
 
             //Морская разведывательная платформа
             //не окончательно
-            'maritime_intelligence_platform_stage1' => [
+            'maritime_intelligence_platform_stage2' => [
                 'short' => [
                     'contract' => 'trial_run_lifting_mechanism'
+                ],
+                'long' => [
+                    'contract' => 'planning_lifting_cargo', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
             ],
@@ -707,7 +713,7 @@ class Contracts
 
             //Док субмарин
             //не окончательно
-            'sea_naval_station_stage6' => [
+            'sea_naval_station_stage8' => [
                 'short' => [
                     'contract' => 'patrol_maritime_air_space'
                 ],
@@ -883,6 +889,7 @@ class Contracts
             ],
 
             //Бизнес-центр "Монреаль"
+            //не окончательно
             'business_centre_montreal_stage3' => [
                 'short' => [
                     'contract' => 'analysis_of_securities_market'
@@ -893,7 +900,8 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
-            //Офисный центр "Ванкевер"
+            //Офисный центр "Ванкувер"
+            //не окончательно
             'office_center_vancouver_buildsite' => [
                 'short' => [
                     'contract' => 'short_term_crediting1'
@@ -902,7 +910,67 @@ class Contracts
                     'contract' => 'middle_term_crediting1'
                 ],
                 'actions' => ['pick', 'put']
-            ]
+            ],
+
+            //Океаническая станция
+            //не окончательно
+            'ocean_station_stage1' => [
+                'short' => [
+                    'contract' => 'design_underwater_vehicle'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Департамент физической культуры
+            //не окончательно
+            'physical_education_department_stage2' => [
+                'short' => [
+                    'contract' => 'football_star_autograph_session'
+                ],
+                'long' => [
+                    'contract' => 'preliminaries_among_juniors'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Деловой центр "Айова"
+            //не окончательно
+            'business_centre_iowa_buildsite' => [
+                'short' => [
+                    'contract' => 'tax_audit1'
+                ],
+                'long' => [
+                    'contract' => 'financial_audit1'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Сейсмопрогностическая лаборатория
+            //не окончательно
+            'seismic_predictive_laboratory_stage1' => [
+                'short' => [
+                    'contract' => 'evaluation_seismic_hazard'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Дальнемагистральный самолет
+            //не окончательно
+            'long_haul_airplane2_buildsite' => [
+                'short' => [
+                    'contract' => 'sci_conf_charter_flight1'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Бюро авиаконструкций
+            //не окончательно
+            'air_design_bureau_stage1' => [
+                'short' => [
+                    'contract' => 'flying_hotel_design_preparations'
+                ],
+                'actions' => ['pick', 'put']
+            ],
         ],
 
         //1-я комната
@@ -1445,9 +1513,12 @@ class Contracts
 
             //SQ-Сити
             //не окончательно
-            'sq_city_stage1' => [
+            'sq_city_stage2' => [
                 'short' => [
                     'contract' => 'government_proceedings'
+                ],
+                'long' => [
+                    'contract' => 'trading'
                 ],
                 'actions' => ['pick', 'put']
             ]

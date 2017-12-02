@@ -237,30 +237,32 @@ class Room
         $contracts_list = Contracts::getContractsList($this);
 
         $cached = [];
-        foreach($this->field as $field_name => $field_items) {
-            foreach ($field_items as $field) {
-                if (isset($contracts_list[$field_name])) {
-                    $contract_data = $contracts_list[$field_name];
-                    if (in_array('pick', $contract_data['actions'])) {
-                        $field_state = $field['state'];
+        if (Bot::$options['pick-contracts']) {
+            foreach($this->field as $field_name => $field_items) {
+                foreach ($field_items as $field) {
+                    if (isset($contracts_list[$field_name])) {
+                        $contract_data = $contracts_list[$field_name];
+                        if (in_array('pick', $contract_data['actions'])) {
+                            $field_state = $field['state'];
 
-                        if ($field_state == 4) {
-                            $cached[] = [
-                                'command' => 'pick',
-                                'cmd_id' => Bot::$game->popCmdId(),
-                                'room_id' => $this->id,
-                                'item_id' => $field['id']
-                            ];
-
-                            if (isset($contract_data['quest_inc_counter']) && $contract_data['quest_inc_counter']['on'] == 'pick') {
+                            if ($field_state == 4) {
                                 $cached[] = [
-                                    'command' => 'quest_inc_counter',
+                                    'command' => 'pick',
                                     'cmd_id' => Bot::$game->popCmdId(),
                                     'room_id' => $this->id,
-                                    'quest_id' => $contract_data['quest_inc_counter']['quest_id'],
-                                    'counter' => $contract_data['quest_inc_counter']['counter'],
-                                    'count' => $contract_data['quest_inc_counter']['count']
+                                    'item_id' => $field['id']
                                 ];
+
+                                if (isset($contract_data['quest_inc_counter']) && $contract_data['quest_inc_counter']['on'] == 'pick') {
+                                    $cached[] = [
+                                        'command' => 'quest_inc_counter',
+                                        'cmd_id' => Bot::$game->popCmdId(),
+                                        'room_id' => $this->id,
+                                        'quest_id' => $contract_data['quest_inc_counter']['quest_id'],
+                                        'counter' => $contract_data['quest_inc_counter']['counter'],
+                                        'count' => $contract_data['quest_inc_counter']['count']
+                                    ];
+                                }
                             }
                         }
                     }
@@ -275,7 +277,7 @@ class Room
                     if (in_array('put', $contract_data['actions'])) {
                         $field_state = $field['state'];
 
-                        if ($field_state == 2 || $field_state == 4) {
+                        if ($field_state == 2 || $field_state == 4 && Bot::$options['pick-contracts']) {
                             if (Bot::$options['long'] && isset($contract_data['long']))
                                 $contract = $contract_data['long'];
                             elseif (isset($contract_data['short']))
@@ -297,21 +299,21 @@ class Room
                                         $cached[count($cached) - 1][$key] = $value;
                                     }
 
-                                /*$friends = [];
-                                foreach (Bot::$game->friends as $friend) {
-                                    $friends[] = $friend->id;
-                                }
-
-                                if (isset($contract['friends_request']) && $contract['friends_request']) {
-                                    $cached[] = [
-                                        'command' => 'send_request',
-                                        'cmd_id' => Bot::$game->popCmdId(),
-                                        'room_id' => $this->id,
-                                        'name' => 'visit_' . $contract['contract'],
-                                        'friend_ids' => implode('%2C', $friends),
-                                        'item_id' => $field['id']
-                                    ];
-                                }*/
+//                                $friends = [];
+//                                foreach (Bot::$game->friends as $friend) {
+//                                    $friends[] = $friend->id;
+//                                }
+//
+//                                if (isset($contract['friends_request']) && $contract['friends_request']) {
+//                                    $cached[] = [
+//                                        'command' => 'send_request',
+//                                        'cmd_id' => Bot::$game->popCmdId(),
+//                                        'room_id' => $this->id,
+//                                        'name' => 'visit_' . $contract['contract'],
+//                                        'friend_ids' => implode('%2C', $friends),
+//                                        'item_id' => $field['id']
+//                                    ];
+//                                }
 
                                 if (isset($contract_data['quest_inc_counter']) && $contract_data['quest_inc_counter']['on'] == 'put') {
                                     $cached[] = [
@@ -346,6 +348,8 @@ class Room
      * Собирает монеты
      */
     public function getCoins() {
+        $roll_counter = $this->location_data->attributes()->roll_counter->__toString();
+
         $cached = [];
         foreach ($this->field as $field_name => $field_items) {
             foreach ($field_items as $field) {
@@ -358,6 +362,10 @@ class Room
                         'room_id' => $this->id,
                         'item_id' => $field['id']
                     ];
+
+                    if ($field_name == 'samara_theater') {
+                        $cached[count($cached) - 1]['roll_counter'] = $roll_counter++;
+                    }
                 }
             }
         }
@@ -605,13 +613,15 @@ class Room
         $items = [
             'chinese' => ['casket', 'bronze_statuette', 'antique_teapot', 'ceramic_vase', 'jade_medallion', 'hair_comb'],
             'egyptian' => ['ankh', 'scarab', 'uskh', 'eye_of_horus', 'ancient_vase', 'statuette_bastet'],
-            'middle_ages' => ['knight_helmet', 'fan', 'locket', 'perfume', 'cup', 'scepter_competition']
+            'middle_ages' => ['knight_helmet', 'fan', 'locket', 'perfume', 'cup', 'scepter_competition'],
+            'russian' => ['spoon', 'crest', 'nesting_dolls', 'felt_boots', 'balalaika', 'kokoshnik']
         ];
 
         $museums = [
             'chinese' => ['museum_chinese_civilization_stage3'],
-            'egyptian' => ['museum_egyptian_civilization_stage3', 'museum_egyptian_civilization_stage2', 'museum_egyptian_civilization_stage1'],
-            'middle_ages' => ['medieval_gallery_stage3', 'medieval_gallery_stage2', 'medieval_gallery_stage1']
+            'egyptian' => ['museum_egyptian_civilization_stage3'],
+            'middle_ages' => ['medieval_gallery_stage3', 'medieval_gallery_stage2'],
+            'russian' => ['kolomna_palace_stage3', 'kolomna_palace_stage2', 'kolomna_palace_stage1']
         ];
 
         $items_count = [];
@@ -653,47 +663,25 @@ class Room
 
                 for ($i = $queue_length; $i < 3; ++$i) {
                     if ($name == 'chinese') {
-                        if ($fieldName == 'museum_chinese_civilization_stage3') {
-                            $cached[] = [
-                                'command' => 'put',
-                                'cmd_id' => Bot::$game->popCmdId(),
-                                'room_id' => $this->id,
-                                'item_id' => $field['id'],
-                                'klass' => Bot::$game->getCityItemById('20080411')['item_name']
-                            ];
-                            break;
-                        }
+                        $cached[] = [
+                            'command' => 'put',
+                            'cmd_id' => Bot::$game->popCmdId(),
+                            'room_id' => $this->id,
+                            'item_id' => $field['id'],
+                            'klass' => Bot::$game->getCityItemById('20080411')['item_name']
+                        ];
+                        break;
                     } elseif ($name == 'egyptian') {
-                        if ($fieldName == 'museum_egyptian_civilization_stage2') {
-                            $cached[] = [
-                                'command' => 'put',
-                                'cmd_id' => Bot::$game->popCmdId(),
-                                'room_id' => $this->id,
-                                'item_id' => $field['id'],
-                                'klass' => Bot::$game->getCityItemById('20080559')['item_name']
-                            ];
-                            break;
-                        } elseif ($fieldName == 'museum_egyptian_civilization_stage3') {
-                            $cached[] = [
-                                'command' => 'put',
-                                'cmd_id' => Bot::$game->popCmdId(),
-                                'room_id' => $this->id,
-                                'item_id' => $field['id'],
-                                'klass' => Bot::$game->getCityItemById('20080561')['item_name']
-                            ];
-                            break;
-                        }
+                        $cached[] = [
+                            'command' => 'put',
+                            'cmd_id' => Bot::$game->popCmdId(),
+                            'room_id' => $this->id,
+                            'item_id' => $field['id'],
+                            'klass' => Bot::$game->getCityItemById('20080561')['item_name']
+                        ];
+                        break;
                     } elseif ($name == 'middle_ages') {
-                        if ($fieldName == 'medieval_gallery_stage1') {
-                            $cached[] = [
-                                'command' => 'put',
-                                'cmd_id' => Bot::$game->popCmdId(),
-                                'room_id' => $this->id,
-                                'item_id' => $field['id'],
-                                'klass' => Bot::$game->getCityItemById('20080654')['item_name']
-                            ];
-                            break;
-                        } elseif ($fieldName == 'medieval_gallery_stage2') {
+                        if ($fieldName == $museums[$name][1]) {
                             $cached[] = [
                                 'command' => 'put',
                                 'cmd_id' => Bot::$game->popCmdId(),
@@ -702,7 +690,7 @@ class Room
                                 'klass' => Bot::$game->getCityItemById('20080656')['item_name']
                             ];
                             break;
-                        } elseif ($fieldName == 'medieval_gallery_stage3') {
+                        } elseif ($fieldName == $museums[$name][0]) {
                             $cached[] = [
                                 'command' => 'put',
                                 'cmd_id' => Bot::$game->popCmdId(),
@@ -711,6 +699,70 @@ class Room
                                 'klass' => Bot::$game->getCityItemById('20080658')['item_name']
                             ];
                             break;
+                        }
+                    } elseif ($name == 'russian') {
+                        for ($coeff = 1; true; ++$coeff) {
+                            if ($items_count['20080783'] < (6 * $coeff)) { //Ложек должно быть 5
+                                $cached[] = [
+                                    'command' => 'put',
+                                    'cmd_id' => Bot::$game->popCmdId(),
+                                    'room_id' => $this->id,
+                                    'item_id' => $field['id'],
+                                    'klass' => Bot::$game->getCityItemById('20080783')['item_name']
+                                ];
+                                ++$items_count['20080783'];
+                                break;
+                            } elseif ($items_count['20080784'] < (5 * $coeff)) { //Гребней должно быть 5
+                                $cached[] = [
+                                    'command' => 'put',
+                                    'cmd_id' => Bot::$game->popCmdId(),
+                                    'room_id' => $this->id,
+                                    'item_id' => $field['id'],
+                                    'klass' => Bot::$game->getCityItemById('20080784')['item_name']
+                                ];
+                                ++$items_count['20080784'];
+                                break;
+                            }  elseif ($items_count['20080785'] < (4 * $coeff) && ($fieldName == $museums[$name][1]))  { //Матрёшек должно быть 4
+                                $cached[] = [
+                                    'command' => 'put',
+                                    'cmd_id' => Bot::$game->popCmdId(),
+                                    'room_id' => $this->id,
+                                    'item_id' => $field['id'],
+                                    'klass' => Bot::$game->getCityItemById('20080785')['item_name']
+                                ];
+                                ++$items_count['20080785'];
+                                break;
+                            } elseif ($items_count['20080786'] < (4 * $coeff) && ($fieldName == $museums[$name][1])) { //Валенок должно быть 4
+                                $cached[] = [
+                                    'command' => 'put',
+                                    'cmd_id' => Bot::$game->popCmdId(),
+                                    'room_id' => $this->id,
+                                    'item_id' => $field['id'],
+                                    'klass' => Bot::$game->getCityItemById('20080786')['item_name']
+                                ];
+                                ++$items_count['20080786'];
+                                break;
+                            } elseif (($items_count['20080787'] < (3 * $coeff)) && ($fieldName == $museums[$name][0])) { //Балалаек должно быть 3
+                                $cached[] = [
+                                    'command' => 'put',
+                                    'cmd_id' => Bot::$game->popCmdId(),
+                                    'room_id' => $this->id,
+                                    'item_id' => $field['id'],
+                                    'klass' => Bot::$game->getCityItemById('20080787')['item_name']
+                                ];
+                                ++$items_count['20080787'];
+                                break;
+                            } elseif ($items_count['20080788'] < (2 * $coeff) && ($fieldName == $museums[$name][0])) { //Кокошников должно быть 2
+                                $cached[] = [
+                                    'command' => 'put',
+                                    'cmd_id' => Bot::$game->popCmdId(),
+                                    'room_id' => $this->id,
+                                    'item_id' => $field['id'],
+                                    'klass' => Bot::$game->getCityItemById('20080788')['item_name']
+                                ];
+                                ++$items_count['20080788'];
+                                break;
+                            }
                         }
                     }
                 }
@@ -724,6 +776,8 @@ class Room
                 Bot::log('Ждём обработки конвейера египетской фабрики ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             elseif ($name == 'middle_ages')
                 Bot::log('Ждём обработки конвейера средневековой фабрики ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
+            elseif ($name == 'russian')
+                Bot::log('Ждём обработки конвейера русской фабрики ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
 
             for ($i = count($cached); $i > 0; --$i) {
                 if ($name == 'chinese')
@@ -732,6 +786,8 @@ class Room
                     Bot::log("Ждём обработки конвейера египетской фабрики $i сек.");
                 elseif ($name == 'middle_ages')
                     Bot::log("Ждём обработки конвейера средневековой фабрики $i сек.");
+                elseif ($name == 'russian')
+                    Bot::log("Ждём обработки конвейера русской фабрики $i сек.");
 
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
@@ -742,15 +798,17 @@ class Room
 
         $cached = [];
 
-        foreach ($items[$name] as $item) {
-            for ($i = 0; $i < $items_count[Bot::$game->city_items[$item . '_production']['id']]; ++$i) {
-                $cached[] = [
-                    'command' => 'sell_barn',
-                    'cmd_id' => Bot::$game->popCmdId(),
-                    'room_id' => $this->id,
-                    'item_id' => Bot::$game->city_items[$item]['id'],
-                    'quantity' => 1
-                ];
+        if ($name != 'russian') {
+            foreach ($items[$name] as $item) {
+                for ($i = 0; $i < $items_count[Bot::$game->city_items[$item . '_production']['id']]; ++$i) {
+                    $cached[] = [
+                        'command' => 'sell_barn',
+                        'cmd_id' => Bot::$game->popCmdId(),
+                        'room_id' => $this->id,
+                        'item_id' => Bot::$game->city_items[$item]['id'],
+                        'quantity' => 1
+                    ];
+                }
             }
         }
 
@@ -761,6 +819,8 @@ class Room
                 Bot::log('Ждём продажи египетских вещей ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             elseif ($name == 'middle_ages')
                 Bot::log('Ждём продажи средневековых вещей ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
+            /*elseif ($name == 'russian')
+                Bot::log('Ждём продажи russian вещей ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);*/
 
             for ($i = count($cached); $i > 0; --$i) {
                 if ($name == 'chinese')
@@ -769,6 +829,8 @@ class Room
                     Bot::log("Ждём продажи египетских вещей $i сек.");
                 elseif ($name == 'middle_ages')
                     Bot::log("Ждём продажи средневековых вещей $i сек.");
+                /*elseif ($name == 'russian')
+                    Bot::log("Ждём продажи русских вещей $i сек.");*/
 
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
