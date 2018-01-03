@@ -713,7 +713,7 @@ class Game
             }
         }
 
-        if ($chests->etl > 0) { //TODO: проверить
+        if ($chests->etl > 0) {
             $cached = [];
             if (!$is_opening && $chest_for_open !== null) {
                 $cached[] = [

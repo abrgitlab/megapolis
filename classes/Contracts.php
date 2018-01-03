@@ -178,7 +178,7 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
-            //Експоцентр
+            //Экспоцентр
             //не окончательно
             'fairgrounds_stage2' => [
                 'short' => [
@@ -410,7 +410,7 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
-            //Институт експериментальной медицины
+            //Институт экспериментальной медицины
             'medical_centre_stage3' => [
                 'short' => [
                     'contract' => 'medical_conference'
@@ -445,6 +445,9 @@ class Contracts
             //не окончательно
             'sailing_center_stage4' => [
                 'short' => [
+                    'contract' => 'windsurfing', 'friends_request' => true
+                ],
+                'long' => [
                     'contract' => 'freestyle_on_the_water', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
@@ -545,7 +548,7 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
-            //Плавучий екополис
+            //Плавучий экополис
             //не окончательно
             'congress_center_hangzhou_stage2' => [
                 'short' => [
@@ -753,9 +756,9 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
-            //Аеровокзал
+            //Аэровокзал
             //не окончательно
-            'airport_stage3_level2' => [
+            'airport_stage4_level1' => [
                 'short' => [
                     'contract' => 'aeroshow'
                 ],
@@ -827,7 +830,7 @@ class Contracts
 
             //Институт геокриологии
             //не окончательно
-            'institute_geocryology_stage1' => [
+            'institute_geocryology_stage2' => [
                 'short' => [
                     'contract' => 'measuring_size_glacier'
                 ],
@@ -864,7 +867,7 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
-            //Ботанический парк "Едем"
+            //Ботанический парк "Эдем"
             //не окончательно
             'botanic_garden_eden_stage2' => [
                 'short' => [
@@ -890,7 +893,7 @@ class Contracts
 
             //Бизнес-центр "Монреаль"
             //не окончательно
-            'business_centre_montreal_stage3' => [
+/*            'business_centre_montreal_stage3' => [
                 'short' => [
                     'contract' => 'analysis_of_securities_market'
                 ],
@@ -898,7 +901,7 @@ class Contracts
                     'contract' => 'preparation_financial_ratings4'
                 ],
                 'actions' => ['pick', 'put']
-            ],
+            ],*/
 
             //Офисный центр "Ванкувер"
             //не окончательно
@@ -971,6 +974,35 @@ class Contracts
                 ],
                 'actions' => ['pick', 'put']
             ],
+
+            //Институт перспективного развития
+            //не окончательно
+            'prospective_development_institute_stage1' => [
+                'short' => [
+                    'contract' => 'special_news_ziggurat'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Тяжёлый транспортный самолёт
+            'heavy_cargo_airplane3_buildsite' => [
+                'short' => [
+                    'contract' => 'regular_cargo_transportation1'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Администрация заповедника
+            //не окончательно
+            'reserve_administration_stage2' => [
+                'short' => [
+                    'contract' => 'evening_show_tyanmenskaya_wolf'
+                ],
+                'long' => [
+                    'contract' => 'walk_path_heaven', 'friends_request' => true
+                ],
+                'actions' => ['pick', 'put']
+            ]
         ],
 
         //1-я комната
@@ -1012,12 +1044,12 @@ class Contracts
                 'actions' => ['pick']
             ],*/
 
-            //Полноповортный екскаватор
+            //Полноповортный экскаватор
             /*'coal_mine_medium_excavator' => [
                 'actions' => ['pick']
             ],*/
 
-            //Цепной екскаватор
+            //Цепной экскаватор
             /*'coal_mine_small_excavator' => [
                 'actions' => ['pick']
             ],*/
@@ -1075,7 +1107,7 @@ class Contracts
 
         //2-я комната
         [
-            //Аеропорт
+            //Аэропорт
             'island_airport_stage2' => [
                 'short' => [
                     'contract' => 'local_flights'
@@ -1174,6 +1206,8 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
+            //Служба реставрационных работ
+            //не окончательно
             'restoration_work_service_stage1' => [
                 'short' => [
                     'contract' => 'seascape_admiration'
@@ -1181,9 +1215,20 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
+            //Большой телескоп
+            //не окончательно
             'large_telescope_stage2' => [
                 'short' => [
                     'contract' => 'study_of_celestial_bodies', 'friends_request' => true
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Морской бастион
+            //не окончательно
+            'new_sea_fort_stage1' => [
+                'short' => [
+                    'contract' => 'selling_vip_tour'
                 ],
                 'actions' => ['pick', 'put']
             ]
@@ -1384,7 +1429,7 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
-            //Площадка аеростатов
+            //Площадка аэростатов
             //не окончательно
             'area_aerostats_stage3' => [
                 'short' => [
@@ -1519,6 +1564,15 @@ class Contracts
                 ],
                 'long' => [
                     'contract' => 'trading'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Научный ресурсный центр
+            //не окончательно
+            'science_resource_center_stage2' => [
+                'short' => [
+                    'contract' => 'opening_bridge_crossing'
                 ],
                 'actions' => ['pick', 'put']
             ]

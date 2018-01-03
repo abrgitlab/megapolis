@@ -100,6 +100,7 @@ class Config
             $this->next_time = strtotime('08:00', $time) + rand(0, 1800);
         else
             $this->next_time = $time + rand(3600, 5400);
+//        $this->next_time = $time + rand(3700, 3900);
     }
 
 }

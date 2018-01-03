@@ -348,7 +348,7 @@ class Room
      * Собирает монеты
      */
     public function getCoins() {
-        $roll_counter = $this->location_data->attributes()->roll_counter->__toString();
+//        $roll_counter = $this->location_data->attributes()->roll_counter->__toString();
 
         $cached = [];
         foreach ($this->field as $field_name => $field_items) {
@@ -363,9 +363,9 @@ class Room
                         'item_id' => $field['id']
                     ];
 
-                    if ($field_name == 'samara_theater') {
-                        $cached[count($cached) - 1]['roll_counter'] = $roll_counter++;
-                    }
+//                    if ($field_name == 'samara_theater') {
+//                        $cached[count($cached) - 1]['roll_counter'] = $roll_counter++;
+//                    }
                 }
             }
         }
@@ -701,68 +701,35 @@ class Room
                             break;
                         }
                     } elseif ($name == 'russian') {
-                        for ($coeff = 1; true; ++$coeff) {
-                            if ($items_count['20080783'] < (6 * $coeff)) { //Ложек должно быть 5
-                                $cached[] = [
-                                    'command' => 'put',
-                                    'cmd_id' => Bot::$game->popCmdId(),
-                                    'room_id' => $this->id,
-                                    'item_id' => $field['id'],
-                                    'klass' => Bot::$game->getCityItemById('20080783')['item_name']
-                                ];
-                                ++$items_count['20080783'];
-                                break;
-                            } elseif ($items_count['20080784'] < (5 * $coeff)) { //Гребней должно быть 5
-                                $cached[] = [
-                                    'command' => 'put',
-                                    'cmd_id' => Bot::$game->popCmdId(),
-                                    'room_id' => $this->id,
-                                    'item_id' => $field['id'],
-                                    'klass' => Bot::$game->getCityItemById('20080784')['item_name']
-                                ];
-                                ++$items_count['20080784'];
-                                break;
-                            }  elseif ($items_count['20080785'] < (4 * $coeff) && ($fieldName == $museums[$name][1]))  { //Матрёшек должно быть 4
-                                $cached[] = [
-                                    'command' => 'put',
-                                    'cmd_id' => Bot::$game->popCmdId(),
-                                    'room_id' => $this->id,
-                                    'item_id' => $field['id'],
-                                    'klass' => Bot::$game->getCityItemById('20080785')['item_name']
-                                ];
-                                ++$items_count['20080785'];
-                                break;
-                            } elseif ($items_count['20080786'] < (4 * $coeff) && ($fieldName == $museums[$name][1])) { //Валенок должно быть 4
-                                $cached[] = [
-                                    'command' => 'put',
-                                    'cmd_id' => Bot::$game->popCmdId(),
-                                    'room_id' => $this->id,
-                                    'item_id' => $field['id'],
-                                    'klass' => Bot::$game->getCityItemById('20080786')['item_name']
-                                ];
-                                ++$items_count['20080786'];
-                                break;
-                            } elseif (($items_count['20080787'] < (3 * $coeff)) && ($fieldName == $museums[$name][0])) { //Балалаек должно быть 3
-                                $cached[] = [
-                                    'command' => 'put',
-                                    'cmd_id' => Bot::$game->popCmdId(),
-                                    'room_id' => $this->id,
-                                    'item_id' => $field['id'],
-                                    'klass' => Bot::$game->getCityItemById('20080787')['item_name']
-                                ];
-                                ++$items_count['20080787'];
-                                break;
-                            } elseif ($items_count['20080788'] < (2 * $coeff) && ($fieldName == $museums[$name][0])) { //Кокошников должно быть 2
-                                $cached[] = [
-                                    'command' => 'put',
-                                    'cmd_id' => Bot::$game->popCmdId(),
-                                    'room_id' => $this->id,
-                                    'item_id' => $field['id'],
-                                    'klass' => Bot::$game->getCityItemById('20080788')['item_name']
-                                ];
-                                ++$items_count['20080788'];
-                                break;
-                            }
+                        if ($fieldName == $museums[$name][2]) {
+                            $cached[] = [
+                                'command' => 'put',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => $field['id'],
+                                'klass' => Bot::$game->getCityItemById('20080784')['item_name']
+                            ];
+                            break;
+                        }  elseif ($fieldName == $museums[$name][1])  {
+                             $cached[] = [
+                                'command' => 'put',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => $field['id'],
+                                'klass' => Bot::$game->getCityItemById('20080786')['item_name']
+                            ];
+//                            ++$items_count['20080786'];
+                            break;
+                        } elseif ($fieldName == $museums[$name][0]) {
+                            $cached[] = [
+                                'command' => 'put',
+                                'cmd_id' => Bot::$game->popCmdId(),
+                                'room_id' => $this->id,
+                                'item_id' => $field['id'],
+                                'klass' => Bot::$game->getCityItemById('20080788')['item_name']
+                            ];
+//                            ++$items_count['20080788'];
+                            break;
                         }
                     }
                 }

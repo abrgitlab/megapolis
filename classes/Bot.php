@@ -163,7 +163,8 @@ class Bot
         Bot::$game->loadFriends();
         if (Bot::$game->room->id != 0)
             Bot::$game->changeRoom(0);
-        Bot::$game->visitFriends();
+        if (!Bot::$options['manual'])
+            Bot::$game->visitFriends();
         if (date('H') < 22 || date('H') == 23 && date('i') >= 20)
             Bot::$game->sendGifts();
         else
@@ -181,7 +182,7 @@ class Bot
         Bot::$game->room->doFactoryWork('russian');
         Bot::$game->room->doMilitaryWork();
         Bot::$game->room->signContracts();
-//        if (!Bot::$options['manual'])
+        if (!Bot::$options['manual'])
             Bot::$game->room->getCoins();
         Bot::$game->applyHelp();
 
