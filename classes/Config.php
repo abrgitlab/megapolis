@@ -94,8 +94,8 @@ class Config
         $dateParams = $this->getDateParams($time);
         if ($dateParams['hour'] >= 8)
             $this->next_time = $time + rand(3600, 5400);
-        elseif (($dateParams['dow'] == 6 && $dateParams['hour'] > 2 || $dateParams['dow'] == 7 && $dateParams['hour'] > 3) && $dateParams['hour'] < 12)
-            $this->next_time = strtotime('12:00', $time) + rand(0, 1800);
+        elseif (($dateParams['dow'] == 6 && $dateParams['hour'] > 2 || $dateParams['dow'] == 7 && $dateParams['hour'] > 3) && $dateParams['hour'] < 10)
+            $this->next_time = strtotime('10:00', $time) + rand(0, 1800);
         elseif ($dateParams['dow'] >= 1 && $dateParams['dow'] <= 5 && $dateParams['hour'] > 1 && $dateParams['hour'] < 8)
             $this->next_time = strtotime('08:00', $time) + rand(0, 1800);
         else

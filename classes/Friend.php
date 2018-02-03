@@ -37,7 +37,7 @@ class Friend
     /**
      * @var $help_points int;
      */
-    private $help_points = 0;
+    public $help_points = 0;
 
     /**
      * @var $help_points array;
@@ -95,6 +95,11 @@ class Friend
     public $is_bot = false;
 
     /**
+     * @var $help_step_to_pass int
+     */
+    private $help_step_to_pass = 0;
+
+    /**
      * @param $xml_element SimpleXMLElement
      */
     public function loadFromXmlNode($xml_element) {
@@ -147,7 +152,12 @@ class Friend
                     if ($request_name == 'invite_suggested_neighbors') {
                         $this->new_friend = true;
                     } else {
-                        $this->letters[$request_name] = $request;
+                        if (isset(Bot::$game->city_requests[$request_name]['subtype']) && Bot::$game->city_requests[$request_name]['subtype'] == 'request_building_help') {
+                            $this->letters[$request_name] = $request;
+                            ++$this->help_step_to_pass;
+                        } else {
+                            array_unshift($this->letters, $request_name);
+                        }
                     }
                 }
             }
@@ -161,7 +171,7 @@ class Friend
         $last_room_id = $friend_rooms[0];
 
         foreach ($friend_rooms as $room_id) {
-            if ($this->help_points > 0) {
+            if ($this->help_points - $this->help_step_to_pass > 0) {
                 Bot::log('Заходим к другу ' . $this->city_name . ' в комнату '. $room_id);
                 $room_data = Bot::$game->visitFriend($this->id, $last_room_id, $room_id);
                 $result = true;

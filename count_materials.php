@@ -158,14 +158,34 @@ foreach(Bot::$game->room->barn as $barn_name => $barn) {
     }
 }
 
-arsort($materials_needed);
+$materials_for_giving = [];
+$materials_for_taking = [];
+
+foreach ($materials_needed as $material => $parameters) {
+    if ($parameters['quantity'] > 0) {
+        if (!isset($materials_for_taking[$parameters['quantity']]))
+            $materials_for_taking[$parameters['quantity']] = [$material => Bot::$game->city_items[$material]['description']];
+        else
+            $materials_for_taking[$parameters['quantity']][$material] = Bot::$game->city_items[$material]['description'];
+    } elseif ($parameters['quantity'] < 0) {
+        if (!isset($materials_for_giving[-$parameters['quantity']]))
+            $materials_for_giving[-$parameters['quantity']] = [$material => Bot::$game->city_items[$material]['description']];
+        else
+            $materials_for_giving[-$parameters['quantity']][$material] = Bot::$game->city_items[$material]['description'];
+    }
+}
+
+//arsort($materials_sort);
+krsort($materials_for_taking);
+krsort($materials_for_giving);
 
 $materials_amount = 0;
 $full_amount = 0;
-foreach ($materials_needed as $material => $parameters) {
-    if ($parameters['quantity'] > 0) {
-        $city_item = Bot::$game->city_items[$material];
-        echo (($parameters['need_now']) ? '+' : '-') . $city_item['description'] . ': ' . $parameters['quantity'];
+foreach ($materials_for_taking as $quantity => $materials) {
+    asort($materials);
+    foreach ($materials as $material => $description) {
+        $parameters = $materials_needed[$material];
+        echo (($parameters['need_now']) ? '+' : '-') . $description . ': ' . $quantity;
         if (SHOW_OBJECTS_FOR_MATERIALS) {
             $objects = [];
             foreach ($parameters['objects'] as $object) {
@@ -176,22 +196,22 @@ foreach ($materials_needed as $material => $parameters) {
         }
         echo "\n";
         ++$materials_amount;
-        $full_amount += $parameters['quantity'];
+        $full_amount += $quantity;
     }
 }
 
 echo "Итого необходимо: материалов $materials_amount, общее количество $full_amount\n\n";
 
-asort($materials_needed);
+//asort($materials_sort);
 
 $materials_amount = 0;
 $full_amount = 0;
-foreach ($materials_needed as $material => $parameters) {
-    if ($parameters['quantity'] < 0) {
-        $city_item = Bot::$game->city_items[$material];
-        echo $city_item['description'] . ': ' . -$parameters['quantity'] . "\n";
+foreach ($materials_for_giving as $quantity => $materials) {
+    asort($materials);
+    foreach ($materials as $material => $description) {
+        echo $description . ': ' . $quantity . "\n";
         ++$materials_amount;
-        $full_amount -= $parameters['quantity'];
+        $full_amount += $quantity;
     }
 }
 

@@ -443,12 +443,12 @@ class Contracts
 
             //Центр парусного спорта
             //не окончательно
-            'sailing_center_stage4' => [
+            'sailing_center_stage5' => [
                 'short' => [
                     'contract' => 'windsurfing', 'friends_request' => true
                 ],
                 'long' => [
-                    'contract' => 'freestyle_on_the_water', 'friends_request' => true
+                    'contract' => 'regatta', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
             ],
@@ -601,18 +601,80 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
+
             //Пассажирский авиалайнер
-            'passenger_airplane3_buildsite' => [
+            'passenger_airplane1_stage1' => [
                 'short' => [
-                    'contract' => 'air_walk1'
+                    'contract' => 'air_walk2'
+                ],
+                'long' => [
+                    'contract' => 'low_cost_flight1'
                 ],
                 'actions' => ['pick', 'put']
             ],
 
             //Пассажирский авиалайнер
-            'passenger_airplane4_buildsite' => [
+            'passenger_airplane2_stage1' => [
                 'short' => [
-                    'contract' => 'air_walk1'
+                    'contract' => 'air_walk2'
+                ],
+                'long' => [
+                    'contract' => 'low_cost_flight1'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Пассажирский авиалайнер
+            'passenger_airplane3_stage1' => [
+                'short' => [
+                    'contract' => 'air_walk2'
+                ],
+                'long' => [
+                    'contract' => 'low_cost_flight1'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Пассажирский авиалайнер
+            'passenger_airplane4_stage1' => [
+                'short' => [
+                    'contract' => 'air_walk2'
+                ],
+                'long' => [
+                    'contract' => 'low_cost_flight1'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Пассажирский авиалайнер
+            'passenger_airplane5_stage1' => [
+                'short' => [
+                    'contract' => 'air_walk2'
+                ],
+                'long' => [
+                    'contract' => 'low_cost_flight1'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Пассажирский авиалайнер
+            'passenger_airplane8_stage1' => [
+                'short' => [
+                    'contract' => 'air_walk2'
+                ],
+                'long' => [
+                    'contract' => 'low_cost_flight1'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Пассажирский авиалайнер
+            'passenger_airplane9_stage1' => [
+                'short' => [
+                    'contract' => 'air_walk2'
+                ],
+                'long' => [
+                    'contract' => 'low_cost_flight1'
                 ],
                 'actions' => ['pick', 'put']
             ],
@@ -807,12 +869,50 @@ class Contracts
             ],
 
             //Бизнес-джет
-            'business_jet1_stage1' => [
+            'business_jet1_stage2' => [
+                'short' => [
+                    'contract' => 'custom_route_flight3'
+                ],
+                'long' => [
+                    'contract' => 'business_flight2'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Бизнес-джет
+            'business_jet2_stage1' => [
                 'short' => [
                     'contract' => 'custom_route_flight2'
                 ],
                 'long' => [
                     'contract' => 'business_flight1'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Бизнес-джет
+            'business_jet3_stage1' => [
+                'short' => [
+                    'contract' => 'custom_route_flight2'
+                ],
+                'long' => [
+                    'contract' => 'business_flight1'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Грузовой самолёт
+            'cargo_airplane1_buildsite' => [
+                'short' => [
+                    'contract' => 'urgent_cargo_delivery1'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Грузовой самолёт
+            'cargo_airplane2_buildsite' => [
+                'short' => [
+                    'contract' => 'urgent_cargo_delivery1'
                 ],
                 'actions' => ['pick', 'put']
             ],
@@ -893,7 +993,7 @@ class Contracts
 
             //Бизнес-центр "Монреаль"
             //не окончательно
-/*            'business_centre_montreal_stage3' => [
+            'business_centre_montreal_stage3' => [
                 'short' => [
                     'contract' => 'analysis_of_securities_market'
                 ],
@@ -901,7 +1001,7 @@ class Contracts
                     'contract' => 'preparation_financial_ratings4'
                 ],
                 'actions' => ['pick', 'put']
-            ],*/
+            ],
 
             //Офисный центр "Ванкувер"
             //не окончательно
@@ -917,9 +1017,12 @@ class Contracts
 
             //Океаническая станция
             //не окончательно
-            'ocean_station_stage1' => [
+            'ocean_station_stage3' => [
                 'short' => [
                     'contract' => 'design_underwater_vehicle'
+                ],
+                'long' => [
+                    'contract' => 'new_generation_bathyscaphe', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
             ],
@@ -959,9 +1062,12 @@ class Contracts
 
             //Дальнемагистральный самолет
             //не окончательно
-            'long_haul_airplane2_buildsite' => [
+            'long_haul_airplane2_stage1' => [
                 'short' => [
-                    'contract' => 'sci_conf_charter_flight1'
+                    'contract' => 'sci_conf_charter_flight2'
+                ],
+                'long' => [
+                    'contract' => 'international_flight1'
                 ],
                 'actions' => ['pick', 'put']
             ],
@@ -985,9 +1091,9 @@ class Contracts
             ],
 
             //Тяжёлый транспортный самолёт
-            'heavy_cargo_airplane3_buildsite' => [
+            'heavy_cargo_airplane3_stage1' => [
                 'short' => [
-                    'contract' => 'regular_cargo_transportation1'
+                    'contract' => 'building_construction_transfer1'
                 ],
                 'actions' => ['pick', 'put']
             ],
@@ -1000,6 +1106,36 @@ class Contracts
                 ],
                 'long' => [
                     'contract' => 'walk_path_heaven', 'friends_request' => true
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Деловой центр "Айдахо"
+            //не окончательно
+            'business_centre_idaho_buildsite' => [
+                'short' => [
+                    'contract' => 'credit_insurance1'
+                ],
+                'long' => [
+                    'contract' => 'deposit_insurance1'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Центр гидрологических исследований
+            //не окончательно
+            'center_hydrological_research' => [
+                'short' => [
+                    'contract' => 'determ_speed_nature_flow'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Метеорологическая лаборатория
+            //не окончательно
+            'weather_lab_buildsite' => [
+                'short' => [
+                    'contract' => 'artificial_mountain_overfly', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
             ]
@@ -1366,7 +1502,7 @@ class Contracts
 
             //Институт полярного сияния
             //не окончательно
-            'institute_aurora_stage1' => [
+            'institute_aurora_stage2' => [
                 'short' => [
                     'contract' => 'experiment_accelerate_particle'
                 ],
@@ -1558,12 +1694,12 @@ class Contracts
 
             //SQ-Сити
             //не окончательно
-            'sq_city_stage2' => [
+            'sq_city_stage3' => [
                 'short' => [
                     'contract' => 'government_proceedings'
                 ],
                 'long' => [
-                    'contract' => 'trading'
+                    'contract' => 'business_center_rent'
                 ],
                 'actions' => ['pick', 'put']
             ],
@@ -1573,6 +1709,17 @@ class Contracts
             'science_resource_center_stage2' => [
                 'short' => [
                     'contract' => 'opening_bridge_crossing'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Замок сказочника
+            'castle_storyteller_stage3' => [
+                'short' => [
+                    'contract' => 'accomplishment_winter_park'
+                ],
+                'long' => [
+                    'contract' => 'show_fairy_tale_characters'
                 ],
                 'actions' => ['pick', 'put']
             ]

@@ -765,17 +765,15 @@ class Room
 
         $cached = [];
 
-        if ($name != 'russian') {
-            foreach ($items[$name] as $item) {
-                for ($i = 0; $i < $items_count[Bot::$game->city_items[$item . '_production']['id']]; ++$i) {
-                    $cached[] = [
-                        'command' => 'sell_barn',
-                        'cmd_id' => Bot::$game->popCmdId(),
-                        'room_id' => $this->id,
-                        'item_id' => Bot::$game->city_items[$item]['id'],
-                        'quantity' => 1
-                    ];
-                }
+        foreach ($items[$name] as $item) {
+            for ($i = 0; $i < $items_count[Bot::$game->city_items[$item . '_production']['id']]; ++$i) {
+                $cached[] = [
+                    'command' => 'sell_barn',
+                    'cmd_id' => Bot::$game->popCmdId(),
+                    'room_id' => $this->id,
+                    'item_id' => Bot::$game->city_items[$item]['id'],
+                    'quantity' => 1
+                ];
             }
         }
 
@@ -786,8 +784,8 @@ class Room
                 Bot::log('Ждём продажи египетских вещей ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
             elseif ($name == 'middle_ages')
                 Bot::log('Ждём продажи средневековых вещей ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
-            /*elseif ($name == 'russian')
-                Bot::log('Ждём продажи russian вещей ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);*/
+            elseif ($name == 'russian')
+                Bot::log('Ждём продажи russian вещей ' . count($cached) . ' сек.', [Bot::$TELEGRAM]);
 
             for ($i = count($cached); $i > 0; --$i) {
                 if ($name == 'chinese')
@@ -796,8 +794,8 @@ class Room
                     Bot::log("Ждём продажи египетских вещей $i сек.");
                 elseif ($name == 'middle_ages')
                     Bot::log("Ждём продажи средневековых вещей $i сек.");
-                /*elseif ($name == 'russian')
-                    Bot::log("Ждём продажи русских вещей $i сек.");*/
+                elseif ($name == 'russian')
+                    Bot::log("Ждём продажи русских вещей $i сек.");
 
                 $cached[count($cached) - $i]['uxtime'] = time();
                 sleep(1);
@@ -823,7 +821,8 @@ class Room
         $barn_amount = [];
 
         foreach ($material_list as $item) {
-            $barn_amount[$this->barn[$item]['id']] = $this->getBarnQuantity($item);
+            if (isset($this->barn[$item]['id']))
+                $barn_amount[$this->barn[$item]['id']] = $this->getBarnQuantity($item);
         }
 
         $cached_pick = [];
@@ -883,7 +882,10 @@ class Room
                     'item_id' => '39052472'
                 ];
 
-                ++$barn_amount[$friend->material_id];
+                if (isset($barn_amount[$friend->material_id]))
+                    ++$barn_amount[$friend->material_id];
+                else
+                    $barn_amount[$friend->material_id] = 1;
 
                 $friends_for_invite_in_gambling_zone[] = $friend_id;
             } elseif ($friend->time_end > 0) {

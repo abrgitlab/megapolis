@@ -44,7 +44,7 @@ class Game
     /**
      * @var $city_requests []
      */
-    private $city_requests;
+    public $city_requests;
 
     /**
      * @var $city_quests []
@@ -370,7 +370,6 @@ class Game
         foreach ($this->friends as $friend) {
             if (!$friend->new_friend) {
                 foreach ($friend->letters as $letter_name => $letter_params) {
-
                     $profit = [
                         'expirience' => 0,
                         'coins' => 0
@@ -392,27 +391,41 @@ class Game
                         }
                     }
 
-                    if ($profit['expirience'] >= 200) {
-                        $items[] = [
-                            'command' => 'commit_request',
-                            'cmd_id' => $this->popCmdId(),
-                            'room_id' => $this->room->id,
-                            'name' => $letter_name,
-                            'friend_id' => $friend->id
-                        ];
+                    /*if ($letter_name != 'help_railroad' &&
+                        $letter_name != 'friend_helped' &&
+                        $letter_name != 'help_monorail' &&
+                        $letter_name != 'help_central_port' &&
+                        $letter_name != 'help_underwater_tunnel' &&
+                        $letter_name != 'help_north_congress_junction' &&
+                        $letter_name != 'help_beyond_river_station_junction'
+                    ) {*/
+                    /*if (isset(Bot::$game->city_requests[$letter_name]['subtype']) && Bot::$game->city_requests[$letter_name]['subtype'] == 'request_building_help') {
+                        if ($friend->help_points > 0) {
+                            //TODO: Помощ со строительством
+                        }
+                    } else {*/
+                        if ($profit['expirience'] >= 200) {
+                            $items[] = [
+                                'command' => 'commit_request',
+                                'cmd_id' => $this->popCmdId(),
+                                'room_id' => $this->room->id,
+                                'name' => $letter_name,
+                                'friend_id' => $friend->id
+                            ];
 
-                        unset($friend->letters[$letter_name]);
-                    } elseif ($profit['expirience'] < 100 && $profit['coins'] < 2000) {
-                        $items[] = [
-                            'command' => 'discard_request',
-                            'cmd_id' => $this->popCmdId(),
-                            'room_id' => $this->room->id,
-                            'name' => $letter_name,
-                            'friend_id' => $friend->id
-                        ];
+                            unset($friend->letters[$letter_name]);
+                        } elseif ($profit['expirience'] < 100 && $profit['coins'] < 2000) {
+                            $items[] = [
+                                'command' => 'discard_request',
+                                'cmd_id' => $this->popCmdId(),
+                                'room_id' => $this->room->id,
+                                'name' => $letter_name,
+                                'friend_id' => $friend->id
+                            ];
 
-                        unset($friend->letters[$letter_name]);
-                    }
+                            unset($friend->letters[$letter_name]);
+                        }
+                    //}
                 }
             }
         }
@@ -785,7 +798,7 @@ class Game
         curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/associate');
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
 
-        $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&no_field=true&social_id[SQ]=abr_mail%40mail.ru&social_id[GS]=105865456413157542698&social_id[GPG]=105865456413157542698&device_id=' . Bot::$device_id . '&platform=android&build=' . Bot::$build . '&app=city&device_model=Genymotion%20vbox86p&os=4.1.1&gloc=ru&dloc=ru&net=wf&social=sqsocial%3Aprod&odin_id=' . Bot::$odin_id . '&android_id=' . Bot::$android_id . '&mac=' . Bot::$mac . '&advertising_id=' . Bot::$advertising_id;
+        $url = 'iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&no_field=true&social_id[SQ]=abr_mail%40mail.ru&social_id[GPG]=105865456413157542698&social_id[GS]=105865456413157542698&platform=android&build=' . Bot::$build . '&app=city&device_model=Genymotion%20vbox86p&os=4.1.1&os=4.1.1&gloc=ru&dloc=ru&net=wf&social=sqsocial%3Aprod&odin_id=' . Bot::$odin_id . '&android_id=' . Bot::$android_id . '&mac=' . Bot::$mac . '&advertising_id=' . Bot::$advertising_id;
         Bot::log("\n$url\n", [Bot::$DEBUG]);
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
@@ -818,7 +831,7 @@ class Game
         if (!$this->online)
             return null;
 
-        curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host_static . '/mobile_assets/revision.xml?rand=' . time());
+        curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host_static . '/mobile_assets/revision.xml?rand=' . rand(10000000, 99999999999) . '&time=' . time());
         curl_setopt(Bot::$curl, CURLOPT_POST, false);
         return gzdecode(curl_exec(Bot::$curl));
     }

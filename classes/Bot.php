@@ -16,8 +16,8 @@ class Bot
 
     public static $host = 'web155.socialquantum.com';
     public static $host_static = 'mb.static.socialquantum.ru';
-    public static $build = '22428';
-    public static $client_version = '4.00';
+    public static $build = '22463';
+    public static $client_version = '4.05';
     public static $iauth = '277997eba7f4e51051b0a0a9450afe73';
     public static $user_id = 'UD_5cd98e974c0fec35013c4790';
     public static $odin_id = '949c34f735162b0bd21f1f63db51cc2bb9e935ac';
@@ -163,8 +163,6 @@ class Bot
         Bot::$game->loadFriends();
         if (Bot::$game->room->id != 0)
             Bot::$game->changeRoom(0);
-        if (!Bot::$options['manual'])
-            Bot::$game->visitFriends();
         if (date('H') < 22 || date('H') == 23 && date('i') >= 20)
             Bot::$game->sendGifts();
         else
@@ -176,6 +174,8 @@ class Bot
         Bot::$game->discardAskMaterial();
         Bot::$game->handleLetters();
         Bot::$game->openChest();
+        if (!Bot::$options['manual'])
+            Bot::$game->visitFriends();
         Bot::$game->room->doFactoryWork('chinese');
         Bot::$game->room->doFactoryWork('egyptian');
         Bot::$game->room->doFactoryWork('middle_ages');
