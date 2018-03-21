@@ -101,13 +101,26 @@ class Game
         if ($online) {
             $this->checkUpdates();
 
-           $this->associate();
+            if ($this->revision == null)
+                return;
+
+            $this->associate();
             $user_data = $this->getUserStat();
+
+            if ($user_data == false)
+                return;
+
             file_put_contents($user_data_file_name, $user_data);
         } else {
             $old_revisions = $this->getCachedRevisions();
+            if (count($old_revisions) == 0)
+                return;
+
             $this->revision = $old_revisions[count($old_revisions) - 1];
             $user_data = file_get_contents($user_data_file_name);
+
+            if ($user_data == false)
+                return;
         }
 
         $this->loadYaml();
@@ -126,6 +139,14 @@ class Game
         }
     }
 
+    /**
+     * @return bool
+     */
+
+    public function isReady() {
+        return $this->revision != null && $this->user_data != null;
+    }
+
     public function getCityAttribute($attribute) {
         if (isset($this->user_data->attributes()->{$attribute})) {
             return $this->user_data->attributes()->{$attribute}->__toString();
@@ -141,35 +162,46 @@ class Game
     public function checkUpdates() {
         Bot::log('Проверка наличия обновлений', [Bot::$STDOUT, Bot::$TELEGRAM]);
         $revision_data = $this->getRevision();
-        $revision_data = simplexml_load_string($revision_data);
-        $this->revision = $revision_data->attributes()->revision->__toString();
-        if (!is_dir(Game::$files_directory))
-            mkdir(Game::$files_directory);
+        if ($revision_data !== false) {
+            $revision_data = simplexml_load_string($revision_data);
+            $this->revision = $revision_data->attributes()->revision->__toString();
 
-        $files_for_loading = [];
-        $old_cache = $this->getCachedRevisions();
+            if (!is_dir(Game::$files_directory))
+                mkdir(Game::$files_directory);
 
-        if (!is_dir(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision))
-            mkdir(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision);
+            $files_for_loading = [];
+            $old_cache = $this->getCachedRevisions();
 
-        if (!file_exists(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision . DIRECTORY_SEPARATOR . "city_items.yml"))
-            $files_for_loading[] = 'city_items';
-        if (!file_exists(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision . DIRECTORY_SEPARATOR . "city_requests.yml"))
-            $files_for_loading[] = 'city_requests';
-        if (!file_exists(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision . DIRECTORY_SEPARATOR . "city_quests.yml"))
-            $files_for_loading[] = 'city_quests';
+            if (!is_dir(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision))
+                mkdir(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision);
 
-        if (count($files_for_loading) > 0) {
-            Bot::log('Получение обновлений', [Bot::$STDOUT, Bot::$TELEGRAM]);
+            if (!file_exists(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision . DIRECTORY_SEPARATOR . "city_items.yml"))
+                $files_for_loading[] = 'city_items';
+            if (!file_exists(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision . DIRECTORY_SEPARATOR . "city_requests.yml"))
+                $files_for_loading[] = 'city_requests';
+            if (!file_exists(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision . DIRECTORY_SEPARATOR . "city_quests.yml"))
+                $files_for_loading[] = 'city_quests';
 
-            foreach ($files_for_loading as $file) {
-                $yaml = file_get_contents("http://mb.static.socialquantum.ru/mobile_assets/$file.yml?rev=$this->revision");
-                file_put_contents(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision . DIRECTORY_SEPARATOR . "/$file.yml", $yaml);
+            if (count($files_for_loading) > 0) {
+                Bot::log('Получение обновлений', [Bot::$STDOUT, Bot::$TELEGRAM]);
+
+                foreach ($files_for_loading as $file) {
+                    $yaml = file_get_contents("http://mb.static.socialquantum.ru/mobile_assets/$file.yml?rev=$this->revision");
+                    file_put_contents(Game::$files_directory . DIRECTORY_SEPARATOR . $this->revision . DIRECTORY_SEPARATOR . "/$file.yml", $yaml);
+                }
+
+                foreach ($old_cache as $old_catalog) {
+                    Bot::log('Удаляем ' . Game::$files_directory . DIRECTORY_SEPARATOR . $old_catalog, [Bot::$DEBUG]);
+                    $this->deleteDir(Game::$files_directory . DIRECTORY_SEPARATOR . $old_catalog);
+                }
             }
-
-            foreach ($old_cache as $old_catalog) {
-                Bot::log('Удаляем ' . Game::$files_directory . DIRECTORY_SEPARATOR . $old_catalog, [Bot::$DEBUG]);
-                $this->deleteDir(Game::$files_directory . DIRECTORY_SEPARATOR . $old_catalog);
+        } else {
+            $old_revisions = $this->getCachedRevisions();
+            foreach ($old_revisions as $revision) {
+                if ($this->revision == null)
+                    $this->revision = $revision;
+                else
+                    $this->revision = max($this->revision, $revision);
             }
         }
     }
@@ -399,11 +431,7 @@ class Game
                         $letter_name != 'help_north_congress_junction' &&
                         $letter_name != 'help_beyond_river_station_junction'
                     ) {*/
-                    /*if (isset(Bot::$game->city_requests[$letter_name]['subtype']) && Bot::$game->city_requests[$letter_name]['subtype'] == 'request_building_help') {
-                        if ($friend->help_points > 0) {
-                            //TODO: Помощ со строительством
-                        }
-                    } else {*/
+                    if (!isset(Bot::$game->city_requests['requests'][$letter_name]['subtype']) || Bot::$game->city_requests['requests'][$letter_name]['subtype'] != 'request_building_help') {
                         if ($profit['expirience'] >= 200) {
                             $items[] = [
                                 'command' => 'commit_request',
@@ -425,7 +453,7 @@ class Game
 
                             unset($friend->letters[$letter_name]);
                         }
-                    //}
+                    }
                 }
             }
         }
@@ -815,17 +843,22 @@ class Game
 
         curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host . '/city_server_sqint_prod/get_user_stat');
         curl_setopt(Bot::$curl, CURLOPT_POST, true);
+        curl_setopt(Bot::$curl, CURLOPT_TIMEOUT, 20);
 
         $url = 'daily_gift=2&iauth=' . Bot::$iauth . '&user_id=' . Bot::$user_id . '&revision=android-' . Bot::$client_version . '.' . Bot::$build . '&allow_personal_information=1&user_first_name=%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%B8%D0%B9&user_last_name=%D0%9C%D0%B0%D0%BB%D0%B0%D1%85%D0%BE%D0%B2&user_sex=0&access_token=' . Bot::$iauth . '&lang=ru&client_type=android&room_id=0&odin_id=' . Bot::$odin_id . '&android_id=' . Bot::$android_id . '&mac=' . Bot::$mac . '&advertising_id=' . Bot::$advertising_id . '&device_id=' . Bot::$device_id . '&first_request=true&location=&rn=' . $this->popRN() . '&content_rev=' . $this->revision . '&app_store_name=com.android.vending';
         Bot::log("\n$url\n", [Bot::$DEBUG]);
 
         curl_setopt(Bot::$curl, CURLOPT_POSTFIELDS, $url);
 
-        return gzdecode(curl_exec(Bot::$curl));
+        $result = curl_exec(Bot::$curl);
+        if ($result != false)
+            return gzdecode($result);
+
+        return false;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getRevision() {
         if (!$this->online)
@@ -833,7 +866,13 @@ class Game
 
         curl_setopt(Bot::$curl, CURLOPT_URL, 'http://' . Bot::$host_static . '/mobile_assets/revision.xml?rand=' . rand(10000000, 99999999999) . '&time=' . time());
         curl_setopt(Bot::$curl, CURLOPT_POST, false);
-        return gzdecode(curl_exec(Bot::$curl));
+        curl_setopt(Bot::$curl, CURLOPT_TIMEOUT, 20);
+
+        $result = curl_exec(Bot::$curl);
+        if ($result != false)
+            return gzdecode($result);
+
+        return false;
     }
 
     /**

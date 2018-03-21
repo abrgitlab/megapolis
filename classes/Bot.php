@@ -160,6 +160,13 @@ class Bot
         $config->commit();
 
         Bot::$game = new Game();
+        if (!Bot::$game->isReady()) {
+            Bot::log('Невозможно загрузить данные с сервера. Завершаем работу', [Bot::$STDOUT, Bot::$TELEGRAM]);
+            $config->lock = false;
+            $config->commit();
+            return;
+        }
+
         Bot::$game->loadFriends();
         if (Bot::$game->room->id != 0)
             Bot::$game->changeRoom(0);

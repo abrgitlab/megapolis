@@ -152,11 +152,9 @@ class Friend
                     if ($request_name == 'invite_suggested_neighbors') {
                         $this->new_friend = true;
                     } else {
-                        if (isset(Bot::$game->city_requests[$request_name]['subtype']) && Bot::$game->city_requests[$request_name]['subtype'] == 'request_building_help') {
-                            $this->letters[$request_name] = $request;
+                        $this->letters[$request_name] = $request;
+                        if (isset(Bot::$game->city_requests['requests'][$request_name]['subtype']) && Bot::$game->city_requests['requests'][$request_name]['subtype'] == 'request_building_help') {
                             ++$this->help_step_to_pass;
-                        } else {
-                            array_unshift($this->letters, $request_name);
                         }
                     }
                 }
@@ -171,7 +169,8 @@ class Friend
         $last_room_id = $friend_rooms[0];
 
         foreach ($friend_rooms as $room_id) {
-            if ($this->help_points - $this->help_step_to_pass > 0) {
+            $steps = $this->help_points - $this->help_step_to_pass;
+            if ($steps > 0) {
                 Bot::log('Заходим к другу ' . $this->city_name . ' в комнату '. $room_id);
                 $room_data = Bot::$game->visitFriend($this->id, $last_room_id, $room_id);
                 $result = true;
@@ -183,7 +182,7 @@ class Friend
 
                     $ids = [];
                     foreach ($this->room_data->field[0] as $building) {
-                        if (count($ids) >= $this->help_points)
+                        if (count($ids) >= $steps)
                             break;
 
                         if ($building->getName() != null) {
