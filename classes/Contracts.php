@@ -443,15 +443,15 @@ class Contracts
 
             //Центр парусного спорта
             //не окончательно
-            'sailing_center_stage5' => [
-                'short' => [
-                    'contract' => 'windsurfing', 'friends_request' => true
-                ],
-                'long' => [
-                    'contract' => 'regatta', 'friends_request' => true
-                ],
-                'actions' => ['pick', 'put']
-            ],
+//            'sailing_center_stage5' => [
+//                'short' => [
+//                    'contract' => 'windsurfing', 'friends_request' => true
+//                ],
+//                'long' => [
+//                    'contract' => 'regatta', 'friends_request' => true
+//                ],
+//                'actions' => ['pick', 'put']
+//            ],
 
             //Круизная компания
             'cruise_company_stage2' => [
@@ -601,88 +601,79 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
-
             //Пассажирский авиалайнер
-            'passenger_airplane1_stage1' => [
+            'passenger_airplane1_stage2' => [
                 'short' => [
-                    'contract' => 'air_walk2'
+                    'contract' => 'air_walk3'
                 ],
                 'long' => [
-                    'contract' => 'low_cost_flight1'
+                    'contract' => 'low_cost_flight2'
                 ],
                 'actions' => ['pick', 'put']
             ],
 
             //Пассажирский авиалайнер
-            'passenger_airplane2_stage1' => [
+            'passenger_airplane2_stage2' => [
                 'short' => [
-                    'contract' => 'air_walk2'
+                    'contract' => 'air_walk3'
                 ],
                 'long' => [
-                    'contract' => 'low_cost_flight1'
+                    'contract' => 'low_cost_flight2'
                 ],
                 'actions' => ['pick', 'put']
             ],
 
             //Пассажирский авиалайнер
-            'passenger_airplane3_stage1' => [
+            'passenger_airplane3_stage2' => [
                 'short' => [
-                    'contract' => 'air_walk2'
+                    'contract' => 'air_walk3'
                 ],
                 'long' => [
-                    'contract' => 'low_cost_flight1'
+                    'contract' => 'low_cost_flight2'
                 ],
                 'actions' => ['pick', 'put']
             ],
 
             //Пассажирский авиалайнер
-            'passenger_airplane4_stage1' => [
+            'passenger_airplane4_stage2' => [
                 'short' => [
-                    'contract' => 'air_walk2'
+                    'contract' => 'air_walk3'
                 ],
                 'long' => [
-                    'contract' => 'low_cost_flight1'
+                    'contract' => 'low_cost_flight2'
                 ],
                 'actions' => ['pick', 'put']
             ],
 
             //Пассажирский авиалайнер
-            'passenger_airplane5_stage1' => [
+            'passenger_airplane5_stage2' => [
                 'short' => [
-                    'contract' => 'air_walk2'
+                    'contract' => 'air_walk3'
                 ],
                 'long' => [
-                    'contract' => 'low_cost_flight1'
+                    'contract' => 'low_cost_flight2'
                 ],
                 'actions' => ['pick', 'put']
             ],
 
             //Пассажирский авиалайнер
-            'passenger_airplane8_stage1' => [
+            'passenger_airplane8_stage2' => [
                 'short' => [
-                    'contract' => 'air_walk2'
+                    'contract' => 'air_walk3'
                 ],
                 'long' => [
-                    'contract' => 'low_cost_flight1'
+                    'contract' => 'low_cost_flight2'
                 ],
                 'actions' => ['pick', 'put']
             ],
 
             //Пассажирский авиалайнер
-            'passenger_airplane9_stage1' => [
+            'passenger_airplane9_stage2' => [
                 'short' => [
-                    'contract' => 'air_walk2'
+                    'contract' => 'air_walk3'
                 ],
                 'long' => [
-                    'contract' => 'low_cost_flight1'
-                ],
-                'actions' => ['pick', 'put']
-            ],
-
-            //Грузовой самолёт
-            'cargo_airplane7_buildsite' => [
-                'short' => [
-                    'contract' => 'urgent_cargo_delivery1'
+                    'contract' => 'low_cost_flight2'
                 ],
                 'actions' => ['pick', 'put']
             ],
@@ -869,61 +860,67 @@ class Contracts
             ],
 
             //Бизнес-джет
-            'business_jet1_stage2' => [
+            'business_jet1_stage3' => [
                 'short' => [
-                    'contract' => 'custom_route_flight3'
+                    'contract' => 'custom_route_flight4'
                 ],
                 'long' => [
-                    'contract' => 'business_flight2'
+                    'contract' => 'business_flight3'
                 ],
                 'actions' => ['pick', 'put']
             ],
 
             //Бизнес-джет
-            'business_jet2_stage1' => [
+            'business_jet2_stage3' => [
                 'short' => [
-                    'contract' => 'custom_route_flight2'
+                    'contract' => 'custom_route_flight4'
                 ],
                 'long' => [
-                    'contract' => 'business_flight1'
+                    'contract' => 'business_flight3'
                 ],
                 'actions' => ['pick', 'put']
             ],
 
             //Бизнес-джет
-            'business_jet3_stage1' => [
+            'business_jet3_stage3' => [
                 'short' => [
-                    'contract' => 'custom_route_flight2'
+                    'contract' => 'custom_route_flight4'
                 ],
                 'long' => [
-                    'contract' => 'business_flight1'
+                    'contract' => 'business_flight3'
                 ],
                 'actions' => ['pick', 'put']
             ],
 
             //Грузовой самолёт
-            'cargo_airplane1_buildsite' => [
-                'short' => [
-                    'contract' => 'urgent_cargo_delivery1'
-                ],
-                'actions' => ['pick', 'put']
-            ],
-
-            //Грузовой самолёт
-            'cargo_airplane2_buildsite' => [
-                'short' => [
-                    'contract' => 'urgent_cargo_delivery1'
-                ],
-                'actions' => ['pick', 'put']
-            ],
-
-            //Грузовой самолёт
-            'cargo_airplane7_stage2' => [
+            'cargo_airplane1_stage2' => [
                 'short' => [
                     'contract' => 'urgent_cargo_delivery3'
                 ],
                 'long' => [
                     'contract' => 'drugs_dispatch2'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Грузовой самолёт
+            'cargo_airplane2_stage2' => [
+                'short' => [
+                    'contract' => 'urgent_cargo_delivery3'
+                ],
+                'long' => [
+                    'contract' => 'drugs_dispatch2'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Грузовой самолёт
+            'cargo_airplane7_stage3' => [
+                'short' => [
+                    'contract' => 'res_express_delivery1'
+                ],
+                'long' => [
+                    'contract' => 'drugs_dispatch3'
                 ],
                 'actions' => ['pick', 'put']
             ],
@@ -1072,6 +1069,30 @@ class Contracts
                 'actions' => ['pick', 'put']
             ],
 
+            //Дальнемагистральный самолет
+            //не окончательно
+            'long_haul_airplane3_stage1' => [
+                'short' => [
+                    'contract' => 'sci_conf_charter_flight2'
+                ],
+                'long' => [
+                    'contract' => 'international_flight1'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Дальнемагистральный самолет
+            //не окончательно
+            'long_haul_airplane6_stage1' => [
+                'short' => [
+                    'contract' => 'sci_conf_charter_flight2'
+                ],
+                'long' => [
+                    'contract' => 'international_flight1'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
             //Бюро авиаконструкций
             //не окончательно
             'air_design_bureau_stage1' => [
@@ -1136,6 +1157,20 @@ class Contracts
             'weather_lab_buildsite' => [
                 'short' => [
                     'contract' => 'artificial_mountain_overfly', 'friends_request' => true
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            'center_hydrological_research_stage2' => [
+                'short' => [
+                    'contract' => 'mapping_seabed_relief'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            'residence_sultan_stage2' => [
+                'short' => [
+                    'contract' => 'auction_precious_lamas', 'friends_request' => true
                 ],
                 'actions' => ['pick', 'put']
             ]
@@ -1365,6 +1400,23 @@ class Contracts
             'new_sea_fort_stage1' => [
                 'short' => [
                     'contract' => 'selling_vip_tour'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            'laboratory_complex_volcan_stage3' => [
+                'short' => [
+                    'contract' => 'study_volcanic_activity'
+                ],
+                'long' => [
+                    'contract' => 'volcanic_energy_storage'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            'new_sea_fort_stage3' => [
+                'short' => [
+                    'contract' => 'ocean_meditation'
                 ],
                 'actions' => ['pick', 'put']
             ]
