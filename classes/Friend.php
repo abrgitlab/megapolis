@@ -149,10 +149,10 @@ class Friend
         if ($this->requests) {
             foreach ($this->requests as $request_name => $request) {
                 if (!in_array($request_name, Friend::$requests_not_letters) && isset($request->count) && isset($request->user) && $request->count > 0 && !in_array(Bot::$user_id, $request->user) && $request->time > Bot::$game->server_time && $this->active) {
+                    $this->letters[$request_name] = $request;
                     if ($request_name == 'invite_suggested_neighbors') {
                         $this->new_friend = true;
                     } else {
-                        $this->letters[$request_name] = $request;
                         if (isset(Bot::$game->city_requests['requests'][$request_name]['subtype']) && Bot::$game->city_requests['requests'][$request_name]['subtype'] == 'request_building_help') {
                             ++$this->help_step_to_pass;
                         }
