@@ -443,15 +443,15 @@ class Contracts
 
             //Центр парусного спорта
             //не окончательно
-//            'sailing_center_stage5' => [
-//                'short' => [
-//                    'contract' => 'windsurfing', 'friends_request' => true
-//                ],
-//                'long' => [
-//                    'contract' => 'regatta', 'friends_request' => true
-//                ],
-//                'actions' => ['pick', 'put']
-//            ],
+            'sailing_center_stage5' => [
+                'short' => [
+                    'contract' => 'windsurfing', 'friends_request' => true
+                ],
+                'long' => [
+                    'contract' => 'regatta', 'friends_request' => true
+                ],
+                'actions' => ['pick', 'put']
+            ],
 
             //Круизная компания
             'cruise_company_stage2' => [
@@ -1121,6 +1121,30 @@ class Contracts
             //Дальнемагистральный самолет
             //не окончательно
             'long_haul_airplane3_stage1' => [
+                'short' => [
+                    'contract' => 'sci_conf_charter_flight2'
+                ],
+                'long' => [
+                    'contract' => 'international_flight1'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Дальнемагистральный самолет
+            //не окончательно
+            'long_haul_airplane4_stage1' => [
+                'short' => [
+                    'contract' => 'sci_conf_charter_flight2'
+                ],
+                'long' => [
+                    'contract' => 'international_flight1'
+                ],
+                'actions' => ['pick', 'put']
+            ],
+
+            //Дальнемагистральный самолет
+            //не окончательно
+            'long_haul_airplane5_stage1' => [
                 'short' => [
                     'contract' => 'sci_conf_charter_flight2'
                 ],

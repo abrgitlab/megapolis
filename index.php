@@ -17,7 +17,12 @@ if (!isset($_GET['password']) || $_GET['password'] != '96Z%G2~U2C') {
     die;
 }
 
-$telegram = new Longman\TelegramBot\Telegram(Bot::$telegram_bot_token, 'abr_mega_bot');
+try {
+    $telegram = new Longman\TelegramBot\Telegram(Bot::$telegram_bot_token, 'abr_mega_bot');
+} catch (\Longman\TelegramBot\Exception\TelegramException $e) {
+    header('HTTP/1.1 404 Not Found');
+    die;
+}
 
 $message = null;
 try {
@@ -51,6 +56,21 @@ if ($message != null && isset($message->message->text) && isset($message->messag
             Bot::log("Запуск через $seconds_left сек.", [Bot::$TELEGRAM]);
         } elseif ($message->message->text == '/start') {
             Bot::log('Привет! Стартуй с запуском коротких контрактов /run или с запуском длинных контрактов /runlong', [Bot::$TELEGRAM]);
+        } elseif ($message->message->text == '/attach') {
+            $config = new Config();
+
+            if (!$config->lock) {
+                Bot::log('Не к чему приаттачиватся', [Bot::$TELEGRAM]);
+                return;
+            }
+
+            file_put_contents(MEGAPOLIS_PATH . '/attach_telegram.json', json_encode([
+                'telegram' => true,
+                'telegram_recipient' => $message->message->from->id
+            ]));
+
+            Bot::log('Приаттачились к логу', [Bot::$TELEGRAM]);
+            return;
         }
     } else {
         Bot::log('Hello! Sorry, but you have no permissions for using this bot.', [Bot::$TELEGRAM]);

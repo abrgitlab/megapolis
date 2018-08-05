@@ -225,9 +225,27 @@ class Bot
         Bot::log('Следующее выполнение - не раньше ' . date('H:i:s', $config->next_time), [Bot::$STDOUT, Bot::$TELEGRAM]);
     }
 
-    public static function log($text, $options = ['stdout']) {
+    /**
+     * @param $text
+     * @param array $options
+     */
+    public static function log($text, $options = [Bot::$STDOUT]) {
+        $attachFile = MEGAPOLIS_PATH . '/attach_telegram.json';
+        if (file_exists($attachFile)) {
+            $options = json_decode(file_get_contents($attachFile));
+
+            if (isset($options['telegram']) && isset($options['telegram_recipient'])) {
+                Bot::$options[Bot::$TELEGRAM] = $options['telegram'];
+                Bot::$options['telegram_recipient'] = $options['telegram_recipient'];
+            }
+
+            unlink($attachFile);
+        }
+
         if (Bot::$options[Bot::$TELEGRAM] && in_array(Bot::$TELEGRAM, $options)) {
-            Longman\TelegramBot\Request::sendMessage(['chat_id' => Bot::$options['telegram_recipient'], 'text' => $text]);
+            try {
+                Longman\TelegramBot\Request::sendMessage(['chat_id' => Bot::$options['telegram_recipient'], 'text' => $text]);
+            } catch (\Longman\TelegramBot\Exception\TelegramException $ignored) {}
         }
         if (in_array(Bot::$STDOUT, $options) || in_array(Bot::$DEBUG, $options) && Bot::$options[Bot::$DEBUG]) {
             echo "$text\n";

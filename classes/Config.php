@@ -58,9 +58,6 @@ class Config
         }
     }
 
-    /**
-     *
-     */
     public function getDateParams($time) {
         return [
             'min' => date('i', $time),
