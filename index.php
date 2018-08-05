@@ -64,10 +64,10 @@ if ($message != null && isset($message->message->text) && isset($message->messag
                 return;
             }
 
-            if (isset(Bot::$options['telegram']) && isset(Bot::$options['telegram_recipient'])) {
-                Bot::log('Уже приаттачены', [Bot::$TELEGRAM]);
-                return;
-            }
+//            if (isset(Bot::$options['telegram']) && isset(Bot::$options['telegram_recipient'])) {
+//                Bot::log('Уже приаттачены', [Bot::$TELEGRAM]);
+//                return;
+//            }
 
             file_put_contents(MEGAPOLIS_PATH . '/attach_telegram.json', json_encode([
                 'telegram' => true,

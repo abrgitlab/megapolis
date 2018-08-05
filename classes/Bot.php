@@ -232,7 +232,7 @@ class Bot
     public static function log($text, $options = ['stdout']) {
         $attachFile = MEGAPOLIS_PATH . '/attach_telegram.json';
         if (file_exists($attachFile)) {
-            $options = json_decode(file_get_contents($attachFile));
+            $options = json_decode(file_get_contents($attachFile), true);
 
             if (isset($options['telegram']) && isset($options['telegram_recipient'])) {
                 Bot::$options[Bot::$TELEGRAM] = $options['telegram'];
